@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for label in labels %}
+<!-- Display Objects -->
+<li>{{ label.category }}</li>
+<li> {{ label.label }}</li>
+
+<hr/>
+<!-- If objet_list is empty  -->
+{% empty %}
+<li>No objects yet.</li>
+{% endfor %}
+{% endblock %}
