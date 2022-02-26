@@ -15,5 +15,5 @@ class CategoryList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(CategoryList, self).get_context_data(**kwargs)
-        context['labels'] = Subcategory.objects.all()
+        context['labels'] = Subcategory.get
         return context

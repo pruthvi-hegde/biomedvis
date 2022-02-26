@@ -1,72 +1,69 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{% block title %}{% endblock %}VisBioMed</title>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.css">
-		<link rel="stylesheet" href="{% static 'main.css' %}">
-		{% if env_name == 'production' %}
-      	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    	{% else %}
+<head>
+	<title>Visual Browser Template</title>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}" />
+	<!-- Bootstrap 4 CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'bs4/bootstrap.min.css' %}" />
+	<!-- Main Jquery -->
+	<script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+	<!-- Bootstrap 4 JS -->
+	<script type="text/javascript" src="{% static 'bs4/bootstrap.min.js' %}"></script>
+	<!-- CustomJs -->
+	<link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}" />
+	{% if env_name == 'production' %}
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    {% else %}
       	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    	{% endif %}
-	</head>
-
-	<body>
-		<nav class="navbar is-dark" id="navbarapp">
-			<div class="navbar-brand">
-				<a class="navbar-item">VisBioMed</a>
-
-				<a @click="toggleMenu()" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="main-navbar">
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-				</a>
-			</div>
-
-			<div id="main-navbar" class="navbar-menu" :class="{ 'is-active': menuClass }">
-				<div class="navbar-start">
-					<div class="navbar-item">
-						<form method="get">
-							<div class="field has-addons">
-								<div class="control">
-									<input type="text" class="input" placeholder="Search..." name="query">
-								</div>
-								<div class="control">
-									<button class="button is-success">Search</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-
-				<div class="navbar-item">
-					<div class="buttons">
-						<a class="button is-primary"><strong>Sign up</strong></a>
-						<a class="button is-light">Log in</a>
-					</div>
-				</div>
-
-			</div>
-		</nav>
-
-		<section class="section">
-			{% block content %}
-            {% endblock %}
-		</section>
+    {% endif %}
+</head>
+<body>
 
 
-		<footer class="footer">
-			<div class="columns">
-				<div class="column is-4">
-					<h2 class="subtitle">vis</h2>
-				</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+    <a class="navbar-brand mb-0 h1" href="https://diglib.eg.org/handle/10.2312/463">Visual Survey - VCBM</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-			</div>
-		</footer>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+		      <li class="nav-item">
+		        <a class="nav-link text-white" href="/" style="">Home</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link text-white" href="{% url 'category-list'%}">Categories</a>
+		      </li>
+		    </ul>
+    <form class="form-inline my-2 my-lg-0" action="/search">
+      <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit" id="button-addon2">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+
+
+    {% block content %}
+    {% endblock %}
+
+<footer class="footer fixed-bottom bg-footer">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2022 Copyright:
+    <a>RWTH Aachen University</a>
+      and
+      <a>Bonn University</a>
+
+  </div>
+  <!-- Copyright -->
+
+</footer>
 
 		<script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
 
-	</body>
+</body>
 </html>
