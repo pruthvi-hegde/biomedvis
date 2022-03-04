@@ -1,16 +1,22 @@
+
 {% load static %}
+
 <script type="text/javascript"></script>
 			<h3 class="mb-4 border-bottom pb-1">Filters</h3>
 			<!-- Filter 1 -->
-           {% for category in categories %}
+           {% for category, subcategories in view_item.items %}
 			<div class="card mb-4">
-				<h6 class="card-header">{{ category.name }}</h6>
+				<h6 class="card-header">{{ category }}</h6>
 				<div class="list-group list-group-flush">
-					{% for label in category.labels %}
+					{% for label in subcategories %}
 					<li class="list-group-item">
 						<input class="filter-checkbox" data-filter="color" value="{{label.label__id}}" type="checkbox" />&nbsp;
-						<button class="btn" style="background-color: {{color.color__color_code}}; margin-top: -5px;"></button>
+						<button class="btn" style="background-color: {{color.color__color_code}}; margin-top: -5px;">
+                            {{label}}
+                        </button>
 					</li>
 					{% endfor %}
 				</div>
 			</div>
+           {% endfor %}
+

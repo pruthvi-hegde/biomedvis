@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for name, items in view_item.items %}
+<!-- Display Objects -->
+<li> {{ name }}</li>
+    {% for item in items %}
+        <li>{{ item }}</li>
+        {% endfor %}
+
+
+<hr/>
+<!-- If objet_list is empty  -->
+{% empty %}
+<li>No objects yet.</li>
+{% endfor %}
+{% endblock %}

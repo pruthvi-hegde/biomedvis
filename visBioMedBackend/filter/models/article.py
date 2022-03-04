@@ -3,6 +3,7 @@ from django.db import models
 
 class Article(models.Model):
     article_title = models.CharField(max_length=200, unique=True)
+    thumbnail_path = models.CharField(max_length=300)
     article_authors = models.CharField(max_length=50)
     publisher = models.CharField(max_length=50)
     published_date = models.CharField(max_length=50)
@@ -19,4 +20,3 @@ class Article(models.Model):
 
     def __str__(self):
         return self.DOI
-

@@ -1,16 +1,19 @@
-import os
 import json
+import os
 
 import django
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "web.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "visBioMedBackend.settings")
 django.setup()
 
 from filter.models.article import Article
 
 
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "web.settings")
+# django.setup()
 
-#use it when necessary
+
+# use it when necessary
 def reset_db():
     try:
         os.remove('db.sqlite3')
@@ -21,7 +24,7 @@ def reset_db():
 
 
 def add_articles():
-    with open('articles_data/all_articles.json') as f:
+    with open('articles_data/all_articles_with_thumbnail.json') as f:
         articles = json.load(f)
         table_contet_exist = False
     for article in articles:
@@ -32,18 +35,20 @@ def add_articles():
         ISSN = article["ISSN"]
         ISBN = article["ISBN"]
         DOI = article["DOI"]
+        thumbnail = article["thumbnail"]
 
         try:
             table_contet_exist = False
             article = Article.objects.create(
-                        article_title=article_title, article_authors=article_authors, publisher=publisher,
-                        published_date=published_date, ISSN=ISSN, ISBN=ISBN, DOI=DOI
+                article_title=article_title, article_authors=article_authors, publisher=publisher,
+                published_date=published_date, ISSN=ISSN, ISBN=ISBN, DOI=DOI, thumbnail_path=thumbnail
             )
         except:
             table_contet_exist = True
 
     if table_contet_exist:
         print("Values cannot be duplicated")
+
 
 if __name__ == '__main__':
     add_articles()

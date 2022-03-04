@@ -2,68 +2,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Visual Browser Template</title>
-	<!-- Font Awesome -->
-	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}" />
-	<!-- Bootstrap 4 CSS -->
-	<link rel="stylesheet" type="text/css" href="{% static 'bs4/bootstrap.min.css' %}" />
-	<!-- Main Jquery -->
-	<script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
-	<!-- Bootstrap 4 JS -->
-	<script type="text/javascript" src="{% static 'bs4/bootstrap.min.js' %}"></script>
-	<!-- CustomJs -->
-	<link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}" />
-	{% if env_name == 'production' %}
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    {% else %}
-      	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    {% endif %}
+    <title>Visual Browser Template</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}"/>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bs4/bootstrap.min.css' %}"/>
+    <!-- Main Jquery -->
+    <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+    <!-- Bootstrap 4 JS -->
+    <script type="text/javascript" src="{% static 'bs4/bootstrap.min.js' %}"></script>
+    <!-- CustomJs -->
+    <script src={% static 'main.js' %}></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+    {#    {% if env_name == 'production' %}#}
+    {#        <script src="https://cdn.jsdelivr.net/npm/vue"></script>#}
+    {#    {% else %}#}
+    {#        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>#}
+    {#    {% endif %}#}
 </head>
 <body>
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
     <a class="navbar-brand mb-0 h1" href="https://diglib.eg.org/handle/10.2312/463">Visual Survey - VCBM</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-		      <li class="nav-item">
-		        <a class="nav-link text-white" href="/" style="">Home</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link text-white" href="{% url 'category-list'%}">Categories</a>
-		      </li>
-		    </ul>
-    <form class="form-inline my-2 my-lg-0" action="/search">
-      <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit" id="button-addon2">Search</button>
-    </form>
-  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/" style="">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'category-list' %}">Categories</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/search">
+            <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit" id="button-addon2">Search</button>
+        </form>
+    </div>
 </nav>
 
+{% block content %}
+{% endblock %}
 
-
-
-    {% block content %}
-    {% endblock %}
 
 <footer class="footer fixed-bottom bg-footer">
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2022 Copyright:
-    <a>RWTH Aachen University</a>
-      and
-      <a>Bonn University</a>
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+        <a>RWTH Aachen University</a>
+        and
+        <a>Bonn University</a>
 
-  </div>
-  <!-- Copyright -->
+    </div>
+    <!-- Copyright -->
 
 </footer>
 
-		<script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
+
+<script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
 
 </body>
 </html>
