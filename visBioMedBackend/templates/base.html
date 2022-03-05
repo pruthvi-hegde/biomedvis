@@ -7,18 +7,27 @@
     <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}"/>
     <!-- Bootstrap 4 CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'bs4/bootstrap.min.css' %}"/>
-    <!-- Main Jquery -->
+
+
     <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
     <!-- Bootstrap 4 JS -->
     <script type="text/javascript" src="{% static 'bs4/bootstrap.min.js' %}"></script>
+
+
+    <!-- Velocity -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.ui.min.js"></script>
+
+
     <!-- CustomJs -->
-    <script src={% static 'main.js' %}></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
-    {#    {% if env_name == 'production' %}#}
-    {#        <script src="https://cdn.jsdelivr.net/npm/vue"></script>#}
-    {#    {% else %}#}
-    {#        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>#}
-    {#    {% endif %}#}
+    <script type="text/javascript" src={% static 'custom.js' %}></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}"/>
+
+    {% if env_name == 'production' %}
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    {% else %}
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    {% endif %}
 </head>
 <body>
 
@@ -42,6 +51,7 @@
         <form class="form-inline my-2 my-lg-0" action="/search">
             <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-light" type="submit" id="button-addon2">Search</button>
+
         </form>
     </div>
 </nav>

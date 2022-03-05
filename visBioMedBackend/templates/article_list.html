@@ -21,19 +21,21 @@
                                     <img class="img-thumbnail" src={{ article.thumbnail_path }}>
                                 </div>
                                 <div class="card-footer">
-                                    <button class="btn btn-sm btn-primary"><i
+
+                                    <button class="btn btn-sm btn-secondary"><i
                                             class="fa fa-smile"></i></button>
-                                    <button class="btn btn-sm btn-success" data-toggle="modal"
-                                            data-target="#exampleModalLong"><i
+                                    <button href="#articleDetailsModal" class="btn btn-sm btn-primary custom-info"
+                                            data-toggle="modal"><i
                                             class="fa fa-info-circle"></i></button>
+
                                 </div>
                             </div>
                         </div>
                         <div class="modal hidden">
                             <!-- this div will be hidden by default and I use it to store all the info I'll need to display on the popup for each project -->
-                            <p>{{ article.article_authors }}</p>
-                            <h1>{{ article.article_title }}</h1>
-                            <p>{{ article.publisher }}</p>
+                            <p data-model-name="article_authors">{{ article.article_authors }}</p>
+                            <h1 id="article_title">{{ article.article_title }}</h1>
+                            <p id="publisher">{{ article.publisher }}</p>
                             <p>{{ article.published_date }}</p>
                             <p>{{ article.ISSN }}</p>
                             <p>{{ article.ISBN }}</p>
@@ -53,4 +55,6 @@
             </div>
         </div>
     </main>
+
+    {% include 'modal_window.html' %}
 {% endblock %}
