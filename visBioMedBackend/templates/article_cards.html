@@ -1,0 +1,42 @@
+<!-- Articles -->
+{% if data %}
+    <div class="row pt-1">
+
+        {% for article in data %}
+            <div class="col-sm-1 pl-1 pr-1 pb-1 pt-1" id="articleColumns">
+                <div class="card shadow rounded">
+                    <div class="card-img">
+                        <h4 hidden class="card-title">{{ article.article_title }}</h4>
+                        <a data-index="{{ article.id }}" class="custom-info"
+                           data-toggle="tooltip"
+                           title="{{ article.article_title }}">
+                            <img class="thumb"
+                                 src={{ article.thumbnail_path }} alt={{ article.article_title }}/>
+                        </a>
+
+                        <input type="hidden" class="article-title-{{ article.id }}"
+                               value="{{ article.article_title }}"/>
+                        <input type="hidden" class="article-thumbnail-{{ article.id }}"
+                               value="{{ article.thumbnail_path }}"/>
+                        <input type="hidden" class="article-authors-{{ article.id }}"
+                               value="{{ article.article_authors }}"/>
+                        <input type="hidden" class="article-publisher-{{ article.id }}"
+                               value="{{ article.publisher }}"/>
+                        <input type="hidden" class="article-publishedDate-{{ article.id }}"
+                               value="{{ article.published_date }}"/>
+                        <input type="hidden" class="article-ISSN-{{ article.id }}"
+                               value="{{ article.ISSN }}"/>
+                        <input type="hidden" class="article-ISBN-{{ article.id }}"
+                               value="{{ article.ISBN }}"/>
+                        <input type="hidden" class="article-DOI-{{ article.id }}"
+                               value="{{ article.DOI }}"/>
+                    </div>
+
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <b class="no-results"> Sorry!! Could not find articles related to your search</b>
+{% endif %}

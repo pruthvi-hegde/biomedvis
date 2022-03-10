@@ -1,56 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <main class="container-fluid">
-        <div class="row">
+    <main class="container-fluid d-flex flex-column vh-100 mh-100 overflow-hidden">
+        <div class="row flex-grow-1 overflow-hidden">
             <!-- Filters -->
-            <div class="col-2">
+            <div class="col-sm-2 mh-100 overflow-auto pb-5 pt-1" style="border-color: black;">
                 {% include 'filter.html' %}
             </div>
-            <div class="col-10">
-                <!-- Articles -->
-                <h3 class="mb-4 border-bottom pb-1">
-                    Articles
-                </h3>
-
-                <div class="row" id="filteredArticles">
-                    {% for article in data %}
-                        <div class="col-2">
-                            <div class="card shadow">
-                                <div class="card-body">
-                                    <img class="img-thumbnail" src={{ article.thumbnail_path }}>
-                                </div>
-                                <div class="card-footer">
-
-                                    <button class="btn btn-sm btn-secondary"><i
-                                            class="fa fa-smile"></i></button>
-                                    <button href="#articleDetailsModal" class="btn btn-sm btn-primary custom-info"
-                                            data-toggle="modal"><i
-                                            class="fa fa-info-circle"></i></button>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal hidden">
-                            <!-- this div will be hidden by default and I use it to store all the info I'll need to display on the popup for each project -->
-                            <p data-model-name="article_authors">{{ article.article_authors }}</p>
-                            <h1 id="article_title">{{ article.article_title }}</h1>
-                            <p id="publisher">{{ article.publisher }}</p>
-                            <p>{{ article.published_date }}</p>
-                            <p>{{ article.ISSN }}</p>
-                            <p>{{ article.ISBN }}</p>
-                            <p>{{ article.DOI }}</p>
-                            <p>{{ article.keywords }}</p>
-
-
-                        </div>
-                    {% endfor %}
-                </div>
-
-                <p class="my-4 text-center">
-                    <button id="loadMore" data-total="{{ total_data }}" data-limit="3" class="btn btn-dark btn-sm">Load
-                        More <i class="fa fa-sync load-more-icon"></i></button>
-                </p>
+            <div class="col-sm-10 mh-100 overflow-auto pb-5" id="filteredArticles">
+                {% include 'article_cards.html' %}
 
             </div>
         </div>

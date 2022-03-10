@@ -1,22 +1,25 @@
-
 {% load static %}
 
 <script type="text/javascript"></script>
-			<h3 class="mb-4 border-bottom pb-1">Filters</h3>
-			<!-- Filter 1 -->
-           {% for category, subcategories in view_item.items %}
-			<div class="card mb-4">
-				<h6 class="card-header">{{ category }}</h6>
-				<div class="list-group list-group-flush">
-					{% for label in subcategories %}
-					<li class="list-group-item">
-						<input class="filter-checkbox" data-filter="color" value="{{label.label__id}}" type="checkbox" />&nbsp;
-						<button class="btn" style="background-color: {{color.color__color_code}}; margin-top: -5px;">
-                            {{label}}
-                        </button>
-					</li>
-					{% endfor %}
-				</div>
-			</div>
-           {% endfor %}
+<!-- Filter 1 -->
+{% for category, subcategories in view_item.items %}
+    <div class="card border-secondary mb-4">
+        <h6 class="card-header">{{ category }}</h6>
+        <div class="list-group list-group-flush">
+            {% for label in subcategories %}
+                <li class="list-group-item border-0 pb-0">
+                    <label class="custom-control overflow-checkbox">
+                        <input id="articleSelect" data-label={{ label }} type="checkbox"
+                               class="overflow-control-input filter-checkbox-{{ label }}"
+                               checked=""
+                               value="{{ label }}">
+                        <span class="overflow-control-indicator"></span>
+                        <span class="overflow-control-description">{{ label }}</span>
+                    </label>
+                </li>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endfor %}
 

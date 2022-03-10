@@ -19,4 +19,4 @@ class Article(models.Model):
         return Article.objects.all()
 
     def __str__(self):
-        return self.DOI
+        return self.article_title

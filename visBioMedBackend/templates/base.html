@@ -5,35 +5,33 @@
     <title>Visual Browser Template</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}"/>
-    <!-- Bootstrap 4 CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'bs4/bootstrap.min.css' %}"/>
 
 
     <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'bs4/popper.min.js' %}"></script>
     <!-- Bootstrap 4 JS -->
     <script type="text/javascript" src="{% static 'bs4/bootstrap.min.js' %}"></script>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bs4/bootstrap.min.css' %}"/>
 
 
     <!-- Velocity -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.ui.min.js"></script>
+    <link rel="stylesheet" href="{% static ' href="owl.carousel.min.css' %}">
 
 
     <!-- CustomJs -->
     <script type="text/javascript" src={% static 'custom.js' %}></script>
     <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}"/>
 
-    {% if env_name == 'production' %}
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    {% else %}
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    {% endif %}
 </head>
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
-    <a class="navbar-brand mb-0 h1" href="https://diglib.eg.org/handle/10.2312/463">Visual Survey - VCBM</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom overflow-hidden">
+    <a class="navbar-brand mb-0 h1" href="https://diglib.eg.org/handle/10.2312/463"><h2>Visual Survey - VCBM</h2></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,22 +40,25 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link text-white" href="/" style="">Home</a>
+                <a class="nav-link text-white shadow" href="/" style="">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="{% url 'category-list' %}">Categories</a>
+                <a class="nav-link text-white shadow" href="{% url 'category-list' %}">Docs</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="/search">
-            <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit" id="button-addon2">Search</button>
+        <form class="form-inline my-2 my-lg-0">
+            <input id="searchArticle" name="q" class="form-control mr-sm-2" type="search" placeholder="Search"
+                   aria-label="Search">
+            <i id="search-icon" class="fas fa-search"></i>
 
         </form>
     </div>
 </nav>
 
+
 {% block content %}
 {% endblock %}
+
 
 
 <footer class="footer fixed-bottom bg-footer">
