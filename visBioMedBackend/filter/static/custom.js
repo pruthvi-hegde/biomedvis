@@ -1,3 +1,11 @@
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()({
+        'selector': '',
+        'placement': 'top',
+        'container': 'body'
+    })
+})
+
 $(document).on('click', ".custom-info", function () {
 
     var _vm = $(this);
@@ -14,6 +22,7 @@ $(document).on('click', ".custom-info", function () {
     $("#exampleModalLongTitle").text(_articleTitle)
     $("#articleThumbnail").attr('src', _articleThumbnail)
     $("#articleAuthors").text(_articleAuthors)
+
     $("#articleYear").text(_articleYear)
     $("#articleDOI").attr('href', _articleDOI)
     $("#articleDOI").text(_articleDOI)
@@ -25,40 +34,25 @@ $(document).on('click', ".custom-info", function () {
 
 $(document).ready(function () {
 
-    $('[data-toggle="tooltip"]').tooltip()({
-        'selector': '',
-        'placement': 'top',
-        'container': 'body'
-    })
-
-    var _vm = $("#articleSelect");
-    var _label = _vm.attr('data-label');
-    $('.filter-checkbox-' + _label).change(function () {
-        if ($(this).is(":checked")) {
-            var returnVal = confirm("Are you sure?");
-            $(this).attr("checked", returnVal);
-        }
-
-    });
-
     const user_input = $("#searchArticle")
-    const search_icon = $('#search-icon')
+    // const search_icon = $('#search-icon')
     const articles_div = $('#filteredArticles')
     const endpoint = '/articles-search'
-    const delay_by_in_ms = 100
+    const delay_by_in_ms = 700
     let scheduled_function = false
 
     let ajax_call = function (endpoint, request_parameters) {
         $.getJSON(endpoint, request_parameters)
             .done(response => {
                 // fade out the artists_div, then:
-                articles_div.fadeTo('slow', 0).promise().then(() => {
+                articles_div.animate('fast', 0).promise().then(() => {
                     // replace the HTML contents
                     articles_div.html(response['html_from_view'])
                     // fade-in the div with new contents
-                    articles_div.fadeTo('slow', 1)
+                    articles_div.animate('fast', 1)
                     // stop animating search icon
-                    search_icon.removeClass('blink')
+                    // search_icon.removeClass('blink')
+
                 })
             })
     }
@@ -70,7 +64,8 @@ $(document).ready(function () {
         }
 
         // start animating the search icon with the CSS class
-        search_icon.addClass('blink')
+        // search_icon.addClass('blink')
+
 
         // if scheduled_function is NOT false, cancel the execution of the function
         if (scheduled_function) {
@@ -81,28 +76,46 @@ $(document).ready(function () {
         scheduled_function = setTimeout(ajax_call, delay_by_in_ms, endpoint, request_parameters)
     })
 
+    // var filter_select = $(".custom-list")
+    // var _labelId = filter_select.attr('data-label');
+    // var _label = $("#articleSelect-" + _labelId)
+    // alert(_label)
+    // $('.filter-checkbox-' + _labelId).change(function () {
+    //     if ($(this).is(":checked")) {
+    //         var returnVal = confirm("Are you sure?");
+    //         $(this).attr("checked", returnVal);
+    //     }
+    //
+    // });
+    $(".filter-checkbox").on('click', function () {
+        var _filterObj = {};
+        $(".filter-checkbox").each(function () {
+            var _filterVal = $(this).val();
+            var _filterKey = $(this).data('filter')
+
+            _filterObj[_filterKey] = Array.from(document.querySelectorAll('input[data-filter=' + _filterKey + ']:checked')).map(function (el) {
+                return el.value;
+            });
+        });
+
+
+        // Run Ajaxl
+        $.ajax({
+            url: '/filter-data',
+            data: _filterObj,
+            dataType: 'json',
+            beforeSend: function () {
+            },
+            success: function (res) {
+                console.log(res);
+                $("#filteredArticles").html(res.data);
+            }
+        });
+    })
+
 
 });
 
-// $("#searchArticle").on("keyup", function () {
-//     var value = $(this).val().toLowerCase();
-//     $("#filteredArticles .card").filter(function () {
-//         document.body.offsetWidth;
-//         $(this).toggle($(this).find('h4').text().toLowerCase().indexOf(value) > -1)
-//     });
-// });
-// this overrides `contains` to make it case insenstive
-// jQuery.expr[':'].contains = function (a, i, m) {
-//     return jQuery(a).text().toUpperCase()
-//         .indexOf(m[3].toUpperCase()) >= 0;
-// };
-//
-// $('#searchArticle').keyup(function () {
-//     $('.card').removeClass('d-none');
-//     var filter = $(this).val() // get the value of the input, which we filter on
-//
-//     $('#filteredArticles').find('.card .card-img h4:not(:contains("' + filter + '"))').parent().parent().addClass('d-none');
-// })
 
 
 

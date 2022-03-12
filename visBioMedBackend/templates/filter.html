@@ -1,20 +1,28 @@
 {% load static %}
 
 <script type="text/javascript"></script>
+<div id="timeFilter">
+    <!-- Time filter comes here -->
+</div>
 <!-- Filter 1 -->
 {% for category, subcategories in view_item.items %}
-    <div class="card border-secondary mb-4">
-        <h6 class="card-header">{{ category }}</h6>
-        <div class="list-group list-group-flush">
+    <div class="card mb-2">
+        <h6 class="card-header">
+            <a class="collapsed d-block custom-color" data-toggle="collapse"
+               href="#collapse-example-{{ category.id }}"
+               aria-expanded="true"
+               aria-controls="collapse-collapsed" id="heading-collapsed">
+                {{ category }}<i class="fa fa-arrow-circle-o-left"></i></a>
+        </h6>
+        <div class="list-group list-group-flush collapse show" id="collapse-example-{{ category.id }}">
             {% for label in subcategories %}
                 <li class="list-group-item border-0 pb-0">
                     <label class="custom-control overflow-checkbox">
-                        <input id="articleSelect" data-label={{ label }} type="checkbox"
-                               class="overflow-control-input filter-checkbox-{{ label }}"
-                               checked=""
+                        <input id="articleSelect" data-filter={{ category }} type="checkbox"
+                               class="overflow-control-input filter-checkbox custom-list"
                                value="{{ label }}">
                         <span class="overflow-control-indicator"></span>
-                        <span class="overflow-control-description">{{ label }}</span>
+                        <span class="overflow-control-description font-family-label">{{ label }}</span>
                     </label>
                 </li>
             {% endfor %}
@@ -22,4 +30,5 @@
     </div>
 
 {% endfor %}
+
 
