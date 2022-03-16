@@ -9,11 +9,24 @@ from ..models.category import Category, Subcategory
 # Article List
 def article_list(request):
     url_parameter = request.GET.get("q")
-    print(url_parameter)
-    print(type(url_parameter))
+    # url_parameter = url_parameter.split(" ")
 
     if url_parameter:
+        main_articles = Article.objects.none()
+        print(main_articles)
+
+        # for query_word in url_parameter:
+        #     main_articles |= Article.objects.filter(article_title__icontains=query_word)
+        #
+        # articles = main_articles
         articles = Article.objects.filter(article_title__icontains=url_parameter)
+        if list(articles) == list(main_articles):
+            url_parameter = url_parameter.split(" ")
+            for query_word in url_parameter:
+                main_articles |= Article.objects.filter(article_title__icontains=query_word)
+
+            articles = main_articles
+
     elif not url_parameter:
         articles = Article.objects.all().order_by('-id')
     else:

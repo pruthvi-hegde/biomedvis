@@ -31,27 +31,43 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-custom overflow-hidden">
-    <a class="navbar-brand mb-0 h1" href="https://diglib.eg.org/handle/10.2312/463"><h2>Visual Survey - VCBM</h2></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="d-flex flex-column w-100">
+        <div class="d-inline-flex flex-nowrap">
+            <h1 class="custom-title">VisBioMed</h1>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link text-white shadow" href="/" style="">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white shadow" href="{% url 'category-list' %}">Docs</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0" action="/articles-search">
-            <input id="searchArticle" name="q" class="form-control mr-sm-2" type="search" placeholder="Search"
-                   aria-label="Search">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white shadow" href="/" style="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white shadow" href="{% url 'category-list' %}">Docs</a>
+                    </li>
+                </ul>
+                {#                <form class="form-inline my-2 my-lg-0" action="/articles-search">#}
+                {#                    <input id="searchArticle" name="q" class="form-control mr-sm-2" type="search"#}
+                {#                           placeholder="Search"#}
+                {#                           aria-label="Search">#}
+                {##}
+                {#                </form>#}
+                <form class="form-inline nav-item" action="/articles-search">
+                    <div class="input-group search-box">
+                        <input id="searchArticle" name="q" class="form-control custom_search"
+                               placeholder="Find your articles here...."
+                               aria-label="Search for..." type="search">
 
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
 
-        </form>
+            <small><a href="https://diglib.eg.org/handle/10.2312/463">VCBM: Eurographics Workshop on
+                Visual Computing for Biomedicine
+            </a>
+            </small>
+
+        </div>
     </div>
 </nav>
 
