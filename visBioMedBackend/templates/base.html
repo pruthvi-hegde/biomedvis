@@ -7,8 +7,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}"/>
 
 
-    <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 
+    <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
     <script type="text/javascript" src="{% static 'bs4/popper.min.js' %}"></script>
     <!-- Bootstrap 4 JS -->
     <script type="text/javascript" src="{% static 'bs4/bootstrap.min.js' %}"></script>
@@ -19,12 +20,18 @@
     <!-- Velocity -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.ui.min.js"></script>
-    <link rel="stylesheet" href="{% static ' href="owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static ' href="css/owl.carousel.min.css' %}">
 
 
     <!-- CustomJs -->
-    <script type="text/javascript" src={% static 'custom.js' %}></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}"/>
+    <script type="text/javascript" src={% static 'js/custom.js' %}></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/checkbox.beautifier.css' %}"/>
+
+    <!-- charts.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+
 
 </head>
 <body>
@@ -50,7 +57,7 @@
                 {#                           aria-label="Search">#}
                 {##}
                 {#                </form>#}
-                <form class="form-inline nav-item" action="/articles-search">
+                <form class="form-inline nav-item">
                     <div class="input-group search-box">
                         <input id="searchArticle" name="q" class="form-control custom_search"
                                placeholder="Find your articles here...."
@@ -62,7 +69,7 @@
         </div>
         <div>
 
-            <small><a href="https://diglib.eg.org/handle/10.2312/463">VCBM: Eurographics Workshop on
+            <small><a href="https://diglib.eg.org/handle/10.2312/463" target="_blank">VCBM: Eurographics Workshop on
                 Visual Computing for Biomedicine
             </a>
             </small>
@@ -72,10 +79,9 @@
 </nav>
 
 
+
 {% block content %}
 {% endblock %}
-
-
 
 <footer class="footer fixed-bottom bg-footer">
 
@@ -90,8 +96,6 @@
 
 </footer>
 
-
-<script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
 
 </body>
 </html>

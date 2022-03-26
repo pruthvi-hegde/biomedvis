@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
@@ -9,16 +10,10 @@ from ..models.category import Category, Subcategory
 # Article List
 def article_list(request):
     url_parameter = request.GET.get("q")
-    # url_parameter = url_parameter.split(" ")
 
     if url_parameter:
         main_articles = Article.objects.none()
-        print(main_articles)
 
-        # for query_word in url_parameter:
-        #     main_articles |= Article.objects.filter(article_title__icontains=query_word)
-        #
-        # articles = main_articles
         articles = Article.objects.filter(article_title__icontains=url_parameter)
         if list(articles) == list(main_articles):
             url_parameter = url_parameter.split(" ")
@@ -26,13 +21,10 @@ def article_list(request):
                 main_articles |= Article.objects.filter(article_title__icontains=query_word)
 
             articles = main_articles
-
     elif not url_parameter:
         articles = Article.objects.all().order_by('-id')
     else:
         articles = Article.objects.all().order_by('-id')
-
-    total_data = Article.objects.count()
 
     categories = Category.get_all_categories()
 
@@ -41,7 +33,17 @@ def article_list(request):
         categories_name = cat.category_name.replace(" ", "_")
         categories_data[categories_name] = Subcategory.objects.filter(category__exact=cat)
 
-    if request.is_ajax():
+    total_data = Article.objects.count()
+    published_date_data = list(Article.objects
+                               .values('published_date')
+                               .annotate(dcount=Count('published_date'))
+                               .order_by()
+                               )
+    
+    published_date = list(d['published_date'] for d in published_date_data)
+    article_count = list(d['dcount'] for d in published_date_data)
+
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         html = render_to_string(
             template_name="article_cards.html",
             context={'data': articles}
@@ -55,7 +57,11 @@ def article_list(request):
                   {
                       'data': articles,
                       'total_data': total_data,
-                      'view_item': categories_data
+                      'view_item': categories_data,
+                      'published_date_data': published_date_data,
+                      'published_date': published_date,
+                      'article_count': article_count
+
                   })
 
 

@@ -1,9 +1,15 @@
 {% load static %}
 
 <script type="text/javascript"></script>
-<div id="timeFilter">
-    <!-- Time filter comes here -->
+
+<div class="card">
+    <div class="card-body">
+        <canvas id="chartContainer" data-date="{{ published_date }}" data-count="{{ article_count }}">
+        </canvas>
+    </div>
 </div>
+
+
 <!-- Filter 1 -->
 {% for category, subcategories in view_item.items %}
     <div class="card mb-2">
@@ -28,6 +34,7 @@
             {% endfor %}
         </div>
     </div>
+
 
 {% endfor %}
 

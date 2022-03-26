@@ -1,6 +1,7 @@
 <!-- Articles -->
 {% if data %}
-    <div class="row pt-1">
+    <button class="ui-datepicker-buttonpane toggleArticleView" id="articleView">click me</button>
+    <div class="row pt-1" id="articlePageView">
 
         {% for article in data %}
             <div class="col-sm-1 pl-2 pr-2 pb-2 pt-2" id="articleColumns">
@@ -36,6 +37,13 @@
             </div>
         {% endfor %}
     </div>
+    <div class="row pt-1" id="articleEmbeddingView">
+        <p><b class="no-results"><i class="fa fa-sad-tear"></i> Sorry!! Could not find articles related to your
+            search</b></p>
+    </div>
 {% else %}
-    <b class="no-results"> Sorry!! Could not find articles related to your search</b>
+    <div class="align-content-center text-center">
+        <b class="no-results"><i class="fa fa-sad-tear"></i> Sorry!! Could not find articles related to your
+            search</b>
+    </div>
 {% endif %}

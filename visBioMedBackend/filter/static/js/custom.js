@@ -1,8 +1,6 @@
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()({
-        'selector': '',
-        'placement': 'top',
-        'container': 'body'
+        'selector': '', 'placement': 'top', 'container': 'body'
     })
 })
 
@@ -76,17 +74,6 @@ $(document).ready(function () {
         scheduled_function = setTimeout(ajax_call, delay_by_in_ms, endpoint, request_parameters)
     })
 
-    // var filter_select = $(".custom-list")
-    // var _labelId = filter_select.attr('data-label');
-    // var _label = $("#articleSelect-" + _labelId)
-    // alert(_label)
-    // $('.filter-checkbox-' + _labelId).change(function () {
-    //     if ($(this).is(":checked")) {
-    //         var returnVal = confirm("Are you sure?");
-    //         $(this).attr("checked", returnVal);
-    //     }
-    //
-    // });
     $(".filter-checkbox").on('click', function () {
         var _filterObj = {};
         $(".filter-checkbox").each(function () {
@@ -101,12 +88,8 @@ $(document).ready(function () {
 
         // Run Ajaxl
         $.ajax({
-            url: '/filter-data',
-            data: _filterObj,
-            dataType: 'json',
-            beforeSend: function () {
-            },
-            success: function (res) {
+            url: '/filter-data', data: _filterObj, dataType: 'json', beforeSend: function () {
+            }, success: function (res) {
                 console.log(res);
                 $("#filteredArticles").html(res.data);
             }
@@ -114,12 +97,56 @@ $(document).ready(function () {
     })
 
 
+})
+
+
+$(document).ready(function () {
+    const ctx = $('#chartContainer');
+    const _filterdate = ctx.data('date')
+    const _filtercount = ctx.data('count')
+
+
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: _filterdate,
+            datasets: [{
+                label: '# of Articles',
+                data: _filtercount,
+                backgroundColor: [],
+                borderColor: [],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 });
 
+$(document).ready(function () {
+    var articlePageView = $('#articlePageView');
+    var articleEmbeddingView = $('#articleEmbeddingView');
 
+    x = articleEmbeddingView.hide()
+    $(".toggleArticleView").on('click', function () {
 
+        if (articlePageView.hidden !== true) {
+            articlePageView.hide();
+            articlePageView.hidden = true
 
+            articleEmbeddingView.show();
+        } else {
+            articleEmbeddingView.hide();
+            articlePageView.show();
 
+            articlePageView.hidden = false
 
-
+        }
+    })
+})
 
