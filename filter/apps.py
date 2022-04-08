@@ -9,4 +9,4 @@ class FiltersConfig(AppConfig):
     # if os.environ.get('RUN_MAIN') == 'true':
     # print("loading model")
     model = KeyedVectors.load_word2vec_format(
-        '../vis-bio-med/filter/static/mlmodels/BioWordVec_PubMed_MIMICIII_d200.txt', binary=True, limit=10000)
+        '../visBioMed/filter/static/mlmodels/BioWordVec_PubMed_MIMICIII_d200.txt', binary=True, limit=10000)

@@ -3,7 +3,7 @@ import os
 
 import django
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vis-bio-med.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "visBioMed.settings")
 django.setup()
 
 from filter import Article

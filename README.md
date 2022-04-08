@@ -8,17 +8,11 @@ This project aims to create a visual survey browser for articles which were push
 
 Clone the repository
 ```commandline
-git clone https://git.rwth-aachen.de/pruthvi.hegde/vis-bio-med.git
-```
-
-or 
-
-```commandline
-git@git.rwth-aachen.de:pruthvi.hegde/vis-bio-med.git
+git clone https://github.com/your_username/visBioMed.git
 ```
 
 
-Navigate to `vis-bio-med` repository and activate your `venv` or `conda` environment.
+Navigate to `visBioMed` repository and activate your `venv` or `conda` environment.
 Once your virtual environment is activated, run,
 
 ```commandline
