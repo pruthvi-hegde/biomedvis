@@ -1,0 +1,1 @@
+SWiFT Seeing the Wood From the Trees: helping people make sense of their health data. The aim of the SWIFT project is to determine which visualisations of blood glucose-related data on mobile devices are most usable by people with insulin-dependent diabetes, to improve self-management.

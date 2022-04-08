@@ -1,0 +1,12 @@
+from django.apps import AppConfig
+from gensim.models import KeyedVectors
+
+
+class FiltersConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'filter'
+    # Only for development purposes.
+    # if os.environ.get('RUN_MAIN') == 'true':
+    # print("loading model")
+    model = KeyedVectors.load_word2vec_format(
+        '../vis-bio-med/filter/static/mlmodels/BioWordVec_PubMed_MIMICIII_d200.txt', binary=True, limit=10000)
