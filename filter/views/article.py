@@ -89,6 +89,8 @@ def filter_data(request):
     scale = request.GET.getlist('Scale[]')
     organ_system = request.GET.getlist('Organ_System[]')
     organ = request.GET.getlist('Organ[]')
+    data_source = request.GET.getlist('Data_Source[]')
+
 
     # categories = request.GET.getlist('category[]')
     # brands = request.GET.getlist('brand[]')
@@ -110,9 +112,15 @@ def filter_data(request):
 
     # This line needs to be fixed
     main_articles = Article.objects.none()
-    if organ:
-        for org in organ:
-            main_articles |= Article.objects.filter(article_title__icontains=org)
+    if organ or data_source:
+        if organ:
+            print(Article.objects.filter(abstract__icontains='Liver'))
+            for org in organ:
+                main_articles |= Article.objects.filter(abstract__icontains=org)
+                print(main_articles)
+        if data_source:
+            for ds in data_source:
+                main_articles |= Article.objects.filter(publisher__icontains=ds)
     else:
         main_articles = Article.objects.all().order_by('-id')
 
@@ -135,7 +143,7 @@ def create_embedding_view(request):
 
             return JsonResponse({'data': t}, safe=True)
         except RuntimeError as e:
-            print(e)
+            print("here",e)
 
     else:
         print("Error occured")
