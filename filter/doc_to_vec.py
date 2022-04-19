@@ -16,6 +16,8 @@ from sklearn.cluster import AgglomerativeClustering
 import numpy as np
 import asyncio
 
+CUR_DIR = os.path.basename(os.getcwd())
+
 
 def get_files(filepath):
     file_set = set()
@@ -38,7 +40,7 @@ async def calculate_doc_average_word2vec(model, article_titles):
     all_words = []
     file_names = []
     for file in article_titles:
-        file = path.join('../visbiomed/abstracts_title/',
+        file = path.join('../' + CUR_DIR + '/abstracts_title/',
                          file.replace("/", "-") + '.txt')
         if os.path.getsize(file) != 0:
             with open(file, 'r') as f:

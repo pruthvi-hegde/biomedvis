@@ -11,6 +11,8 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vis-bio-med.settings')
+CUR_DIR = os.path.basename(os.getcwd())
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', CUR_DIR + '.settings')
 
 application = get_asgi_application()
