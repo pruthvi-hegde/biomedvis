@@ -1,6 +1,5 @@
 import ast
 import json
-
 from django.db.models import Count
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -27,9 +26,9 @@ def article_list(request):
 
         articles = Article.objects.filter(abstract__icontains=url_parameter)
         if list(articles) == list(main_articles):
-            url_parameter = url_parameter.split(" ")
-            for query_word in url_parameter:
-                main_articles |= Article.objects.filter(abstract__icontains=query_word)
+            # url_parameter = url_parameter.split(" ")
+            # for query_word in url_parameter:
+            #     main_articles |= Article.objects.filter(abstract__icontains=query_word)
 
             articles = main_articles
     elif not url_parameter:
@@ -37,7 +36,6 @@ def article_list(request):
     else:
         articles = Article.objects.all().order_by('-id')
 
-    # results = sync_to_async(process_for_embedding_view(articles))
     # This part is to fetch all categories and subcategories rom categories model.
     categories = Category.get_all_categories()
 
@@ -84,15 +82,13 @@ def article_list(request):
                   })
 
 
-# filter data
 def filter_data(request):
     species = request.GET.getlist('Species[]')
     scale = request.GET.getlist('Scale[]')
-    organ_system = request.GET.getlist('Organ_System[]')
     organ = request.GET.getlist('Organ[]')
     data_source = request.GET.getlist('Data_Source[]')
-
-
+    algorithm = request.GET.getlist('Algorithm[]')
+    dimension = request.GET.getlist('Dimension[]')
     # categories = request.GET.getlist('category[]')
     # brands = request.GET.getlist('brand[]')
     # sizes = request.GET.getlist('size[]')
@@ -113,15 +109,27 @@ def filter_data(request):
 
     # This line needs to be fixed
     main_articles = Article.objects.none()
-    if organ or data_source:
-        if organ:
-            for org in organ:
-                main_articles |= Article.objects.filter(abstract__icontains=org)
-                print(main_articles)
-        if data_source:
-            for ds in data_source:
-                main_articles |= Article.objects.filter(abstract__icontains=ds)
-    else:
+
+    for org in organ:
+        main_articles |= Article.objects.filter(abstract__icontains=org)
+        print(main_articles)
+
+    for ds in data_source:
+        main_articles |= Article.objects.filter(abstract__icontains=ds)
+
+    for sc in scale:
+        main_articles |= Article.objects.filter(abstract__icontains=sc)
+
+    for sp in species:
+        main_articles |= Article.objects.filter(abstract__icontains=sp)
+
+    for al in algorithm:
+        main_articles |= Article.objects.filter(abstract__icontains=al)
+
+    for dm in dimension:
+        main_articles |= Article.objects.filter(abstract__icontains=dm)
+
+    if not organ and not data_source and not scale and not species and not dimension and not algorithm:
         main_articles = Article.objects.all().order_by('-id')
 
     article_title = [article.article_title for article in main_articles]
@@ -135,17 +143,12 @@ def create_embedding_view(request):
         response = json.loads(request.body)
         article_titles = ast.literal_eval(response)
         try:
-
             fig = calculate_doc_average_word2vec(filter_model, article_titles)
-
             graphs = fig
-
             t = plot({'data': graphs},
                      output_type='div')
-
             return JsonResponse({'data': t}, safe=True)
         except RuntimeError as e:
-            print("here",e)
-
+            print("Runtime error", e)
     else:
         print("Error occured")

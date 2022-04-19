@@ -1,24 +1,20 @@
-import os
-import os.path as path
-import re
-from string import punctuation
-
+import matplotlib.pyplot as plt
 import nltk
 import numpy as np
+import os
+import os.path as path
 import pandas as pd
 import plotly.express as px
 import plotly.offline as py
-import matplotlib.pyplot as plt
-
-
+import re
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from sklearn.metrics import silhouette_score
-
+from sklearn.preprocessing import StandardScaler
+from string import punctuation
 
 
 def get_files(filepath):
@@ -62,8 +58,6 @@ def calculate_doc_average_word2vec(model, article_titles):
     doc_vectors = np.array(doc_vectors)
     tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=1500, random_state=23, learning_rate='auto')
     new_values = tsne_model.fit_transform(doc_vectors)
-    print(new_values)
-
 
     # distortions = []
     # inertias = []
@@ -93,8 +87,8 @@ def calculate_doc_average_word2vec(model, article_titles):
     # plt.show()
     # return plt
 
-    # fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1)
-    # return fig
+    fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1)
+    return fig
 
 
 def preprocess_sentence_returns_list(text):

@@ -1,20 +1,18 @@
-import os
-import os.path as path
-import re
-from string import punctuation
-
+import asyncio
 import nltk
 import numpy as np
+import numpy as np
+import os
+import os.path as path
 import plotly.express as px
+import re
+from matplotlib import pyplot
 from nltk import word_tokenize
 from nltk.corpus import stopwords
+from sklearn.cluster import AgglomerativeClustering
 from sklearn.manifold import TSNE
 from sklearn.mixture import GaussianMixture
-from matplotlib import pyplot
-
-from sklearn.cluster import AgglomerativeClustering
-import numpy as np
-import asyncio
+from string import punctuation
 
 CUR_DIR = os.path.basename(os.getcwd())
 
@@ -36,12 +34,11 @@ def get_mean_vector(model, words):
         return []
 
 
-async def calculate_doc_average_word2vec(model, article_titles):
+def calculate_doc_average_word2vec(model, article_titles):
     all_words = []
     file_names = []
     for file in article_titles:
-        file = path.join('../' + CUR_DIR + '/abstracts_title/',
-                         file.replace("/", "-") + '.txt')
+        file = path.join('../' + CUR_DIR + '/abstracts_title/', file.replace("/", "-") + '.txt')
         if os.path.getsize(file) != 0:
             with open(file, 'r') as f:
                 content = f.read()
@@ -50,7 +47,7 @@ async def calculate_doc_average_word2vec(model, article_titles):
         else:
             print("File size is 0")
 
-    loop = asyncio.get_event_loop()
+    # loop = asyncio.get_event_loop()
 
     doc_vectors = []
     for doc in all_words:
@@ -58,14 +55,11 @@ async def calculate_doc_average_word2vec(model, article_titles):
         if len(vec) > 0:
             doc_vectors.append(vec)
 
-
-    print(cluster_obj)
-    print("inside")
     tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=1500, random_state=23)
     new_values = tsne_model.fit_transform(doc_vectors)
-    cluster_obj = cluster_documents(all_words)
+    # cluster_obj = cluster_documents()
 
-    fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1, color=cluster_obj)
+    fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1)
     return fig
 
 
@@ -93,9 +87,21 @@ def preprocess_sentence_returns_list(text):
     tokens = [token for token in word_tokenize(text) if token not in punctuation and token not in stop_words]
     return tokens
 
-def cluster_documents(all_articles_title_abstract):
-    print("method called")
-    corpus_embeddings = model.encode(all_articles_title_abstract)
+
+def cluster_documents():
+    all_articles = []
+    file_names = []
+    for file in article_titles:
+        file = path.join('../' + CUR_DIR + '/abstracts_title/', file.replace("/", "-") + '.txt')
+        if os.path.getsize(file) != 0:
+            with open(file, 'r') as f:
+                content = f.read()
+                all_articles.append(content)
+                file_names.append(str(file).split('/')[-1].replace(".txt", ""))
+        else:
+            print("File size is 0")
+    corpus_embeddings = model.encode(all_articles)
+    print(corpus_embeddings)
 
     # Normalize the embeddings to unit length
     corpus_embeddings = corpus_embeddings / np.linalg.norm(corpus_embeddings, axis=1, keepdims=True)
@@ -123,4 +129,3 @@ def cluster_documents(all_articles_title_abstract):
     #     counter.append(i)
 
     return xff
-
