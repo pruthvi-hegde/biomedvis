@@ -138,7 +138,7 @@ $(document).ready(function () {
             datasets: [{
                 label: '# of Articles',
                 data: _filtercount,
-                backgroundColor: [],
+                backgroundColor: "#1C2862",
                 borderColor: [],
                 borderWidth: 1
             }]
@@ -192,7 +192,9 @@ function embeddingView(data) {
             // $("#modal-plot").val(res.data);
             // $('#plotModal').on('shown.bs.modal').html(res.data)
             var layout = {autosize: true};
-            $('#myDiv').on('shown.bs.modal').html(res.data)
+            $('#myDiv').on('shown.bs.modal', function () {
+  $("#modal-preloader").show().delay(5000).fadeOut(100);
+}).html(res.data)
         },
         error: function (xhr, status, error) {
             console.log("inside Error " + error);

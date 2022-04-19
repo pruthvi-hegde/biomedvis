@@ -9,6 +9,12 @@ import plotly.express as px
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from sklearn.manifold import TSNE
+from sklearn.mixture import GaussianMixture
+from matplotlib import pyplot
+
+from sklearn.cluster import AgglomerativeClustering
+import numpy as np
+import asyncio
 
 
 def get_files(filepath):
@@ -28,7 +34,7 @@ def get_mean_vector(model, words):
         return []
 
 
-def calculate_doc_average_word2vec(model, article_titles):
+async def calculate_doc_average_word2vec(model, article_titles):
     all_words = []
     file_names = []
     for file in article_titles:
@@ -41,16 +47,23 @@ def calculate_doc_average_word2vec(model, article_titles):
                 file_names.append(str(file).split('/')[-1].replace(".txt", ""))
         else:
             print("File size is 0")
+
+    loop = asyncio.get_event_loop()
+
     doc_vectors = []
     for doc in all_words:
         vec = get_mean_vector(model, doc)
         if len(vec) > 0:
             doc_vectors.append(vec)
 
+
+    print(cluster_obj)
+    print("inside")
     tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=1500, random_state=23)
     new_values = tsne_model.fit_transform(doc_vectors)
+    cluster_obj = cluster_documents(all_words)
 
-    fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1)
+    fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1, color=cluster_obj)
     return fig
 
 
@@ -77,3 +90,35 @@ def preprocess_sentence_returns_list(text):
 
     tokens = [token for token in word_tokenize(text) if token not in punctuation and token not in stop_words]
     return tokens
+
+def cluster_documents(all_articles_title_abstract):
+    print("method called")
+    corpus_embeddings = model.encode(all_articles_title_abstract)
+
+    # Normalize the embeddings to unit length
+    corpus_embeddings = corpus_embeddings / np.linalg.norm(corpus_embeddings, axis=1, keepdims=True)
+
+    # Perform kmean clustering
+    clustering_model = AgglomerativeClustering(n_clusters=None, distance_threshold=1.5,
+                                               memory='../')  # , affinity='cosine', linkage='average', distance_threshold=0.4)
+    xff = clustering_model.fit_predict(corpus_embeddings)
+
+    # cluster_assignment = clustering_model.labels_
+    #
+    # clustered_sentences = {}
+    # art_name = []
+    # for sentence_id, cluster_id in enumerate(cluster_assignment):
+    #     if cluster_id not in clustered_sentences:
+    #         clustered_sentences[cluster_id] = []
+    #     clustered_sentences[cluster_id].append(ar_title[sentence_id])
+    #     art_name.append(ar_title[sentence_id])
+    #
+    # counter = []
+    # for i, cluster in clustered_sentences.items():
+    #     print("Cluster ", i)
+    #     print(cluster)
+    #     print("")
+    #     counter.append(i)
+
+    return xff
+

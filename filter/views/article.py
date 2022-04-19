@@ -14,6 +14,7 @@ from ..models.article import Article
 from ..models.category import Category, Subcategory
 
 filter_model = FiltersConfig.model
+import asyncio
 
 
 # Article List
@@ -24,11 +25,11 @@ def article_list(request):
     if url_parameter:
         main_articles = Article.objects.none()
 
-        articles = Article.objects.filter(article_title__icontains=url_parameter)
+        articles = Article.objects.filter(abstract__icontains=url_parameter)
         if list(articles) == list(main_articles):
             url_parameter = url_parameter.split(" ")
             for query_word in url_parameter:
-                main_articles |= Article.objects.filter(article_title__icontains=query_word)
+                main_articles |= Article.objects.filter(abstract__icontains=query_word)
 
             articles = main_articles
     elif not url_parameter:
@@ -114,13 +115,12 @@ def filter_data(request):
     main_articles = Article.objects.none()
     if organ or data_source:
         if organ:
-            print(Article.objects.filter(abstract__icontains='Liver'))
             for org in organ:
                 main_articles |= Article.objects.filter(abstract__icontains=org)
                 print(main_articles)
         if data_source:
             for ds in data_source:
-                main_articles |= Article.objects.filter(publisher__icontains=ds)
+                main_articles |= Article.objects.filter(abstract__icontains=ds)
     else:
         main_articles = Article.objects.all().order_by('-id')
 
@@ -135,7 +135,9 @@ def create_embedding_view(request):
         response = json.loads(request.body)
         article_titles = ast.literal_eval(response)
         try:
+
             fig = calculate_doc_average_word2vec(filter_model, article_titles)
+
             graphs = fig
 
             t = plot({'data': graphs},
