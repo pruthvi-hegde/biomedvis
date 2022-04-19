@@ -6,3 +6,4 @@ django-tree==0.4.1
 nltk
 numpy
 sklearn
+pandas

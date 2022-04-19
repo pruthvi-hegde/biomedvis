@@ -11,6 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'visbiomed.settings')
+CUR_DIR_NAME = os.path.basename(os.getcwd())
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', CUR_DIR_NAME+'.settings')
 
 application = get_wsgi_application()

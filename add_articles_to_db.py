@@ -3,7 +3,9 @@ import os
 
 import django
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "visBioMed.settings")
+CUR_DIR = os.path.basename(os.getcwd())
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", 'visBioMed.settings')
 django.setup()
 
 from filter import Article

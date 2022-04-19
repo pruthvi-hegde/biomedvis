@@ -1,5 +1,9 @@
+import os
 from django.apps import AppConfig
 from gensim.models import KeyedVectors
+
+CUR_DIR_PATH = os.getcwd()
+CUR_DIR_NAME = os.path.basename(os.getcwd())
 
 
 class FiltersConfig(AppConfig):
@@ -9,4 +13,4 @@ class FiltersConfig(AppConfig):
     # if os.environ.get('RUN_MAIN') == 'true':
     # print("loading model")
     model = KeyedVectors.load_word2vec_format(
-        '../visBioMed/filter/static/mlmodels/BioWordVec_PubMed_MIMICIII_d200.txt', binary=True, limit=10000)
+        CUR_DIR_PATH + '/filter/static/mlmodels/BioWordVec_PubMed_MIMICIII_d200.txt', binary=True, limit=10000)
