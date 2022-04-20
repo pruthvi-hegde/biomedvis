@@ -14,7 +14,12 @@ from sklearn.manifold import TSNE
 from sklearn.mixture import GaussianMixture
 from string import punctuation
 
+from filter.apps import FiltersConfig
+
 CUR_DIR = os.path.basename(os.getcwd())
+
+
+# sentence_transformer_model = FiltersConfig.sentence_transformer_model
 
 
 def get_files(filepath):
@@ -89,6 +94,7 @@ def preprocess_sentence_returns_list(text):
 
 
 def cluster_documents():
+    print("here")
     all_articles = []
     file_names = []
     for file in article_titles:
@@ -100,7 +106,7 @@ def cluster_documents():
                 file_names.append(str(file).split('/')[-1].replace(".txt", ""))
         else:
             print("File size is 0")
-    corpus_embeddings = model.encode(all_articles)
+    corpus_embeddings = sentence_transformer_model.encode(all_articles)
     print(corpus_embeddings)
 
     # Normalize the embeddings to unit length

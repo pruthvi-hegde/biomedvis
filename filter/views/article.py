@@ -89,23 +89,6 @@ def filter_data(request):
     data_source = request.GET.getlist('Data_Source[]')
     algorithm = request.GET.getlist('Algorithm[]')
     dimension = request.GET.getlist('Dimension[]')
-    # categories = request.GET.getlist('category[]')
-    # brands = request.GET.getlist('brand[]')
-    # sizes = request.GET.getlist('size[]')
-    # minPrice = request.GET['minPrice']
-    # maxPrice = request.GET['maxPrice']
-    # allProducts = Product.objects.all().order_by('-id').distinct()
-    # allProducts = allProducts.filter(productattribute__price__gte=minPrice)
-    # allProducts = allProducts.filter(productattribute__price__lte=maxPrice)
-    # if len(colors) > 0:
-    #     allProducts = allProducts.filter(productattribute__color__id__in=colors).distinct()
-    # if len(categories) > 0:
-    #     allProducts = allProducts.filter(category__id__in=categories).distinct()
-    # if len(brands) > 0:
-    #     allProducts = allProducts.filter(brand__id__in=brands).distinct()
-    # if len(sizes) > 0:
-    #     allProducts = allProducts.filter(productattribute__size__id__in=sizes).distinct()
-    # articles = Article.objects.all().order_by('-id')
 
     # This line needs to be fixed
     main_articles = Article.objects.none()
