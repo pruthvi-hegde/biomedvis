@@ -1,20 +1,20 @@
 import asyncio
 import nltk
 import numpy as np
-import numpy as np
 import os
 import os.path as path
 import plotly.express as px
 import re
-from matplotlib import pyplot
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.manifold import TSNE
-from sklearn.mixture import GaussianMixture
-from string import punctuation
 
-from filter.apps import FiltersConfig
+from string import punctuation
+nltk.download('omw-1.4')
+nltk.download('wordnet')
+nltk.download('stopwords')
+nltk.download('punkt')
 
 CUR_DIR = os.path.basename(os.getcwd())
 
@@ -60,6 +60,7 @@ def calculate_doc_average_word2vec(model, article_titles):
         if len(vec) > 0:
             doc_vectors.append(vec)
 
+    # res = cluster_documents(doc_vectors)
     tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=1500, random_state=23)
     new_values = tsne_model.fit_transform(doc_vectors)
     # cluster_obj = cluster_documents()
@@ -93,21 +94,10 @@ def preprocess_sentence_returns_list(text):
     return tokens
 
 
-def cluster_documents():
+def cluster_documents(doc_vec):
     print("here")
-    all_articles = []
-    file_names = []
-    for file in article_titles:
-        file = path.join('../' + CUR_DIR + '/abstracts_title/', file.replace("/", "-") + '.txt')
-        if os.path.getsize(file) != 0:
-            with open(file, 'r') as f:
-                content = f.read()
-                all_articles.append(content)
-                file_names.append(str(file).split('/')[-1].replace(".txt", ""))
-        else:
-            print("File size is 0")
-    corpus_embeddings = sentence_transformer_model.encode(all_articles)
-    print(corpus_embeddings)
+
+    corpus_embeddings = doc_vec
 
     # Normalize the embeddings to unit length
     corpus_embeddings = corpus_embeddings / np.linalg.norm(corpus_embeddings, axis=1, keepdims=True)
