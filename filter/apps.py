@@ -4,7 +4,6 @@ from gensim.models import KeyedVectors
 from sentence_transformers import SentenceTransformer
 
 CUR_DIR_PATH = os.getcwd()
-CUR_DIR_NAME = os.path.basename(os.getcwd())
 
 
 class FiltersConfig(AppConfig):

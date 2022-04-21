@@ -7,3 +7,5 @@ nltk
 numpy
 sklearn
 pandas
+sentence_transformers
+matplotlib
