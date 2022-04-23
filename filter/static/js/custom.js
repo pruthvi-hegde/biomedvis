@@ -15,6 +15,7 @@ $(document).on('click', ".custom-info", function () {
     var _articleISBN = $(".article-ISBN-" + _index).val()
     var _articleDOI = $(".article-DOI-" + _index).val()
     var _articleYear = $(".article-publishedDate-" + _index).val()
+    var _abstract = $(".article-abstract-" + _index).val()
 
     $("#name").val(name);
     $("#exampleModalLongTitle").text(_articleTitle)
@@ -24,6 +25,7 @@ $(document).on('click', ".custom-info", function () {
     $("#articleYear").text(_articleYear)
     $("#articleDOI").attr('href', _articleDOI)
     $("#articleDOI").text(_articleDOI)
+    $("#abstract").text(_abstract)
 
 
     $("#articleDetailsModal").modal("show");

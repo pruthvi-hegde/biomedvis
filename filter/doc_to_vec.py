@@ -1,4 +1,5 @@
 import asyncio
+import time
 import nltk
 import numpy as np
 import os
@@ -42,6 +43,7 @@ def get_mean_vector(model, words):
 def calculate_doc_average_word2vec(model, article_titles):
     all_words = []
     file_names = []
+    start = time.time()
     for file in article_titles:
         file = path.join('../' + CUR_DIR + '/abstracts_title/', file.replace("/", "-") + '.txt')
         if os.path.getsize(file) != 0:
@@ -52,20 +54,28 @@ def calculate_doc_average_word2vec(model, article_titles):
         else:
             print("File size is 0")
 
-    # loop = asyncio.get_event_loop()
-
+    end = time.time()
+    print(end-start)
     doc_vectors = []
+    start = time.time()
     for doc in all_words:
         vec = get_mean_vector(model, doc)
         if len(vec) > 0:
             doc_vectors.append(vec)
-
-    # res = cluster_documents(doc_vectors)
+    end = time.time()
+    print(end-start)
+    doc_vectors = np.array(doc_vectors)
+    start = time.time()
     tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=1500, random_state=23)
     new_values = tsne_model.fit_transform(doc_vectors)
     # cluster_obj = cluster_documents()
 
+    # res = cluster_documents(doc_vectors)
+    end = time.time()
+
     fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1)
+
+    print(end-start)
     return fig
 
 
@@ -95,19 +105,18 @@ def preprocess_sentence_returns_list(text):
 
 
 def cluster_documents(doc_vec):
-    print("here")
 
     corpus_embeddings = doc_vec
 
     # Normalize the embeddings to unit length
-    corpus_embeddings = corpus_embeddings / np.linalg.norm(corpus_embeddings, axis=1, keepdims=True)
+    #corpus_embeddings = corpus_embeddings / np.linalg.norm(corpus_embeddings, axis=1, keepdims=True)
 
     # Perform kmean clustering
-    clustering_model = AgglomerativeClustering(n_clusters=None, distance_threshold=1.5,
-                                               memory='../')  # , affinity='cosine', linkage='average', distance_threshold=0.4)
-    xff = clustering_model.fit_predict(corpus_embeddings)
+    clustering_model = AgglomerativeClustering(n_clusters=None, distance_threshold=1.5)  # , affinity='cosine', linkage='average', distance_threshold=0.4)
+    article_cluster_map = clustering_model.fit_predict(corpus_embeddings)
 
     # cluster_assignment = clustering_model.labels_
+
     #
     # clustered_sentences = {}
     # art_name = []
@@ -124,4 +133,5 @@ def cluster_documents(doc_vec):
     #     print("")
     #     counter.append(i)
 
-    return xff
+    #print(article_cluster_map)
+    return article_cluster_map
