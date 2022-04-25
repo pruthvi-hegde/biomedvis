@@ -7,9 +7,10 @@
     <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}"/>
 
 
-    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+{#    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
     <script type="text/javascript" src="{% static 'bs4/popper.min.js' %}"></script>
     <!-- Bootstrap 4 JS -->
     <script type="text/javascript" src="{% static 'bs4/bootstrap.min.js' %}"></script>
@@ -20,7 +21,7 @@
     <!-- Velocity -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.ui.min.js"></script>
-    <link rel="stylesheet" href="{% static ' href="css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
 
 
     <!-- CustomJs -->
@@ -45,16 +46,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-white shadow" href="/" style="">Home</a>
+                        <a class="nav-link text-white shadow" href="/" style="">Reset</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white shadow" href="{% url 'category-list' %}">Docs</a>
                     </li>
                 </ul>
 
-                <form class="form-inline nav-item">
-                    <div class="input-group search-box">
-                        <input id="searchArticle" name="q" class="form-control custom_search"
+                <form class="form-inline nav-item w-25">
+                    <div class="input-group search-box w-100">
+                        <input id="searchArticle" name="q" class="form-control custom_search w-100"
                                placeholder="Find your articles here...."
                                aria-label="Search for..." type="search">
 

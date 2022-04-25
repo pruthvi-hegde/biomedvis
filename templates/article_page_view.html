@@ -1,14 +1,8 @@
-<!-- Articles -->
-{% if data %}
-    <button class="btn-primary toggleArticleView align-content-center" data-toggle="modal" data-target="#plotModal">Take
-        me
-        to Embedding View
-    </button>
-    <div class="row pt-1" id="articlePageView">
+ <div class="row col-12 pt-1" id="articlePageView">
 
         {% for article in data %}
             <div class="col-sm-1 pl-2 pr-2 pb-2 pt-2" id="articleColumns">
-                <div class="card mb-1 bg-white custom-animation">
+                <div class="card bg-white custom-animation">
                     <div class="card-img">
                         <a data-index="{{ article.id }}" class="custom-info"
                            data-toggle="tooltip"
@@ -41,20 +35,4 @@
                 </div>
             </div>
         {% endfor %}
-        {#        <input type="hidden" id="articleEmbeddingView"#}
-        {#               value="{{ article_title }}"/>#}
     </div>
-    <div class="row pt-1" id="articleEmbeddingView" data-article="{{ article_title }}">
-        {% include 'embedding_view.html' %}
-    </div>
-
-    {#    <div class="row pt-1" id="articleEmbeddingView" data-article="{{ article_title }}">#}
-    {#        {% include 'embedding_view.html' %}#}
-    {##}
-    {#    </div>#}
-{% else %}
-    <div class="align-content-center text-center">
-        <b class="no-results"><i class="fa fa-sad-tear"></i> Sorry!! Could not find articles related to your
-            search</b>
-    </div>
-{% endif %}

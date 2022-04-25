@@ -8,5 +8,6 @@ urlpatterns = [
     path('', article.article_list, name='article-list'),
     path('articles-search', article.article_list, name='search'),
     path('filter-data', article.filter_data, name='filter'),
-    path('embedding_view', article.create_embedding_view, name='embedding')
+    path('embedding-view', article.create_embedding_view, name='embedding'),
+    path('update-article-view', article.update_article_view, name='update-article-view')
 ]

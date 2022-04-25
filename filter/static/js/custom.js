@@ -1,9 +1,3 @@
-// $(function () {
-//     $('[data-toggle="tooltip"]').tooltip()({
-//         'selector': '', 'placement': 'top', 'container': 'body'
-//     })
-// })
-
 $(document).on('click', ".custom-info", function () {
 
     var _vm = $(this);
@@ -47,7 +41,7 @@ $(document).ready(function () {
             .done(response => {
                 // fade out the artists_div, then:
 
-                articles_div.animate('fast', 0).promise().then(() => {
+                articles_div.animate('fast',0).promise().then(() => {
                     // replace the HTML contents
                     articles_div.html(response['html_from_view'])
                     // fade-in the div with new contents
@@ -89,42 +83,15 @@ $(document).ready(function () {
             url: '/filter-data', data: _filterObj, dataType: 'json', beforeSend: function () {
             }, success: function (res) {
                 $("#filteredArticles").html(res.data);
+                var embeddingViewData = $('#articleEmbeddingView').data('article')
+                embeddingView(embeddingViewData);
             }
         });
     })
 
     // // This is for toggle view
-
-    // articleEmbeddingView.hide()
-    // var articlePageView = $('#articlePageView')
-    // var displayTracker = false
-
-
-    $(document).on('click', ".toggleArticleView", function () {
-        var embeddingViewData = $('#articleEmbeddingView').data('article')
-        // var articlePageView = $('#articlePageView')
-
-
-        // $(this).text(function (i, text) {
-        //     return text === "Take me to Embedding View" ? "Take me to Article View" : "Take me to Embedding View";
-        // })
-        // articlePageView = $('#articlePageView');
-        // articleEmbeddingView = $('#articleEmbeddingView');
-
-
-        embeddingView(embeddingViewData);
-        // if (displayTracker !== true) {
-        //     articlePageView.hide();
-        //     articleEmbeddingView.show();
-        //     displayTracker = true
-        //     embeddingView(articleEmbeddingView.data('article'));
-        // } else {
-        //     articleEmbeddingView.hide();
-        //     articlePageView.show();
-        //     displayTracker = false
-        // }
-    })
-
+    var embeddingViewData = $('#articleEmbeddingView').data('article')
+    embeddingView(embeddingViewData);
 
     // This is for time filter.
 
@@ -157,46 +124,17 @@ $(document).ready(function () {
 
 })
 
-// $(document).ready(function () {
-//     var articleEmbeddingView = $('#articleEmbeddingView');
-//     articleEmbeddingView.hide()
-//
-//
-//     $(document).on('click', ".toggleArticleView", function () {
-//         $(this).text(function (i, text) {
-//             return text === "Take me to Embedding View" ? "Take me to Article View" : "Take me to Embedding View";
-//         })
-//         articleEmbeddingView = $('#articleEmbeddingView');
-//         var articlePageView = $('#articlePageView')
-//
-//         if ($(this).text() === 'Take me to Article View') {
-//             articlePageView.hide();
-//             articleEmbeddingView.show();
-//             embeddingView(articleEmbeddingView.data('article'));
-//         } else {
-//             articleEmbeddingView.hide();
-//             articlePageView.show();
-//         }
-//     })
-// })
-
-
 function embeddingView(data) {
     // Run Ajaxl
     var jsonText = JSON.stringify(data);
     $.ajax({
-        url: '/embedding_view',
+        url: '/embedding-view',
         type: 'POST',
         data: jsonText,
         traditional: true,
         dataType: 'json',
         success: function (res) {
-            // $("#modal-plot").val(res.data);
-            // $('#plotModal').on('shown.bs.modal').html(res.data)
-            var layout = {autosize: true};
-            $('#myDiv').on('shown.bs.modal', function () {
-  $("#modal-preloader").show().delay(5000).fadeOut(100);
-}).html(res.data)
+            $('#myDiv').html(res.data);
         },
         error: function (xhr, status, error) {
             console.log("inside Error " + error);
@@ -206,7 +144,29 @@ function embeddingView(data) {
 
 }
 
+//Update article view after lasso or box select
+$(document).on('plotly_selected', "#myDiv", function (arg1, arg2){
+    var plotly_points = []
+    arg2.points.forEach(function(pt) {
+        plotly_points.push(pt.hovertext)
+    })
+        // Run Ajaxl
+        $.ajax({
+            url: '/update-article-view',
+            type: 'POST',
+            data: JSON.stringify(plotly_points),
+            contentType: "application/json",
+            beforeSend: function () {
+            }, success: function (res) {
+                $("#articlePageView").html(res.data);
+            }
+        });
+})
 
-
+$(document).on('plotly_click', "#myDiv", function (arg1, arg2) {
+arg2.points.forEach(function(pt) {
+//   Think what to do here...
+})
+})
 
 

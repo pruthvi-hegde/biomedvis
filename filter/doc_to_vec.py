@@ -55,7 +55,7 @@ def calculate_doc_average_word2vec(model, article_titles):
             print("File size is 0")
 
     end = time.time()
-    print(end-start)
+
     doc_vectors = []
     start = time.time()
     for doc in all_words:
@@ -63,7 +63,7 @@ def calculate_doc_average_word2vec(model, article_titles):
         if len(vec) > 0:
             doc_vectors.append(vec)
     end = time.time()
-    print(end-start)
+
     doc_vectors = np.array(doc_vectors)
     start = time.time()
     tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=1500, random_state=23)
@@ -73,9 +73,15 @@ def calculate_doc_average_word2vec(model, article_titles):
     # res = cluster_documents(doc_vectors)
     end = time.time()
 
-    fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1)
+    fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1, title="Embedding view of articles "
+                                                                                   "generated"
+                                                                                   " from BioWordVec")
 
-    print(end-start)
+    fig.update_layout(
+        margin=dict(l=10, r=20),
+        paper_bgcolor="white",
+    )
+
     return fig
 
 

@@ -49,7 +49,7 @@ def article_list(request):
     # This is for search
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         html = render_to_string(
-            template_name="article_cards.html",
+            template_name="embedding_view.html",
             context={'data': articles, 'article_title': article_title}
         )
 
@@ -69,7 +69,7 @@ def article_list(request):
     article_count = list(d['dcount'] for d in published_date_data)
 
     # This should execute for all
-    return render(request, 'article_list.html',
+    return render(request, 'main.html',
                   {
                       'data': articles,
                       'article_title': article_title,
@@ -116,7 +116,7 @@ def filter_data(request):
         main_articles = Article.objects.all().order_by('-id')
 
     article_title = [article.article_title for article in main_articles]
-    t = render_to_string('article_cards.html', {'data': main_articles, 'article_title': article_title})
+    t = render_to_string('embedding_view.html', {'data': main_articles, 'article_title': article_title})
     return JsonResponse({'data': t}, safe=False)
 
 
@@ -130,8 +130,21 @@ def create_embedding_view(request):
             graphs = fig
             t = plot({'data': graphs},
                      output_type='div')
-            return JsonResponse({'data': t}, safe=True)
+            return JsonResponse({'data': t, 'dragmode': 'lasso'}, safe=True)
         except RuntimeError as e:
             print("Runtime error", e)
     else:
         print("Error occured")
+
+
+@csrf_exempt
+def update_article_view(request):
+    if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+        selected_article_points = json.loads(request.body)
+        main_articles = Article.objects.none()
+        for article_point in selected_article_points:
+            main_articles |= Article.objects.filter(article_title__exact=article_point)
+
+        article_title = [article.article_title for article in main_articles]
+        t = render_to_string('article_page_view.html', {'data': main_articles, 'article_title': article_title})
+        return JsonResponse({'data': t}, safe=False)

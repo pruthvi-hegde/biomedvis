@@ -1,23 +1,19 @@
-<div class="modal fade" id="plotModal" tabindex="-1" role="dialog"
-     aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-easein="whirlIn" style="top: 50%;
-    transform: translateY(-50%);">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Article Embeddings</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+<!-- Articles -->
+{% if data %}
+    <div class="row" id="articleEmbeddingView" data-article="{{ article_title }}" style="width: 70%; height: 45%">
 
-            <div class="modal-body">
-                <div id="myDiv">
-                    <div class="spinner-border text-dark" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                </div>
+        <div id="myDiv" style="width: 100%">
+            <div class="spinner-border text-dark" role="status">
+                <span class="sr-only">Loading...</span>
             </div>
-
         </div>
     </div>
-</div>
+    {% include 'article_page_view.html' %}
+
+
+{% else %}
+    <div class="align-content-center text-center">
+        <b class="no-results"><i class="fa fa-sad-tear"></i> Sorry!! Could not find articles related to your
+            search</b>
+    </div>
+{% endif %}
