@@ -75,7 +75,7 @@ def article_list(request):
                       'article_title': article_title,
                       'total_data': total_data,
                       'view_item': categories_data,
-                      'published_date_data': published_date_data,
+                      'article_published_data': published_date_data,
                       'published_date': published_date,
                       'article_count': article_count
 
@@ -95,7 +95,6 @@ def filter_data(request):
 
     for org in organ:
         main_articles |= Article.objects.filter(abstract__icontains=org)
-        print(main_articles)
 
     for ds in data_source:
         main_articles |= Article.objects.filter(abstract__icontains=ds)
@@ -116,7 +115,19 @@ def filter_data(request):
         main_articles = Article.objects.all().order_by('-id')
 
     article_title = [article.article_title for article in main_articles]
-    t = render_to_string('embedding_view.html', {'data': main_articles, 'article_title': article_title})
+    published_date_data = list(main_articles
+                               .values('published_date')
+                               .annotate(dcount=Count('published_date'))
+                               .order_by()
+                               )
+    published_date = list(d['published_date'] for d in published_date_data)
+    article_count = list(d['dcount'] for d in published_date_data)
+
+    t = render_to_string('embedding_view.html', {'data': main_articles, 'article_title': article_title,
+                                                 'article_published_data': published_date_data,
+                                                 'published_date': published_date,
+                                                 'article_count': article_count
+                                                 })
     return JsonResponse({'data': t}, safe=False)
 
 

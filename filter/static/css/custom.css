@@ -3,7 +3,7 @@
 }
 
 .bg-custom {
-    background-color: #1C2862;
+    background-color: #041F60;
 }
 
 .bg-footer {
@@ -62,7 +62,7 @@ body {
 }
 
 .card-img:hover {
-    box-shadow: 4px 4px 4px #EEBB54;
+    box-shadow: 4px 4px 4px #d8d826;
     border: white;
 }
 
@@ -75,7 +75,7 @@ body {
 }
 
 .custom-color {
-    color: #1C2862;
+    color: #041F60;
     font-family: Georgia, serif;
 }
 

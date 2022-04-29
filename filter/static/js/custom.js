@@ -85,6 +85,7 @@ $(document).ready(function () {
                 $("#filteredArticles").html(res.data);
                 var embeddingViewData = $('#articleEmbeddingView').data('article')
                 embeddingView(embeddingViewData);
+                drawChartView()
             }
         });
     })
@@ -95,31 +96,31 @@ $(document).ready(function () {
 
     // This is for time filter.
 
-    const ctx = $('#chartContainer');
-    const _filterdate = ctx.data('date')
-    const _filtercount = ctx.data('count')
-    // To toggle between article and embedding view.
-
-    const myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: _filterdate,
-            datasets: [{
-                label: '# of Articles',
-                data: _filtercount,
-                backgroundColor: "#1C2862",
-                borderColor: [],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    // let ctx = $('#chartContainer');
+    // let _filterdate = ctx.data('date')
+    // let _filtercount = ctx.data('count')
+    // // To toggle between article and embedding view.
+    //
+    // const myChart = new Chart(ctx, {
+    //     type: 'bar',
+    //     data: {
+    //         labels: _filterdate,
+    //         datasets: [{
+    //             label: '# of Articles',
+    //             data: _filtercount,
+    //             backgroundColor: "#A74482",
+    //             borderColor: [],
+    //             borderWidth: 1
+    //         }]
+    //     },
+    //     options: {
+    //         scales: {
+    //             y: {
+    //                 beginAtZero: true
+    //             }
+    //         }
+    //     }
+    // });
 
 
 })
@@ -168,5 +169,98 @@ arg2.points.forEach(function(pt) {
 //   Think what to do here...
 })
 })
+
+
+//This is for the chart view
+document.addEventListener('DOMContentLoaded', function () {
+    drawChartView()
+
+});
+
+function drawChartView(){
+    let ctx = $('#chartContainer');
+    let _filterdate = ctx.data('date')
+    let _filtercount = ctx.data('count')
+  Highcharts.chart('slider-bar-chart', {
+    chart: {
+      type: 'column',
+      zoomType: 'x'
+    },
+    colors: [
+      '#d8d826'
+    ],
+    legend: {
+      enabled: false
+    },
+    title: {
+      style: {
+        fontSize: '0px'
+      }
+    }, tooltip: {
+    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+      '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+    footerFormat: '</table>',
+    shared: true,
+    useHTML: true
+  },
+    subtitle: {
+      style: {
+        fontSize: '0px'
+      }
+    },
+    xAxis: {
+      categories: _filterdate,
+      tickmarkPlacement: 'on',
+      tickInterval: 1,
+      minRange: 1, // set this to allow up to one year to be viewed
+    },
+    yAxis: {
+      title: {
+        text: 'Number',
+        style: {
+          fontSize: '0px'
+        }
+      }
+    },
+    tooltip: {
+      shared: false,
+      useHTML: true
+    },
+    plotOptions: {
+      column: {
+        pointPadding: 0.01,
+        borderWidth: 0
+      }
+    },
+    series: [{
+      name: 'No of articles by year',
+      data: _filtercount,
+    }]
+  }, function(chart) {
+      let myData = _filterdate;
+   let slider_config = {
+    range: true,
+        min: 0,
+        max: myData.length - 1,
+        step: 1,
+        slide: function( event, ui ) {
+            // Set the real value into the inputs
+            $("#amount").val(myData[ui.values[0]]  + " - " + myData[ui.values[1]]);
+        chart.xAxis[0].setExtremes(ui.values[0], ui.values[1]);
+        },
+    create: function() {
+        $(this).slider('values',0,0);
+        $(this).slider('values',1,myData.length - 1);
+    }
+};
+
+// Render Slider
+$('#slider-range').slider(slider_config)
+
+
+  });
+}
+
 
 

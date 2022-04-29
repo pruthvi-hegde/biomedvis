@@ -74,11 +74,10 @@ def calculate_doc_average_word2vec(model, article_titles):
     end = time.time()
 
     fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1, title="Embedding view of articles "
-                                                                                   "generated"
-                                                                                   " from BioWordVec")
-
+                                                                                   "generated from BioWordVec")
+    fig.update_traces(marker_color='#A74482')
     fig.update_layout(
-        margin=dict(l=10, r=20),
+        margin=dict(l=10, r=10, t=30, b=30),
         paper_bgcolor="white",
     )
 
