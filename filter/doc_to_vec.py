@@ -20,9 +20,6 @@ nltk.download('punkt')
 CUR_DIR = os.path.basename(os.getcwd())
 
 
-# sentence_transformer_model = FiltersConfig.sentence_transformer_model
-
-
 def get_files(filepath):
     file_set = set()
     for base, dirs, files in os.walk(filepath):
@@ -66,7 +63,7 @@ def calculate_doc_average_word2vec(model, article_titles):
 
     doc_vectors = np.array(doc_vectors)
     start = time.time()
-    tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=1500, random_state=23)
+    tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=2500, random_state=45)
     new_values = tsne_model.fit_transform(doc_vectors)
     # cluster_obj = cluster_documents()
 
@@ -75,9 +72,9 @@ def calculate_doc_average_word2vec(model, article_titles):
 
     fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1, title="Embedding view of articles "
                                                                                    "generated from BioWordVec")
-    fig.update_traces(marker_color='#A74482')
+    fig.update_traces(marker_color='#D64045')
     fig.update_layout(
-        margin=dict(l=10, r=10, t=30, b=30),
+        margin=dict(l=10, r=10, t=40, b=30),
         paper_bgcolor="white",
     )
 

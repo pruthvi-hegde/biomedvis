@@ -123,7 +123,34 @@ body {
     margin: auto;
 }
 
+/* UI slider*/
+.ui-widget-header{
+    background: purple;
+}
 
+.ui-widget-content{
+    background: #f1f1f1;
+}
 
+.ui-widget.ui-widget-content {
+    border: antiquewhite !important;
+}
+
+.ui-slider-handle {
+      width: 8px;
+      height: 14px;
+}
+.ui-slider-range {
+  height: 2px !important;
+  top: 5px !important;
+  margin-left: 2px;
+}
+
+#slider-range .ui-slider-handle {
+  outline: 0;
+  background: purple;
+  border-radius: 50%;
+  top: -.3em;
+}
 
 

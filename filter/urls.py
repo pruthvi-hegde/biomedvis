@@ -9,5 +9,6 @@ urlpatterns = [
     path('articles-search', article.article_list, name='search'),
     path('filter-data', article.filter_data, name='filter'),
     path('embedding-view', article.create_embedding_view, name='embedding'),
-    path('update-article-view', article.update_article_view, name='update-article-view')
+    path('update-article-view', article.update_article_view, name='update-article-view'),
+    path('update-article-time-view', article.update_article_view_from_time_chart, name='update-article-time')
 ]
