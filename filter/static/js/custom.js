@@ -160,7 +160,8 @@ function updateTimeView(_publishedyears, _count){
             style: {
                 fontSize: '0px'
             }
-        }, tooltip: {
+        },
+        tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
@@ -178,12 +179,19 @@ function updateTimeView(_publishedyears, _count){
             tickmarkPlacement: 'on',
             tickInterval: 1,
             minRange: 1, // set this to allow up to one year to be viewed
+            gridLineColor: 'transparent',
+            linecolor:'black',
+            style: {
+                font_family : 'Calibri'
+            }
         },
         yAxis: {
+            gridLineColor: 'transparent',
             title: {
                 text: 'Number',
                 style: {
-                    fontSize: '0px'
+                    fontSize: '0px',
+                    font_family: 'Calibri'
                 }
             }
         },

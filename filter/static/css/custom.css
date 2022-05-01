@@ -153,4 +153,6 @@ body {
   top: -.3em;
 }
 
-
+.main-cards{
+    border-radius: 10px;
+}

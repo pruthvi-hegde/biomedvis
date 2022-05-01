@@ -70,12 +70,30 @@ def calculate_doc_average_word2vec(model, article_titles):
     # res = cluster_documents(doc_vectors)
     end = time.time()
 
-    fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1, title="Embedding view of articles "
-                                                                                   "generated from BioWordVec")
+    fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1)
     fig.update_traces(marker_color='#D64045')
     fig.update_layout(
-        margin=dict(l=10, r=10, t=40, b=30),
-        paper_bgcolor="white",
+        title="Embedding view of articles generated from BioWordVec",
+        margin=dict(l=5, r=5, b=30),
+        xaxis_title='',  # title for x axis
+        yaxis_title='',  # title for y axis
+        xaxis=dict(  # attribures for x axis
+            showline=True,
+            showgrid=True,
+            linecolor='black',
+            tickfont=dict(
+                family='Calibri'
+            )
+        ),
+        yaxis=dict(  # attribures for y axis
+            showline=True,
+            showgrid=True,
+            linecolor='black',
+            tickfont=dict(
+                family='Times New Roman'
+            )
+        ),
+        plot_bgcolor='white'  # background color for the graph
     )
 
     return fig

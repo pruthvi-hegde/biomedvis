@@ -1,8 +1,8 @@
- <div class="row col-12 pt-1" id="articlePageView">
+ <div class="row col-12 pt-3" id="articlePageView">
 
         {% for article in data %}
-            <div class="col-sm-1 pl-2 pr-2 pb-2 pt-2" id="articleColumns">
-                <div class="card bg-white custom-animation">
+            <div class="card-deck mr-2 mb-3" id="articleColumns">
+                <div class="card bg-white custom-animation" style="width: 6rem">
                     <div class="card-img">
                         <a data-index="{{ article.id }}" class="custom-info"
                            data-toggle="tooltip"
