@@ -1,29 +1,30 @@
 <!-- Articles -->
 {% if data %}
-    <div class="row pt-1">
-      <div class="col-sm-8">
-        <div class="card h-100 main-cards">
-            {% include 'embedding_view.html' %}
-        </div>
-      </div>
-
-          <div class="col-sm-4">
-        <div class="card h-100 main-cards">
-            <div class="card-body">
-                {% include 'time_view.html' %}
-
+    <div class="row pt-4 pb-2">
+        <div class="col-sm-8">
+            <div class="card h-100 main-cards">
+                {% include 'embedding_view.html' %}
             </div>
         </div>
+
+        <div class="col-sm-4 pr-5">
+            <div class="card h-100 main-cards">
+                <div class="card-body">
+                    {% include 'time_view.html' %}
+
+                </div>
+            </div>
 
 
         </div>
     </div>
 
-    {% include 'article_page_view.html' %}
+
+        {% include 'article_page_view.html' %}
 
 
 {% else %}
-    <div class="align-content-center text-center">
+    <div class="align-content-center text-center mt-5">
         <b class="no-results"><i class="fa fa-sad-tear"></i> Sorry!! Could not find articles related to your
             search</b>
     </div>

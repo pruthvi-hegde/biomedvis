@@ -1,34 +1,60 @@
 {% load static %}
 
-<script type="text/javascript"></script>
+<div class="layout h-100 filter w-100">
+  <aside id="sidebar" class="sidebar h-100">
+    <div class="sidebar-layout">
+      <header class="text-center pt-3">
+        <span style="
+                font-size: 15px;
+                letter-spacing: 3px;
+                font-family: 'Poppins', sans-serif;
+                font-weight: bold;
+                font-color: white;
+              ">Filters</span>
+      </header>
+    <div class="divider"></div>
+    <br>
+      <div class="sidebar-content pb-4">
+
 
 
 <!-- Filter 1 -->
 {% for category, subcategories in view_item.items %}
-    <div class="card mb-2">
-        <h6 class="card-header">
-            <a class="collapsed d-block custom-color" data-toggle="collapse"
-               href="#collapse-example-{{ category.id }}"
-               aria-expanded="true"
-               aria-controls="collapse-collapsed" id="heading-collapsed">
-                {{ category }}<i class="fa fa-arrow-circle-o-left"></i></a>
-        </h6>
-        <div class="list-group list-group-flush collapse show" id="collapse-example-{{ category.id }}">
+        <nav class="menu open-current-submenu">
+          <ul style="list-style-type:none;">
+            <li class="d-block menu-item sub-menu">
+            <a class="custom-item"
+               href="#collapse-example-{{ category }}"
+               aria-expanded="true" data-toggle="collapse"
+               aria-controls="collapse-example-{{ category}}">
+                <span>
+                {{ category }}</span><i class="fa fa-caret-down ml-2"></i></a>
+
+        <div class="collapse show" id="collapse-example-{{ category }}">
+        <ul style="list-style-type:none;" class="pt-2">
             {% for label in subcategories %}
-                <li class="list-group-item border-0 pb-0">
+                <li class="menu-item collapse-toggle">
                     <label class="custom-control overflow-checkbox">
                         <input id="articleSelect" data-filter={{ category }} type="checkbox"
                                class="overflow-control-input filter-checkbox custom-list"
                                value="{{ label }}">
                         <span class="overflow-control-indicator"></span>
-                        <span class="overflow-control-description font-family-label">{{ label }}</span>
+                        <span class="overflow-control-description menu-title">{{ label }}</span>
                     </label>
                 </li>
             {% endfor %}
+        </ul>
         </div>
-    </div>
+            </li>
+          </ul>
+        </nav>
+
 
 
 {% endfor %}
+       </div>
+    </div>
+  </aside>
+</div>
 
 

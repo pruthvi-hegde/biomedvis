@@ -1,8 +1,7 @@
- <div class="row col-12 pt-3" id="articlePageView">
-
+<div class="row pt-3 pl-3 pt-2" id="articlePageView">
         {% for article in data %}
             <div class="card-deck mr-2 mb-3" id="articleColumns">
-                <div class="card bg-white custom-animation" style="width: 6rem">
+                <div class="card bg-white custom-animation" style="width: 8rem">
                     <div class="card-img">
                         <a data-index="{{ article.id }}" class="custom-info"
                            data-toggle="tooltip"
@@ -35,4 +34,4 @@
                 </div>
             </div>
         {% endfor %}
-    </div>
+</div>

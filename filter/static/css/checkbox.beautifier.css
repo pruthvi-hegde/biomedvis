@@ -70,7 +70,7 @@ h2 {
     left: 0;
     width: 14px;
     height: 14px;
-    border: 2px solid black;
+    border: 2px solid #f1f1f1;
 }
 
 .custom-control.overflow-checkbox .overflow-control-indicator:hover {
@@ -107,7 +107,7 @@ h2 {
     -o-transition: .3s;
     transition: .3s;
     width: 10px;
-    border-right: 7px solid #fff;
+    border-right: 7px solid #7386D5;
     border-radius: 3px;
     -webkit-transform: rotateZ(45deg) scale(1);
     -ms-transform: rotate(45deg) scale(1);

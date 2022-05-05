@@ -33,7 +33,7 @@ $(document).ready(function () {
         let request_parameters = {
             q: $(this).val() // value of user_input: the HTML element with ID user-input
         }
-         // Run Ajaxl
+        // Run Ajaxl
         $.ajax({
             url: '/articles-search', data: request_parameters, beforeSend: function () {
             }, success: function (res) {
@@ -128,19 +128,19 @@ function drawTimeView() {
 
 }
 
-function updateArticleView(val1, val2){
+function updateArticleView(val1, val2) {
     $.ajax({
-            url: '/update-article-time-view',
-            type: 'POST',
-            data: JSON.stringify([val1, val2]), dataType: 'json', beforeSend: function () {
-            }, success: function (res) {
-                $("#articlePageView").html(res.data);
-                $('#myDiv').html(res.data2);
-            }
-        })
+        url: '/update-article-time-view',
+        type: 'POST',
+        data: JSON.stringify([val1, val2]), dataType: 'json', beforeSend: function () {
+        }, success: function (res) {
+            $("#articlePageView").html(res.data);
+            $('#myDiv').html(res.data2);
+        }
+    })
 }
 
-function updateTimeView(_publishedyears, _count){
+function updateTimeView(_publishedyears, _count) {
     year = _publishedyears.map(i => Number(i))
     year_min = Math.min(...year)
     year_max = Math.max(...year)
@@ -180,17 +180,19 @@ function updateTimeView(_publishedyears, _count){
             tickInterval: 1,
             minRange: 1, // set this to allow up to one year to be viewed
             gridLineColor: 'transparent',
-            linecolor:'black',
+            linecolor: 'black',
             style: {
-                font_family : 'Calibri'
+                font_family: 'Calibri'
             }
         },
         yAxis: {
+            tickmarkPlacement: 'on',
+            minRange: 1,
             gridLineColor: 'transparent',
+            linecolor: 'black',
             title: {
-                text: 'Number',
+                text: '',
                 style: {
-                    fontSize: '0px',
                     font_family: 'Calibri'
                 }
             }
@@ -228,14 +230,20 @@ function updateTimeView(_publishedyears, _count){
                 $(this).slider('values', 0, 0);
                 $(this).slider('values', 1, myData.length - 1);
             },
-            stop: function (_,ui){
+            stop: function (_, ui) {
                 updateArticleView(myData[ui.values[0]], myData[ui.values[1]])
             }
         };
         $('#slider-range').slider(slider_config)
         $("#amount").val(year_min.toString() +
             " - " + year_max.toString());
-         // Run Ajaxl
+
     });
 
 }
+
+$(document).on('click', ".custom-item", function () {
+
+    var _vm = $(this);
+    var _index = _vm.attr('area-controls');
+})

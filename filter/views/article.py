@@ -18,7 +18,6 @@ filter_model = FiltersConfig.model
 # Article List
 def article_list(request):
     url_parameter = request.GET.get("q")
-    print(url_parameter)
 
     # If there is a search then below part should execute.
     if url_parameter:

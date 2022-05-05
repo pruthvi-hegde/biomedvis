@@ -12,6 +12,7 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.manifold import TSNE
 
 from string import punctuation
+
 nltk.download('omw-1.4')
 nltk.download('wordnet')
 nltk.download('stopwords')
@@ -72,28 +73,41 @@ def calculate_doc_average_word2vec(model, article_titles):
 
     fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1)
     fig.update_traces(marker_color='#D64045')
+
     fig.update_layout(
         title="Embedding view of articles generated from BioWordVec",
+        title_font_color='#666666',
+        title_font_size=16,
+        title_font_family='Calibri',
         margin=dict(l=5, r=5, b=30),
         xaxis_title='',  # title for x axis
         yaxis_title='',  # title for y axis
         xaxis=dict(  # attribures for x axis
             showline=True,
             showgrid=True,
-            linecolor='black',
+            linecolor='#666666',
             tickfont=dict(
-                family='Calibri'
+                family='poppins',
+                color='#666666'
             )
         ),
         yaxis=dict(  # attribures for y axis
             showline=True,
             showgrid=True,
-            linecolor='black',
+            linecolor='#666666',
             tickfont=dict(
-                family='Times New Roman'
+                family='poppins',
+                color='#666666'
             )
         ),
-        plot_bgcolor='white'  # background color for the graph
+        hoverlabel=dict(
+            bgcolor="#ffffff",
+            font_size=12,
+            font_color="#141414",
+            font_family="Calibri",
+            bordercolor="#D64045",
+        ),
+        plot_bgcolor='white',
     )
 
     return fig
@@ -125,14 +139,14 @@ def preprocess_sentence_returns_list(text):
 
 
 def cluster_documents(doc_vec):
-
     corpus_embeddings = doc_vec
 
     # Normalize the embeddings to unit length
-    #corpus_embeddings = corpus_embeddings / np.linalg.norm(corpus_embeddings, axis=1, keepdims=True)
+    # corpus_embeddings = corpus_embeddings / np.linalg.norm(corpus_embeddings, axis=1, keepdims=True)
 
     # Perform kmean clustering
-    clustering_model = AgglomerativeClustering(n_clusters=None, distance_threshold=1.5)  # , affinity='cosine', linkage='average', distance_threshold=0.4)
+    clustering_model = AgglomerativeClustering(n_clusters=None,
+                                               distance_threshold=1.5)  # , affinity='cosine', linkage='average', distance_threshold=0.4)
     article_cluster_map = clustering_model.fit_predict(corpus_embeddings)
 
     # cluster_assignment = clustering_model.labels_
@@ -153,5 +167,5 @@ def cluster_documents(doc_vec):
     #     print("")
     #     counter.append(i)
 
-    #print(article_cluster_map)
+    # print(article_cluster_map)
     return article_cluster_map

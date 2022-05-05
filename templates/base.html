@@ -28,8 +28,10 @@
 
 
     <!-- CustomJs -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/beautify.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}"/>
-    <script type="text/javascript" src={% static 'js/custom.js' %}></script>
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/checkbox.beautifier.css' %}"/>
 
@@ -37,67 +39,66 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js"></script>
-    <script src=""></script>
-    <script src=""></script>
 
 
 </head>
 <body>
 
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-custom overflow-hidden">
-    <div class="d-flex flex-column w-100">
-        <div class="d-inline-flex flex-nowrap">
-            <h1 class="custom-title">VisBioMed</h1>
-
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link text-white shadow" href="/" style="">Reset</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white shadow" href="{% url 'category-list' %}">Docs</a>
-                    </li>
-                </ul>
-
-                <form class="form-inline nav-item w-25">
-                    <div class="input-group search-box w-100">
-                        <input id="searchArticle" name="q" class="form-control custom_search w-100"
-                               placeholder="Find your articles here...."
-                               aria-label="Search for..." type="search">
-
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div>
-
-            <small><a href="https://diglib.eg.org/handle/10.2312/463" target="_blank">VCBM: Eurographics Workshop on
-                Visual Computing for Biomedicine
-            </a>
-            </small>
-
-        </div>
-    </div>
-</nav>
-
+{#<nav class="navbar navbar-expand-lg navbar-dark bg-custom overflow-hidden">#}
+{#    <div class="d-flex flex-column w-100">#}
+{#        <div class="d-inline-flex flex-nowrap">#}
+{#            <h1 class="custom-title">VisBioMed</h1>#}
+{##}
+{#            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">#}
+{#                <ul class="navbar-nav">#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link text-white shadow" href="/" style="">Reset</a>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link text-white shadow" href="{% url 'category-list' %}">Docs</a>#}
+{#                    </li>#}
+{#                </ul>#}
+{##}
+{#                <form class="form-inline nav-item w-25">#}
+{#                    <div class="input-group search-box w-100">#}
+{#                        <input id="searchArticle" name="q" class="form-control custom_search w-100"#}
+{#                               placeholder="Find your articles here...."#}
+{#                               aria-label="Search for..." type="search">#}
+{##}
+{#                    </div>#}
+{#                </form>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div>#}
+{##}
+{#            <small><a href="https://diglib.eg.org/handle/10.2312/463" target="_blank">VCBM: Eurographics Workshop on#}
+{#                Visual Computing for Biomedicine#}
+{#            </a>#}
+{#            </small>#}
+{##}
+{#        </div>#}
+{#    </div>#}
+{#</nav>#}
 
 
 {% block content %}
 {% endblock %}
 
-<footer class="footer fixed-bottom bg-footer">
 
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2022 Copyright:
-        <a>RWTH Aachen University</a>
-        and
-        <a>Bonn University</a>
 
-    </div>
-    <!-- Copyright -->
+{#<footer class="footer fixed-bottom bg-footer">#}
+{##}
+{#    <!-- Copyright -->#}
+{#    <div class="footer-copyright text-center py-3">© 2022 Copyright:#}
+{#        <a>RWTH Aachen University</a>#}
+{#        and#}
+{#        <a>Bonn University</a>#}
+{##}
+{#    </div>#}
+{#    <!-- Copyright -->#}
+{##}
+{#</footer>#}
 
-</footer>
 
 
 </body>
