@@ -4,7 +4,8 @@ $(document).on('click', ".custom-info", function () {
     var _index = _vm.attr('data-index');
     var _articleTitle = $(".article-title-" + _index).val();
     var _articleThumbnail = $(".article-thumbnail-" + _index).val()
-    var _articleAuthors = $(".article-authors-" + _index).val()
+    console.log(_articleThumbnail)
+    var _articleAuthors = 'by ' + $(".article-authors-" + _index).val()
     var _articleISSN = $(".article-ISSN-" + _index).val()
     var _articleISBN = $(".article-ISBN-" + _index).val()
     var _articleDOI = $(".article-DOI-" + _index).val()
@@ -18,7 +19,7 @@ $(document).on('click', ".custom-info", function () {
 
     $("#articleYear").text(_articleYear)
     $("#articleDOI").attr('href', _articleDOI)
-    $("#articleDOI").text(_articleDOI)
+    // $("#articleDOI").text(_articleDOI)
     $("#abstract").text(_abstract)
 
 
@@ -242,8 +243,21 @@ function updateTimeView(_publishedyears, _count) {
 
 }
 
-$(document).on('click', ".custom-item", function () {
+$('[data-toggle="popover"]').popover({
+    trigger: 'hover focus',
+    placement: 'top',
+    template: '<div class="popover awesome-popover-class"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
+})
 
-    var _vm = $(this);
-    var _index = _vm.attr('area-controls');
+$(document).on('click', ".custom-info", function () {
+    const elem = document.getElementById('articleThumbnail')
+    const panzoom = Panzoom(elem, {
+        bounds: true,
+        maxScale: 3,
+        minScale: 1,
+        zoomDoubleClickSpeed: 1,
+    })
+     $('.fa-search-plus').on('click', panzoom.zoomIn)
+     $('.fa-search-minus').on('click', panzoom.zoomOut)
+
 })

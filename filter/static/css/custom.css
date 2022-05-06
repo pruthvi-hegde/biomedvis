@@ -3,7 +3,7 @@
 }
 
 .bg-custom {
-    background-color: #7386D5;
+    background-color: #6d7fcc;
 }
 
 .bg-footer {
@@ -45,11 +45,6 @@ body {
     display: block;
     animation: ease-out;
     border: white;
-}
-
-.custom-info {
-
-
 }
 
 .card {
@@ -108,6 +103,11 @@ body {
     font-family: "PT Sans Caption";
 }
 
+.modal-title {
+    color: white;
+    font-family: "PT Sans Caption";
+}
+
 @media (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: .7rem;
@@ -124,7 +124,8 @@ body {
     background-position: left;
     padding-left: 25px;
     position: absolute;
-    border-color: #333333;
+    border-color: grey;
+    border-radius: 5px;
 
 }
 
@@ -197,15 +198,15 @@ html, body {
 .custom-bottom {
 }
 
-.filter {
+.custom-scroll {
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    overflow-y: scroll;
+    overflow-y: auto;
     background: #FAF9F9;
 }
 
-.filter::-webkit-scrollbar {
+.custom-scroll::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .layout {
@@ -213,8 +214,55 @@ html, body {
 }
 
 .custom-item {
-    font-size: 6px;
+    font-size: 16px;
     letter-spacing: 1px;
     font-family: 'Poppins', sans-serif;
-    font-color: white;
 }
+
+.menu-item {
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.popover-content {
+    background-color: #fafafa;
+}
+
+.modal-header {
+    background-color: #6d7fcc;
+    padding: 16px 16px;
+    color: #FFF;
+    border-bottom: 2px dashed #6d7fcc;
+
+}
+
+/* Important part */
+/*.modal-dialog{*/
+/*    overflow-y: initial !important*/
+/*}*/
+.modal-text {
+    color: #1F1F1F;
+    font-family: "PT Sans";
+    font-size: 12px;
+    text-align: justify;
+
+}
+
+.modal-body {
+    /*height: 80vh;*/
+    overflow-y: auto;
+}
+
+.zoom-in-image {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #9fcdff;
+    width: 360px;
+    margin: 10px;
+    border-radius: 10px;
+    align-content: center;
+}
+.zoom-in-image img { display: block;}
+.zoom-in-image .fa-search-plus { position: absolute; bottom:2px; z-index: 2; left:45%}
+.zoom-in-image .fa-search-minus { position: absolute; bottom:2px; z-index: 2; right:45%}
