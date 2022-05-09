@@ -11,31 +11,16 @@ from ..apps import FiltersConfig
 from ..doc_to_vec import calculate_doc_average_word2vec
 from ..models.article import Article
 from ..models.category import Category, Subcategory
+import plotly.express as px
 
 filter_model = FiltersConfig.model
 
 
 # Article List
 def article_list(request):
-    url_parameter = request.GET.get("q")
+    articles = Article.objects.all().order_by('-id')
 
-    # If there is a search then below part should execute.
-    if url_parameter:
-        main_articles = Article.objects.none()
-
-        articles = Article.objects.filter(abstract__icontains=url_parameter)
-        if list(articles) == list(main_articles):
-            # url_parameter = url_parameter.split(" ")
-            # for query_word in url_parameter:
-            #     main_articles |= Article.objects.filter(abstract__icontains=query_word)
-
-            articles = main_articles
-    elif not url_parameter:
-        articles = Article.objects.all().order_by('-id')
-    else:
-        articles = Article.objects.all().order_by('-id')
-
-    # This part is to fetch all categories and subcategories rom categories model.
+    # This part is to fetch all categories and subcategories from categories model.
     categories = Category.get_all_categories()
 
     categories_data = {}
@@ -43,29 +28,14 @@ def article_list(request):
         categories_name = cat.category_name.replace(" ", "_")
         categories_data[categories_name] = Subcategory.objects.filter(category__exact=cat)
 
-    article_title, published_date, article_count = get_article_published_year_and_count(articles)
-
-    # This is for search
-    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        html = render_to_string(
-            template_name="component_view.html",
-            context={'data': articles, 'article_title': article_title, 'published_date': published_date,
-                     'article_count': article_count}
-        )
-
-        data_dict = {'data': html}
-
-        return JsonResponse(data=data_dict, safe=False)
-
-    # This part is for time filter.
-    total_data = Article.objects.count()
+    article_title, published_date, article_count, total_count = get_article_published_year_and_count(articles)
 
     # This should execute for all
     return render(request, 'main.html',
                   {
                       'data': articles,
                       'article_title': article_title,
-                      'total_data': total_data,
+                      'total_count': total_count,
                       'view_item': categories_data,
                       'published_date': published_date,
                       'article_count': article_count
@@ -74,44 +44,25 @@ def article_list(request):
 
 
 def filter_data(request):
-    species = request.GET.getlist('Species[]')
-    scale = request.GET.getlist('Scale[]')
-    organ = request.GET.getlist('Organ[]')
-    data_source = request.GET.getlist('Data_Source[]')
-    algorithm = request.GET.getlist('Algorithm[]')
-    dimension = request.GET.getlist('Dimension[]')
-
-    # This line needs to be fixed
+    filter_values = dict(request.GET)
     main_articles = Article.objects.none()
-
-    for org in organ:
-        main_articles |= Article.objects.filter(abstract__icontains=org)
-
-    for ds in data_source:
-        main_articles |= Article.objects.filter(abstract__icontains=ds)
-
-    for sc in scale:
-        main_articles |= Article.objects.filter(abstract__icontains=sc)
-
-    for sp in species:
-        main_articles |= Article.objects.filter(abstract__icontains=sp)
-
-    for al in algorithm:
-        main_articles |= Article.objects.filter(abstract__icontains=al)
-
-    for dm in dimension:
-        main_articles |= Article.objects.filter(abstract__icontains=dm)
-
-    if not organ and not data_source and not scale and not species and not dimension and not algorithm:
+    if len(filter_values) is not 0:
+        for categories in filter_values.values():
+            for cat in categories:
+                main_articles |= Article.objects.filter(abstract__icontains=cat)
+    else:
         main_articles = Article.objects.all().order_by('-id')
 
-    article_title, published_date, article_count = get_article_published_year_and_count(main_articles)
+    article_title, published_date, article_count, total_count = get_article_published_year_and_count(main_articles)
 
     t = render_to_string('component_view.html', {'data': main_articles, 'article_title': article_title,
                                                  'published_date': published_date,
-                                                 'article_count': article_count
+                                                 'article_count': article_count,
+                                                 'total_count': total_count,
                                                  })
-    return JsonResponse({'data': t}, safe=False)
+    tt = {'published_data': published_date, 'article_count': article_count, 'total_count': total_count,
+          'article_title': article_title}
+    return JsonResponse({'data': t, 'data2': tt}, safe=False)
 
 
 @csrf_exempt
@@ -119,14 +70,36 @@ def create_embedding_view(request):
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         response = json.loads(request.body)
         article_titles = ast.literal_eval(response)
-        try:
-            fig = calculate_doc_average_word2vec(filter_model, article_titles)
-            graphs = fig
-            t = plot({'data': graphs},
+        if len(article_titles) != 1:
+            try:
+                fig = calculate_doc_average_word2vec(filter_model, article_titles)
+                t = plot({'data': fig},
+                         output_type='div')
+                return JsonResponse({'data': t, 'dragmode': 'lasso'}, safe=True)
+            except RuntimeError as e:
+                print("Runtime error", e)
+        else:
+            fig = px.scatter()
+            fig.update_layout(
+                xaxis={"visible": False},
+                yaxis={"visible": False},
+                annotations=[
+                    {
+                        "text": "Sorry!! This view cannot be populated with just one result",
+                        "xref": "paper",
+                        "yref": "paper",
+                        "showarrow": False,
+                        "font": {
+                            "size": 28
+                        }
+                    }
+                ]
+            )
+            t = plot({'data': fig},
                      output_type='div')
-            return JsonResponse({'data': t, 'dragmode': 'lasso'}, safe=True)
-        except RuntimeError as e:
-            print("Runtime error", e)
+            tt = {}
+            return JsonResponse({'data': t}, safe=True)
+
     else:
         print("Error occured")
 
@@ -139,9 +112,10 @@ def update_article_view(request):
         for article_point in selected_article_points:
             main_articles |= Article.objects.filter(article_title__exact=article_point)
 
-        article_title, published_date, article_count = get_article_published_year_and_count(main_articles)
+        article_title, published_date, article_count, total_count = get_article_published_year_and_count(main_articles)
         t = render_to_string('article_page_view.html', {'data': main_articles, 'article_title': article_title})
-        tt = {'published_data': published_date, 'article_count': article_count}
+        tt = {'published_data': published_date, 'article_count': article_count, 'total_count': total_count,
+              'article_title': article_title}
         return JsonResponse({'data': t, 'data2': tt}, safe=False)
 
 
@@ -151,16 +125,46 @@ def update_article_view_from_time_chart(request):
         article_years = json.loads(request.body)
 
         main_articles = Article.objects.filter(published_date__gte=article_years[0], published_date__lte=article_years[1])
+    # main_articles = json.loads(request.body)
 
-        article_titles, published_date, article_count = get_article_published_year_and_count(main_articles)
+        article_titles, published_date, article_count, total_count = get_article_published_year_and_count(main_articles)
 
         fig = calculate_doc_average_word2vec(filter_model, article_titles)
-        graphs = fig
-        tt = plot({'data': graphs}, output_type='div')
+        tt = plot({'data': fig}, output_type='div')
 
         t = render_to_string('article_page_view.html', {'data': main_articles})
-
         return JsonResponse({'data': t, 'data2': tt}, safe=False)
+
+
+@csrf_exempt
+def populate_on_search(request):
+    # This is for search
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        url_parameter = request.GET.get("q")
+        print("search_item", url_parameter)
+        if url_parameter:
+            main_articles = Article.objects.none()
+            articles = Article.objects.filter(abstract__icontains=url_parameter)
+            if list(articles) == list(main_articles):
+                # url_parameter = url_parameter.split(" ")
+                # for query_word in url_parameter:
+                #     main_articles |= Article.objects.filter(abstract__icontains=query_word)
+
+                articles = main_articles
+        elif not url_parameter:
+            articles = Article.objects.all().order_by('-id')
+        else:
+            articles = Article.objects.all().order_by('-id')
+
+        article_title, published_date, article_count, total_count = get_article_published_year_and_count(articles)
+
+        html = render_to_string(
+            template_name="component_view.html",
+            context={'data': articles, 'article_title': article_title, 'published_date': published_date,
+                     'article_count': article_count}
+        )
+        embedding_view_data = {'article_titles': article_title, 'total_count': total_count}
+        return JsonResponse({'data': html, 'embedding_view_data': embedding_view_data}, safe=False)
 
 
 def get_article_published_year_and_count(main_articles):
@@ -173,4 +177,5 @@ def get_article_published_year_and_count(main_articles):
 
     published_date = list(d['published_date'] for d in published_date_data)
     article_count = list(d['dcount'] for d in published_date_data)
-    return article_title, published_date, article_count
+    total_count = main_articles.count()
+    return article_title, published_date, article_count, total_count

@@ -25,12 +25,12 @@
             <li class="d-block menu-item sub-menu">
             <a class="custom-item"
                href="#collapse-example-{{ category }}"
-               aria-expanded="true" data-toggle="collapse"
+               aria-expanded="false" data-toggle="collapse"
                aria-controls="collapse-example-{{ category}}">
                 <span>
                 {{ category }}</span><i class="fa fa-caret-down ml-2"></i></a>
 
-        <div class="collapse show" id="collapse-example-{{ category }}">
+        <div class="collapse" id="collapse-example-{{ category }}">
         <ul style="list-style-type:none;" class="pt-2">
             {% for label in subcategories %}
                 <li class="menu-item collapse-toggle">

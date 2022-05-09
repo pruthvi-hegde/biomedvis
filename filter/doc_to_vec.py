@@ -41,7 +41,7 @@ def get_mean_vector(model, words):
 def calculate_doc_average_word2vec(model, article_titles):
     all_words = []
     file_names = []
-    start = time.time()
+
     for file in article_titles:
         file = path.join('../' + CUR_DIR + '/abstracts_title/', file.replace("/", "-") + '.txt')
         if os.path.getsize(file) != 0:
@@ -52,24 +52,17 @@ def calculate_doc_average_word2vec(model, article_titles):
         else:
             print("File size is 0")
 
-    end = time.time()
-
     doc_vectors = []
-    start = time.time()
+
     for doc in all_words:
         vec = get_mean_vector(model, doc)
         if len(vec) > 0:
             doc_vectors.append(vec)
-    end = time.time()
 
     doc_vectors = np.array(doc_vectors)
-    start = time.time()
+
     tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=2500, random_state=45)
     new_values = tsne_model.fit_transform(doc_vectors)
-    # cluster_obj = cluster_documents()
-
-    # res = cluster_documents(doc_vectors)
-    end = time.time()
 
     fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1)
     fig.update_traces(marker_color='#D64045')
@@ -80,9 +73,9 @@ def calculate_doc_average_word2vec(model, article_titles):
         title_font_size=16,
         title_font_family='Calibri',
         margin=dict(l=5, r=5, b=30),
-        xaxis_title='',  # title for x axis
-        yaxis_title='',  # title for y axis
-        xaxis=dict(  # attribures for x axis
+        xaxis_title='',
+        yaxis_title='',
+        xaxis=dict(
             showline=True,
             showgrid=True,
             linecolor='#666666',

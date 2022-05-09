@@ -29,21 +29,41 @@ $(document).on('click', ".custom-info", function () {
 
 //Common document ready function.
 $(document).ready(function () {
+
     embeddingView()
-    $("#searchArticle").on('keyup', function () {
+    drawTimeView()
+    var typingTimer;
+    var doneTypingInterval = 500;
+    let input = $('#searchArticle');
+
+    //on keyup, start the countdown
+    input.on('keyup', function () {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(populate_search, doneTypingInterval);
+    });
+
+    //on keydown, clear the countdown
+    input.on('keydown', function () {
+        clearTimeout(typingTimer);
+    });
+
+    function populate_search() {
         let request_parameters = {
-            q: $(this).val() // value of user_input: the HTML element with ID user-input
+            q: $('#searchArticle').val() // value of user_input: the HTML element with ID user-input
         }
         // Run Ajaxl
         $.ajax({
-            url: '/articles-search', data: request_parameters, beforeSend: function () {
-            }, success: function (res) {
+            url: '/articles-search',
+            data: request_parameters,
+            success: function (res) {
                 $('#filteredArticles').html(res.data);
-                embeddingView();
-                drawTimeView();
+                drawTimeView()
+                embeddingView()
+            }, error: function (xhr, status, error) {
+                console.log("inside Error " + error);
             }
         });
-    })
+    }
 
     $(".filter-checkbox").on('click', function () {
         var _filterObj = {};
@@ -61,14 +81,16 @@ $(document).ready(function () {
             }, success: function (res) {
                 $("#filteredArticles").html(res.data);
                 embeddingView();
-                drawTimeView()
+                updateTimeView(res.data2['published_data'], res.data2['article_count'], false)
+            }, error: function (xhr, status, error) {
+                console.log("inside Error " + error);
             }
         });
     })
-})
+});
 
 function embeddingView() {
-    // Run Ajaxl
+    // //Run Ajaxl
     let data = $('#articleEmbeddingView').data('article')
     let jsonText = JSON.stringify(data);
     $.ajax({
@@ -103,7 +125,7 @@ $(document).on('plotly_selected', "#myDiv", function (arg1, arg2) {
         beforeSend: function () {
         }, success: function (res) {
             $("#articlePageView").html(res.data);
-            updateTimeView(res.data2['published_data'], res.data2['article_count'])
+            updateTimeView(res.data2['published_data'], res.data2['article_count'], false)
         }
     });
 })
@@ -115,19 +137,11 @@ $(document).on('plotly_click', "#myDiv", function (arg1, arg2) {
 })
 
 
-//This is for the time view
-document.addEventListener('DOMContentLoaded', function () {
-    drawTimeView()
-
-});
-
-function drawTimeView() {
-    let ctx = $('#chartContainer');
-    let _publishedyears = ctx.data('date')
-    let _count = ctx.data('count')
-    updateTimeView(_publishedyears, _count)
-
-}
+// //This is for the time view
+// document.addEventListener('DOMContentLoaded', function () {
+//     drawTimeView()
+//
+// });
 
 function updateArticleView(val1, val2) {
     $.ajax({
@@ -141,7 +155,16 @@ function updateArticleView(val1, val2) {
     })
 }
 
-function updateTimeView(_publishedyears, _count) {
+function drawTimeView() {
+    let ctx = $('#chartContainer');
+    let _publishedyears = ctx.data('date')
+    let _count = ctx.data('count')
+    // let _tcount = ctx.data('tcount')
+    updateTimeView(_publishedyears, _count, true)
+
+}
+
+function updateTimeView(_publishedyears, _count, flag) {
     year = _publishedyears.map(i => Number(i))
     year_min = Math.min(...year)
     year_max = Math.max(...year)
@@ -158,9 +181,7 @@ function updateTimeView(_publishedyears, _count) {
             enabled: false
         },
         title: {
-            style: {
-                fontSize: '0px'
-            }
+            text: ''
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -235,7 +256,11 @@ function updateTimeView(_publishedyears, _count) {
                 updateArticleView(myData[ui.values[0]], myData[ui.values[1]])
             }
         };
-        $('#slider-range').slider(slider_config)
+        if (flag) {
+            $('#slider-range').slider(slider_config)
+        } else {
+            $('#slider-range').slider('disable')
+        }
         $("#amount").val(year_min.toString() +
             " - " + year_max.toString());
 
@@ -257,7 +282,7 @@ $(document).on('click', ".custom-info", function () {
         minScale: 1,
         zoomDoubleClickSpeed: 1,
     })
-     $('.fa-search-plus').on('click', panzoom.zoomIn)
-     $('.fa-search-minus').on('click', panzoom.zoomOut)
+    $('.fa-search-plus').on('click', panzoom.zoomIn)
+    $('.fa-search-minus').on('click', panzoom.zoomOut)
 
 })
