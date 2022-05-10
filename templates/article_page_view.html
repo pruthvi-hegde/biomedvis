@@ -1,4 +1,8 @@
-<div class="row pl-3 pb-5" id="articlePageView">
+<div id="articlePageView">
+ <div>
+        <small>Total Articles : {{ total_count }}</small>
+    </div>
+    <div class="pl-3 pb-5 row">
     {% for article in data %}
         <div class="card-deck mr-2 pt-3" id="articleColumns">
             <div class="card bg-white custom-animation" style="width: 8rem">
@@ -37,4 +41,5 @@
             </div>
         </div>
     {% endfor %}
+</div>
 </div>

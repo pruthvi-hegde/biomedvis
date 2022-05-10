@@ -113,7 +113,8 @@ def update_article_view(request):
             main_articles |= Article.objects.filter(article_title__exact=article_point)
 
         article_title, published_date, article_count, total_count = get_article_published_year_and_count(main_articles)
-        t = render_to_string('article_page_view.html', {'data': main_articles, 'article_title': article_title})
+        t = render_to_string('article_page_view.html', {'data': main_articles, 'article_title': article_title,
+                                                        'total_count': total_count})
         tt = {'published_data': published_date, 'article_count': article_count, 'total_count': total_count,
               'article_title': article_title}
         return JsonResponse({'data': t, 'data2': tt}, safe=False)
@@ -132,7 +133,7 @@ def update_article_view_from_time_chart(request):
         fig = calculate_doc_average_word2vec(filter_model, article_titles)
         tt = plot({'data': fig}, output_type='div')
 
-        t = render_to_string('article_page_view.html', {'data': main_articles})
+        t = render_to_string('article_page_view.html', {'data': main_articles, 'total_count':total_count})
         return JsonResponse({'data': t, 'data2': tt}, safe=False)
 
 
