@@ -13,7 +13,8 @@ from ..models.article import Article
 from ..models.category import Category, Subcategory
 import plotly.express as px
 
-filter_model = FiltersConfig.model
+# filter_model = FiltersConfig.model
+filter_model = FiltersConfig.sentence_transformer_model
 
 
 # Article List
@@ -46,7 +47,7 @@ def article_list(request):
 def filter_data(request):
     filter_values = dict(request.GET)
     main_articles = Article.objects.none()
-    if len(filter_values) is not 0:
+    if len(filter_values) != 0:
         for categories in filter_values.values():
             for cat in categories:
                 main_articles |= Article.objects.filter(abstract__icontains=cat)
@@ -72,7 +73,7 @@ def create_embedding_view(request):
         article_titles = ast.literal_eval(response)
         if len(article_titles) != 1:
             try:
-                fig = calculate_doc_average_word2vec(filter_model, article_titles)
+                fig = calculate_doc_average_word2vec(article_titles)
                 t = plot({'data': fig},
                          output_type='div')
                 return JsonResponse({'data': t, 'dragmode': 'lasso'}, safe=True)
@@ -124,13 +125,14 @@ def update_article_view(request):
 def update_article_view_from_time_chart(request):
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         article_years = json.loads(request.body)
+        print(article_years[0], article_years[1])
 
         main_articles = Article.objects.filter(published_date__gte=article_years[0], published_date__lte=article_years[1])
     # main_articles = json.loads(request.body)
 
         article_titles, published_date, article_count, total_count = get_article_published_year_and_count(main_articles)
 
-        fig = calculate_doc_average_word2vec(filter_model, article_titles)
+        fig = calculate_doc_average_word2vec(article_titles)
         tt = plot({'data': fig}, output_type='div')
 
         t = render_to_string('article_page_view.html', {'data': main_articles, 'total_count':total_count})
@@ -165,7 +167,8 @@ def populate_on_search(request):
                      'article_count': article_count}
         )
         embedding_view_data = {'article_titles': article_title, 'total_count': total_count}
-        return JsonResponse({'data': html, 'embedding_view_data': embedding_view_data}, safe=False)
+        return JsonResponse({'data': html, 'embedding_view_data': embedding_view_data, 'published_date': published_date,
+                            'article_count': article_count}, safe=False)
 
 
 def get_article_published_year_and_count(main_articles):

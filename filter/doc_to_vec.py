@@ -1,17 +1,15 @@
-import asyncio
-import time
+import json
+import os
+import re
+from string import punctuation
+
 import nltk
 import numpy as np
-import os
-import os.path as path
 import plotly.express as px
-import re
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.manifold import TSNE
-
-from string import punctuation
 
 nltk.download('omw-1.4')
 nltk.download('wordnet')
@@ -38,33 +36,19 @@ def get_mean_vector(model, words):
         return []
 
 
-def calculate_doc_average_word2vec(model, article_titles):
-    all_words = []
-    file_names = []
-
-    for file in article_titles:
-        file = path.join('../' + CUR_DIR + '/abstracts_title/', file.replace("/", "-") + '.txt')
-        if os.path.getsize(file) != 0:
-            with open(file, 'r') as f:
-                content = f.read()
-                all_words.append(preprocess_sentence_returns_list(content))
-                file_names.append(str(file).split('/')[-1].replace(".txt", ""))
-        else:
-            print("File size is 0")
-
-    doc_vectors = []
-
-    for doc in all_words:
-        vec = get_mean_vector(model, doc)
-        if len(vec) > 0:
-            doc_vectors.append(vec)
-
-    doc_vectors = np.array(doc_vectors)
+def calculate_doc_average_word2vec(article_titles):
+    print("here")
+    f = open('file_embeddings.json')
+    data = json.load(f)
+    if len(article_titles) < 236:
+        sentence_embeddings = [data[title.replace('/', '-')] for title in article_titles]
+    else:
+        sentence_embeddings = list(data.values())
 
     tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=2500, random_state=45)
-    new_values = tsne_model.fit_transform(doc_vectors)
+    new_values = tsne_model.fit_transform(sentence_embeddings)
 
-    fig = px.scatter(new_values, x=0, y=1, hover_name=file_names, opacity=1)
+    fig = px.scatter(new_values, x=0, y=1, opacity=1, hover_name=article_titles)
     fig.update_traces(marker_color='#D64045')
 
     fig.update_layout(

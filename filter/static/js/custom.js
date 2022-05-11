@@ -57,8 +57,8 @@ $(document).ready(function () {
             data: request_parameters,
             success: function (res) {
                 $('#filteredArticles').html(res.data);
-                drawTimeView()
                 embeddingView()
+                drawTimeView()
             }, error: function (xhr, status, error) {
                 console.log("inside Error " + error);
             }
@@ -81,7 +81,7 @@ $(document).ready(function () {
             }, success: function (res) {
                 $("#filteredArticles").html(res.data);
                 embeddingView();
-                updateTimeView(res.data2['published_data'], res.data2['article_count'], false)
+                updateTimeView(res.data2['published_data'], res.data2['article_count'])
             }, error: function (xhr, status, error) {
                 console.log("inside Error " + error);
             }
@@ -137,12 +137,6 @@ $(document).on('plotly_click', "#myDiv", function (arg1, arg2) {
 })
 
 
-// //This is for the time view
-// document.addEventListener('DOMContentLoaded', function () {
-//     drawTimeView()
-//
-// });
-
 function updateArticleView(val1, val2) {
     $.ajax({
         url: '/update-article-time-view',
@@ -160,11 +154,11 @@ function drawTimeView() {
     let _publishedyears = ctx.data('date')
     let _count = ctx.data('count')
     // let _tcount = ctx.data('tcount')
-    updateTimeView(_publishedyears, _count, true)
+    updateTimeView(_publishedyears, _count)
 
 }
 
-function updateTimeView(_publishedyears, _count, flag) {
+function updateTimeView(_publishedyears, _count) {
     year = _publishedyears.map(i => Number(i))
     year_min = Math.min(...year)
     year_max = Math.max(...year)
@@ -256,11 +250,9 @@ function updateTimeView(_publishedyears, _count, flag) {
                 updateArticleView(myData[ui.values[0]], myData[ui.values[1]])
             }
         };
-        if (flag) {
-            $('#slider-range').slider(slider_config)
-        } else {
-            $('#slider-range').slider('disable')
-        }
+
+        $('#slider-range').slider(slider_config)
+
         $("#amount").val(year_min.toString() +
             " - " + year_max.toString());
 
