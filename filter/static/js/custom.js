@@ -58,7 +58,7 @@ $(document).ready(function () {
             success: function (res) {
                 $('#filteredArticles').html(res.data);
                 embeddingView()
-                drawTimeView()
+                updateTimeView(res.data2['published_date'], res.data2['article_count'], false)
             }, error: function (xhr, status, error) {
                 console.log("inside Error " + error);
             }
@@ -81,7 +81,7 @@ $(document).ready(function () {
             }, success: function (res) {
                 $("#filteredArticles").html(res.data);
                 embeddingView();
-                updateTimeView(res.data2['published_data'], res.data2['article_count'])
+                updateTimeView(res.data2['published_data'], res.data2['article_count'], false)
             }, error: function (xhr, status, error) {
                 console.log("inside Error " + error);
             }
@@ -129,6 +129,12 @@ $(document).on('plotly_selected', "#myDiv", function (arg1, arg2) {
         }
     });
 })
+//Update article view after lasso or box select
+$(document).on('plotly_deselected', "#myDiv", function () {
+    alert("plotly deselected")
+
+})
+
 
 $(document).on('plotly_click', "#myDiv", function (arg1, arg2) {
     arg2.points.forEach(function (pt) {
@@ -137,11 +143,16 @@ $(document).on('plotly_click', "#myDiv", function (arg1, arg2) {
 })
 
 
-function updateArticleView(val1, val2) {
+function updateArticleView(minYear, maxYear, flag) {
+    var article_data = {
+        'minYear': minYear,
+        'maxYear': maxYear,
+        'loadFirstTime': flag
+    }
     $.ajax({
         url: '/update-article-time-view',
         type: 'POST',
-        data: JSON.stringify([val1, val2]), dataType: 'json', beforeSend: function () {
+        data: JSON.stringify(article_data), dataType: 'json', beforeSend: function () {
         }, success: function (res) {
             $("#articlePageView").html(res.data);
             $('#myDiv').html(res.data2);
@@ -154,11 +165,11 @@ function drawTimeView() {
     let _publishedyears = ctx.data('date')
     let _count = ctx.data('count')
     // let _tcount = ctx.data('tcount')
-    updateTimeView(_publishedyears, _count)
+    updateTimeView(_publishedyears, _count, true)
 
 }
 
-function updateTimeView(_publishedyears, _count) {
+function updateTimeView(_publishedyears, _count, flag) {
     year = _publishedyears.map(i => Number(i))
     year_min = Math.min(...year)
     year_max = Math.max(...year)
@@ -247,7 +258,7 @@ function updateTimeView(_publishedyears, _count) {
                 $(this).slider('values', 1, myData.length - 1);
             },
             stop: function (_, ui) {
-                updateArticleView(myData[ui.values[0]], myData[ui.values[1]])
+                updateArticleView(myData[ui.values[0]], myData[ui.values[1]], flag)
             }
         };
 

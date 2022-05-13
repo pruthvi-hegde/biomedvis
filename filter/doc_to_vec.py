@@ -37,7 +37,6 @@ def get_mean_vector(model, words):
 
 
 def calculate_doc_average_word2vec(article_titles):
-    print("here")
     f = open('file_embeddings.json')
     data = json.load(f)
     if len(article_titles) < 236:
@@ -47,7 +46,6 @@ def calculate_doc_average_word2vec(article_titles):
 
     tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=2500, random_state=45)
     new_values = tsne_model.fit_transform(sentence_embeddings)
-
     fig = px.scatter(new_values, x=0, y=1, opacity=1, hover_name=article_titles)
     fig.update_traces(marker_color='#D64045')
 

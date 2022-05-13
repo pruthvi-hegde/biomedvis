@@ -199,6 +199,12 @@ html, body {
 .custom-bottom {
 }
 
+.custom-button {
+    border-radius: 10px;
+    box-shadow: #d6d8d9;
+    border-color: #d6d8d9;
+}
+
 .custom-scroll {
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     overflow-y: auto;
@@ -264,6 +270,21 @@ html, body {
     border-radius: 10px;
     align-content: center;
 }
-.zoom-in-image img { display: block;}
-.zoom-in-image .fa-search-plus { position: absolute; bottom:2px; z-index: 2; left:45%}
-.zoom-in-image .fa-search-minus { position: absolute; bottom:2px; z-index: 2; right:45%}
+
+.zoom-in-image img {
+    display: block;
+}
+
+.zoom-in-image .fa-search-plus {
+    position: absolute;
+    bottom: 2px;
+    z-index: 2;
+    left: 45%
+}
+
+.zoom-in-image .fa-search-minus {
+    position: absolute;
+    bottom: 2px;
+    z-index: 2;
+    right: 45%
+}
