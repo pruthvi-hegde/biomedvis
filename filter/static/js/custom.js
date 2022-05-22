@@ -27,11 +27,14 @@ $(document).on('click', ".custom-info", function () {
 
 })
 
-//Common document ready function.
-$(document).ready(function () {
-
+$(window).bind('setup', function () {
     embeddingView()
     drawTimeView()
+});
+
+//Common document ready function.
+$(document).ready(function () {
+    $(window).trigger('setup');
     var typingTimer;
     var doneTypingInterval = 500;
     let input = $('#searchArticle');

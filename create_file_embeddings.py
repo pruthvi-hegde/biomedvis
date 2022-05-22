@@ -31,13 +31,13 @@ def create_embeddings():
     sentence_embeddings = sentence_embeddings.tolist()
     result = dict(zip(file_names, sentence_embeddings))
     print("writing to a file")
-    with open('filter/file_embeddings.json', 'w') as f:
+    with open('filter/file_embeddings_sentence_transformer.json', 'w') as f:
         json.dump(result, f)
     print("wrote to a file")
 
 #
 # def reading_embeddings(articles):
-#     f = open('file_embeddings.json')
+#     f = open('file_embeddings_sentence_transformer.json')
 #     data = json.load(f)
 #     # print([data[title.replace('/', '-')] for title in articles])
 #    x = [data.key() ]

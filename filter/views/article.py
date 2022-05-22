@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from plotly.offline import plot
 
 from ..apps import FiltersConfig
-from ..doc_to_vec import calculate_doc_average_word2vec
+from ..doc_to_vec import Doc2Vec
 from ..models.article import Article
 from ..models.category import Category, Subcategory
 
@@ -82,7 +82,8 @@ def create_embedding_view(request):
         article_titles = ast.literal_eval(response)
         if len(article_titles) > 1:
             try:
-                fig = calculate_doc_average_word2vec(article_titles)
+
+                fig = Doc2Vec().calculate_doc_average_word2vec(article_titles)
                 t = plot({'data': fig},
                          output_type='div')
                 return JsonResponse({'data': t, 'dragmode': 'lasso'}, safe=True)
