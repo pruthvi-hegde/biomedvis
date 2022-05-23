@@ -8,5 +8,6 @@ sklearn
 pandas
 sentence_transformers
 matplotlib
+bump2version
 
 

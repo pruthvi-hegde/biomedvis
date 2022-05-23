@@ -1,6 +1,7 @@
 import os
 import json
 from sentence_transformers import SentenceTransformer
+import numpy as np
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
@@ -26,12 +27,12 @@ def create_embeddings():
                 file_names.append(file.split('/')[-1].replace('.txt', ''))
         else:
             print("File size is 0")
-
-    sentence_embeddings = model.encode(all_data)
-    sentence_embeddings = sentence_embeddings.tolist()
+    sentence_embeddings = [np.mean(model.encode(all_data[i].split(". ")), axis=0).tolist() for i in range(0, len(all_data))]
+    print(len(sentence_embeddings))
+    # sentence_embeddings = sentence_embeddings.tolist()
     result = dict(zip(file_names, sentence_embeddings))
     print("writing to a file")
-    with open('filter/file_embeddings_sentence_transformer.json', 'w') as f:
+    with open('embeddings/file_embeddings_sentence_split.json', 'w') as f:
         json.dump(result, f)
     print("wrote to a file")
 

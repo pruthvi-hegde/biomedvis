@@ -21,7 +21,7 @@ CUR_DIR = os.path.basename(os.getcwd())
 class Doc2Vec:
 
     def __init__(self):
-        f = open('embeddings/file_embeddings_bert.json')
+        f = open('embeddings/file_embeddings_sentence_split.json')
         self.data = json.load(f)
 
     def get_files(self, filepath):
