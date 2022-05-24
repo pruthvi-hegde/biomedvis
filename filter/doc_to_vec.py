@@ -20,8 +20,8 @@ CUR_DIR = os.path.basename(os.getcwd())
 
 class Doc2Vec:
 
-    def __init__(self):
-        f = open('embeddings/file_embeddings_sentence_split.json')
+    def __init__(self, model_name):
+        f = open(f'embeddings/{model_name}.json')
         self.data = json.load(f)
 
     def get_files(self, filepath):
@@ -39,7 +39,7 @@ class Doc2Vec:
         else:
             return []
 
-    def calculate_doc_average_word2vec(self, article_titles):
+    def calculate_doc_average(self, article_titles):
         if len(article_titles) < 236:
             article_embeddings = [self.data[title.replace('/', '-')] for title in article_titles]
         else:
@@ -48,13 +48,10 @@ class Doc2Vec:
         # tsne_model = TSNE(perplexity=5, n_components=2, init='pca', n_iter=2500, random_state=45)
         umap_embeddings = UMAP(n_neighbors=5, n_components=2, metric='cosine', random_state=42)
         low_dim_values = umap_embeddings.fit_transform(article_embeddings)
+
         fig = px.scatter(low_dim_values, x=0, y=1, opacity=1, hover_name=article_titles)
         fig.update_traces(marker_color='#D64045')
         fig.update_layout(
-            title="Embedding view of articles generated from BioWordVec",
-            title_font_color='#666666',
-            title_font_size=16,
-            title_font_family='Calibri',
             margin=dict(l=5, r=5, b=30),
             xaxis_title='',
             yaxis_title='',
@@ -85,7 +82,6 @@ class Doc2Vec:
             ),
             plot_bgcolor='white',
         )
-
         return fig
 
     def preprocess_sentence_returns_list(self, text):

@@ -79,19 +79,18 @@ def filter_data(request):
 def create_embedding_view(request):
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         response = json.loads(request.body)
-        article_titles = ast.literal_eval(response)
-        if len(article_titles) > 1:
+        article_titles = ast.literal_eval(response['articleData'])
+        if len(article_titles) > 3:
             try:
-
-                fig = Doc2Vec().calculate_doc_average_word2vec(article_titles)
+                fig = Doc2Vec(response['selectedModel']).calculate_doc_average(article_titles)
                 t = plot({'data': fig},
                          output_type='div')
-                return JsonResponse({'data': t, 'dragmode': 'lasso'}, safe=True)
+                return JsonResponse({'data': t}, safe=True)
             except RuntimeError as e:
                 print("Runtime error", e)
         else:
             html = "<div class='text-center' style='padding-top: 12rem'>" \
-                   "This plot will be loaded if the filtered articles are atleast 2</div>"
+                   "This plot will be loaded if the filtered articles are at least 4</div>"
             return JsonResponse({'data': html}, safe=True)
 
     else:
@@ -117,6 +116,7 @@ def update_article_view(request):
         return JsonResponse({'data': t, 'data2': tt}, safe=False)
 
 
+
 @csrf_exempt
 def update_article_view_from_time_chart(request):
     global filtered_articles
@@ -136,12 +136,12 @@ def update_article_view_from_time_chart(request):
         # main_articles = json.loads(request.body)
         article_titles, published_date, article_count, total_count = get_article_published_year_and_count(articles)
 
-        if len(articles) != 1:
-            fig = calculate_doc_average_word2vec(article_titles)
+        if len(articles) > 3:
+            fig = Doc2Vec().calculate_doc_average(article_titles)
             plot_object = plot({'data': fig}, output_type='div')
         else:
             plot_object = "<div class='text-center' style='padding-top: 12rem'>" \
-                          "This plot will be loaded if the filtered articles are atleast 2</div>"
+                          "This plot will be loaded if the filtered articles are atleast 3</div>"
 
         html = render_to_string('article_page_view.html', {'data': articles, 'total_count': total_count})
         filtered_articles = articles

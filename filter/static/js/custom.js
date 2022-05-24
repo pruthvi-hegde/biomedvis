@@ -1,16 +1,12 @@
 $(document).on('click', ".custom-info", function () {
 
-    var _vm = $(this);
-    var _index = _vm.attr('data-index');
-    var _articleTitle = $(".article-title-" + _index).val();
-    var _articleThumbnail = $(".article-thumbnail-" + _index).val()
-    console.log(_articleThumbnail)
-    var _articleAuthors = 'by ' + $(".article-authors-" + _index).val()
-    var _articleISSN = $(".article-ISSN-" + _index).val()
-    var _articleISBN = $(".article-ISBN-" + _index).val()
-    var _articleDOI = $(".article-DOI-" + _index).val()
-    var _articleYear = $(".article-publishedDate-" + _index).val()
-    var _abstract = $(".article-abstract-" + _index).val()
+    let _index = $(this).attr('data-index');
+    let _articleTitle = $(".article-title-" + _index).val();
+    let _articleThumbnail = $(".article-thumbnail-" + _index).val()
+    let _articleAuthors = 'by ' + $(".article-authors-" + _index).val()
+    let _articleDOI = $(".article-DOI-" + _index).val()
+    let _articleYear = $(".article-publishedDate-" + _index).val()
+    let _abstract = $(".article-abstract-" + _index).val()
 
     $("#name").val(name);
     $("#exampleModalLongTitle").text(_articleTitle)
@@ -28,13 +24,13 @@ $(document).on('click', ".custom-info", function () {
 })
 
 $(window).bind('setup', function () {
-    embeddingView()
     drawTimeView()
 });
 
 //Common document ready function.
 $(document).ready(function () {
     $(window).trigger('setup');
+
     var typingTimer;
     var doneTypingInterval = 500;
     let input = $('#searchArticle');
@@ -69,10 +65,9 @@ $(document).ready(function () {
     }
 
     $(".filter-checkbox").on('click', function () {
-        var _filterObj = {};
+        let _filterObj = {};
         $(".filter-checkbox").each(function () {
-            var _filterVal = $(this).val();
-            var _filterKey = $(this).data('filter')
+            let _filterKey = $(this).data('filter')
 
             _filterObj[_filterKey] = Array.from(document.querySelectorAll('input[data-filter=' + _filterKey + ']:checked')).map(function (el) {
                 return el.value;
@@ -93,13 +88,15 @@ $(document).ready(function () {
 });
 
 function embeddingView() {
-    // //Run Ajaxl
-    let data = $('#articleEmbeddingView').data('article')
-    let jsonText = JSON.stringify(data);
+
+    let selection_data = {
+        articleData : JSON.stringify($('#articleEmbeddingView').data('article')),
+        selectedModel : $('#selDataset').val()
+    }
     $.ajax({
         url: '/embedding-view',
         type: 'POST',
-        data: jsonText,
+        data: JSON.stringify(selection_data),
         traditional: true,
         dataType: 'json',
         success: function (res) {
@@ -115,7 +112,7 @@ function embeddingView() {
 
 //Update article view after lasso or box select
 $(document).on('plotly_selected', "#myDiv", function (arg1, arg2) {
-    var plotly_points = []
+    let plotly_points = []
     arg2.points.forEach(function (pt) {
         plotly_points.push(pt.hovertext)
     })
@@ -152,6 +149,7 @@ function updateArticleView(minYear, maxYear, flag) {
         'maxYear': maxYear,
         'loadFirstTime': flag
     }
+
     $.ajax({
         url: '/update-article-time-view',
         type: 'POST',
@@ -173,9 +171,9 @@ function drawTimeView() {
 }
 
 function updateTimeView(_publishedyears, _count, flag) {
-    year = _publishedyears.map(i => Number(i))
-    year_min = Math.min(...year)
-    year_max = Math.max(...year)
+    let year = _publishedyears.map(i => Number(i))
+    let year_min = Math.min(...year)
+    let year_max = Math.max(...year)
     const min_max = [];
     Highcharts.chart('slider-bar-chart', {
         chart: {
@@ -291,4 +289,11 @@ $(document).on('click', ".custom-info", function () {
     $('.fa-search-plus').on('click', panzoom.zoomIn)
     $('.fa-search-minus').on('click', panzoom.zoomOut)
 
+})
+
+$(document).ready(function () {
+    let selectedModal;
+
+    $('#selDataset').on('change', embeddingView);
+    $.proxy(embeddingView, $('#selDataset'))();
 })

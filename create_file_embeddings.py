@@ -38,7 +38,7 @@ def create_embeddings():
 
 #
 # def reading_embeddings(articles):
-#     f = open('file_embeddings_sentence_transformer.json')
+#     f = open('sentence_transformer.json')
 #     data = json.load(f)
 #     # print([data[title.replace('/', '-')] for title in articles])
 #    x = [data.key() ]
