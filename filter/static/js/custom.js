@@ -88,7 +88,6 @@ $(document).ready(function () {
 });
 
 function embeddingView() {
-
     let selection_data = {
         articleData : JSON.stringify($('#articleEmbeddingView').data('article')),
         selectedModel : $('#selDataset').val()
