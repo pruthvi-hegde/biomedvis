@@ -9,5 +9,6 @@ pandas
 sentence_transformers
 matplotlib
 bump2version
+umap-learn
 
 

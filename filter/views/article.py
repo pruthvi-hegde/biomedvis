@@ -14,7 +14,6 @@ from ..models.article import Article
 from ..models.category import Category, Subcategory
 
 # filter_model = FiltersConfig.model
-filter_model = FiltersConfig.sentence_transformer_model
 main_articles = Article.objects.none()
 filtered_articles = Article.objects.none()
 
