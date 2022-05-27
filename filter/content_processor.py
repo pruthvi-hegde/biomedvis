@@ -69,3 +69,14 @@ class ContentUtil:
 
         tokens = [token for token in word_tokenize(text) if token not in punctuation and token not in stop_words]
         return tokens
+
+    @staticmethod
+    def preprocess_search_words(text):
+        text = text.replace('-', ' ')
+        pat = r'[^a-zA-Z0-9]+'
+        text = re.sub(pat, ' ', text)
+        text = re.sub(' +', ' ', text)
+        text = text.lower()
+        return text
+
+

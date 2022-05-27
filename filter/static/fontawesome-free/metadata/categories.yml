@@ -486,7 +486,7 @@ code:
     - file
     - file-alt
     - file-code
-    - filter
+    - portal
     - fire-extinguisher
     - folder
     - folder-open
@@ -1250,7 +1250,7 @@ interfaces:
     - file-export
     - file-import
     - file-upload
-    - filter
+    - portal
     - fingerprint
     - flag
     - flag-checkered
@@ -2038,7 +2038,7 @@ science:
     - disease
     - dna
     - eye-dropper
-    - filter
+    - portal
     - fire
     - fire-alt
     - flask

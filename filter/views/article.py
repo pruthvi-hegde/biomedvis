@@ -1,5 +1,6 @@
 import ast
 import json
+import re
 
 from django.db.models import Count
 from django.http import JsonResponse
@@ -7,8 +8,10 @@ from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
 from plotly.offline import plot
+from django.db.models import Q
 
 from ..apps import FiltersConfig
+from ..content_processor import ContentUtil
 from ..doc_to_vec import Doc2Vec
 from ..models.article import Article
 from ..models.category import Category, Subcategory
@@ -16,6 +19,7 @@ from ..models.category import Category, Subcategory
 # filter_model = FiltersConfig.model
 main_articles = Article.objects.none()
 filtered_articles = Article.objects.none()
+selected_model = None
 
 
 # Article List
@@ -29,7 +33,7 @@ def article_list(request):
 
     categories_data = {}
     for cat in categories:
-        categories_name = cat.category_name.replace(" ", "_")
+        categories_name = cat.category_name
         categories_data[categories_name] = Subcategory.objects.filter(category__exact=cat)
 
     article_title, published_date, article_count, total_count = get_article_published_year_and_count(articles)
@@ -53,6 +57,7 @@ def filter_data(request):
     filter_values = dict(request.GET)
     global filtered_articles
     global main_articles
+    global selected_model
     articles = Article.objects.none()
     if len(filter_values) != 0:
         for categories in filter_values.values():
@@ -63,6 +68,13 @@ def filter_data(request):
 
     article_title, published_date, article_count, total_count = get_article_published_year_and_count(articles)
 
+    if len(articles) > 3:
+        fig = Doc2Vec(selected_model).calculate_doc_average(article_title)
+        plot_object = plot({'data': fig}, output_type='div')
+    else:
+        plot_object = "<div class='text-center' style='padding-top: 12rem'>" \
+                      "This plot will be loaded if the filtered articles are atleast 3</div>"
+
     t = render_to_string('component_view.html', {'data': articles, 'article_title': article_title,
                                                  'published_date': published_date,
                                                  'article_count': article_count,
@@ -71,14 +83,16 @@ def filter_data(request):
     tt = {'published_data': published_date, 'article_count': article_count, 'total_count': total_count,
           'article_title': article_title}
     main_articles = articles
-    return JsonResponse({'data': t, 'data2': tt}, safe=False)
+    return JsonResponse({'data': t, 'data2': tt, 'data3': plot_object}, safe=False)
 
 
 @csrf_exempt
 def create_embedding_view(request):
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+        global selected_model
         response = json.loads(request.body)
         article_titles = ast.literal_eval(response['articleData'])
+        selected_model = response['selectedModel']
         if len(article_titles) > 3:
             try:
                 fig = Doc2Vec(response['selectedModel']).calculate_doc_average(article_titles)
@@ -120,6 +134,8 @@ def update_article_view(request):
 def update_article_view_from_time_chart(request):
     global filtered_articles
     global main_articles
+    global selected_model
+    print(selected_model)
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         article_data = json.loads(request.body)
 
@@ -136,7 +152,7 @@ def update_article_view_from_time_chart(request):
         article_titles, published_date, article_count, total_count = get_article_published_year_and_count(articles)
 
         if len(articles) > 3:
-            fig = Doc2Vec().calculate_doc_average(article_titles)
+            fig = Doc2Vec(selected_model).calculate_doc_average(article_titles)
             plot_object = plot({'data': fig}, output_type='div')
         else:
             plot_object = "<div class='text-center' style='padding-top: 12rem'>" \
@@ -153,17 +169,18 @@ def populate_on_search(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         global filtered_articles
         global main_articles
-        url_parameter = request.GET.get("q")
-        if url_parameter:
+        query_parameter = request.GET.get("q")
+        if query_parameter:
             articles = Article.objects.none()
-            searched_articles = filtered_articles.filter(abstract__icontains=url_parameter)
+            searched_articles = filtered_articles.filter(Q(abstract__icontains=query_parameter) |
+                                                         Q(article_title__icontains=query_parameter))
             if list(searched_articles) == list(articles):
                 # url_parameter = url_parameter.split(" ")
                 # for query_word in url_parameter:
                 #     main_articles |= Article.objects.filter(abstract__icontains=query_word)
 
                 searched_articles = articles
-        elif not url_parameter:
+        elif not query_parameter:
             searched_articles = filtered_articles
         else:
             searched_articles = filtered_articles
@@ -195,3 +212,22 @@ def get_article_published_year_and_count(articles):
     article_count = list(d['dcount'] for d in published_date_data)
     total_count = articles.count()
     return article_title, published_date, article_count, total_count
+
+
+@csrf_exempt
+def populate_details_view(request):
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        article_title = json.loads(request.body)
+        article_details = Article.objects.filter(article_title__exact=article_title)
+        article_info = {}
+        for article in article_details:
+            article_info = {
+                "article_title": f"{article.article_title}( {article.published_date})",
+                "abstract": article.abstract,
+                "articleDOI": article.DOI,
+                "articleThumbnail": article.thumbnail_path
+
+            }
+        return JsonResponse({'data': article_info}, safe=False)
+
+

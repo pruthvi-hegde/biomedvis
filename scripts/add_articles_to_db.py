@@ -16,7 +16,7 @@ from filter.models.article import Article
 # use it when necessary
 def reset_db():
     try:
-        os.remove('db.sqlite3')
+        os.remove('../db.sqlite3')
     except:
         pass
     os.system('python manage.py migrate')
@@ -24,7 +24,7 @@ def reset_db():
 
 
 def add_articles():
-    with open('articles_data/all_articles_with_thumbnail_metadata.json') as f:
+    with open('../articles_data/all_articles_with_thumbnail_metadata.json') as f:
         articles = json.load(f)
         table_content_exist = False
     for article in articles:
@@ -47,7 +47,7 @@ def add_articles():
             )
             # article = Article.objects.update(abstract=abstract)
             article.save()
-        except:
+        except Exception:
             table_content_exist = True
 
     if table_content_exist:

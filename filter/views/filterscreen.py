@@ -23,7 +23,7 @@ class CategoryList(TemplateView):
         holder = {}
         for cat in categories:
             holder[cat] = Subcategory.objects.filter(category__exact=cat)
-        #print(type(holder))
+
 
         context['view_item'] = holder
         return context

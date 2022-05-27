@@ -3,17 +3,15 @@ $(document).on('click', ".custom-info", function () {
     let _index = $(this).attr('data-index');
     let _articleTitle = $(".article-title-" + _index).val();
     let _articleThumbnail = $(".article-thumbnail-" + _index).val()
-    let _articleAuthors = 'by ' + $(".article-authors-" + _index).val()
     let _articleDOI = $(".article-DOI-" + _index).val()
     let _articleYear = $(".article-publishedDate-" + _index).val()
     let _abstract = $(".article-abstract-" + _index).val()
+    _articleTitle = _articleTitle + ' (' + _articleYear + ')'
 
-    $("#name").val(name);
+    // $("#name").val(name);
     $("#exampleModalLongTitle").text(_articleTitle)
     $("#articleThumbnail").attr('src', _articleThumbnail)
-    $("#articleAuthors").text(_articleAuthors)
 
-    $("#articleYear").text(_articleYear)
     $("#articleDOI").attr('href', _articleDOI)
     // $("#articleDOI").text(_articleDOI)
     $("#abstract").text(_abstract)
@@ -44,6 +42,10 @@ $(document).ready(function () {
     //on keydown, clear the countdown
     input.on('keydown', function () {
         clearTimeout(typingTimer);
+    });
+
+    $('input[type=search]').on('search', function () {
+       populate_search()
     });
 
     function populate_search() {
@@ -78,7 +80,7 @@ $(document).ready(function () {
             url: '/filter-data', data: _filterObj, dataType: 'json', beforeSend: function () {
             }, success: function (res) {
                 $("#filteredArticles").html(res.data);
-                embeddingView();
+                $('#myDiv').html(res.data3);
                 updateTimeView(res.data2['published_data'], res.data2['article_count'], false)
             }, error: function (xhr, status, error) {
                 console.log("inside Error " + error);
@@ -89,8 +91,8 @@ $(document).ready(function () {
 
 function embeddingView() {
     let selection_data = {
-        articleData : JSON.stringify($('#articleEmbeddingView').data('article')),
-        selectedModel : $('#selDataset').val()
+        articleData: JSON.stringify($('#articleEmbeddingView').data('article')),
+        selectedModel: $('#selDataset').val()
     }
     $.ajax({
         url: '/embedding-view',
@@ -128,19 +130,6 @@ $(document).on('plotly_selected', "#myDiv", function (arg1, arg2) {
         }
     });
 })
-//Update article view after lasso or box select
-$(document).on('plotly_deselected', "#myDiv", function () {
-    alert("plotly deselected")
-
-})
-
-
-$(document).on('plotly_click', "#myDiv", function (arg1, arg2) {
-    arg2.points.forEach(function (pt) {
-//   Think what to do here...
-    })
-})
-
 
 function updateArticleView(minYear, maxYear, flag) {
     var article_data = {
@@ -295,4 +284,35 @@ $(document).ready(function () {
 
     $('#selDataset').on('change', embeddingView);
     $.proxy(embeddingView, $('#selDataset'))();
+})
+
+//Update article view after lasso or box select
+$(document).on('plotly_deselected', "#myDiv", function () {
+    alert("plotly deselected")
+
+})
+
+$(document).on('plotly_click', "#myDiv", function (arg1, arg2) {
+    arg2.points.forEach(function (pt) {
+        let article_title = pt.hovertext
+        // Run Ajaxl
+        $.ajax({
+            url: '/populate-details-view',
+            type: 'POST',
+            data: JSON.stringify(article_title),
+            success: function (res) {
+                let article = res.data
+                $("#exampleModalLongTitle").text(article.article_title)
+                $("#articleThumbnail").attr('src', article.articleThumbnail)
+
+                $("#articleDOI").attr('href', article.articleDOI)
+                // $("#articleDOI").text(_articleDOI)
+                $("#abstract").text(article.abstract)
+
+
+                $("#articleDetailsModal").modal("show");
+
+            }
+        });
+    })
 })

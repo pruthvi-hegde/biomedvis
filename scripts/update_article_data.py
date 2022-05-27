@@ -7,7 +7,7 @@ import json
 
 def add_thumbnail_to_article():
     path = '../static/thumbnails/'
-    with open('articles_data/all_articles_with_metadata.json') as f:
+    with open('../articles_data/all_articles_with_metadata.json') as f:
         articles = json.load(f)
     for article in articles:
         thumbnail = article["article_title"].replace(" ", "_") + ".jpg"
@@ -15,7 +15,7 @@ def add_thumbnail_to_article():
         article.update({"thumbnail": path + thumbnail})
 
     json_string = json.dumps(articles)
-    with open('articles_data/all_articles_with_thumbnail_metadata.json', 'w') as f:
+    with open('../articles_data/all_articles_with_thumbnail_metadata.json', 'w') as f:
         f.write(json_string)
 
 

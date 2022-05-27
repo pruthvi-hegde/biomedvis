@@ -8076,7 +8076,7 @@ funnel-dollar:
   label: Funnel Dollar
   search:
     terms:
-      - filter
+      - portal
       - money
       - options
       - separate
@@ -9849,7 +9849,7 @@ head-side-mask:
     terms:
       - breath
       - covid-19
-      - filter
+      - portal
       - respirator
       - virus
   styles:
@@ -17065,7 +17065,7 @@ sort:
   label: Sort
   search:
     terms:
-      - filter
+      - portal
       - order
   styles:
     - solid
@@ -17081,7 +17081,7 @@ sort-alpha-down:
     terms:
       - alphabetical
       - arrange
-      - filter
+      - portal
       - order
       - sort-alpha-asc
   styles:
@@ -17096,7 +17096,7 @@ sort-alpha-down-alt:
     terms:
       - alphabetical
       - arrange
-      - filter
+      - portal
       - order
       - sort-alpha-asc
   styles:
@@ -17113,7 +17113,7 @@ sort-alpha-up:
     terms:
       - alphabetical
       - arrange
-      - filter
+      - portal
       - order
       - sort-alpha-desc
   styles:
@@ -17128,7 +17128,7 @@ sort-alpha-up-alt:
     terms:
       - alphabetical
       - arrange
-      - filter
+      - portal
       - order
       - sort-alpha-desc
   styles:
@@ -17144,7 +17144,7 @@ sort-amount-down:
   search:
     terms:
       - arrange
-      - filter
+      - portal
       - number
       - order
       - sort-amount-asc
@@ -17159,7 +17159,7 @@ sort-amount-down-alt:
   search:
     terms:
       - arrange
-      - filter
+      - portal
       - order
       - sort-amount-asc
   styles:
@@ -17175,7 +17175,7 @@ sort-amount-up:
   search:
     terms:
       - arrange
-      - filter
+      - portal
       - order
       - sort-amount-desc
   styles:
@@ -17189,7 +17189,7 @@ sort-amount-up-alt:
   search:
     terms:
       - arrange
-      - filter
+      - portal
       - order
       - sort-amount-desc
   styles:
@@ -17207,7 +17207,7 @@ sort-down:
     terms:
       - arrow
       - descending
-      - filter
+      - portal
       - order
       - sort-desc
   styles:
@@ -17223,7 +17223,7 @@ sort-numeric-down:
   search:
     terms:
       - arrange
-      - filter
+      - portal
       - numbers
       - order
       - sort-numeric-asc
@@ -17238,7 +17238,7 @@ sort-numeric-down-alt:
   search:
     terms:
       - arrange
-      - filter
+      - portal
       - numbers
       - order
       - sort-numeric-asc
@@ -17255,7 +17255,7 @@ sort-numeric-up:
   search:
     terms:
       - arrange
-      - filter
+      - portal
       - numbers
       - order
       - sort-numeric-desc
@@ -17270,7 +17270,7 @@ sort-numeric-up-alt:
   search:
     terms:
       - arrange
-      - filter
+      - portal
       - numbers
       - order
       - sort-numeric-desc
@@ -17289,7 +17289,7 @@ sort-up:
     terms:
       - arrow
       - ascending
-      - filter
+      - portal
       - order
       - sort-asc
   styles:

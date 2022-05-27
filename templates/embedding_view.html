@@ -1,14 +1,36 @@
 <div class="card-body" id="articleEmbeddingView" data-article="{{ article_title }}">
-    <select id="selDataset" class="bootstrap-select ml-5" style="z-index: 10;">
-            <option value="sentence_transformer">Sentence Transformer </option>
-            <option value="sapBERT">sapBERT</option>
-            <option value="biowordvec">BioWordVec</option>
-    </select>
-    <div id="myDiv">
+    <div style="z-index: 10; position: absolute; width: 100%" class="row">
+        {#        <small style="font-family: 'PT Sans Caption';size: 8px;" class="col-3 ml-5">Select a pretrained modal</small>#}
+{#        <select id="selDataset" class="dropdown col-3 ml-5">#}
+{#            <option value="sentence_transformer" class="select-item">Sentence Transformer - all-MiniLM-L6-v2</option>#}
+{#            <option value="sapBERT" class="select-item">SapBERT-from-PubMedBERT-fulltext</option>#}
+{#            <option value="biowordvec" class="select-item">BioWordVec_PubMed_MIMICIII_d200</option>#}
+{#        </select>#}
+
+
+        <div class="form-group ml-lg-5">
+{#            <label for="surveyModel" class="">Model :</label>#}
+            <select name="model" id="selDataset" class="form-control chosen-select">
+                <option value="sentence_transformer_average">Sentence Transformer - all-MiniLM-L6-v2</option>
+                <option value="sapBERT">SapBERT-from-PubMedBERT-fulltext</option>
+                <option value="biowordvec">BioWordVec_PubMed_MIMICIII_d200</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div id="myDiv" style="z-index: 8">
         <div class="d-flex justify-content-center" style="padding-top: 12rem">
             <div class="spinner-border text-danger text-center" style="width: 3rem; height: 3rem;top: 10rem;">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
     </div>
+
 </div>
+
+
+<script>
+    $(".chosen-select").chosen({disable_search_threshold: 10});
+    $("#surveyModel").chosen();
+</script>
