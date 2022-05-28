@@ -45,7 +45,7 @@ $(document).ready(function () {
     });
 
     $('input[type=search]').on('search', function () {
-       populate_search()
+        populate_search()
     });
 
     function populate_search() {
@@ -57,9 +57,10 @@ $(document).ready(function () {
             url: '/articles-search',
             data: request_parameters,
             success: function (res) {
-                $('#filteredArticles').html(res.data);
-                embeddingView()
-                updateTimeView(res.data2['published_date'], res.data2['article_count'], false)
+                $('#filteredArticles').html(res.article_view_data);
+                updateTimeView(res.time_view_data['published_date'], res.time_view_data['article_count'], false)
+                $('#myDiv').html(res.embedding_view_data);
+                enableDropdown()
             }, error: function (xhr, status, error) {
                 console.log("inside Error " + error);
             }
@@ -79,19 +80,25 @@ $(document).ready(function () {
         $.ajax({
             url: '/filter-data', data: _filterObj, dataType: 'json', beforeSend: function () {
             }, success: function (res) {
-                $("#filteredArticles").html(res.data);
-                $('#myDiv').html(res.data3);
-                updateTimeView(res.data2['published_data'], res.data2['article_count'], false)
-            }, error: function (xhr, status, error) {
-                console.log("inside Error " + error);
-            }
+                $("#filteredArticles").html(res.article_view_data);
+                updateTimeView(res.time_view_data['published_data'], res.time_view_data['article_count'], false)
+                $('#myDiv').html(res.embedding_view_data);
+                enableDropdown()
+            },
         });
     })
+
+   enableDropdown()
 });
+
+function enableDropdown(){
+     $('#selDataset').on('change', embeddingView);
+    $.proxy(embeddingView, $('#selDataset'))();
+}
 
 function embeddingView() {
     let selection_data = {
-        articleData: JSON.stringify($('#articleEmbeddingView').data('article')),
+        // articleData: JSON.stringify($('#articleEmbeddingView').data('article')),
         selectedModel: $('#selDataset').val()
     }
     $.ajax({
@@ -101,7 +108,7 @@ function embeddingView() {
         traditional: true,
         dataType: 'json',
         success: function (res) {
-            $('#myDiv').html(res.data);
+            $('#myDiv').html(res.embedding_view_data);
         },
         error: function (xhr, status, error) {
             console.log("inside Error " + error);
@@ -109,44 +116,6 @@ function embeddingView() {
     });
 
 
-}
-
-//Update article view after lasso or box select
-$(document).on('plotly_selected', "#myDiv", function (arg1, arg2) {
-    let plotly_points = []
-    arg2.points.forEach(function (pt) {
-        plotly_points.push(pt.hovertext)
-    })
-    // Run Ajaxl
-    $.ajax({
-        url: '/update-article-view',
-        type: 'POST',
-        data: JSON.stringify(plotly_points),
-        contentType: "application/json",
-        beforeSend: function () {
-        }, success: function (res) {
-            $("#articlePageView").html(res.data);
-            updateTimeView(res.data2['published_data'], res.data2['article_count'], false)
-        }
-    });
-})
-
-function updateArticleView(minYear, maxYear, flag) {
-    var article_data = {
-        'minYear': minYear,
-        'maxYear': maxYear,
-        'loadFirstTime': flag
-    }
-
-    $.ajax({
-        url: '/update-article-time-view',
-        type: 'POST',
-        data: JSON.stringify(article_data), dataType: 'json', beforeSend: function () {
-        }, success: function (res) {
-            $("#articlePageView").html(res.data);
-            $('#myDiv').html(res.data2);
-        }
-    })
 }
 
 function drawTimeView() {
@@ -260,6 +229,24 @@ function updateTimeView(_publishedyears, _count, flag) {
 
 }
 
+function updateArticleView(minYear, maxYear, flag) {
+    var article_data = {
+        'minYear': minYear,
+        'maxYear': maxYear,
+        'loadFirstTime': flag
+    }
+
+    $.ajax({
+        url: '/update-article-time-view',
+        type: 'POST',
+        data: JSON.stringify(article_data), dataType: 'json', beforeSend: function () {
+        }, success: function (res) {
+            $("#articlePageView").html(res.article_view_data);
+            $('#myDiv').html(res.embedding_view_data);
+        }
+    })
+}
+
 $('[data-toggle="popover"]').popover({
     trigger: 'hover focus',
     placement: 'top',
@@ -279,40 +266,66 @@ $(document).on('click', ".custom-info", function () {
 
 })
 
-$(document).ready(function () {
-    let selectedModal;
-
-    $('#selDataset').on('change', embeddingView);
-    $.proxy(embeddingView, $('#selDataset'))();
-})
-
 //Update article view after lasso or box select
 $(document).on('plotly_deselected', "#myDiv", function () {
     alert("plotly deselected")
 
 })
 
+//Update article view after lasso or box select
+$(document).on('plotly_selected', "#myDiv", function (arg1, arg2) {
+    let plotly_points = []
+    arg2.points.forEach(function (pt) {
+        plotly_points.push(pt.hovertext)
+
+    })
+    $(this).on('plotly_click', "#myDiv", function (arg1, arg2) {
+        arg2.points.forEach(function (pt) {
+            let article_title = pt.hovertext
+            showArticleDetailsView(article_title)
+
+        })
+    })
+    // Run Ajaxl
+    $.ajax({
+        url: '/update-article-view',
+        type: 'POST',
+        data: JSON.stringify(plotly_points),
+        contentType: "application/json",
+        beforeSend: function () {
+        }, success: function (res) {
+            $("#articlePageView").html(res.article_view_data);
+            updateTimeView(res.time_view_data['published_data'], res.time_view_data['article_count'], false)
+        }
+    });
+})
+
 $(document).on('plotly_click', "#myDiv", function (arg1, arg2) {
     arg2.points.forEach(function (pt) {
         let article_title = pt.hovertext
-        // Run Ajaxl
-        $.ajax({
-            url: '/populate-details-view',
-            type: 'POST',
-            data: JSON.stringify(article_title),
-            success: function (res) {
-                let article = res.data
-                $("#exampleModalLongTitle").text(article.article_title)
-                $("#articleThumbnail").attr('src', article.articleThumbnail)
+        showArticleDetailsView(article_title)
 
-                $("#articleDOI").attr('href', article.articleDOI)
-                // $("#articleDOI").text(_articleDOI)
-                $("#abstract").text(article.abstract)
-
-
-                $("#articleDetailsModal").modal("show");
-
-            }
-        });
     })
 })
+
+function showArticleDetailsView(article_title) {
+    // Run Ajaxl
+    $.ajax({
+        url: '/populate-details-view',
+        type: 'POST',
+        data: JSON.stringify(article_title),
+        success: function (res) {
+            let article = res.data
+            $("#exampleModalLongTitle").text(article.article_title)
+            $("#articleThumbnail").attr('src', article.articleThumbnail)
+
+            $("#articleDOI").attr('href', article.articleDOI)
+            // $("#articleDOI").text(_articleDOI)
+            $("#abstract").text(article.abstract)
+
+
+            $("#articleDetailsModal").modal("show");
+
+        }
+    });
+}

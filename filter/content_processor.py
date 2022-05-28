@@ -72,11 +72,11 @@ class ContentUtil:
 
     @staticmethod
     def preprocess_search_words(text):
-        text = text.replace('-', ' ')
-        pat = r'[^a-zA-Z0-9]+'
-        text = re.sub(pat, ' ', text)
+        # text = text.replace('-', ' ')
+        # pat = r'[^a-zA-Z0-9]+'
+        # text = re.sub(pat, ' ', text)
         text = re.sub(' +', ' ', text)
-        text = text.lower()
+        # text = text.lower()
         return text
 
 
