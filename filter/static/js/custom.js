@@ -54,9 +54,7 @@ $(document).ready(function () {
         }
         // Run Ajaxl
         $.ajax({
-            url: '/articles-search',
-            data: request_parameters,
-            success: function (res) {
+            url: '/articles-search', data: request_parameters, success: function (res) {
                 $('#filteredArticles').html(res.article_view_data);
                 updateTimeView(res.time_view_data['published_date'], res.time_view_data['article_count'], false)
                 $('#myDiv').html(res.embedding_view_data);
@@ -88,11 +86,11 @@ $(document).ready(function () {
         });
     })
 
-   enableDropdown()
+    enableDropdown()
 });
 
-function enableDropdown(){
-     $('#selDataset').on('change', embeddingView);
+function enableDropdown() {
+    $('#selDataset').on('change', embeddingView);
     $.proxy(embeddingView, $('#selDataset'))();
 }
 
@@ -134,96 +132,62 @@ function updateTimeView(_publishedyears, _count, flag) {
     const min_max = [];
     Highcharts.chart('slider-bar-chart', {
         chart: {
-            type: 'column',
-            zoomType: 'x'
-        },
-        colors: [
-            '#d8d826'
-        ],
-        legend: {
+            type: 'column', zoomType: 'x'
+        }, colors: ['#d8d826'], legend: {
             enabled: false
-        },
-        title: {
+        }, title: {
             text: ''
-        },
-        tooltip: {
+        }, tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
-        },
-        subtitle: {
+        }, subtitle: {
             style: {
                 fontSize: '0px'
             }
-        },
-        xAxis: {
-            categories: _publishedyears,
-            tickmarkPlacement: 'on',
-            tickInterval: 1,
-            minRange: 1, // set this to allow up to one year to be viewed
-            gridLineColor: 'transparent',
-            linecolor: 'black',
-            style: {
+        }, xAxis: {
+            categories: _publishedyears, tickmarkPlacement: 'on', tickInterval: 1, minRange: 1, // set this to allow up to one year to be viewed
+            gridLineColor: 'transparent', linecolor: 'black', style: {
                 font_family: 'Calibri'
             }
-        },
-        yAxis: {
-            tickmarkPlacement: 'on',
-            minRange: 1,
-            gridLineColor: 'transparent',
-            linecolor: 'black',
-            title: {
-                text: '',
-                style: {
+        }, yAxis: {
+            tickmarkPlacement: 'on', minRange: 1, gridLineColor: 'transparent', linecolor: 'black', title: {
+                text: '', style: {
                     font_family: 'Calibri'
                 }
             }
-        },
-        tooltip: {
-            shared: false,
-            useHTML: true
-        },
-        plotOptions: {
+        }, tooltip: {
+            shared: false, useHTML: true
+        }, plotOptions: {
             column: {
-                pointPadding: 0.01,
-                borderWidth: 0
+                pointPadding: 0.01, borderWidth: 0
             }
-        },
-        series: [{
-            name: 'No of articles by year',
-            data: _count,
+        }, series: [{
+            name: 'No of articles by year', data: _count,
         }]
     }, function (chart) {
         let myData = _publishedyears;
         let slider_config = {
-            range: true,
-            min: 0,
-            max: myData.length - 1,
-            step: 1,
-            slide: function (event, ui) {
+            range: true, min: 0, max: myData.length - 1, step: 1, slide: function (event, ui) {
                 if (ui.values[0] === ui.values[1]) {
                     $("#amount").val(myData[ui.values[0]]);
                 } else {
                     $("#amount").val(myData[ui.values[0]] + '-' + myData[ui.values[1]]);
                 }
                 chart.xAxis[0].setExtremes(ui.values[0], ui.values[1]);
-            },
-            create: function () {
+            }, create: function () {
                 $(this).slider('values', 0, 0);
                 $(this).slider('values', 1, myData.length - 1);
-            },
-            stop: function (_, ui) {
+            }, stop: function (_, ui) {
                 updateArticleView(myData[ui.values[0]], myData[ui.values[1]], flag)
             }
         };
 
         $('#slider-range').slider(slider_config)
 
-        $("#amount").val(year_min.toString() +
-            " - " + year_max.toString());
+        $("#amount").val(year_min.toString() + " - " + year_max.toString());
 
     });
 
@@ -231,16 +195,17 @@ function updateTimeView(_publishedyears, _count, flag) {
 
 function updateArticleView(minYear, maxYear, flag) {
     var article_data = {
-        'minYear': minYear,
-        'maxYear': maxYear,
-        'loadFirstTime': flag
+        'minYear': minYear, 'maxYear': maxYear, 'loadFirstTime': flag
     }
 
     $.ajax({
         url: '/update-article-time-view',
         type: 'POST',
-        data: JSON.stringify(article_data), dataType: 'json', beforeSend: function () {
-        }, success: function (res) {
+        data: JSON.stringify(article_data),
+        dataType: 'json',
+        beforeSend: function () {
+        },
+        success: function (res) {
             $("#articlePageView").html(res.article_view_data);
             $('#myDiv').html(res.embedding_view_data);
         }
@@ -256,10 +221,7 @@ $('[data-toggle="popover"]').popover({
 $(document).on('click', ".custom-info", function () {
     const elem = document.getElementById('articleThumbnail')
     const panzoom = Panzoom(elem, {
-        bounds: true,
-        maxScale: 3,
-        minScale: 1,
-        zoomDoubleClickSpeed: 1,
+        bounds: true, maxScale: 3, minScale: 1, zoomDoubleClickSpeed: 1,
     })
     $('.fa-search-plus').on('click', panzoom.zoomIn)
     $('.fa-search-minus').on('click', panzoom.zoomOut)
@@ -279,13 +241,6 @@ $(document).on('plotly_selected', "#myDiv", function (arg1, arg2) {
         plotly_points.push(pt.hovertext)
 
     })
-    $(this).on('plotly_click', "#myDiv", function (arg1, arg2) {
-        arg2.points.forEach(function (pt) {
-            let article_title = pt.hovertext
-            showArticleDetailsView(article_title)
-
-        })
-    })
     // Run Ajaxl
     $.ajax({
         url: '/update-article-view',
@@ -293,14 +248,15 @@ $(document).on('plotly_selected', "#myDiv", function (arg1, arg2) {
         data: JSON.stringify(plotly_points),
         contentType: "application/json",
         beforeSend: function () {
-        }, success: function (res) {
+        },
+        success: function (res) {
             $("#articlePageView").html(res.article_view_data);
             updateTimeView(res.time_view_data['published_data'], res.time_view_data['article_count'], false)
         }
     });
 })
 
-$(document).on('plotly_click', "#myDiv", function (arg1, arg2) {
+$(document).on('plotly_click', '#myDiv', function (arg1, arg2) {
     arg2.points.forEach(function (pt) {
         let article_title = pt.hovertext
         showArticleDetailsView(article_title)
@@ -308,13 +264,11 @@ $(document).on('plotly_click', "#myDiv", function (arg1, arg2) {
     })
 })
 
+
 function showArticleDetailsView(article_title) {
     // Run Ajaxl
     $.ajax({
-        url: '/populate-details-view',
-        type: 'POST',
-        data: JSON.stringify(article_title),
-        success: function (res) {
+        url: '/populate-details-view', type: 'POST', data: JSON.stringify(article_title), success: function (res) {
             let article = res.data
             $("#exampleModalLongTitle").text(article.article_title)
             $("#articleThumbnail").attr('src', article.articleThumbnail)
