@@ -1,14 +1,13 @@
-import ast
 import json
 import re
 
 from django.db.models import Count
+from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
 from plotly.offline import plot
-from django.db.models import Q
 
 from ..doc_to_vec import Doc2Vec
 from ..models.article import Article
@@ -66,7 +65,7 @@ def filter_data(request):
         for categories in filter_values.values():
             for cat in categories:
                 articles_filtered |= filtered_articles.filter(Q(abstract__icontains=cat) |
-                                                         Q(article_title__icontains=cat))
+                                                              Q(article_title__icontains=cat))
     else:
         articles_filtered = Article.objects.all().order_by('-id')
 
@@ -144,14 +143,17 @@ def populate_on_search(request):
         query_parameter = re.sub(' +', ' ', query_parameter)
         if query_parameter:
             articles = Article.objects.none()
-            searched_articles = filtered_articles.filter(Q(abstract__icontains=query_parameter) |
-                                                         Q(article_title__icontains=query_parameter))
+            searched_articles = filtered_articles.filter(
+                Q(abstract__icontains=query_parameter) | Q(article_title__icontains=query_parameter) | Q(
+                    article_authors__icontains=query_parameter))
             if list(searched_articles) == list(articles):
+                searched_articles = filtered_articles.filter()
+                if len(searched_articles) == 0:
+                    searched_articles = articles
                 # url_parameter = url_parameter.split(" ")
                 # for query_word in url_parameter:
                 #     main_articles |= Article.objects.filter(abstract__icontains=query_word)
 
-                searched_articles = articles
         elif not query_parameter:
             searched_articles = filtered_articles
         else:
