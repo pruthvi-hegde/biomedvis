@@ -143,13 +143,14 @@ def populate_on_search(request):
         query_parameter = re.sub(' +', ' ', query_parameter)
         if query_parameter:
             articles = Article.objects.none()
-            searched_articles = filtered_articles.filter(
-                Q(abstract__icontains=query_parameter) | Q(article_title__icontains=query_parameter) | Q(
-                    article_authors__icontains=query_parameter))
+            if re.match('^\d{4}$', query_parameter):
+                searched_articles = filtered_articles.filter(Q(published_date__exact=query_parameter))
+            else:
+                searched_articles = filtered_articles.filter(
+                    Q(abstract__icontains=query_parameter) | Q(article_title__icontains=query_parameter) | Q(
+                        article_authors__icontains=query_parameter))
             if list(searched_articles) == list(articles):
-                searched_articles = filtered_articles.filter()
-                if len(searched_articles) == 0:
-                    searched_articles = articles
+                searched_articles = articles
                 # url_parameter = url_parameter.split(" ")
                 # for query_word in url_parameter:
                 #     main_articles |= Article.objects.filter(abstract__icontains=query_word)
@@ -201,7 +202,7 @@ def populate_details_view(request):
         article_info = {}
         for article in article_details:
             article_info = {
-                "article_title": f"{article.article_title}( {article.published_date})",
+                "article_title": f"{article.article_title} ({article.published_date})",
                 "abstract": article.abstract,
                 "articleDOI": article.DOI,
                 "articleThumbnail": article.thumbnail_path
