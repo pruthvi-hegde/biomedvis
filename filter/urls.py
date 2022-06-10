@@ -1,7 +1,6 @@
 from django.urls import path
 
 from .views import article
-from .views.docs import Docs
 from .views.filterscreen import CategoryList
 
 urlpatterns = [
@@ -12,6 +11,5 @@ urlpatterns = [
     path('embedding-view', article.create_embedding_view, name='embedding'),
     path('update-article-view', article.update_article_view, name='update-article-view'),
     path('update-article-time-view', article.update_article_view_from_time_chart, name='update-article-time'),
-    path('populate-details-view', article.populate_details_view, name='populate-details-view'),
-    path('docs', Docs.docs, name='docs'),
+    path('populate-details-view', article.populate_details_view, name='populate-details-view')
 ]

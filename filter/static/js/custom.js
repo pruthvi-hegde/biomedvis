@@ -7,13 +7,10 @@ $(document).on('click', ".custom-info", function () {
     let _articleYear = $(".article-publishedDate-" + _index).val()
     let _abstract = $(".article-abstract-" + _index).val()
     _articleTitle = _articleTitle + ' (' + _articleYear + ')'
-
-    // $("#name").val(name);
     $("#exampleModalLongTitle").text(_articleTitle)
     $("#articleThumbnail").attr('src', _articleThumbnail)
 
     $("#articleDOI").attr('href', _articleDOI)
-    // $("#articleDOI").text(_articleDOI)
     $("#abstract").text(_abstract)
 
 
@@ -31,16 +28,16 @@ $(document).ready(function () {
 
     var typingTimer;
     var doneTypingInterval = 500;
-    let input = $('#searchArticle');
+    let $input = $('#searchArticle');
 
     //on keyup, start the countdown
-    input.on('keyup', function () {
+    $input.on('keyup', function () {
         clearTimeout(typingTimer);
         typingTimer = setTimeout(populate_search, doneTypingInterval);
     });
 
     //on keydown, clear the countdown
-    input.on('keydown', function () {
+    $input.on('keydown', function () {
         clearTimeout(typingTimer);
     });
 
@@ -50,7 +47,7 @@ $(document).ready(function () {
 
     function populate_search() {
         let request_parameters = {
-            q: $('#searchArticle').val() // value of user_input: the HTML element with ID user-input
+            q: $input.val() // value of user_input: the HTML element with ID user-input
         }
         // Run Ajaxl
         $.ajax({
@@ -90,8 +87,9 @@ $(document).ready(function () {
 });
 
 function enableDropdown() {
-    $('#selDataset').on('change', embeddingView);
-    $.proxy(embeddingView, $('#selDataset'))();
+    let $selDataset = $('#selDataset')
+    $selDataset.on('change', embeddingView);
+    $.proxy(embeddingView, $selDataset)();
 }
 
 function embeddingView() {

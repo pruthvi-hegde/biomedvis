@@ -210,6 +210,7 @@ html, body {
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     overflow-y: auto;
     background: #FAF9F9;
+    overflow-x: hidden;
 }
 
 .custom-scroll::-webkit-scrollbar {

@@ -233,6 +233,6 @@ def get_embedding_view_data(article_titles):
         plot_object = plot({'data': fig}, output_type='div')
     else:
         plot_object = "<div class='text-center' style='padding-top: 12rem'>" \
-                      "This plot will be loaded if the filtered articles are atleast 3</div>"
+                      "This plot will be loaded if the filtered articles are atleast 4</div>"
 
     return plot_object

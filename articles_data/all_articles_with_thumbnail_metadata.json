@@ -408,18 +408,6 @@
     "thumbnail": "../static/thumbnails/A_Statistical_Method_for_Surface_Detection.jpg"
   },
   {
-    "article_title": "VCBM 2016: Frontmatter",
-    "article_authors": "Stefan Bruckner,Bernhard Preim,Anna Vilanova,Helwig Hauser,Anja Hennemuth,Arvid Lundervold",
-    "publisher": "Eurographics Association",
-    "published_date": "2016",
-    "ISSN": "http://dx.doi.org/10.2312/vcbm.20162019",
-    "ISBN": "https://diglib.eg.org:443/handle/10.2312/vcbm20162019",
-    "DOI": "10.2312/vcbm.20162019",
-    "keywords": null,
-    "abstract": null,
-    "thumbnail": "../static/thumbnails/VCBM_2016:_Frontmatter.jpg"
-  },
-  {
     "article_title": "A Framework for Fast Initial Exploration of PC-MRI Cardiac Flow",
     "article_authors": "Broos  Arjan J. M.,Hoon  Niels H. L. C. de,Koning  Patrick J. H. de,Geest  Rob J. van der,Vilanova  Anna,Jalba  Andrei C.",
     "publisher": "The Eurographics Association",
@@ -792,18 +780,6 @@
     "thumbnail": "../static/thumbnails/Automatic_Generation_of_Web-Based_User_Studies_to_Evaluate_Depth_Perception_in_Vascular_Surface_Visualizations.jpg"
   },
   {
-    "article_title": "Eurographics Workshop on Visual Computing for Biology and Medicine 2017: Frontmatter",
-    "article_authors": "Bruckner  Stefan,Hennemuth  Anja,Kainz  Bernhard,Hotz  Ingrid,Merhof  Dorit,Rieder  Christian",
-    "publisher": "Eurographics Association",
-    "published_date": "2017",
-    "ISSN": "http://dx.doi.org/10.2312/vcbm.20172018",
-    "ISBN": "https://diglib.eg.org:443/handle/10.2312/vcbm20172018",
-    "DOI": "10.2312/vcbm.20172018",
-    "keywords": null,
-    "abstract": null,
-    "thumbnail": "../static/thumbnails/Eurographics_Workshop_on_Visual_Computing_for_Biology_and_Medicine_2017:_Frontmatter.jpg"
-  },
-  {
     "article_title": "Efficient Globally Optimal Matching of Anatomical Trees of the Liver",
     "article_authors": "Laura  Cristina Oyarzun,Drechsler  Klaus",
     "publisher": "The Eurographics Association",
@@ -982,18 +958,6 @@
     "keywords": "I.4.9 [Computing Methodologies]",
     "abstract": "Four-dimensional phase-contrast magnetic resonance imaging (4D PC-MRI) is a relatively young image modality that allows the non-invasive acquisition of time-resolved, three-dimensional blood flow information. Stroke volumes and regurgitation fractions are two of the main measures to assess the cardiac function and severity of pathologies. The flow volumes in forward and backward direction through a plane inside the vessel are required for their quantification. Unfortunately, the calculations are highly sensitive towards the plane's angulation since orthogonally passing flow is considered. This often leads to physiologically implausible results. In this work, a robust quantification method is introduced to overcome this problem. Collaborating radiologists and cardiologists were carefully observed while estimating stroke volumes in various healthy volunteer and patient datasets with conventional quantification. This facilitated the automatization of their approach which, in turn, allows to derive statistical information about the plane angulation sensitivity. Moreover, the experts expect a continuous decrease of the stroke volume along the vessel course after a peak value above the aortic valve. Conventional methods are often unable to produce this behavior. Thus, we present a procedure to fit a function that ensures such physiologically plausible results. In addition, the technique was adapted for the robust quantification of regurgitation fractions. The performed qualitative evaluation shows the capability of our method to support diagnosis, a parameter evaluation confirms the robustness. Vortex flow was identified as main cause for quantification uncertainties.",
     "thumbnail": "../static/thumbnails/Robust_Cardiac_Function_Assessment_in_4D_PC-MRI_Data.jpg"
-  },
-  {
-    "article_title": "VCBM 2020: Frontmatter",
-    "article_authors": "Kozl\u00edkov\u00e1  Barbora,Krone  Michael,Smit  Noeska,Nieselt  Kay,Raidou  Renata Georgia",
-    "publisher": "The Eurographics Association",
-    "published_date": "2020",
-    "ISSN": "https://doi.org/10.2312/vcbm.20202017",
-    "ISBN": "https://diglib.eg.org:443/handle/10.2312/vcbm20202017",
-    "DOI": "10.2312/vcbm.20202017",
-    "keywords": null,
-    "abstract": null,
-    "thumbnail": "../static/thumbnails/VCBM_2020:_Frontmatter.jpg"
   },
   {
     "article_title": "preha: Establishing Precision Rehabilitation with Visual Analytics",
@@ -1368,18 +1332,6 @@
     "thumbnail": "../static/thumbnails/Computational_Steering_for_Patient-Specific_Implant_Planning_in_Orthopedics.jpg"
   },
   {
-    "article_title": "VCBM 2021: Frontmatter",
-    "article_authors": "Oeltze-Jafra  Steffen,Smit  Noeska N.,Sommer  Bj\u00f6rn,Nieselt  Kay,Schultz  Thomas",
-    "publisher": "The Eurographics Association",
-    "published_date": "2021",
-    "ISSN": "https://doi.org/10.2312/vcbm.20212018",
-    "ISBN": "https://diglib.eg.org:443/handle/10.2312/vcbm20212018",
-    "DOI": "10.2312/vcbm.20212018",
-    "keywords": null,
-    "abstract": null,
-    "thumbnail": "../static/thumbnails/VCBM_2021:_Frontmatter.jpg"
-  },
-  {
     "article_title": "Tractography in Context: Multimodal Visualization of Probabilistic Tractograms in Anatomical Context",
     "article_authors": "Berres  Anne,Goldau  Mathias,Tittgemeyer  Marc,Scheuermann  Gerik,Hagen  Hans",
     "publisher": "The Eurographics Association",
@@ -1752,18 +1704,6 @@
     "thumbnail": "../static/thumbnails/Annotated_Dendrograms_for_Neurons_From_the_Larval_Fruit_Fly_Brain.jpg"
   },
   {
-    "article_title": "Frontmatter: Eurographics Workshop on Visual Computing for Biology and Medicine 2018",
-    "article_authors": "Puig Puig  Anna,Schultz  Thomas,Vilanova  Anna,Hotz  Ingrid,Kozlikova  Barbora,V\u00e1zquez  Pere-Pau",
-    "publisher": "The Eurographics Association",
-    "published_date": "2018",
-    "ISSN": "https://diglib.eg.org:443/handle/10.2312/vcbm20182020",
-    "ISBN": "https://doi.org/10.2312/vcbm.20182020",
-    "DOI": "10.2312/vcbm.20182020",
-    "keywords": null,
-    "abstract": null,
-    "thumbnail": "../static/thumbnails/Frontmatter:_Eurographics_Workshop_on_Visual_Computing_for_Biology_and_Medicine_2018.jpg"
-  },
-  {
     "article_title": "Visual Analytics in Histopathology Diagnostics: a Protocol-Based Approach",
     "article_authors": "Corv\u00f2  Alberto,Westenberg  Michel A.,Driel  Marc A. van,Wijk  Jarke J.van",
     "publisher": "The Eurographics Association",
@@ -1774,18 +1714,6 @@
     "keywords": "I.3.8 Computer Graphics",
     "abstract": "Computer-Aided-Diagnosis (CAD) systems supporting the diagnostic process are widespread in radiology. Digital Pathology is still behind in the introduction of such solutions. Several studies investigated pathologists' behavior but only a few aimed to improve the diagnostic and report process with novel applications. In this work we designed and implemented a first protocol-based CAD viewer supported by visual analytics. The system targets the optimization of the diagnostic workflow in breast cancer diagnosis by means of three image analysis features that belong to the standard grading system (Nottingham Histologic Grade). A pathologist's routine was tracked during the examination of breast cancer tissue slides and diagnostic traces were analyzed from a qualitative perspective. Accordingly, a set of generic requirements was elicited to define the design and the implementation of the CAD-Viewer. A first qualitative evaluation conducted with five pathologists shows that the interface suffices the diagnostic workflow and diminishes the manual effort. We present promising evidence of the usefulness of our CAD-viewer and opportunities for its extension and integration in clinical practice. As a conclusion, the findings demonstrate that it is feasibile to optimize the Nottingham Grading workflow and, generally, the histological diagnosis by integrating computational pathology data with visual analytics techniques.",
     "thumbnail": "../static/thumbnails/Visual_Analytics_in_Histopathology_Diagnostics:_a_Protocol-Based_Approach.jpg"
-  },
-  {
-    "article_title": "VCBM 2019: Frontmatter",
-    "article_authors": "Kozl\u00edkov\u00e1  Barbora,Raidou  Renata Georgia",
-    "publisher": "Eurographics Association",
-    "published_date": "2019",
-    "ISSN": "https://doi.org/10.2312/vcbm.20192019",
-    "ISBN": "https://diglib.eg.org:443/handle/10.2312/vcbm20192019",
-    "DOI": "10.2312/vcbm.20192019",
-    "keywords": null,
-    "abstract": null,
-    "thumbnail": "../static/thumbnails/VCBM_2019:_Frontmatter.jpg"
   },
   {
     "article_title": "PATHONE: From one Thousand Patients to one Cell",
