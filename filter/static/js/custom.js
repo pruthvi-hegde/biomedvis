@@ -55,6 +55,7 @@ $(document).ready(function () {
                 $('#filteredArticles').html(res.article_view_data);
                 updateTimeView(res.time_view_data['published_date'], res.time_view_data['article_count'], false)
                 $('#myDiv').html(res.embedding_view_data);
+                $("#selDataset").val(res.selected_model).trigger('chosen:updated');
                 enableDropdown()
             }, error: function (xhr, status, error) {
                 console.log("inside Error " + error);
@@ -66,19 +67,23 @@ $(document).ready(function () {
         let _filterObj = {};
         $(".filter-checkbox").each(function () {
             let _filterKey = $(this).data('filter')
-
             _filterObj[_filterKey] = Array.from(document.querySelectorAll('input[data-filter=' + _filterKey + ']:checked')).map(function (el) {
                 return el.value;
             });
         });
-        // Run Ajaxl
+        // Run Ajax
         $.ajax({
             url: '/filter-data', data: _filterObj, dataType: 'json', beforeSend: function () {
             }, success: function (res) {
                 $("#filteredArticles").html(res.article_view_data);
                 updateTimeView(res.time_view_data['published_data'], res.time_view_data['article_count'], false)
                 $('#myDiv').html(res.embedding_view_data);
+                //enableDropdown()
+                $("#selDataset").val(res.selected_model).trigger('chosen:updated');
                 enableDropdown()
+
+                // $("#selDataset").val(res.selected_model);
+                // $("#selDataset").trigger("chosen:updated");
             },
         });
     })
@@ -88,6 +93,7 @@ $(document).ready(function () {
 
 function enableDropdown() {
     let $selDataset = $('#selDataset')
+    console.log("enableDropdown SelDataset" + $selDataset)
     $selDataset.on('change', embeddingView);
     $.proxy(embeddingView, $selDataset)();
 }
@@ -95,8 +101,9 @@ function enableDropdown() {
 function embeddingView() {
     let selection_data = {
         // articleData: JSON.stringify($('#articleEmbeddingView').data('article')),
-        selectedModel: $('#selDataset').val()
+        selectedModel: $('#selDataset').val(),
     }
+    console.log("embeddingView Selected model" + selection_data.selectedModel)
     $.ajax({
         url: '/embedding-view',
         type: 'POST',
@@ -104,6 +111,7 @@ function embeddingView() {
         traditional: true,
         dataType: 'json',
         success: function (res) {
+            console.log("embeddingView success " + selection_data.selectedModel)
             $('#myDiv').html(res.embedding_view_data);
         },
         error: function (xhr, status, error) {

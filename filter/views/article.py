@@ -16,7 +16,7 @@ from ..models.category import Category, Subcategory
 # filter_model = FiltersConfig.model
 main_articles = Article.objects.none()
 filtered_articles = Article.objects.none()
-selected_model = "sentence_transformer_average"
+selected_model = "all_minilm_l6_v2"
 article_title = ""
 articles = ""
 
@@ -60,6 +60,7 @@ def filter_data(request):
     global filtered_articles
     global main_articles
     global article_title
+    global selected_model
     articles_filtered = Article.objects.none()
     if len(filter_values) != 0:
         for categories in filter_values.values():
@@ -82,7 +83,7 @@ def filter_data(request):
                       'article_title': article_title}
     main_articles = articles
     return JsonResponse({'article_view_data': article_view_data, 'time_view_data': time_view_data,
-                         'embedding_view_data': plot_object}, safe=False)
+                         'embedding_view_data': plot_object, 'selected_model': selected_model}, safe=False)
 
 
 @csrf_exempt
@@ -139,6 +140,7 @@ def populate_on_search(request):
         global filtered_articles
         global main_articles
         global article_title
+        global selected_model
         query_parameter = request.GET.get("q")
         query_parameter = re.sub(' +', ' ', query_parameter)
         if query_parameter:
@@ -175,7 +177,7 @@ def populate_on_search(request):
 
         main_articles = searched_articles
         return JsonResponse({'article_view_data': html, 'time_view_data': time_view_data,
-                             'embedding_view_data': plot_object}, safe=False)
+                             'embedding_view_data': plot_object, 'selected_model': selected_model}, safe=False)
 
 
 def get_article_published_year_and_count(articles_data):
@@ -228,11 +230,11 @@ def create_embedding_view(request):
 
 def get_embedding_view_data(article_titles):
     global selected_model
-    if len(article_titles) > 3:
+    if len(article_titles) > 0:
         fig = Doc2Vec(selected_model).calculate_doc_average(article_titles)
         plot_object = plot({'data': fig}, output_type='div')
     else:
         plot_object = "<div class='text-center' style='padding-top: 12rem'>" \
-                      "This plot will be loaded if the filtered articles are atleast 4</div>"
+                      "This plot will be loaded if the filtered articles are atleast 1</div>"
 
     return plot_object

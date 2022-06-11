@@ -1,17 +1,17 @@
-import os
 import json
-from sentence_transformers import SentenceTransformer
-from flair.embeddings import TransformerWordEmbeddings
-from flair.data import Sentence
-from gensim.models import KeyedVectors
+import os
+
 import numpy as np
+from flair.embeddings import TransformerWordEmbeddings
+from gensim.models import KeyedVectors
+from sentence_transformers import SentenceTransformer
 
 CUR_DIR_PATH = os.curdir()
 
 # change model according to you needs.
 sentence_transformers_model = SentenceTransformer('all-MiniLM-L6-v2')
 biowordvec_model = KeyedVectors.load_word2vec_format(
-              CUR_DIR_PATH + '/filter/static/mlmodels/BioWordVec_PubMed_MIMICIII_d200.txt', binary=True, limit=1000000)
+    CUR_DIR_PATH + '/filter/static/mlmodels/BioWordVec_PubMed_MIMICIII_d200.txt', binary=True, limit=1000000)
 embedding = TransformerWordEmbeddings("cambridgeltl/SapBERT-from-PubMedBERT-fulltext")
 
 
@@ -41,11 +41,10 @@ def create_embeddings():
 
     # Create and save file according to your model
     result = dict(zip(file_names, sentence_embeddings))
-    with open('../embeddings/sentence_transformer_average.json', 'w') as f:
+    with open('../embeddings/high_dim/all_minilm_l6_v2_avg_high_dim.json', 'w') as f:
         json.dump(result, f)
     print("wrote to a file")
 
 
 if __name__ == "__main__":
     create_embeddings()
-
