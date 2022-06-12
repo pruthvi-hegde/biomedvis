@@ -3,24 +3,24 @@ select.form-control + .chosen-container.chosen-container-single .chosen-single {
     width: 100%;
     height: 34px;
     padding: 6px 12px;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.428571429;
     color: #555;
     vertical-align: middle;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    background-image:none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    background-image: none;
     font-family: "Poppins";
 }
 
 select.form-control + .chosen-container.chosen-container-single .chosen-single div {
-    top:4px;
-    color:#000;
+    top: 4px;
+    color: #000;
 }
 
 select.form-control + .chosen-container .chosen-drop {
@@ -51,7 +51,7 @@ select.form-control + .chosen-container .chosen-search input[type=text] {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    background-image:none;
+    background-image: none;
 }
 
 select.form-control + .chosen-container .chosen-results {
@@ -63,7 +63,7 @@ select.form-control + .chosen-container .chosen-results {
     margin-bottom: 5px;
 }
 
-select.form-control + .chosen-container .chosen-results li , 
+select.form-control + .chosen-container .chosen-results li,
 select.form-control + .chosen-container .chosen-results li.active-result {
     display: block;
     padding: 3px 20px;
@@ -72,16 +72,16 @@ select.form-control + .chosen-container .chosen-results li.active-result {
     line-height: 1.428571429;
     color: #333;
     white-space: nowrap;
-    background-image:none;
+    background-image: none;
 }
-select.form-control + .chosen-container .chosen-results li:hover, 
+
+select.form-control + .chosen-container .chosen-results li:hover,
 select.form-control + .chosen-container .chosen-results li.active-result:hover,
-select.form-control + .chosen-container .chosen-results li.highlighted
-{
-    color: #FFF;
+select.form-control + .chosen-container .chosen-results li.highlighted {
+    color: #D64045;
+    background-color: #FFFFFF;
     text-decoration: none;
-    background-color: #7386D5;
-    background-image:none;
+    background-image: none;
 }
 
 select.form-control + .chosen-container-multi .chosen-choices {
@@ -100,12 +100,12 @@ select.form-control + .chosen-container-multi .chosen-choices {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    background-image:none;
+    background-image: none;
 }
 
 select.form-control + .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
-    height:auto;
-    padding:5px 0;
+    height: auto;
+    padding: 5px 0;
 }
 
 select.form-control + .chosen-container-multi .chosen-choices li.search-choice {
@@ -129,20 +129,20 @@ select.form-control + .chosen-container-multi .chosen-choices li.search-choice {
 }
 
 select.form-control + .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
-    top:8px;
-    right:6px;
+    top: 8px;
+    right: 6px;
 }
 
 select.form-control + .chosen-container-multi.chosen-container-active .chosen-choices,
 select.form-control + .chosen-container.chosen-container-single.chosen-container-active .chosen-single,
-select.form-control + .chosen-container .chosen-search input[type=text]:focus{
-    border-color: #7386D5;
+select.form-control + .chosen-container .chosen-search input[type=text]:focus {
+    border-color: #D64045;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(102, 175, 233, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(102, 175, 233, 0.6);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
 
-select.form-control + .chosen-container-multi .chosen-results li.result-selected{
+select.form-control + .chosen-container-multi .chosen-results li.result-selected {
     display: list-item;
     color: #ccc;
     cursor: default;

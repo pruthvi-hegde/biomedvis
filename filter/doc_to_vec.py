@@ -27,20 +27,24 @@ class Doc2Vec:
         all_article_embeddings = list(self.data.values())
         all_article_titles = list(self.data.keys())
         fig = px.scatter(all_article_embeddings, x=0, y=1, opacity=1, hover_name=all_article_titles)
-        fig.update_traces(marker_color='#D64045')
+        fig.update_traces(marker_color='#2950b3', selector=dict(mode='markers'))
         if len(article_titles) < 236:
             selected_article_embeddings = [self.data[title] for title in article_titles]
             x, y = map(list, zip(*selected_article_embeddings))
+            fig.update_traces(marker_color='#2950b3', selector=dict(mode='markers'), opacity=0.5)
             fig.add_trace(go.Scatter(x=x, y=y, mode='markers', hovertext=article_titles, showlegend=False,
                                      name='Selected',
-                                     marker_color='#1c3678',
+                                     marker=dict(
+                                         color='#ff0000',
+                                     ),
                                      hoverlabel=dict(
                                          bgcolor="#ffffff",
                                          font_size=12,
                                          font_color="#141414",
                                          font_family="Calibri",
-                                         bordercolor="#1c3678",
-                                     )
+                                         bordercolor="#D64045",
+                                     ),
+                                     hovertemplate='<b>%{hovertext}<br></b><br>0=%{x}<br>1=%{y}'
                                      ))
         fig.update_layout(
             margin=dict(l=5, r=5, b=30),
@@ -69,7 +73,7 @@ class Doc2Vec:
                 font_size=12,
                 font_color="#141414",
                 font_family="Calibri",
-                bordercolor="#D64045",
+                bordercolor="#204ab3",
             ),
             plot_bgcolor='white',
         )
