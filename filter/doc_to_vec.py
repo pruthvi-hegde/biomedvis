@@ -33,13 +33,13 @@ class Doc2Vec:
             x, y = map(list, zip(*selected_article_embeddings))
             fig.add_trace(go.Scatter(x=x, y=y, mode='markers', hovertext=article_titles, showlegend=False,
                                      name='Selected',
-                                     marker_color='#475ebf',
+                                     marker_color='#1c3678',
                                      hoverlabel=dict(
                                          bgcolor="#ffffff",
                                          font_size=12,
                                          font_color="#141414",
                                          font_family="Calibri",
-                                         bordercolor="#475ebf",
+                                         bordercolor="#1c3678",
                                      )
                                      ))
         fig.update_layout(

@@ -107,7 +107,7 @@ h2 {
     -o-transition: .3s;
     transition: .3s;
     width: 10px;
-    border-right: 7px solid #7386D5;
+    border-right: 7px solid #1c3678;
     border-radius: 3px;
     -webkit-transform: rotateZ(45deg) scale(1);
     -ms-transform: rotate(45deg) scale(1);
