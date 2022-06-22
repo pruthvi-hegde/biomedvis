@@ -31,11 +31,12 @@ class Doc2Vec:
         if len(article_titles) < 236:
             selected_article_embeddings = [self.data[title] for title in article_titles]
             x, y = map(list, zip(*selected_article_embeddings))
-            fig.update_traces(marker_color='#2950b3', selector=dict(mode='markers'), opacity=0.5)
+            # fig.update_traces(marker_color='#2950b3', selector=dict(mode='markers'), opacity=0.3)
+            fig.update_traces(marker_color='#E50914', selector=dict(mode='markers'), opacity=0.2)
             fig.add_trace(go.Scatter(x=x, y=y, mode='markers', hovertext=article_titles, showlegend=False,
                                      name='Selected',
                                      marker=dict(
-                                         color='#ff0000',
+                                         color='#E50914',
                                      ),
                                      hoverlabel=dict(
                                          bgcolor="#ffffff",
