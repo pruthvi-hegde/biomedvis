@@ -30,7 +30,7 @@ def create_high_and_low_dim_embeddings_for_models(model_name):
     # Create and save low dimensional article embeddings according to your model
     result = dict(zip(article_titles, low_dim_embeddings.tolist()))
     print(result)
-    with open('../embeddings/' + model_name + '_low_dim.json', 'w') as f:
+    with open('../embeddings/low_dim/' + model_name + '_low_dim.json', 'x') as f:
         json.dump(result, f)
     print("wrote to a file")
 
@@ -55,4 +55,5 @@ def create_high_and_low_dim_embeddings_for_models(model_name):
 
 if __name__ == "__main__":
     # create_high_and_low_dim_embeddings_for_models('all-MiniLM-L6-v2')
-    create_high_and_low_dim_embeddings_for_models('allenai-specter')
+    create_high_and_low_dim_embeddings_for_models('all-mpnet-base-v2')
+    # create_high_and_low_dim_embeddings_for_models('allenai-specter')

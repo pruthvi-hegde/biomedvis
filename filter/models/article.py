@@ -10,6 +10,7 @@ class Article(models.Model):
     ISSN = models.CharField(max_length=100)
     ISBN = models.CharField(max_length=100)
     DOI = models.CharField(max_length=150, unique=True)
+    # keywords = models.CharField(max_length=2000)
     abstract = models.CharField(max_length=5000)
 
     def register(self):
@@ -24,5 +25,3 @@ class Article(models.Model):
 
     def __str__(self):
         return self.article_title
-
-
