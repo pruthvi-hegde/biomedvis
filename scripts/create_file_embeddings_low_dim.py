@@ -5,7 +5,7 @@ from umap import UMAP
 
 
 def create_high_and_low_dim_embeddings_for_models(model_name):
-    with open('../articles_data/all_articles_with_thumbnail_metadata.json') as f:
+    with open('../articles_data/all_articles_with_thumbnail_metadata_retired.json') as f:
         papers = json.load(f)
 
     # We then load the allenai-specter model with SentenceTransformers

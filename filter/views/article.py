@@ -230,9 +230,18 @@ def create_embedding_view(request):
 
 def get_embedding_view_data(article_titles):
     global selected_model
+    config = {
+        'toImageButtonOptions': {
+            'format': 'png',  # one of png, svg, jpeg, webp
+            'filename': 'custom_image',
+            'height': 500,
+            'width': 700,
+            'scale': 1  # Multiply title/legend/axis/canvas sizes by this factor
+        }
+    }
     if len(article_titles) > 0:
         fig = Doc2Vec(selected_model).calculate_doc_average(article_titles)
-        plot_object = plot({'data': fig}, output_type='div')
+        plot_object = plot({'data': fig}, output_type='div', config=config)
     else:
         plot_object = "<div class='text-center' style='padding-top: 12rem'>" \
                       "This plot will be loaded if the filtered articles are atleast 1</div>"

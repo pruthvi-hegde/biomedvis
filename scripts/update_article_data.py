@@ -1,8 +1,10 @@
 import json
 
-
 # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "web.settings")
 # django.setup()
+"""
+If you want to update data file i.e all_articles_with_metadata.json, then use this particular script.
+"""
 
 
 def add_thumbnail_to_article():
@@ -15,7 +17,7 @@ def add_thumbnail_to_article():
         article.update({"thumbnail": path + thumbnail})
 
     json_string = json.dumps(articles)
-    with open('../articles_data/all_articles_with_thumbnail_metadata.json', 'w') as f:
+    with open('../articles_data/all_articles_with_thumbnail_metadata_retired.json', 'w') as f:
         f.write(json_string)
 
 
