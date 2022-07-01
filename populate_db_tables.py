@@ -20,13 +20,13 @@ If you would like to add to add your data to DB, then use this file.
 
 
 # Below code erases all the tables in your tables. Use it with caution.
-# def reset_db():
-#     try:
-#         os.remove('db.sqlite3')
-#     except:
-#         pass
-#     os.system('python manage.py migrate')
-#     print("Database reseted.")
+def reset_db():
+    try:
+        os.remove('db.sqlite3')
+    except:
+        pass
+    os.system('python manage.py migrate')
+    print("Database reseted.")
 
 
 def add_articles_to_article_table():
@@ -37,25 +37,24 @@ def add_articles_to_article_table():
         article_title = article["article_title"]
         article_authors = article["article_authors"]
         publisher = article["publisher"]
-        published_date = article["published_date"]
+        published_year = article["published_year"]
         ISSN = article["ISSN"]
         ISBN = article["ISBN"]
         DOI = article["DOI"]
         thumbnail = article["thumbnail"]
         abstract = article["abstract"]
         keywords = article["keywords"]
-        print(keywords)
 
         try:
             table_content_exist = False
             article = Article.objects.create(
                 article_title=article_title, article_authors=article_authors, publisher=publisher,
-                published_date=published_date, ISSN=ISSN, ISBN=ISBN, DOI=DOI, thumbnail_path=thumbnail,
+                published_year=published_year, ISSN=ISSN, ISBN=ISBN, DOI=DOI, thumbnail_path=thumbnail,
                 keywords=keywords,
                 abstract=abstract
 
             )
-            # article = Article.objects.update(abstract=abstract)
+            # article = Article.objects.update(thumbnail_path=thumbnail)
             # article = Article.objects.update(keywords=keywords)
             article.save()
         except Exception as e:
@@ -100,7 +99,7 @@ def populate_categories_and_subcategories_table():
 
 
 if __name__ == '__main__':
-    # reset_db()
-    # add_articles_to_article_table()
+    reset_db()
+    add_articles_to_article_table()
     populate_categories_and_subcategories_table()
     print("Done")

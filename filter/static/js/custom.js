@@ -53,7 +53,7 @@ $(document).ready(function () {
         $.ajax({
             url: '/articles-search', data: request_parameters, success: function (res) {
                 $('#filteredArticles').html(res.article_view_data);
-                updateTimeView(res.time_view_data['published_date'], res.time_view_data['article_count'], false)
+                updateTimeView(res.time_view_data['published_year'], res.time_view_data['article_count'], false)
                 $('#myDiv').html(res.embedding_view_data);
                 $("#selDataset").val(res.selected_model).trigger('chosen:updated');
                 enableDropdown()

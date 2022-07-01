@@ -37,7 +37,7 @@ def article_list(request):
         categories_name = cat.category_name
         categories_data[categories_name] = Subcategory.objects.filter(category__exact=cat)
 
-    article_title, published_date, article_count, total_count = get_article_published_year_and_count(articles)
+    article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles)
     articles = articles
     filtered_articles = articles
     main_articles = articles
@@ -49,7 +49,7 @@ def article_list(request):
                       'article_title': article_title,
                       'total_count': total_count,
                       'view_item': categories_data,
-                      'published_date': published_date,
+                      'published_year': published_year,
                       'article_count': article_count
 
                   })
@@ -70,16 +70,16 @@ def filter_data(request):
     else:
         articles_filtered = Article.objects.all().order_by('-id')
 
-    article_title, published_date, article_count, total_count = get_article_published_year_and_count(articles_filtered)
+    article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles_filtered)
 
     plot_object = get_embedding_view_data(article_title)
 
     article_view_data = render_to_string('component_view.html', {'data': articles, 'article_title': article_title,
-                                                                 'published_date': published_date,
+                                                                 'published_year': published_year,
                                                                  'article_count': article_count,
                                                                  'total_count': total_count,
                                                                  })
-    time_view_data = {'published_data': published_date, 'article_count': article_count, 'total_count': total_count,
+    time_view_data = {'published_data': published_year, 'article_count': article_count, 'total_count': total_count,
                       'article_title': article_title}
     main_articles = articles
     return JsonResponse({'article_view_data': article_view_data, 'time_view_data': time_view_data,
@@ -97,11 +97,11 @@ def update_article_view(request):
         for article_point in selected_article_points:
             articles |= filtered_articles.filter(article_title__exact=article_point)
 
-        article_title, published_date, article_count, total_count = get_article_published_year_and_count(articles)
+        article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles)
         article_view_data = render_to_string('article_page_view.html',
                                              {'data': articles, 'article_title': article_title,
                                               'total_count': total_count})
-        time_view_data = {'published_data': published_date, 'article_count': article_count, 'total_count': total_count,
+        time_view_data = {'published_year': published_year, 'article_count': article_count, 'total_count': total_count,
                           'article_title': article_title}
         main_articles = articles
         return JsonResponse({'article_view_data': article_view_data, 'time_view_data': time_view_data}, safe=False)
@@ -116,16 +116,16 @@ def update_article_view_from_time_chart(request):
         article_data = json.loads(request.body)
 
         if article_data['loadFirstTime']:
-            articles = Article.objects.filter(published_date__gte=article_data['minYear'],
-                                              published_date__lte=article_data['maxYear'])
+            articles = Article.objects.filter(published_year__gte=article_data['minYear'],
+                                              published_year__lte=article_data['maxYear'])
         else:
             if article_data['minYear'] == article_data['maxYear']:
-                articles = main_articles.filter(published_date=article_data['minYear'])
+                articles = main_articles.filter(published_year=article_data['minYear'])
             else:
-                articles = main_articles.filter(published_date__gte=article_data['minYear'],
-                                                published_date__lte=article_data['maxYear'])
+                articles = main_articles.filter(published_year__gte=article_data['minYear'],
+                                                published_year__lte=article_data['maxYear'])
         # main_articles = json.loads(request.body)
-        article_title, published_date, article_count, total_count = get_article_published_year_and_count(articles)
+        article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles)
         plot_object = get_embedding_view_data(article_title)
 
         html = render_to_string('article_page_view.html', {'data': articles, 'total_count': total_count})
@@ -146,7 +146,7 @@ def populate_on_search(request):
         if query_parameter:
             articles = Article.objects.none()
             if re.match('^\d{4}$', query_parameter):
-                searched_articles = filtered_articles.filter(Q(published_date__exact=query_parameter))
+                searched_articles = filtered_articles.filter(Q(published_year__exact=query_parameter))
             else:
                 searched_articles = filtered_articles.filter(
                     Q(abstract__icontains=query_parameter) | Q(article_title__icontains=query_parameter) | Q(
@@ -162,17 +162,17 @@ def populate_on_search(request):
         else:
             searched_articles = filtered_articles
 
-        article_title, published_date, article_count, total_count = get_article_published_year_and_count(
+        article_title, published_year, article_count, total_count = get_article_published_year_and_count(
             searched_articles)
         plot_object = get_embedding_view_data(article_title)
 
         html = render_to_string(
             template_name="component_view.html",
-            context={'data': searched_articles, 'article_title': article_title, 'published_date': published_date,
+            context={'data': searched_articles, 'article_title': article_title, 'published_year': published_year,
                      'article_count': article_count, 'total_count': total_count}
         )
         time_view_data = {'article_titles': article_title,
-                          'published_date': published_date,
+                          'published_year': published_year,
                           'article_count': article_count}
 
         main_articles = searched_articles
@@ -184,16 +184,16 @@ def get_article_published_year_and_count(articles_data):
     global articles
     articles = articles_data
     article_title = [article.article_title for article in articles]
-    published_date_data = list(articles
-                               .values('published_date')
-                               .annotate(dcount=Count('published_date'))
+    published_year_data = list(articles
+                               .values('published_year')
+                               .annotate(dcount=Count('published_year'))
                                .order_by()
                                )
 
-    published_date = list(d['published_date'] for d in published_date_data)
-    article_count = list(d['dcount'] for d in published_date_data)
+    published_year = list(d['published_year'] for d in published_year_data)
+    article_count = list(d['dcount'] for d in published_year_data)
     total_count = articles.count()
-    return article_title, published_date, article_count, total_count
+    return article_title, published_year, article_count, total_count
 
 
 @csrf_exempt
@@ -204,7 +204,7 @@ def populate_details_view(request):
         article_info = {}
         for article in article_details:
             article_info = {
-                "article_title": f"{article.article_title} ({article.published_date})",
+                "article_title": f"{article.article_title} ({article.published_year})",
                 "abstract": article.abstract,
                 "articleDOI": article.DOI,
                 "articleThumbnail": article.thumbnail_path

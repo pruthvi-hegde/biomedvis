@@ -6,7 +6,7 @@ class Article(models.Model):
     thumbnail_path = models.CharField(max_length=300)
     article_authors = models.CharField(max_length=200)
     publisher = models.CharField(max_length=200)
-    published_date = models.IntegerField()
+    published_year = models.IntegerField()
     ISSN = models.CharField(max_length=100)
     ISBN = models.CharField(max_length=100)
     DOI = models.CharField(max_length=150, unique=True)

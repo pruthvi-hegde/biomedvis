@@ -9,16 +9,17 @@ If you want to update data file i.e all_articles_with_metadata.json, then use th
 
 def add_thumbnail_to_article():
     path = '../static/thumbnails/'
-    with open('../articles_data/all_articles_with_metadata.json') as f:
+    with open('../articles_data/all_articles_metadata.json') as f:
         articles = json.load(f)
     for article in articles:
-        thumbnail = article["article_title"].replace(" ", "_") + ".jpg"
+        thumbnail = article["article_title"].replace(" ", "_").replace('/', '-') + ".jpg"
         # {**article, **{"thumbnail": path + thumbnail}}
         article.update({"thumbnail": path + thumbnail})
 
     json_string = json.dumps(articles)
-    with open('../articles_data/all_articles_with_thumbnail_metadata_retired.json', 'w') as f:
+    with open('../articles_data/all_articles_with_thumbnail_metadata.json', 'x') as f:
         f.write(json_string)
 
 
-add_thumbnail_to_article()
+if __name__ == '__main__':
+    add_thumbnail_to_article()
