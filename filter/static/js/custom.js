@@ -124,7 +124,7 @@ function embeddingView() {
 
 function drawTimeView() {
     let ctx = $('#chartContainer');
-    let _publishedyears = ctx.data('date')
+    let _publishedyears = ctx.data('year')
     let _count = ctx.data('count')
     // let _tcount = ctx.data('tcount')
     updateTimeView(_publishedyears, _count, true)

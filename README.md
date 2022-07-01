@@ -1,4 +1,4 @@
-# VisBioMed
+# BioMedVis
 
 This project aims to create a visual survey browser for articles which were pushed in Eurographics conference for
 Biology and Medicine
@@ -25,3 +25,28 @@ pip install -r requirements.txt
 ```commandline
 python manage.py runserver
 ```
+
+## For Developers
+
+### Setup Django tables
+
+1. There are 3 database tables on which website relies on. Those are : Article, Category, Subcategory
+2. `article.py` and `category.py` inside `models` folder contains schema for the tables.
+3. To create tables, run below commands from project top level directory
+
+```commandline
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### To add data to Database tables
+
+1. Copy all thumbnails under `thumbnails` folder which is inside `articles_data` folder.
+2. Copy `all_articles_metadata.json` from [VCBMCrawler repository](https://github.com/pruthvi-hegde/VCBMCrawler/) inside
+   articles_data folder
+3. Update `all_articles_metadata.json` with thumbnails path by running `update_articles_data` inside scripts folder.
+   This will add local thumbnail path to eac of the publication data.
+4. Run `populate_db_tables` from project directory
+5. The database tables should be now populates with the relevant data.
+
+
