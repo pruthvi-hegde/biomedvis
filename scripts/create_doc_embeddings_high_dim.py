@@ -11,7 +11,7 @@ CUR_DIR_PATH = os.curdir()
 # change model according to you needs.
 sentence_transformers_model = SentenceTransformer('all-MiniLM-L6-v2')
 biowordvec_model = KeyedVectors.load_word2vec_format(
-    CUR_DIR_PATH + '/filter/static/mlmodels/BioWordVec_PubMed_MIMICIII_d200.txt', binary=True, limit=1000000)
+    CUR_DIR_PATH + '/app/static/mlmodels/BioWordVec_PubMed_MIMICIII_d200.txt', binary=True, limit=1000000)
 embedding = TransformerWordEmbeddings("cambridgeltl/SapBERT-from-PubMedBERT-fulltext")
 
 

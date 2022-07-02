@@ -21,7 +21,7 @@ class Article(models.Model):
         return Article.objects.all()
 
     class Meta:
-        app_label = 'filter'
+        app_label = 'app'
 
     def __str__(self):
         return self.article_title

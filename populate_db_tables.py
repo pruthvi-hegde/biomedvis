@@ -6,9 +6,9 @@ import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "visbiomed.settings")
 django.setup()
 
-from filter.models.article import Article
-from filter.models.category import Category
-from filter.models.category import Subcategory
+from app.models.article import Article
+from app.models.category import Category
+from app.models.category import Subcategory
 
 """
 If you would like to add to add your data to DB, then use this file. 
@@ -99,7 +99,7 @@ def populate_categories_and_subcategories_table():
 
 
 if __name__ == '__main__':
-    reset_db()
+    # reset_db()
     add_articles_to_article_table()
     populate_categories_and_subcategories_table()
     print("Done")
