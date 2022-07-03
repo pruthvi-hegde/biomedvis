@@ -3,7 +3,7 @@ import os
 
 import django
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "visbiomed.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "biomedvis.settings")
 django.setup()
 
 from app.models.article import Article
