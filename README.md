@@ -1,6 +1,6 @@
 # VisBioMed
 
-This project aims to create a visual survey browser for articles which were pushed in Eurographics conference for
+This project aims to create a visual survey browser for EU workshop publications in the area of Biology and Medicine
 Biology and Medicine
 (2008 to 2021)
 
