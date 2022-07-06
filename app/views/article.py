@@ -74,11 +74,11 @@ def filter_data(request):
 
     plot_object = get_embedding_view_data(article_title)
 
-    article_view_data = render_to_string('component_view.html', {'data': articles, 'article_title': article_title,
+    article_view_data = render_to_string('components.html', {'data': articles, 'article_title': article_title,
                                                                  'published_year': published_year,
                                                                  'article_count': article_count,
                                                                  'total_count': total_count,
-                                                                 })
+                                                             })
     time_view_data = {'published_data': published_year, 'article_count': article_count, 'total_count': total_count,
                       'article_title': article_title}
     main_articles = articles
@@ -98,7 +98,7 @@ def update_article_view(request):
             articles |= filtered_articles.filter(article_title__exact=article_point)
 
         article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles)
-        article_view_data = render_to_string('article_page_view.html',
+        article_view_data = render_to_string('articles_page_view.html',
                                              {'data': articles, 'article_title': article_title,
                                               'total_count': total_count})
         time_view_data = {'published_year': published_year, 'article_count': article_count, 'total_count': total_count,
@@ -128,7 +128,7 @@ def update_article_view_from_time_chart(request):
         article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles)
         plot_object = get_embedding_view_data(article_title)
 
-        html = render_to_string('article_page_view.html', {'data': articles, 'total_count': total_count})
+        html = render_to_string('articles_page_view.html', {'data': articles, 'total_count': total_count})
         filtered_articles = articles
         return JsonResponse({'article_view_data': html, 'embedding_view_data': plot_object}, safe=False)
 
@@ -167,7 +167,7 @@ def populate_on_search(request):
         plot_object = get_embedding_view_data(article_title)
 
         html = render_to_string(
-            template_name="component_view.html",
+            template_name="components.html",
             context={'data': searched_articles, 'article_title': article_title, 'published_year': published_year,
                      'article_count': article_count, 'total_count': total_count}
         )

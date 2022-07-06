@@ -1,0 +1,25 @@
+<div class="card-body" id="articleEmbeddingView" data-article="{{ article_title }}">
+    <div style="z-index: 10; position: absolute;" class="row w-65">
+        <div class="form-group ml-lg-5">
+            <select name="model" id="selDataset" class="form-control chosen-select">
+                <option value="all_mpnet_base_v2">Sentence Transformer - all-mpnet-base-v2</option>
+                <option value="allenai_specter">allenai-specter</option>
+                 <option value="s_pubmedbert_ms_marco_scifact">S-PubMedBERT</option>
+                 <option value="biowordvec">BioWordVec</option>
+                <option value="tfidf">TF-IDF</option>
+                 <option value="bow">Bag of words</option>
+            </select>
+        </div>
+    </div>
+    <div id="myDiv" style="z-index: 8">
+        <div class="d-flex justify-content-center" style="padding-top: 12rem">
+            <div class="spinner-border text-danger text-center" style="width: 3rem; height: 3rem;top: 10rem;">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    $(".chosen-select").chosen({disable_search_threshold: 10});
+</script>

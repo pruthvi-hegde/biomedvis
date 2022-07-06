@@ -1,1 +1,946 @@
-{"Visual Assessment of Growth Prediction in Brain Structures after Pediatric Radiotherapy": [6.3652215003967285, 2.3828206062316895], "Visual Analytics for the Exploration and Assessment of Segmentation Errors": [6.432878017425537, 3.00201678276062], "Improving Perception of Molecular Surface Visualizations by Incorporating Translucency Effects": [2.979707717895508, 3.1493451595306396], "Application of Image Processing Functions for Brain Tumor Enhancement in Intraoperative Ultrasound Image Data": [6.471011638641357, 3.931990623474121], "A Guided Spatial Transformer Network for Histology Cell Differentiation": [7.460122108459473, 5.104768753051758], "Discovering Medical Knowledge Using Visual Analytics": [4.229948043823242, 6.938745975494385], "Inlier Detection in Thermal Sensitive Images": [6.075286388397217, 2.559271812438965], "Robustness Evaluation of CFD Simulations to Mesh Deformation": [8.373490333557129, 7.110298156738281], "The Virtual Reality Flow Lens for Blood Flow Exploration": [4.102080345153809, 3.726097345352173], "Interactive Residual Stress Modeling for Soft Tissue Simulation": [6.497228622436523, 4.42728328704834], "An Integrated Platform for Dynamic Cardiac Simulation and Image Processing: Application to Personalised Tetralogy of Fallot Simulation": [5.439713001251221, 3.7903170585632324], "Visual Analysis of Medical Image Segmentation Feature Space for Interactive Supervised Classification": [6.296396255493164, 3.177790641784668], "VRIDAA: Virtual Reality Platform for Training and Planning Implantations of Occluder Devices in Left Atrial Appendages": [3.8892128467559814, 4.662196636199951], "MRI Hip Joint Segmentation: A Locally Bhattacharyya Weighted Hybrid 3D Level Set Approach": [7.121284484863281, 2.968090772628784], "Feasibility Study For Automatic Bird Tracking and Visualization from Time-Dependent Marine Radar Imagery": [4.386027812957764, 1.6092525720596313], "Semantic Screen-Space Occlusion for Multiscale Molecular Visualization": [0.8640414476394653, 3.8640599250793457], "Interactive CPU-based Ray Tracing of Solvent Excluded Surfaces": [0.682715654373169, 3.9933300018310547], "Using Position-Based Dynamics for Simulating the Mitral Valve in a Decision Support System": [4.539794445037842, 4.789288520812988], "InShaDe: Invariant Shape Descriptors for Visual Analysis of Histology 2D Cellular and Nuclear Shapes": [7.284564018249512, 4.994772911071777], "UI-Net: Interactive Artificial Neural Networks for Iterative Image Segmentation Based on a User Model": [6.21592378616333, 5.498136520385742], "A Feasibility Study on Automated Protein Aggregate Characterization Utilizing a Hybrid Classification Model": [1.0413929224014282, 3.298234701156616], "Fast and Smooth Interactive Segmentation of Medical Images Using Variational Interpolation": [7.4928879737854, 4.376587390899658], "SpectraMosaic: An Exploratory Tool for the Interactive Visual Analysis of Magnetic Resonance Spectroscopy Data": [1.9022642374038696, 0.26325616240501404], "Interactive Real Time Simulation of Cardiac Radio-Frequency Ablation": [4.382567882537842, 4.7134318351745605], "Visual Analytics of Missing Data in Epidemiological Cohort Studies": [4.2433061599731445, 7.146772861480713], "BrainCove: A Tool for Voxel-wise fMRI Brain Connectivity Visualization": [0.5776470899581909, 0.716245710849762], "Illustrative PET/CT Visualisation of SIRT-Treated Lung Metastases": [6.067377090454102, 2.216914415359497], "FluoroSim: A Visual Problem-Solving Environment for Fluorescence Microscopy": [1.4932968616485596, 3.1583197116851807], "Image Registration Methods for Patient-Specific Virtual Physiological Human Models": [6.9762773513793945, 2.247507333755493], "Visual Navigation Support for Liver Applicator Placement using Interactive Map Displays": [5.910964012145996, 4.291235446929932], "Dynamic Visualisation of Orbital Fat Deformation using Anatomy-Guided Interaction": [6.463244438171387, 2.5485095977783203], "FoldSynth: Interactive 2D/3D Visualisation Platform for Molecular Strands": [0.12262723594903946, 3.8640072345733643], "On the Value of Multi-Volume Visualization for Preoperative Planning of Cerebral AVM Surgery": [7.287655353546143, 7.778018474578857], "A Statistical Method for Surface Detection": [7.342899799346924, 4.091611862182617], "A Framework for Fast Initial Exploration of PC-MRI Cardiac Flow": [7.926251411437988, 7.439176559448242], "Constrained Labeling of 2D Slice Data for Reading Images in Radiology": [6.161264896392822, 3.0029966831207275], "GLANCE: Visual Analytics for Monitoring Glaucoma Progression": [6.104862689971924, 5.725221633911133], "Sketch-based Image-independent Editing of 3D Tumor Segmentations using Variational Interpolation": [6.986465930938721, 4.652516841888428], "Model-based Solid Texture Synthesis for Anatomic Volume Illustration": [6.543728351593018, 4.699443340301514], "Interactive Formation of Statistical Hypotheses in Diffusion Tensor Imaging": [1.4328545331954956, 0.20464399456977844], "Learning Hand Anatomy with Sense of Embodiment": [3.866931200027466, 4.157228469848633], "A New Vessel Enhancement Transform on Retinal Blood Vessels Segmentation": [7.329782962799072, 6.503337383270264], "Graph Averaging as a Means to Compare Multichannel EEG Coherence Networks": [0.3179987370967865, 0.6125268936157227], "Automatic Hepatocyte Quantification from Histological Images: Comparing Pre-smoothing filters": [7.757809162139893, 5.059015274047852], "Visual Analytics in Digital Pathology: Challenges and Opportunities": [5.599905490875244, 6.427307605743408], "Personalized X-ray Reconstruction of the Proximal Femur via a New Control Point-based 2D-3D Registration and Residual Complexity Minimization": [7.252232074737549, 2.3053853511810303], "Visualizing Movements of Protein Tunnels in Molecular Dynamics Simulations": [-0.24611200392246246, 3.7469661235809326], "Semi-Automatic Vessel Boundary Detection in Cardiac 4D PC-MRI Data Using FTLE fields": [7.799737930297852, 7.116755485534668], "A Haptic Rendering Algorithm for Molecular Interaction": [3.037931203842163, 4.255308628082275], "Anatomical Volume Visualization with Weighted Distance Fields": [4.753708839416504, 2.8945415019989014], "A Survey on Visualizing Magnetic Resonance Spectroscopy Data": [5.735905647277832, 1.872760534286499], "Robust Classification and Analysis of Anatomical Surfaces Using 3D Skeletons": [7.281542778015137, 3.630537986755371], "Concentric Circle Glyphs for Enhanced Depth-Judgment in Vascular Models": [6.336487770080566, 5.013535976409912], "Surface Curvature Line Clustering for Polyp Detection in CT Colonography": [6.630228042602539, 3.4634952545166016], "Visualizing and Exploring Dynamic Multichannel EEG Coherence Networks": [0.4157213568687439, 0.6417538523674011], "A Comparative User Study of a 2D and an Autostereoscopic 3D Display for a Tympanoplastic Surgery": [3.5134713649749756, 4.5016188621521], "Hybrid Visualization of Protein-Lipid and Protein-Protein Interaction": [0.39095431566238403, 3.44692325592041], "Distance Field Visualization and 2D Abstraction of Vessel Tree Structures with on-the-fly Parameterization": [6.918642997741699, 5.160170555114746], "Visual Analysis of Multivariate Intensive Care Surveillance Data": [4.255899429321289, 7.0250163078308105], "Deriving Anatomical Context from 4D Ultrasound": [5.662770748138428, 2.4732980728149414], "From Imprecise User Input to Precise Vessel Segmentations": [6.8465375900268555, 5.327939987182617], "Illustrated Ultrasound for Multimodal Data Interpretation of Liver Examinations": [6.219154357910156, 3.7054901123046875], "Student and Teacher Meet in a Shared Virtual Reality: A one-on-one Tutoring System for Anatomy Education": [3.6952741146087646, 4.0386061668396], "Parameterization and Feature Extraction for the Visualization of Tree-like Structures": [7.030373573303223, 4.9261908531188965], "Automatic Generation of Web-Based User Studies to Evaluate Depth Perception in Vascular Surface Visualizations": [3.814803123474121, 2.566086769104004], "Efficient Globally Optimal Matching of Anatomical Trees of the Liver": [7.7715349197387695, 4.4336137771606445], "Visual Analysis of Bipartite Biological Networks": [0.08021733909845352, 3.0624852180480957], "RegistrationShop: An Interactive 3D Medical Volume Registration System": [5.400500774383545, 2.8658065795898438], "GPU Accelerated Normalized Mutual Information and B-Spline Transformation": [4.9940009117126465, 2.734093427658081], "Lowest-Variance Streamlines for Filtering of 3D Ultrasound": [5.3707075119018555, 2.2235748767852783], "Interactive Position-dependent Customization of Transfer Function Classification Parameters in Volume Rendering": [4.864398956298828, 2.626971483230591], "Survey of Labeling Techniques in Medical Visualizations": [5.959960460662842, 3.175189256668091], "Vologram: An Educational Holographic Sculpture for Volumetric Medical Data Physicalization": [5.012670516967773, 3.6517975330352783], "A Visual Environment for Hypothesis Formation and Reasoning in Studies with fMRI and Multivariate Clinical Data": [0.8294200897216797, 0.7690600156784058], "Interactive Classification of Multi-Shell Diffusion MRI With Features From a Dual-Branch CNN Autoencoder": [1.2682071924209595, -0.0121701555326581], "Interactive Visual Similarity Analysis of Measured and Simulated Multi-field Tubular Flow Ensembles": [8.459142684936523, 7.308502674102783], "A Visual Analytics Approach for Patient Stratification and Biomarker Discovery": [4.356431484222412, 6.923372745513916], "HIFUpm: a Visual Environment to Plan and Monitor High Intensity Focused Ultrasound Treatments": [5.854811191558838, 3.7616517543792725], "Progressive and Efficient Multi-Resolution Representations for Brain Tractograms": [1.0851759910583496, -0.07544204592704773], "Robust Cardiac Function Assessment in 4D PC-MRI Data": [8.191529273986816, 7.797501087188721], "preha: Establishing Precision Rehabilitation with Visual Analytics": [4.204728126525879, 7.057218551635742], "Projection Mapping for In-Situ Surgery Planning by the Example of DIEP Flap Breast Reconstruction": [4.4868903160095215, 3.0640602111816406], "Real-Time Guidance and Anatomical Information by Image Projection onto Patients": [4.429956436157227, 3.1103310585021973], "SWiFT Seeing the Wood From the Trees: helping people make sense of their health data": [4.0900421142578125, 7.222517013549805], "A Multilinear Model for Bidirectional Craniofacial Reconstruction": [7.480744361877441, 3.6749391555786133], "Global and Local Mesh Morphing for Complex Biological Objects from \u00b5CT Data": [7.8465352058410645, 3.3601784706115723], "Information-based Transfer Functions for Multimodal Visualization": [5.030184745788574, 2.9524528980255127], "Importance-Driven Structure Categorization for 3D Surgery Planning": [5.713785171508789, 3.297675132751465], "Synaptic Connectivity in Anatomically Realistic Neural Networks: Modeling and Visual Analysis": [0.22520382702350616, 1.0526041984558105], "Visual Analysis of Integrated Resting State Functional Brain Connectivity and Anatomy": [0.4503113627433777, 0.603915274143219], "Instant Visualization of Secondary Structures of Molecular Models": [0.190720334649086, 3.9781105518341064], "Ontology-Based Visualization of Hierarchical Neuroanatomical Structures": [0.2853226363658905, 0.7551242709159851], "CT Late Enhancement Segmentation for the Combined Analysis of Coronary Arteries and Myocardial Viability": [7.21077299118042, 7.0712127685546875], "How to Evaluate Medical Visualizations on the Example of 3D Aneurysm Surfaces": [3.9189534187316895, 2.500610113143921], "VirtualDSA++: Automated Segmentation, Vessel Labeling, Occlusion Detection and Graph Search on CT-Angiography Data": [7.403565406799316, 7.619950771331787], "Focus + Context Rendering of Structured Biomedical Data": [5.23388147354126, 3.1449222564697266], "DockVis: Visual Analysis of Molecular Docking Data": [0.08294746279716492, 3.681774854660034], "Imaging the Vascular Network of the Human Spleen from Immunostained Serial Sections": [7.735631942749023, 5.019510269165039], "Exploration of 3D Medical Image Data for Interventional Radiology using Myoelectric Gesture Control": [4.386130332946777, 3.2725656032562256], "2.5D Geometric Mapping of Aortic Blood Flow Data for Cohort Visualization": [8.136089324951172, 7.457517623901367], "Visualisation of PET data in the Fly Algorithm": [6.303878307342529, 2.0181851387023926], "Evaluation of Hippocampal Segmentation Methods for Healthy and Pathological Subjects": [1.953644871711731, 0.3238793909549713], "Visualizing White Matter Fiber Tracts with Optimally Fitted Curved Dissection Surfaces": [0.9979429841041565, -0.23073704540729523], "Haptics-based Modelling of Pigmented Skin Lesions": [3.1044418811798096, 4.318636894226074], "Ultrasound Decompression for Large Field-of-View Reconstructions": [5.417598724365234, 2.3131635189056396], "Medical Animations: A Survey and a Research Agenda": [8.498374938964844, 6.588242053985596], "The Vitruvian Baby: Interactive Reformation of Fetal Ultrasound Data to a T-Position": [5.940918445587158, 2.830242156982422], "Interactive Visualization of Muscle Activity During Limb Movements: Towards Enhanced Anatomy Learning": [3.853214979171753, 4.229435443878174], "Glyph-Based Visualization of Myocardial Perfusion Data and Enhancement with Contractility and Viability Information": [7.7047858238220215, 7.3573126792907715], "Introducing CNN-Based Mouse Grim Scale Analysis for Fully Automated Image-Based Assessment of Distress in Laboratory Mice": [4.195895671844482, 3.821965217590332], "Computational Steering for Patient-Specific Implant Planning in Orthopedics": [7.299992084503174, 2.4432735443115234], "Tractography in Context: Multimodal Visualization of Probabilistic Tractograms in Anatomical Context": [0.9179831147193909, 0.18935835361480713], "Strategies for Generating Multi-Time Frame Localization of Cardiac MRI": [8.27437973022461, 7.828299522399902], "Interactive Labeling of Toponome Data": [1.1875829696655273, 3.3517115116119385], "Illustrative Transitions in Molecular Visualization via Forward and Inverse Abstraction Transform": [0.3269125819206238, 3.562361001968384], "Automatic Thrombus Detection in Non-enhanced Computed Tomography Images in Patients With Acute Ischemic Stroke": [7.1703200340271, 7.234977722167969], "MedUse: A Visual Analysis Tool for Medication Use Data in the ABCD Study": [0.7736526727676392, 0.8541613221168518], "Interactive Exploded Views for Molecular Structures": [0.37883245944976807, 4.045529842376709], "Generation of a Mean Motion Model of the Lung Using 4D-CT Image Data": [6.927769184112549, 2.0646588802337646], "Visual Assessment of Vascular Torsion using Ellipse Fitting": [7.2457804679870605, 5.861489772796631], "HIFUtk: Visual Analytics for High Intensity Focused Ultrasound Simulation": [5.467154026031494, 3.8500876426696777], "Shading Style Assessment for Vessel Wall and Lumen Visualization": [6.823207855224609, 5.737637042999268], "Automated Slice-Based Artery Identification in Various Field-of-View CTA Scans": [7.131654262542725, 7.107381820678711], "CoWRadar: Visual Quantification of the Circle of Willis in Stroke Patients": [7.481816291809082, 7.683559417724609], "Simulation-based Ultrasound Training Supported by Annotations, Haptics and Linked Multimodal Views": [3.5409913063049316, 4.45245885848999], "Real-Time Dense Nucleus Selection from Confocal Data": [1.5209847688674927, 3.0993030071258545], "Computation and Visualization of Asynchronous Behavior of the Heart": [8.863944053649902, 7.5091352462768555], "Combining B-Mode and Color Flow Vessel Segmentation for Registration of Hepatic CT and Ultrasound Volumes": [6.580458641052246, 3.9670028686523438], "Visual Analysis of Regional Anomalies in Myocardial Motion": [8.917292594909668, 7.63577127456665], "Automatic Real-time Annotation of Important Landmarks in Ultrasound-Guided Femoral Nerve Blocks": [6.4985456466674805, 3.803285598754883], "Geometrical-Acoustics-based Ultrasound Image Simulation": [4.625327110290527, 4.387119770050049], "Multiparametric Magnetic Resonance Image Synthesis using Generative Adversarial Networks": [5.155911922454834, 4.401370048522949], "A General Approach to Model Biomedical Data from 3D Unorganised Point Clouds with Medial Scaffolds": [7.726962089538574, 3.543779134750366], "A Web-Based Tool for Cardiac Dyssynchrony Assessment on Ultrasound Data": [6.098357200622559, 3.9646127223968506], "Analyzing Protein Similarity by Clustering Molecular Surface Maps": [-0.1588948518037796, 3.5797390937805176], "Fiber Stipples for Crossing Tracts in Probabilistic Tractography": [0.9995952844619751, -0.41874101758003235], "An Exploration of Practice and Preferences for the Visual Communication of Biomedical Processes": [3.718848705291748, 6.900752544403076], "Feature Exploration using Local Frequency Distributions in Computed Tomography Data": [5.064229965209961, 1.935530424118042], "Visual and Quantitative Analysis of Higher Order Arborization Overlaps for Neural Circuit Research": [0.25762394070625305, 1.119747519493103], "A Critical Analysis of the Evaluation Practice in Medical Visualization": [4.003436088562012, 2.46117901802063], "Visualization and Exploration of 3D Toponome Data": [0.9583724141120911, 3.6542751789093018], "Annotated Dendrograms for Neurons From the Larval Fruit Fly Brain": [0.19286072254180908, 1.09015953540802], "Visual Analytics in Histopathology Diagnostics: a Protocol-Based Approach": [5.582229137420654, 6.392416954040527], "PATHONE: From one Thousand Patients to one Cell": [5.5076189041137695, 6.3586931228637695], "Aneulysis - A System for Aneurysm Data Analysis": [7.97575044631958, 7.184613227844238], "Semi-Immersive 3D Sketching of Vascular Structures for Medical Education": [6.7312331199646, 5.550249099731445], "Computation of More Channels in Protein Molecules": [-0.16895505785942078, 3.83819580078125], "AR-Assisted Craniotomy Planning for Tumour Resection": [4.143486976623535, 3.521796941757202], "Automatic Cutting and Flattening of Carotid Artery Geometries": [6.8935770988464355, 5.337657451629639], "A Prototype Holographic Augmented Reality Interface for Image-Guided Prostate Cancer Interventions": [4.321392059326172, 3.2446742057800293], "Pelvis Runner: Visualizing Pelvic Organ Variability in a Cohort of Radiotherapy Patients": [6.497749328613281, 2.6851089000701904], "Volume Visualization Using Principal Component Analysis": [4.863060474395752, 2.119798183441162], "Reducing Model Uncertainty in Crossing Fiber Tractography": [0.8513143658638, -0.6080171465873718], "A Two-Level Cascade Classification Algorithm for Real-Time Bifurcation Detection in CTA Images of Blood Vessels": [7.214294910430908, 6.839925765991211], "Chameleon - Dynamic Color Mapping for Multi-Scale Structural Biology Models": [1.0271975994110107, 3.5906777381896973], "Spatio-temporal Visualization of Regional Myocardial Velocities": [8.915987014770508, 7.604797840118408], "Interactive Multimodal Imaging Visualization for Multiple Sclerosis Lesion Analysis": [1.801340937614441, 0.25488078594207764], "Evolutionary Pathlines for Blood Flow Exploration in Cerebral Aneurysms": [8.359867095947266, 7.106922626495361], "The Role of Depth Perception in XR from a Neuroscience Perspective: A Primer and Survey": [4.128464221954346, 3.7154762744903564], "Visual Analysis and Comparison of Multiple Sequence Alignments": [-0.22854384779930115, 3.5690367221832275], "Membrane Mapping: Combining Mesoscopic and Molecular Cell Visualization": [0.7331761121749878, 3.735792398452759], "A Haptics-enabled Simulator for Transperineal Ultrasound-Guided Biopsy": [3.2969324588775635, 4.402003765106201], "Automatic Animations to Analyze Blood Flow Data": [8.419361114501953, 6.670960903167725], "Monte-Carlo Ray-Tracing for Realistic Interactive Ultrasound Simulation": [4.991598606109619, 4.3645920753479], "Challenges and Technologies for Low Cost Wheelchair Simulation": [3.55027437210083, 4.566061973571777], "VisualFlatter - Visual Analysis of Distortions in the Projection of Biomedical Structures": [5.119329452514648, 3.208414077758789], "A Survey of Cardiac 4D PC-MRI Data Processing": [8.180575370788574, 7.759101867675781], "Staircase-Aware Smoothing of Medical Surface Meshes": [7.725119590759277, 4.090085506439209], "Adapted Surface Visualization of Cerebral Aneurysms with Embedded Blood Flow Information": [6.8937907218933105, 5.969552993774414], "Atomistic Visualization of Mesoscopic Whole-Cell Simulations": [0.7325142025947571, 3.897599935531616], "The iCoCooN: Integration of Cobweb Charts with Parallel Coordinates for Visual Analysis of DCE-MRI Modeling Variations": [6.1196980476379395, 2.332428216934204], "Automatic Segmentation of the Pelvic Bones from CT Data Based on a Statistical Shape Model": [7.059834003448486, 2.9281058311462402], "Watergate: Visual Exploration of Water Trajectories in Protein Dynamics": [0.02890593558549881, 3.672980546951294], "Unfolding and Interactive Exploration of Protein Tunnels and their Dynamics": [-0.2560409605503082, 3.6806979179382324], "Bone Fracture and Lesion Assessment using Shape-Adaptive Unfolding": [6.848495006561279, 2.8375940322875977], "Maximizing AUC with Deep Learning for Classification of Imbalanced Mammogram Datasets": [5.709358215332031, 5.765600681304932], "Misalignment Correction in Open Cone-Beam CT": [7.106841087341309, 2.038008451461792], "Visual Exploratory Analysis for Multiple T-Maze Studies": [0.3349396884441376, 1.125478982925415], "Impact of Physical Noise Modeling on Image Segmentation in Echocardiography": [7.75832462310791, 4.849228382110596], "Parametric-based Reconstruction Of 3D Mesh Models; Towards the Generation of a Parametric Human Foot Biomodel": [7.807415008544922, 3.456796884536743], "Schematic Electrode Map for Navigation in Neuro Data Sets": [0.5416449308395386, 0.49659106135368347], "InkVis: A High-Particle-Count Approach for Visualization of Phase-Contrast Magnetic Resonance Imaging Data": [8.441420555114746, 7.379406929016113], "Comparative Visualization for Diffusion Tensor Imaging Group Study at Multiple Levels of Detail": [1.5309382677078247, 0.16348813474178314], "Iterative Exploration of Big Brain Network Data": [0.3856775164604187, 0.8504747748374939], "Exploration of Interventricular Septum Motion in Multi-Cycle Cardiac MRI": [8.860512733459473, 7.730503082275391], "Coherence Maps for Blood Flow Exploration": [8.222095489501953, 6.971062183380127], "Molecular Sombreros: Abstract Visualization of Binding Sites within Proteins": [0.027554182335734367, 3.581747055053711], "Estimation of the Midsagittal Plane for Sideness Determination of Malignant Structures of Head and Neck": [7.8282790184021, 4.285326957702637], "Towards Clinical Deployment of Automated Anatomical Regions-Of-Interest": [5.585312366485596, 3.009542465209961], "Extracting and Visualizing Uncertainties in Segmentations from 3D Medical Data": [6.338342189788818, 2.894089460372925], "CT-Based Navigation Guidance for Liver Tumor Ablation": [6.48729944229126, 3.9490158557891846], "Polar Space Based Shape Averaging for Star-shaped Biological Objects": [7.668483257293701, 3.1019439697265625], "Temporal Interpolation of 4D PC-MRI Blood-flow Measurements Using Bidirectional Physics-based Fluid Simulation": [8.190948486328125, 7.185741901397705], "Motion-moderated Transfer Function for Volume Rendering 4D CMR Data": [5.122853755950928, 4.331593036651611], "VR Acrophobia Treatment - Development of Customizable Acrophobia Inducing Scenarios": [4.134433746337891, 3.8020360469818115], "Colonic Content Assessment from MRI Imaging Using a Semi-automatic Approach": [6.838028430938721, 6.974550247192383], "Visually Guided Mesh Smoothing for Medical Applications": [7.558787822723389, 4.006987571716309], "Design Considerations for Immersive Analytics of Bird Movements Obtained by Miniaturised GPS Sensors": [4.399658203125, 1.6438708305358887], "An Endoscope Interface for Immersive Virtual Reality": [3.4188380241394043, 4.559637069702148], "Sline: Seamless Line Illustration for Interactive Biomedical Visualization": [5.295074462890625, 3.2968485355377197], "Reconstruction of Blood Vessels from Neck CT Datasets using Stable 3D Mass-Spring Models": [7.616195201873779, 6.241784572601318], "Fully Automatic Skull-Stripping in 3D Time-of-Flight MRA Image Sequences": [7.39323616027832, 7.7789626121521], "Simulated Motion Artefact in Computed Tomography": [6.997915267944336, 1.9419103860855103], "Guided Visualization of Ultrasound Image Sequences": [6.0302910804748535, 3.835834503173828], "Histology-Based Evaluation of Optical Coherence Tomographic Characteristics of the Cerebral Artery Wall via Virtual Inflating": [7.58376932144165, 7.728769302368164], "A Web-based Application for the Visual Exploration of Colon Morphology Data": [6.1682915687561035, 6.528789520263672], "Illustrative Multi-volume Rendering for PET/CT Scans": [6.037814140319824, 2.0256147384643555], "Uncertainty-aware Ensemble of Classifiers for Segmenting Brain MRI Data": [2.2080769538879395, 0.5195804238319397], "Uncertainty-Guided Semi-Automated Editing of CNN-based Retinal Layer Segmentations in Optical Coherence Tomography": [6.38226842880249, 5.467273712158203], "cellVIEW: a Tool for Illustrative and Multi-Scale Rendering of Large Biomolecular Datasets": [0.330672949552536, 3.9864659309387207], "Multi-fiber Estimation and Tractography for Diffusion MRI using mixture of Non-central Wishart Distributions": [0.9415169358253479, -0.50035560131073], "Visual Analysis of Evolution of EEG Coherence Networks employing Temporal Multidimensional Scaling": [0.24085380136966705, 2.735877275466919], "Uncertainty-aware Brain Lesion Visualization": [6.2574896812438965, 2.875793218612671], "Deriving and Visualizing Uncertainty in Kinetic PET Modeling": [6.175108909606934, 1.9678162336349487], "Multiple Scale Visualization of Electronic Health Records to Support Finding Medical Narratives": [4.071105003356934, 7.079376697540283], "Layer-Aware iOCT Volume Rendering for Retinal Surgery": [6.426149845123291, 5.555830955505371], "ICG based Augmented-Reality-System for Sentinel Lymph Node Biopsy": [4.278166770935059, 3.2872700691223145], "Graxels: Information Rich Primitives for the Visualization of Time-Dependent Spatial Data": [4.824835300445557, 1.8916945457458496], "Combining Pseudo Chroma Depth Enhancement and Parameter Mapping for Vascular Surface Models": [6.754528999328613, 5.696786880493164], "Aortic Dissection Maps: Comprehensive Visualization of Aortic Dissections for Risk Assessment": [8.062273025512695, 7.342458248138428], "Protein Tunnel Reprojection for Physico-Chemical Property Analysis": [-0.34005093574523926, 3.830214023590088], "Evaluation of Transfer Function Methods in Direct Volume Rendering of the Blood Vessel Lumen": [7.360952854156494, 6.297084331512451], "Visibility-Driven Processing of Streaming Volume Data": [5.2225341796875, 2.1190195083618164], "Accelerated Diffusion Operators for Enhancing DW-MRI": [1.0263550281524658, -0.40721145272254944], "Mammogram Classification and Abnormality Detection from Nonlocal Labels using Deep Multiple Instance Neural Network": [5.738685607910156, 5.777034759521484], "Uncertainty Estimation and Visualization for Multi-modal Image Segmentation": [2.0358102321624756, 0.3578743636608124], "Recent Advances in MRI and Ultrasound Perfusion Imaging": [8.197046279907227, 7.793977737426758], "PerSleep: A Visual Analytics Approach for Performance Assessment of Sleep Staging Models": [4.244864463806152, 7.01234245300293], "High-Quality Multimodal Volume Visualization of Intracerebral Pathological Tissue": [7.370852470397949, 7.831127166748047], "Semantic Segmentation of Brain Tumors in MRI Data Without any Labels": [2.2274394035339355, 0.5546889901161194], "Real-Time Visualization of 3D Amyloid-Beta Fibrils from 2D Cryo-EM Density Maps": [0.7028367519378662, 4.009108543395996], "Visualization-Guided Evaluation of Simulated Minimally Invasive Cancer Treatment": [5.830814361572266, 3.6628665924072266], "A Framework for Visual Comparison of 4D PC-MRI Aortic Blood Flow Data": [8.057530403137207, 7.486598491668701], "Estimation of Muscle Activity in One-Leg Stance from 3D Surface Deformation": [7.288113117218018, 3.5857951641082764], "QuantiScale: A Study in Redesigning Interactions for Multi-Touch": [4.3608269691467285, 3.368727922439575], "The BundleExplorer: A Focus and Context Rendering Framework for Complex Fiber Distributions": [1.0600718259811401, -0.0984126552939415]}
+{
+  "Visual Assessment of Growth Prediction in Brain Structures after Pediatric Radiotherapy": [
+    6.3652215003967285,
+    2.3828206062316895
+  ],
+  "Visual Analytics for the Exploration and Assessment of Segmentation Errors": [
+    6.432878017425537,
+    3.00201678276062
+  ],
+  "Improving Perception of Molecular Surface Visualizations by Incorporating Translucency Effects": [
+    2.979707717895508,
+    3.1493451595306396
+  ],
+  "Application of Image Processing Functions for Brain Tumor Enhancement in Intraoperative Ultrasound Image Data": [
+    6.471011638641357,
+    3.931990623474121
+  ],
+  "A Guided Spatial Transformer Network for Histology Cell Differentiation": [
+    7.460122108459473,
+    5.104768753051758
+  ],
+  "Discovering Medical Knowledge Using Visual Analytics": [
+    4.229948043823242,
+    6.938745975494385
+  ],
+  "Inlier Detection in Thermal Sensitive Images": [
+    6.075286388397217,
+    2.559271812438965
+  ],
+  "Robustness Evaluation of CFD Simulations to Mesh Deformation": [
+    8.373490333557129,
+    7.110298156738281
+  ],
+  "The Virtual Reality Flow Lens for Blood Flow Exploration": [
+    4.102080345153809,
+    3.726097345352173
+  ],
+  "Interactive Residual Stress Modeling for Soft Tissue Simulation": [
+    6.497228622436523,
+    4.42728328704834
+  ],
+  "An Integrated Platform for Dynamic Cardiac Simulation and Image Processing: Application to Personalised Tetralogy of Fallot Simulation": [
+    5.439713001251221,
+    3.7903170585632324
+  ],
+  "Visual Analysis of Medical Image Segmentation Feature Space for Interactive Supervised Classification": [
+    6.296396255493164,
+    3.177790641784668
+  ],
+  "VRIDAA: Virtual Reality Platform for Training and Planning Implantations of Occluder Devices in Left Atrial Appendages": [
+    3.8892128467559814,
+    4.662196636199951
+  ],
+  "MRI Hip Joint Segmentation: A Locally Bhattacharyya Weighted Hybrid 3D Level Set Approach": [
+    7.121284484863281,
+    2.968090772628784
+  ],
+  "Feasibility Study For Automatic Bird Tracking and Visualization from Time-Dependent Marine Radar Imagery": [
+    4.386027812957764,
+    1.6092525720596313
+  ],
+  "Semantic Screen-Space Occlusion for Multiscale Molecular Visualization": [
+    0.8640414476394653,
+    3.8640599250793457
+  ],
+  "Interactive CPU-based Ray Tracing of Solvent Excluded Surfaces": [
+    0.682715654373169,
+    3.9933300018310547
+  ],
+  "Using Position-Based Dynamics for Simulating the Mitral Valve in a Decision Support System": [
+    4.539794445037842,
+    4.789288520812988
+  ],
+  "InShaDe: Invariant Shape Descriptors for Visual Analysis of Histology 2D Cellular and Nuclear Shapes": [
+    7.284564018249512,
+    4.994772911071777
+  ],
+  "UI-Net: Interactive Artificial Neural Networks for Iterative Image Segmentation Based on a User Model": [
+    6.21592378616333,
+    5.498136520385742
+  ],
+  "A Feasibility Study on Automated Protein Aggregate Characterization Utilizing a Hybrid Classification Model": [
+    1.0413929224014282,
+    3.298234701156616
+  ],
+  "Fast and Smooth Interactive Segmentation of Medical Images Using Variational Interpolation": [
+    7.4928879737854,
+    4.376587390899658
+  ],
+  "SpectraMosaic: An Exploratory Tool for the Interactive Visual Analysis of Magnetic Resonance Spectroscopy Data": [
+    1.9022642374038696,
+    0.26325616240501404
+  ],
+  "Interactive Real Time Simulation of Cardiac Radio-Frequency Ablation": [
+    4.382567882537842,
+    4.7134318351745605
+  ],
+  "Visual Analytics of Missing Data in Epidemiological Cohort Studies": [
+    4.2433061599731445,
+    7.146772861480713
+  ],
+  "BrainCove: A Tool for Voxel-wise fMRI Brain Connectivity Visualization": [
+    0.5776470899581909,
+    0.716245710849762
+  ],
+  "Illustrative PET/CT Visualisation of SIRT-Treated Lung Metastases": [
+    6.067377090454102,
+    2.216914415359497
+  ],
+  "FluoroSim: A Visual Problem-Solving Environment for Fluorescence Microscopy": [
+    1.4932968616485596,
+    3.1583197116851807
+  ],
+  "Image Registration Methods for Patient-Specific Virtual Physiological Human Models": [
+    6.9762773513793945,
+    2.247507333755493
+  ],
+  "Visual Navigation Support for Liver Applicator Placement using Interactive Map Displays": [
+    5.910964012145996,
+    4.291235446929932
+  ],
+  "Dynamic Visualisation of Orbital Fat Deformation using Anatomy-Guided Interaction": [
+    6.463244438171387,
+    2.5485095977783203
+  ],
+  "FoldSynth: Interactive 2D/3D Visualisation Platform for Molecular Strands": [
+    0.12262723594903946,
+    3.8640072345733643
+  ],
+  "On the Value of Multi-Volume Visualization for Preoperative Planning of Cerebral AVM Surgery": [
+    7.287655353546143,
+    7.778018474578857
+  ],
+  "A Statistical Method for Surface Detection": [
+    7.342899799346924,
+    4.091611862182617
+  ],
+  "A Framework for Fast Initial Exploration of PC-MRI Cardiac Flow": [
+    7.926251411437988,
+    7.439176559448242
+  ],
+  "Constrained Labeling of 2D Slice Data for Reading Images in Radiology": [
+    6.161264896392822,
+    3.0029966831207275
+  ],
+  "GLANCE: Visual Analytics for Monitoring Glaucoma Progression": [
+    6.104862689971924,
+    5.725221633911133
+  ],
+  "Sketch-based Image-independent Editing of 3D Tumor Segmentations using Variational Interpolation": [
+    6.986465930938721,
+    4.652516841888428
+  ],
+  "Model-based Solid Texture Synthesis for Anatomic Volume Illustration": [
+    6.543728351593018,
+    4.699443340301514
+  ],
+  "Interactive Formation of Statistical Hypotheses in Diffusion Tensor Imaging": [
+    1.4328545331954956,
+    0.20464399456977844
+  ],
+  "Learning Hand Anatomy with Sense of Embodiment": [
+    3.866931200027466,
+    4.157228469848633
+  ],
+  "A New Vessel Enhancement Transform on Retinal Blood Vessels Segmentation": [
+    7.329782962799072,
+    6.503337383270264
+  ],
+  "Graph Averaging as a Means to Compare Multichannel EEG Coherence Networks": [
+    0.3179987370967865,
+    0.6125268936157227
+  ],
+  "Automatic Hepatocyte Quantification from Histological Images: Comparing Pre-smoothing filters": [
+    7.757809162139893,
+    5.059015274047852
+  ],
+  "Visual Analytics in Digital Pathology: Challenges and Opportunities": [
+    5.599905490875244,
+    6.427307605743408
+  ],
+  "Personalized X-ray Reconstruction of the Proximal Femur via a New Control Point-based 2D-3D Registration and Residual Complexity Minimization": [
+    7.252232074737549,
+    2.3053853511810303
+  ],
+  "Visualizing Movements of Protein Tunnels in Molecular Dynamics Simulations": [
+    -0.24611200392246246,
+    3.7469661235809326
+  ],
+  "Semi-Automatic Vessel Boundary Detection in Cardiac 4D PC-MRI Data Using FTLE fields": [
+    7.799737930297852,
+    7.116755485534668
+  ],
+  "A Haptic Rendering Algorithm for Molecular Interaction": [
+    3.037931203842163,
+    4.255308628082275
+  ],
+  "Anatomical Volume Visualization with Weighted Distance Fields": [
+    4.753708839416504,
+    2.8945415019989014
+  ],
+  "A Survey on Visualizing Magnetic Resonance Spectroscopy Data": [
+    5.735905647277832,
+    1.872760534286499
+  ],
+  "Robust Classification and Analysis of Anatomical Surfaces Using 3D Skeletons": [
+    7.281542778015137,
+    3.630537986755371
+  ],
+  "Concentric Circle Glyphs for Enhanced Depth-Judgment in Vascular Models": [
+    6.336487770080566,
+    5.013535976409912
+  ],
+  "Surface Curvature Line Clustering for Polyp Detection in CT Colonography": [
+    6.630228042602539,
+    3.4634952545166016
+  ],
+  "Visualizing and Exploring Dynamic Multichannel EEG Coherence Networks": [
+    0.4157213568687439,
+    0.6417538523674011
+  ],
+  "A Comparative User Study of a 2D and an Autostereoscopic 3D Display for a Tympanoplastic Surgery": [
+    3.5134713649749756,
+    4.5016188621521
+  ],
+  "Hybrid Visualization of Protein-Lipid and Protein-Protein Interaction": [
+    0.39095431566238403,
+    3.44692325592041
+  ],
+  "Distance Field Visualization and 2D Abstraction of Vessel Tree Structures with on-the-fly Parameterization": [
+    6.918642997741699,
+    5.160170555114746
+  ],
+  "Visual Analysis of Multivariate Intensive Care Surveillance Data": [
+    4.255899429321289,
+    7.0250163078308105
+  ],
+  "Deriving Anatomical Context from 4D Ultrasound": [
+    5.662770748138428,
+    2.4732980728149414
+  ],
+  "From Imprecise User Input to Precise Vessel Segmentations": [
+    6.8465375900268555,
+    5.327939987182617
+  ],
+  "Illustrated Ultrasound for Multimodal Data Interpretation of Liver Examinations": [
+    6.219154357910156,
+    3.7054901123046875
+  ],
+  "Student and Teacher Meet in a Shared Virtual Reality: A one-on-one Tutoring System for Anatomy Education": [
+    3.6952741146087646,
+    4.0386061668396
+  ],
+  "Parameterization and Feature Extraction for the Visualization of Tree-like Structures": [
+    7.030373573303223,
+    4.9261908531188965
+  ],
+  "Automatic Generation of Web-Based User Studies to Evaluate Depth Perception in Vascular Surface Visualizations": [
+    3.814803123474121,
+    2.566086769104004
+  ],
+  "Efficient Globally Optimal Matching of Anatomical Trees of the Liver": [
+    7.7715349197387695,
+    4.4336137771606445
+  ],
+  "Visual Analysis of Bipartite Biological Networks": [
+    0.08021733909845352,
+    3.0624852180480957
+  ],
+  "RegistrationShop: An Interactive 3D Medical Volume Registration System": [
+    5.400500774383545,
+    2.8658065795898438
+  ],
+  "GPU Accelerated Normalized Mutual Information and B-Spline Transformation": [
+    4.9940009117126465,
+    2.734093427658081
+  ],
+  "Lowest-Variance Streamlines for Filtering of 3D Ultrasound": [
+    5.3707075119018555,
+    2.2235748767852783
+  ],
+  "Interactive Position-dependent Customization of Transfer Function Classification Parameters in Volume Rendering": [
+    4.864398956298828,
+    2.626971483230591
+  ],
+  "Survey of Labeling Techniques in Medical Visualizations": [
+    5.959960460662842,
+    3.175189256668091
+  ],
+  "Vologram: An Educational Holographic Sculpture for Volumetric Medical Data Physicalization": [
+    5.012670516967773,
+    3.6517975330352783
+  ],
+  "A Visual Environment for Hypothesis Formation and Reasoning in Studies with fMRI and Multivariate Clinical Data": [
+    0.8294200897216797,
+    0.7690600156784058
+  ],
+  "Interactive Classification of Multi-Shell Diffusion MRI With Features From a Dual-Branch CNN Autoencoder": [
+    1.2682071924209595,
+    -0.0121701555326581
+  ],
+  "Interactive Visual Similarity Analysis of Measured and Simulated Multi-field Tubular Flow Ensembles": [
+    8.459142684936523,
+    7.308502674102783
+  ],
+  "A Visual Analytics Approach for Patient Stratification and Biomarker Discovery": [
+    4.356431484222412,
+    6.923372745513916
+  ],
+  "HIFUpm: a Visual Environment to Plan and Monitor High Intensity Focused Ultrasound Treatments": [
+    5.854811191558838,
+    3.7616517543792725
+  ],
+  "Progressive and Efficient Multi-Resolution Representations for Brain Tractograms": [
+    1.0851759910583496,
+    -0.07544204592704773
+  ],
+  "Robust Cardiac Function Assessment in 4D PC-MRI Data": [
+    8.191529273986816,
+    7.797501087188721
+  ],
+  "preha: Establishing Precision Rehabilitation with Visual Analytics": [
+    4.204728126525879,
+    7.057218551635742
+  ],
+  "Projection Mapping for In-Situ Surgery Planning by the Example of DIEP Flap Breast Reconstruction": [
+    4.4868903160095215,
+    3.0640602111816406
+  ],
+  "Real-Time Guidance and Anatomical Information by Image Projection onto Patients": [
+    4.429956436157227,
+    3.1103310585021973
+  ],
+  "SWiFT Seeing the Wood From the Trees: helping people make sense of their health data": [
+    4.0900421142578125,
+    7.222517013549805
+  ],
+  "A Multilinear Model for Bidirectional Craniofacial Reconstruction": [
+    7.480744361877441,
+    3.6749391555786133
+  ],
+  "Global and Local Mesh Morphing for Complex Biological Objects from \u00b5CT Data": [
+    7.8465352058410645,
+    3.3601784706115723
+  ],
+  "Information-based Transfer Functions for Multimodal Visualization": [
+    5.030184745788574,
+    2.9524528980255127
+  ],
+  "Importance-Driven Structure Categorization for 3D Surgery Planning": [
+    5.713785171508789,
+    3.297675132751465
+  ],
+  "Synaptic Connectivity in Anatomically Realistic Neural Networks: Modeling and Visual Analysis": [
+    0.22520382702350616,
+    1.0526041984558105
+  ],
+  "Visual Analysis of Integrated Resting State Functional Brain Connectivity and Anatomy": [
+    0.4503113627433777,
+    0.603915274143219
+  ],
+  "Instant Visualization of Secondary Structures of Molecular Models": [
+    0.190720334649086,
+    3.9781105518341064
+  ],
+  "Ontology-Based Visualization of Hierarchical Neuroanatomical Structures": [
+    0.2853226363658905,
+    0.7551242709159851
+  ],
+  "CT Late Enhancement Segmentation for the Combined Analysis of Coronary Arteries and Myocardial Viability": [
+    7.21077299118042,
+    7.0712127685546875
+  ],
+  "How to Evaluate Medical Visualizations on the Example of 3D Aneurysm Surfaces": [
+    3.9189534187316895,
+    2.500610113143921
+  ],
+  "VirtualDSA++: Automated Segmentation, Vessel Labeling, Occlusion Detection and Graph Search on CT-Angiography Data": [
+    7.403565406799316,
+    7.619950771331787
+  ],
+  "Focus + Context Rendering of Structured Biomedical Data": [
+    5.23388147354126,
+    3.1449222564697266
+  ],
+  "DockVis: Visual Analysis of Molecular Docking Data": [
+    0.08294746279716492,
+    3.681774854660034
+  ],
+  "Imaging the Vascular Network of the Human Spleen from Immunostained Serial Sections": [
+    7.735631942749023,
+    5.019510269165039
+  ],
+  "Exploration of 3D Medical Image Data for Interventional Radiology using Myoelectric Gesture Control": [
+    4.386130332946777,
+    3.2725656032562256
+  ],
+  "2.5D Geometric Mapping of Aortic Blood Flow Data for Cohort Visualization": [
+    8.136089324951172,
+    7.457517623901367
+  ],
+  "Visualisation of PET data in the Fly Algorithm": [
+    6.303878307342529,
+    2.0181851387023926
+  ],
+  "Evaluation of Hippocampal Segmentation Methods for Healthy and Pathological Subjects": [
+    1.953644871711731,
+    0.3238793909549713
+  ],
+  "Visualizing White Matter Fiber Tracts with Optimally Fitted Curved Dissection Surfaces": [
+    0.9979429841041565,
+    -0.23073704540729523
+  ],
+  "Haptics-based Modelling of Pigmented Skin Lesions": [
+    3.1044418811798096,
+    4.318636894226074
+  ],
+  "Ultrasound Decompression for Large Field-of-View Reconstructions": [
+    5.417598724365234,
+    2.3131635189056396
+  ],
+  "Medical Animations: A Survey and a Research Agenda": [
+    8.498374938964844,
+    6.588242053985596
+  ],
+  "The Vitruvian Baby: Interactive Reformation of Fetal Ultrasound Data to a T-Position": [
+    5.940918445587158,
+    2.830242156982422
+  ],
+  "Interactive Visualization of Muscle Activity During Limb Movements: Towards Enhanced Anatomy Learning": [
+    3.853214979171753,
+    4.229435443878174
+  ],
+  "Glyph-Based Visualization of Myocardial Perfusion Data and Enhancement with Contractility and Viability Information": [
+    7.7047858238220215,
+    7.3573126792907715
+  ],
+  "Introducing CNN-Based Mouse Grim Scale Analysis for Fully Automated Image-Based Assessment of Distress in Laboratory Mice": [
+    4.195895671844482,
+    3.821965217590332
+  ],
+  "Computational Steering for Patient-Specific Implant Planning in Orthopedics": [
+    7.299992084503174,
+    2.4432735443115234
+  ],
+  "Tractography in Context: Multimodal Visualization of Probabilistic Tractograms in Anatomical Context": [
+    0.9179831147193909,
+    0.18935835361480713
+  ],
+  "Strategies for Generating Multi-Time Frame Localization of Cardiac MRI": [
+    8.27437973022461,
+    7.828299522399902
+  ],
+  "Interactive Labeling of Toponome Data": [
+    1.1875829696655273,
+    3.3517115116119385
+  ],
+  "Illustrative Transitions in Molecular Visualization via Forward and Inverse Abstraction Transform": [
+    0.3269125819206238,
+    3.562361001968384
+  ],
+  "Automatic Thrombus Detection in Non-enhanced Computed Tomography Images in Patients With Acute Ischemic Stroke": [
+    7.1703200340271,
+    7.234977722167969
+  ],
+  "MedUse: A Visual Analysis Tool for Medication Use Data in the ABCD Study": [
+    0.7736526727676392,
+    0.8541613221168518
+  ],
+  "Interactive Exploded Views for Molecular Structures": [
+    0.37883245944976807,
+    4.045529842376709
+  ],
+  "Generation of a Mean Motion Model of the Lung Using 4D-CT Image Data": [
+    6.927769184112549,
+    2.0646588802337646
+  ],
+  "Visual Assessment of Vascular Torsion using Ellipse Fitting": [
+    7.2457804679870605,
+    5.861489772796631
+  ],
+  "HIFUtk: Visual Analytics for High Intensity Focused Ultrasound Simulation": [
+    5.467154026031494,
+    3.8500876426696777
+  ],
+  "Shading Style Assessment for Vessel Wall and Lumen Visualization": [
+    6.823207855224609,
+    5.737637042999268
+  ],
+  "Automated Slice-Based Artery Identification in Various Field-of-View CTA Scans": [
+    7.131654262542725,
+    7.107381820678711
+  ],
+  "CoWRadar: Visual Quantification of the Circle of Willis in Stroke Patients": [
+    7.481816291809082,
+    7.683559417724609
+  ],
+  "Simulation-based Ultrasound Training Supported by Annotations, Haptics and Linked Multimodal Views": [
+    3.5409913063049316,
+    4.45245885848999
+  ],
+  "Real-Time Dense Nucleus Selection from Confocal Data": [
+    1.5209847688674927,
+    3.0993030071258545
+  ],
+  "Computation and Visualization of Asynchronous Behavior of the Heart": [
+    8.863944053649902,
+    7.5091352462768555
+  ],
+  "Combining B-Mode and Color Flow Vessel Segmentation for Registration of Hepatic CT and Ultrasound Volumes": [
+    6.580458641052246,
+    3.9670028686523438
+  ],
+  "Visual Analysis of Regional Anomalies in Myocardial Motion": [
+    8.917292594909668,
+    7.63577127456665
+  ],
+  "Automatic Real-time Annotation of Important Landmarks in Ultrasound-Guided Femoral Nerve Blocks": [
+    6.4985456466674805,
+    3.803285598754883
+  ],
+  "Geometrical-Acoustics-based Ultrasound Image Simulation": [
+    4.625327110290527,
+    4.387119770050049
+  ],
+  "Multiparametric Magnetic Resonance Image Synthesis using Generative Adversarial Networks": [
+    5.155911922454834,
+    4.401370048522949
+  ],
+  "A General Approach to Model Biomedical Data from 3D Unorganised Point Clouds with Medial Scaffolds": [
+    7.726962089538574,
+    3.543779134750366
+  ],
+  "A Web-Based Tool for Cardiac Dyssynchrony Assessment on Ultrasound Data": [
+    6.098357200622559,
+    3.9646127223968506
+  ],
+  "Analyzing Protein Similarity by Clustering Molecular Surface Maps": [
+    -0.1588948518037796,
+    3.5797390937805176
+  ],
+  "Fiber Stipples for Crossing Tracts in Probabilistic Tractography": [
+    0.9995952844619751,
+    -0.41874101758003235
+  ],
+  "An Exploration of Practice and Preferences for the Visual Communication of Biomedical Processes": [
+    3.718848705291748,
+    6.900752544403076
+  ],
+  "Feature Exploration using Local Frequency Distributions in Computed Tomography Data": [
+    5.064229965209961,
+    1.935530424118042
+  ],
+  "Visual and Quantitative Analysis of Higher Order Arborization Overlaps for Neural Circuit Research": [
+    0.25762394070625305,
+    1.119747519493103
+  ],
+  "A Critical Analysis of the Evaluation Practice in Medical Visualization": [
+    4.003436088562012,
+    2.46117901802063
+  ],
+  "Visualization and Exploration of 3D Toponome Data": [
+    0.9583724141120911,
+    3.6542751789093018
+  ],
+  "Annotated Dendrograms for Neurons From the Larval Fruit Fly Brain": [
+    0.19286072254180908,
+    1.09015953540802
+  ],
+  "Visual Analytics in Histopathology Diagnostics: a Protocol-Based Approach": [
+    5.582229137420654,
+    6.392416954040527
+  ],
+  "PATHONE: From one Thousand Patients to one Cell": [
+    5.5076189041137695,
+    6.3586931228637695
+  ],
+  "Aneulysis - A System for Aneurysm Data Analysis": [
+    7.97575044631958,
+    7.184613227844238
+  ],
+  "Semi-Immersive 3D Sketching of Vascular Structures for Medical Education": [
+    6.7312331199646,
+    5.550249099731445
+  ],
+  "Computation of More Channels in Protein Molecules": [
+    -0.16895505785942078,
+    3.83819580078125
+  ],
+  "AR-Assisted Craniotomy Planning for Tumour Resection": [
+    4.143486976623535,
+    3.521796941757202
+  ],
+  "Automatic Cutting and Flattening of Carotid Artery Geometries": [
+    6.8935770988464355,
+    5.337657451629639
+  ],
+  "A Prototype Holographic Augmented Reality Interface for Image-Guided Prostate Cancer Interventions": [
+    4.321392059326172,
+    3.2446742057800293
+  ],
+  "Pelvis Runner: Visualizing Pelvic Organ Variability in a Cohort of Radiotherapy Patients": [
+    6.497749328613281,
+    2.6851089000701904
+  ],
+  "Volume Visualization Using Principal Component Analysis": [
+    4.863060474395752,
+    2.119798183441162
+  ],
+  "Reducing Model Uncertainty in Crossing Fiber Tractography": [
+    0.8513143658638,
+    -0.6080171465873718
+  ],
+  "A Two-Level Cascade Classification Algorithm for Real-Time Bifurcation Detection in CTA Images of Blood Vessels": [
+    7.214294910430908,
+    6.839925765991211
+  ],
+  "Chameleon - Dynamic Color Mapping for Multi-Scale Structural Biology Models": [
+    1.0271975994110107,
+    3.5906777381896973
+  ],
+  "Spatio-temporal Visualization of Regional Myocardial Velocities": [
+    8.915987014770508,
+    7.604797840118408
+  ],
+  "Interactive Multimodal Imaging Visualization for Multiple Sclerosis Lesion Analysis": [
+    1.801340937614441,
+    0.25488078594207764
+  ],
+  "Evolutionary Pathlines for Blood Flow Exploration in Cerebral Aneurysms": [
+    8.359867095947266,
+    7.106922626495361
+  ],
+  "The Role of Depth Perception in XR from a Neuroscience Perspective: A Primer and Survey": [
+    4.128464221954346,
+    3.7154762744903564
+  ],
+  "Visual Analysis and Comparison of Multiple Sequence Alignments": [
+    -0.22854384779930115,
+    3.5690367221832275
+  ],
+  "Membrane Mapping: Combining Mesoscopic and Molecular Cell Visualization": [
+    0.7331761121749878,
+    3.735792398452759
+  ],
+  "A Haptics-enabled Simulator for Transperineal Ultrasound-Guided Biopsy": [
+    3.2969324588775635,
+    4.402003765106201
+  ],
+  "Automatic Animations to Analyze Blood Flow Data": [
+    8.419361114501953,
+    6.670960903167725
+  ],
+  "Monte-Carlo Ray-Tracing for Realistic Interactive Ultrasound Simulation": [
+    4.991598606109619,
+    4.3645920753479
+  ],
+  "Challenges and Technologies for Low Cost Wheelchair Simulation": [
+    3.55027437210083,
+    4.566061973571777
+  ],
+  "VisualFlatter - Visual Analysis of Distortions in the Projection of Biomedical Structures": [
+    5.119329452514648,
+    3.208414077758789
+  ],
+  "A Survey of Cardiac 4D PC-MRI Data Processing": [
+    8.180575370788574,
+    7.759101867675781
+  ],
+  "Staircase-Aware Smoothing of Medical Surface Meshes": [
+    7.725119590759277,
+    4.090085506439209
+  ],
+  "Adapted Surface Visualization of Cerebral Aneurysms with Embedded Blood Flow Information": [
+    6.8937907218933105,
+    5.969552993774414
+  ],
+  "Atomistic Visualization of Mesoscopic Whole-Cell Simulations": [
+    0.7325142025947571,
+    3.897599935531616
+  ],
+  "The iCoCooN: Integration of Cobweb Charts with Parallel Coordinates for Visual Analysis of DCE-MRI Modeling Variations": [
+    6.1196980476379395,
+    2.332428216934204
+  ],
+  "Automatic Segmentation of the Pelvic Bones from CT Data Based on a Statistical Shape Model": [
+    7.059834003448486,
+    2.9281058311462402
+  ],
+  "Watergate: Visual Exploration of Water Trajectories in Protein Dynamics": [
+    0.02890593558549881,
+    3.672980546951294
+  ],
+  "Unfolding and Interactive Exploration of Protein Tunnels and their Dynamics": [
+    -0.2560409605503082,
+    3.6806979179382324
+  ],
+  "Bone Fracture and Lesion Assessment using Shape-Adaptive Unfolding": [
+    6.848495006561279,
+    2.8375940322875977
+  ],
+  "Maximizing AUC with Deep Learning for Classification of Imbalanced Mammogram Datasets": [
+    5.709358215332031,
+    5.765600681304932
+  ],
+  "Misalignment Correction in Open Cone-Beam CT": [
+    7.106841087341309,
+    2.038008451461792
+  ],
+  "Visual Exploratory Analysis for Multiple T-Maze Studies": [
+    0.3349396884441376,
+    1.125478982925415
+  ],
+  "Impact of Physical Noise Modeling on Image Segmentation in Echocardiography": [
+    7.75832462310791,
+    4.849228382110596
+  ],
+  "Parametric-based Reconstruction Of 3D Mesh Models; Towards the Generation of a Parametric Human Foot Biomodel": [
+    7.807415008544922,
+    3.456796884536743
+  ],
+  "Schematic Electrode Map for Navigation in Neuro Data Sets": [
+    0.5416449308395386,
+    0.49659106135368347
+  ],
+  "InkVis: A High-Particle-Count Approach for Visualization of Phase-Contrast Magnetic Resonance Imaging Data": [
+    8.441420555114746,
+    7.379406929016113
+  ],
+  "Comparative Visualization for Diffusion Tensor Imaging Group Study at Multiple Levels of Detail": [
+    1.5309382677078247,
+    0.16348813474178314
+  ],
+  "Iterative Exploration of Big Brain Network Data": [
+    0.3856775164604187,
+    0.8504747748374939
+  ],
+  "Exploration of Interventricular Septum Motion in Multi-Cycle Cardiac MRI": [
+    8.860512733459473,
+    7.730503082275391
+  ],
+  "Coherence Maps for Blood Flow Exploration": [
+    8.222095489501953,
+    6.971062183380127
+  ],
+  "Molecular Sombreros: Abstract Visualization of Binding Sites within Proteins": [
+    0.027554182335734367,
+    3.581747055053711
+  ],
+  "Estimation of the Midsagittal Plane for Sideness Determination of Malignant Structures of Head and Neck": [
+    7.8282790184021,
+    4.285326957702637
+  ],
+  "Towards Clinical Deployment of Automated Anatomical Regions-Of-Interest": [
+    5.585312366485596,
+    3.009542465209961
+  ],
+  "Extracting and Visualizing Uncertainties in Segmentations from 3D Medical Data": [
+    6.338342189788818,
+    2.894089460372925
+  ],
+  "CT-Based Navigation Guidance for Liver Tumor Ablation": [
+    6.48729944229126,
+    3.9490158557891846
+  ],
+  "Polar Space Based Shape Averaging for Star-shaped Biological Objects": [
+    7.668483257293701,
+    3.1019439697265625
+  ],
+  "Temporal Interpolation of 4D PC-MRI Blood-flow Measurements Using Bidirectional Physics-based Fluid Simulation": [
+    8.190948486328125,
+    7.185741901397705
+  ],
+  "Motion-moderated Transfer Function for Volume Rendering 4D CMR Data": [
+    5.122853755950928,
+    4.331593036651611
+  ],
+  "VR Acrophobia Treatment - Development of Customizable Acrophobia Inducing Scenarios": [
+    4.134433746337891,
+    3.8020360469818115
+  ],
+  "Colonic Content Assessment from MRI Imaging Using a Semi-automatic Approach": [
+    6.838028430938721,
+    6.974550247192383
+  ],
+  "Visually Guided Mesh Smoothing for Medical Applications": [
+    7.558787822723389,
+    4.006987571716309
+  ],
+  "Design Considerations for Immersive Analytics of Bird Movements Obtained by Miniaturised GPS Sensors": [
+    4.399658203125,
+    1.6438708305358887
+  ],
+  "An Endoscope Interface for Immersive Virtual Reality": [
+    3.4188380241394043,
+    4.559637069702148
+  ],
+  "Sline: Seamless Line Illustration for Interactive Biomedical Visualization": [
+    5.295074462890625,
+    3.2968485355377197
+  ],
+  "Reconstruction of Blood Vessels from Neck CT Datasets using Stable 3D Mass-Spring Models": [
+    7.616195201873779,
+    6.241784572601318
+  ],
+  "Fully Automatic Skull-Stripping in 3D Time-of-Flight MRA Image Sequences": [
+    7.39323616027832,
+    7.7789626121521
+  ],
+  "Simulated Motion Artefact in Computed Tomography": [
+    6.997915267944336,
+    1.9419103860855103
+  ],
+  "Guided Visualization of Ultrasound Image Sequences": [
+    6.0302910804748535,
+    3.835834503173828
+  ],
+  "Histology-Based Evaluation of Optical Coherence Tomographic Characteristics of the Cerebral Artery Wall via Virtual Inflating": [
+    7.58376932144165,
+    7.728769302368164
+  ],
+  "A Web-based Application for the Visual Exploration of Colon Morphology Data": [
+    6.1682915687561035,
+    6.528789520263672
+  ],
+  "Illustrative Multi-volume Rendering for PET/CT Scans": [
+    6.037814140319824,
+    2.0256147384643555
+  ],
+  "Uncertainty-aware Ensemble of Classifiers for Segmenting Brain MRI Data": [
+    2.2080769538879395,
+    0.5195804238319397
+  ],
+  "Uncertainty-Guided Semi-Automated Editing of CNN-based Retinal Layer Segmentations in Optical Coherence Tomography": [
+    6.38226842880249,
+    5.467273712158203
+  ],
+  "cellVIEW: a Tool for Illustrative and Multi-Scale Rendering of Large Biomolecular Datasets": [
+    0.330672949552536,
+    3.9864659309387207
+  ],
+  "Multi-fiber Estimation and Tractography for Diffusion MRI using mixture of Non-central Wishart Distributions": [
+    0.9415169358253479,
+    -0.50035560131073
+  ],
+  "Visual Analysis of Evolution of EEG Coherence Networks employing Temporal Multidimensional Scaling": [
+    0.24085380136966705,
+    2.735877275466919
+  ],
+  "Uncertainty-aware Brain Lesion Visualization": [
+    6.2574896812438965,
+    2.875793218612671
+  ],
+  "Deriving and Visualizing Uncertainty in Kinetic PET Modeling": [
+    6.175108909606934,
+    1.9678162336349487
+  ],
+  "Multiple Scale Visualization of Electronic Health Records to Support Finding Medical Narratives": [
+    4.071105003356934,
+    7.079376697540283
+  ],
+  "Layer-Aware iOCT Volume Rendering for Retinal Surgery": [
+    6.426149845123291,
+    5.555830955505371
+  ],
+  "ICG based Augmented-Reality-System for Sentinel Lymph Node Biopsy": [
+    4.278166770935059,
+    3.2872700691223145
+  ],
+  "Graxels: Information Rich Primitives for the Visualization of Time-Dependent Spatial Data": [
+    4.824835300445557,
+    1.8916945457458496
+  ],
+  "Combining Pseudo Chroma Depth Enhancement and Parameter Mapping for Vascular Surface Models": [
+    6.754528999328613,
+    5.696786880493164
+  ],
+  "Aortic Dissection Maps: Comprehensive Visualization of Aortic Dissections for Risk Assessment": [
+    8.062273025512695,
+    7.342458248138428
+  ],
+  "Protein Tunnel Reprojection for Physico-Chemical Property Analysis": [
+    -0.34005093574523926,
+    3.830214023590088
+  ],
+  "Evaluation of Transfer Function Methods in Direct Volume Rendering of the Blood Vessel Lumen": [
+    7.360952854156494,
+    6.297084331512451
+  ],
+  "Visibility-Driven Processing of Streaming Volume Data": [
+    5.2225341796875,
+    2.1190195083618164
+  ],
+  "Accelerated Diffusion Operators for Enhancing DW-MRI": [
+    1.0263550281524658,
+    -0.40721145272254944
+  ],
+  "Mammogram Classification and Abnormality Detection from Nonlocal Labels using Deep Multiple Instance Neural Network": [
+    5.738685607910156,
+    5.777034759521484
+  ],
+  "Uncertainty Estimation and Visualization for Multi-modal Image Segmentation": [
+    2.0358102321624756,
+    0.3578743636608124
+  ],
+  "Recent Advances in MRI and Ultrasound Perfusion Imaging": [
+    8.197046279907227,
+    7.793977737426758
+  ],
+  "PerSleep: A Visual Analytics Approach for Performance Assessment of Sleep Staging Models": [
+    4.244864463806152,
+    7.01234245300293
+  ],
+  "High-Quality Multimodal Volume Visualization of Intracerebral Pathological Tissue": [
+    7.370852470397949,
+    7.831127166748047
+  ],
+  "Semantic Segmentation of Brain Tumors in MRI Data Without any Labels": [
+    2.2274394035339355,
+    0.5546889901161194
+  ],
+  "Real-Time Visualization of 3D Amyloid-Beta Fibrils from 2D Cryo-EM Density Maps": [
+    0.7028367519378662,
+    4.009108543395996
+  ],
+  "Visualization-Guided Evaluation of Simulated Minimally Invasive Cancer Treatment": [
+    5.830814361572266,
+    3.6628665924072266
+  ],
+  "A Framework for Visual Comparison of 4D PC-MRI Aortic Blood Flow Data": [
+    8.057530403137207,
+    7.486598491668701
+  ],
+  "Estimation of Muscle Activity in One-Leg Stance from 3D Surface Deformation": [
+    7.288113117218018,
+    3.5857951641082764
+  ],
+  "QuantiScale: A Study in Redesigning Interactions for Multi-Touch": [
+    4.3608269691467285,
+    3.368727922439575
+  ],
+  "The BundleExplorer: A Focus and Context Rendering Framework for Complex Fiber Distributions": [
+    1.0600718259811401,
+    -0.0984126552939415
+  ]
+}

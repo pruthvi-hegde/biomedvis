@@ -1,10 +1,11 @@
 import json
 
+import umap
 from sentence_transformers import SentenceTransformer
 from umap import UMAP
 
 
-def create_high_and_low_dim_embeddings_for_models(model_name):
+def create_low_dim_embeddings_for_models(model_name):
     with open('../articles_data/all_articles_with_thumbnail_metadata_retired.json') as f:
         papers = json.load(f)
 
@@ -53,7 +54,61 @@ def create_high_and_low_dim_embeddings_for_models(model_name):
 # search_papers(title='The Virtual Reality Flow Lens for Blood Flow Exploration',
 #               abstract='The exploration of time-dependent measured or simulated blood flow is challenging due to the complex three-dimensional structure of vessels and blood flow patterns. Especially on a 2D screen, understanding their full shape and interacting with them is difficult. Critical regions do not always stand out in the visualization and may easily be missed without proper interaction and filtering techniques. The FlowLens [GNBP11] was introduced as a focus-and-context technique to explore one specific blood flow parameter in the context of other parameters for the purpose of treatment planning. With the recent availability of affordable VR glasses it is possible to adapt the concepts of the FlowLens into immersive VR and make them available to a broader group of users. Translating the concept of the Flow Lens to VR leads to a number of design decisions not only based around what functions to include, but also how they can be made available to the user. In this paper, we present a configurable focus-and-context visualization for the use with virtual reality headsets and controllers that allows users to freely explore blood flow data within a VR environment. The advantage of such a solution is the improved perception of the complex spatial structures that results from being surrounded by them instead of observing through a small screen.')
 
+def create_bioword_vec_low_dim():
+    import umap.umap_ as umap
+    import json
+    with open('../embeddings/high_dim/biowordvec_high_dim.json') as f:
+        emb_wv = json.load(f)
+
+    umap_embeddings = umap.UMAP(n_neighbors=5, n_components=2, metric='cosine', random_state=42)
+    low_dim_embeddings = umap_embeddings.fit_transform(list(emb_wv.values()))
+    low_dim_embeddings = low_dim_embeddings.tolist()
+    result = dict(zip(emb_wv.keys(), low_dim_embeddings))
+    print(result)
+    with open('../embeddings/low_dim/biowordvec_low_dim.json', 'w') as f:
+        json.dump(result, f)
+    print("wrote to a file")
+
+
+def generate_word_embeddings():
+    with open('../articles_data/all_articles_with_thumbnail_metadata.json') as f:
+        papers = json.load(f)
+
+    # To encode the papers, we must combine the title and the abstracts to a single string
+    article_texts = [paper['article_title'] + ' ' + paper['abstract'] for paper in
+                     papers]
+    article_titles = [paper['article_title'] for paper in papers]
+    return article_titles, article_texts
+
+
+def generate_bow():
+    from sklearn.feature_extraction.text import CountVectorizer
+
+    article_titles, article_texts = generate_word_embeddings()
+
+    vectorizer = CountVectorizer(min_df=5, stop_words='english')
+    word_doc_matrix = vectorizer.fit_transform(article_texts)
+    emb = umap.UMAP(n_components=2, metric='hellinger').fit(word_doc_matrix)
+    result = dict(zip(article_titles, emb.embedding_.tolist()))
+    with open('../embeddings/low_dim/bow_low_dim.json', 'x') as f:
+        json.dump(result, f)
+    print("wrote to a file")
+
+
+def generate_tfidf():
+    article_titles, article_texts = generate_word_embeddings()
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    tfidf_vectorizer = TfidfVectorizer(min_df=5, stop_words='english')
+    tfidf_word_doc_matrix = tfidf_vectorizer.fit_transform(article_texts)
+    tfidf_embedding = umap.UMAP(metric='cosine').fit(tfidf_word_doc_matrix)
+    result = dict(zip(article_titles, tfidf_embedding.embedding_.tolist()))
+    with open('../embeddings/low_dim/tfidf_low_dim.json', 'x') as f:
+        json.dump(result, f)
+    print("wrote to a file")
+
+
 if __name__ == "__main__":
     # create_high_and_low_dim_embeddings_for_models('all-MiniLM-L6-v2')
-    create_high_and_low_dim_embeddings_for_models('all-mpnet-base-v2')
+    # create_high_and_low_dim_embeddings_for_models('all-mpnet-base-v2')
     # create_high_and_low_dim_embeddings_for_models('allenai-specter')
+    generate_tfidf()

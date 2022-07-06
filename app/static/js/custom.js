@@ -93,7 +93,6 @@ $(document).ready(function () {
 
 function enableDropdown() {
     let $selDataset = $('#selDataset')
-    console.log("enableDropdown SelDataset" + $selDataset)
     $selDataset.on('change', embeddingView);
     $.proxy(embeddingView, $selDataset)();
 }
@@ -103,7 +102,6 @@ function embeddingView() {
         // articleData: JSON.stringify($('#articleEmbeddingView').data('article')),
         selectedModel: $('#selDataset').val(),
     }
-    console.log("embeddingView Selected model" + selection_data.selectedModel)
     $.ajax({
         url: '/embedding-view',
         type: 'POST',
@@ -111,7 +109,6 @@ function embeddingView() {
         traditional: true,
         dataType: 'json',
         success: function (res) {
-            console.log("embeddingView success " + selection_data.selectedModel)
             $('#myDiv').html(res.embedding_view_data);
         },
         error: function (xhr, status, error) {
@@ -169,7 +166,17 @@ function updateTimeView(_publishedyears, _count, flag) {
         }, plotOptions: {
             column: {
                 pointPadding: 0.01, borderWidth: 0
+            },
+            series: {
+            cursor: 'pointer',
+            point: {
+                events: {
+                    click: function () {
+
+                    }
+                }
             }
+        }
         }, series: [{
             name: 'No of articles by year', data: _count,
         }]
