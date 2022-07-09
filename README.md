@@ -4,10 +4,7 @@
 Biology and Medicine
 (2008 to 2021) </strong>
 </div>
-<div align="center">
-  
-  [![forthebadge](https://forthebadge.com/generator/?slabel=Django&sbg=%23419B5A&plabel=Made+with&pbg=%23FFFFFF&ptext=%23000000)](http://forthebadge.com)
-</div>
+
 
 
 
