@@ -1,4 +1,4 @@
-# VisBioMed
+# BioMedVis
 
 This project aims to create a visual survey browser for EU workshop publications in the area of Biology and Medicine
 (2008 to 2021).
