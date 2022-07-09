@@ -6,7 +6,7 @@ Biology and Medicine
 </div>
 <div align="center">
   
-  [![forthebadge](http://forthebadge.com/images/badges/made-with-python.svg)](http://forthebadge.com)
+  [![forthebadge](https://forthebadge.com/generator/?slabel=Django&sbg=%23419B5A&plabel=Made+with&pbg=%23FFFFFF&ptext=%23000000)](http://forthebadge.com)
 </div>
 
 
