@@ -5,7 +5,7 @@ Biology and Medicine
 (2008 to 2021) </strong>
 </div>
 
-
+<div>  ![GitHub repo size](https://img.shields.io/github/repo-size/biomedvis)</div>
 
 
 ## Steps to run the project locally
