@@ -1,8 +1,14 @@
-# BioMedVis
-
-This project aims to create a visual survey browser for articles which were pushed in Eurographics conference for
+<h1 align="center">BioMedVis</h1>
+<div align="center">
+  <strong>BioMedVis project aims to create a visual survey browser for articles which were published in Eurographics conference for
 Biology and Medicine
-(2008 to 2021)
+(2008 to 2021) </strong>
+</div>
+<div align="center">
+  
+  [![forthebadge](http://forthebadge.com/images/badges/made-with-python.svg)](http://forthebadge.com)
+
+
 
 ## Steps to run the project locally
 
