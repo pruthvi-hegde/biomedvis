@@ -13,7 +13,7 @@ Biology and Medicine
 Clone the repository
 
 ```commandline
-git clone https://github.com/user_name/biomedvis.git
+git clone https://github.com/pruthvi-hegde/biomedvis.git
 ```
 
 cd to `visBioMed` repository and activate your `venv` or `conda` environment. Once your virtual environment is
