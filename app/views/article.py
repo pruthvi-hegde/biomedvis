@@ -101,6 +101,7 @@ def update_article_view(request):
         article_view_data = render_to_string('articles_page_view.html',
                                              {'data': articles, 'article_title': article_title,
                                               'total_count': total_count})
+
         time_view_data = {'published_year': published_year, 'article_count': article_count, 'total_count': total_count,
                           'article_title': article_title}
         main_articles = articles
@@ -237,10 +238,11 @@ def get_embedding_view_data(article_titles):
             'height': 500,
             'width': 700,
             'scale': 1  # Multiply title/legend/axis/canvas sizes by this factor
-        }
+        },
+        'displayModeBar': True
     }
     if len(article_titles) > 0:
-        fig = Doc2Vec(selected_model).calculate_doc_average(article_titles)
+        fig = Doc2Vec(selected_model).visualise_doc_embeddings(article_titles)
         plot_object = plot({'data': fig}, output_type='div', config=config)
     else:
         plot_object = "<div class='text-center' style='padding-top: 12rem'>" \

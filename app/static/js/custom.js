@@ -169,13 +169,13 @@ function updateTimeView(_publishedyears, _count, flag) {
             },
             series: {
             cursor: 'pointer',
-            point: {
-                events: {
-                    click: function () {
-
-                    }
-                }
-            }
+            // point: {
+            //     events: {
+            //         click: function () {
+            //
+            //         }
+            //     }
+            // }
         }
         }, series: [{
             name: 'No of articles by year', data: _count,
@@ -264,7 +264,7 @@ $(document).on('plotly_selected', "#myDiv", function (arg1, arg2) {
         },
         success: function (res) {
             $("#articlePageView").html(res.article_view_data);
-            updateTimeView(res.time_view_data['published_data'], res.time_view_data['article_count'], false)
+            updateTimeView(res.time_view_data['published_year'], res.time_view_data['article_count'], false)
         }
     });
 })

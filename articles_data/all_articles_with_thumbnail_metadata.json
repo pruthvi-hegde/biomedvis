@@ -7,7 +7,7 @@
     "ISSN": "978-3-03868-081-9",
     "ISBN": "2070-5786",
     "DOI": "https://doi.org/10.2312/vcbm.20191237",
-    "keywords": "Human,centered computing,Scientific visualization,Visualization toolkits",
+    "keywords": "Human centered computing,Scientific visualization,Visualization toolkits",
     "abstract": "We propose an approach to interactively create exploded views of molecular structures with the goal to help domain experts in their design process and provide them with a meaningful visual representation of component relationships. Exploded views are excellently suited to manage visual occlusion of structure components, which is one of the main challenges when visualizing complex 3D data. In this paper, we discuss four key parameters of an exploded view: explosion distance, direction, order, and the selection of explosion components. We propose two strategies, namely the structure-derived exploded view and the interactive free-form exploded view, for computing these four parameters systematically. The first strategy allows scientists to automatically create exploded views by computing the parameters from the given object structures. The second strategy further supports them to design and customize detailed explosion paths through user interaction. Our approach features the possibility to animate exploded views, to incorporate ease functions into these animations and to display the explosion path of components via arrows. Finally, we demonstrate three use cases with various challenges that we investigated in collaboration with a domain scientist. Our approach, therefore, provides interesting new ways of investigating and presenting the design layout and composition of complex molecular structures.",
     "thumbnail": "../static/thumbnails/Interactive_Exploded_Views_for_Molecular_Structures.jpg"
   },
@@ -19,7 +19,7 @@
     "ISSN": "978-3-03868-081-9",
     "ISBN": "2070-5786",
     "DOI": "https://doi.org/10.2312/vcbm.20191239",
-    "keywords": "Human,centered computing,Scientific visualization,Computing methodologies,Perception",
+    "keywords": "Human centered computing,Scientific visualization,Computing methodologies,Perception",
     "abstract": "Retinal microsurgery is one of the most challenging types of surgery, yet in practice, intraoperative digital assistance is rare. The introduction of fast, microscope integrated Optical Coherence Tomography (iOCT) has enabled intraoperative imaging of subsurface structures. However, effective intraoperative visualization of this data poses a challenging problem both in terms of performance and engineering as well as for creating easily interpretable visualizations of this data. Most existing research focuses on visualization of diagnostic OCT data where imaging quality is higher and processing times are not an issue. We introduce a perceptually linear color map for a separated encoding of tissue reflectivity and positional information as chrominance and luminance. Based on this color mapping, we propose a Direct Volume Rendering (DVR) method that aids structure perception. To aid subretinal injection tasks, we introduce a novel Layer-Adjusted Maximum Intensity Projection (LA-MIP), correcting for the natural curvature of the retinal tissue. Expert feedback suggests our methods are preferred over baseline methods. Further research is needed to confirm the benefits of our approach in routine clinical applications.",
     "thumbnail": "../static/thumbnails/Layer-Aware_iOCT_Volume_Rendering_for_Retinal_Surgery.jpg"
   },
