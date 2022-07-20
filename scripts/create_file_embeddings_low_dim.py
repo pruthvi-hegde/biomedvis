@@ -81,7 +81,7 @@ def create_bioword_vec_low_dim():
     print("wrote to a file")
 
 
-def generate_word_embeddings():
+def load_data():
     with open('../articles_data/all_articles_with_thumbnail_metadata.json') as f:
         papers = json.load(f)
 
@@ -95,25 +95,38 @@ def generate_word_embeddings():
 def generate_bow():
     from sklearn.feature_extraction.text import CountVectorizer
 
-    article_titles, article_texts = generate_word_embeddings()
+    article_titles, article_texts = load_data()
 
     vectorizer = CountVectorizer(min_df=5, stop_words='english')
+    word_doc_matrix = vectorizer.fit_transform(article_texts).todense()
+
+    result = dict(zip(article_titles, word_doc_matrix.tolist()))
+    with open('../embeddings/high_dim/bow_high_dim.json', 'w') as f:
+        json.dump(result, f)
+    print("wrote to a file")
+
     word_doc_matrix = vectorizer.fit_transform(article_texts)
-    emb = umap.UMAP(n_components=100, metric='cosine').fit(word_doc_matrix)
+    emb = umap.UMAP(n_components=2, metric='cosine').fit(word_doc_matrix)
     result = dict(zip(article_titles, emb.embedding_.tolist()))
-    with open('../embeddings/high_dim/bow_high_dim.json', 'x') as f:
+    with open('../embeddings/low_dim/bow_low_dim.json', 'w') as f:
         json.dump(result, f)
     print("wrote to a file")
 
 
 def generate_tfidf():
-    article_titles, article_texts = generate_word_embeddings()
+    article_titles, article_texts = load_data()
     from sklearn.feature_extraction.text import TfidfVectorizer
     tfidf_vectorizer = TfidfVectorizer(min_df=5, stop_words='english')
+    tfidf_word_doc_matrix = tfidf_vectorizer.fit_transform(article_texts).todense()
+
+    result = dict(zip(article_titles, tfidf_word_doc_matrix.tolist()))
+    with open('../embeddings/high_dim/tfidf_high_dim.json', 'w') as f:
+        json.dump(result, f)
+    print("wrote to a file")
     tfidf_word_doc_matrix = tfidf_vectorizer.fit_transform(article_texts)
-    tfidf_embedding = umap.UMAP(n_components=200,metric='cosine').fit(tfidf_word_doc_matrix)
+    tfidf_embedding = umap.UMAP(n_components=2, metric='cosine').fit(tfidf_word_doc_matrix)
     result = dict(zip(article_titles, tfidf_embedding.embedding_.tolist()))
-    with open('../embeddings/high_dim/tfidf_high_dim.json', 'x') as f:
+    with open('../embeddings/low_dim/tfidf_low_dim.json', 'w') as f:
         json.dump(result, f)
     print("wrote to a file")
 
@@ -123,7 +136,7 @@ if __name__ == "__main__":
     # create_high_and_low_dim_embeddings_for_models('all-mpnet-base-v2')
     # create_high_and_low_dim_embeddings_for_models('allenai-specter')
     generate_tfidf()
-    # generate_bow()
+    generate_bow()
 
     # This paper was the EMNLP 2019 Best Paper
     # search_papers(title='The Virtual Reality Flow Lens for Blood Flow Exploration',

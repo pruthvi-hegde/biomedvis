@@ -1,5 +1,6 @@
 import json
 import os
+import pickle
 
 import nltk
 import plotly.express as px
@@ -18,6 +19,7 @@ class Doc2Vec:
     def __init__(self, model_name):
         f = open(f'embeddings/low_dim/{model_name}_low_dim.json')
         self.data = json.load(f)
+        f.close()
 
     def visualise_doc_embeddings(self, article_titles):
         all_article_embeddings = list(self.data.values())
