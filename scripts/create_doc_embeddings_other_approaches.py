@@ -7,7 +7,7 @@ from sentence_transformers import util
 
 
 def create_low_dim_embeddings_for_models(model_name):
-    with open('../articles_data/all_articles_with_thumbnail_metadata_retired.json') as f:
+    with open('../articles_data/all_articles_with_thumbnail_metadata.json') as f:
         papers = json.load(f)
 
     # We then load the allenai-specter model with SentenceTransformers
@@ -32,7 +32,7 @@ def create_low_dim_embeddings_for_models(model_name):
     # Create and save low dimensional article embeddings according to your model
     result = dict(zip(article_titles, low_dim_embeddings.tolist()))
     print(result)
-    with open('../embeddings/low_dim/' + model_name + '_low_dim.json', 'x') as f:
+    with open('../embeddings/low_dimension/' + model_name + '_low_dim.json', 'x') as f:
         json.dump(result, f)
     print("wrote to a file")
 
@@ -68,7 +68,7 @@ def search_papers(title, abstract, model_name):
 def create_bioword_vec_low_dim():
     import umap.umap_ as umap
     import json
-    with open('../embeddings/high_dim/biowordvec_high_dim.json') as f:
+    with open('../embeddings/high_dimension/biowordvec_high_dim.json') as f:
         emb_wv = json.load(f)
 
     umap_embeddings = umap.UMAP(n_neighbors=5, n_components=2, metric='cosine', random_state=42)
@@ -76,7 +76,7 @@ def create_bioword_vec_low_dim():
     low_dim_embeddings = low_dim_embeddings.tolist()
     result = dict(zip(emb_wv.keys(), low_dim_embeddings))
     print(result)
-    with open('../embeddings/low_dim/biowordvec_low_dim.json', 'w') as f:
+    with open('../embeddings/low_dimension/biowordvec_low_dim.json', 'w') as f:
         json.dump(result, f)
     print("wrote to a file")
 
@@ -101,14 +101,14 @@ def generate_bow():
     word_doc_matrix = vectorizer.fit_transform(article_texts).todense()
 
     result = dict(zip(article_titles, word_doc_matrix.tolist()))
-    with open('../embeddings/high_dim/bow_high_dim.json', 'w') as f:
+    with open('../embeddings/high_dimension/bow_high_dim.json', 'w') as f:
         json.dump(result, f)
     print("wrote to a file")
 
     word_doc_matrix = vectorizer.fit_transform(article_texts)
     emb = umap.UMAP(n_components=2, metric='cosine').fit(word_doc_matrix)
     result = dict(zip(article_titles, emb.embedding_.tolist()))
-    with open('../embeddings/low_dim/bow_low_dim.json', 'w') as f:
+    with open('../embeddings/low_dimension/bow_low_dim.json', 'w') as f:
         json.dump(result, f)
     print("wrote to a file")
 
@@ -120,13 +120,13 @@ def generate_tfidf():
     tfidf_word_doc_matrix = tfidf_vectorizer.fit_transform(article_texts).todense()
 
     result = dict(zip(article_titles, tfidf_word_doc_matrix.tolist()))
-    with open('../embeddings/high_dim/tfidf_high_dim.json', 'w') as f:
+    with open('../embeddings/high_dimension/tfidf_high_dim.json', 'w') as f:
         json.dump(result, f)
     print("wrote to a file")
     tfidf_word_doc_matrix = tfidf_vectorizer.fit_transform(article_texts)
     tfidf_embedding = umap.UMAP(n_components=2, metric='cosine').fit(tfidf_word_doc_matrix)
     result = dict(zip(article_titles, tfidf_embedding.embedding_.tolist()))
-    with open('../embeddings/low_dim/tfidf_low_dim.json', 'w') as f:
+    with open('../embeddings/low_dimension/tfidf_low_dim.json', 'w') as f:
         json.dump(result, f)
     print("wrote to a file")
 
@@ -137,11 +137,3 @@ if __name__ == "__main__":
     # create_high_and_low_dim_embeddings_for_models('allenai-specter')
     generate_tfidf()
     generate_bow()
-
-    # This paper was the EMNLP 2019 Best Paper
-    # search_papers(title='The Virtual Reality Flow Lens for Blood Flow Exploration',
-    #               abstract='The exploration of time-dependent measured or simulated blood flow is challenging due to the complex three-dimensional structure of vessels and blood flow patterns. Especially on a 2D screen, understanding their full shape and interacting with them is difficult. Critical regions do not always stand out in the visualization and may easily be missed without proper interaction and filtering techniques. The FlowLens [GNBP11] was introduced as a focus-and-context technique to explore one specific blood flow parameter in the context of other parameters for the purpose of treatment planning. With the recent availability of affordable VR glasses it is possible to adapt the concepts of the FlowLens into immersive VR and make them available to a broader group of users. Translating the concept of the Flow Lens to VR leads to a number of design decisions not only based around what functions to include, but also how they can be made available to the user. In this paper, we present a configurable focus-and-context visualization for the use with virtual reality headsets and controllers that allows users to freely explore blood flow data within a VR environment. The advantage of such a solution is the improved perception of the complex spatial structures that results from being surrounded by them instead of observing through a small screen.',
-    #               model_name="allenai-specter")
-    # search_papers("Interactive Exploded Views for Molecular Structures",
-    #               "We propose an approach to interactively create exploded views of molecular structures with the goal to help domain experts in their design process and provide them with a meaningful visual representation of component relationships. Exploded views are excellently suited to manage visual occlusion of structure components, which is one of the main challenges when visualizing complex 3D data. In this paper, we discuss four key parameters of an exploded view: explosion distance, direction, order, and the selection of explosion components. We propose two strategies, namely the structure-derived exploded view and the interactive free-form exploded view, for computing these four parameters systematically. The first strategy allows scientists to automatically create exploded views by computing the parameters from the given object structures. The second strategy further supports them to design and customize detailed explosion paths through user interaction. Our approach features the possibility to animate exploded views, to incorporate ease functions into these animations and to display the explosion path of components via arrows. Finally, we demonstrate three use cases with various challenges that we investigated in collaboration with a domain scientist. Our approach, therefore, provides interesting new ways of investigating and presenting the design layout and composition of complex molecular structures.",
-    #               "allenai-specter")

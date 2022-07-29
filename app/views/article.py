@@ -66,7 +66,7 @@ def filter_data(request):
         for categories in filter_values.values():
             for cat in categories:
                 articles_filtered |= filtered_articles.filter(Q(abstract__icontains=cat) |
-                                                              Q(article_title__icontains=cat))
+                                                              Q(article_title__icontains=cat) | Q(keywords__icontains=cat))
     else:
         articles_filtered = Article.objects.all().order_by('-id')
 
