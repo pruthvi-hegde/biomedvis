@@ -33,5 +33,8 @@ def high_low_dim_emb_for_sentence_tranformer_models(model_name):
     with open('../embeddings/low_dimension/' + model_name + '_low_dim.json', 'w') as f:
         json.dump(result_low, f)
 
+    print("Done")
+
 if __name__ == "__main__":
-    high_low_dim_emb_for_sentence_tranformer_models('all-mpnet-base-v2')
+    #high_low_dim_emb_for_sentence_tranformer_models('all-mpnet-base-v2')
+    high_low_dim_emb_for_sentence_tranformer_models('allenai-specter')

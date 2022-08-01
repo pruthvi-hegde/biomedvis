@@ -9,7 +9,7 @@ from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
 from plotly.offline import plot
 
-from ..doc_to_vec import Doc2Vec
+from ..embeddings_loarder import Doc2Vec
 from ..models.article import Article
 from ..models.category import Category, Subcategory
 
