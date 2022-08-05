@@ -10,3 +10,5 @@ CUR_DIR_PATH = os.getcwd()
 class FiltersConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'app'
+
+
