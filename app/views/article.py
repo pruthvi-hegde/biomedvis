@@ -66,7 +66,8 @@ def filter_data(request):
         for categories in filter_values.values():
             for cat in categories:
                 articles_filtered |= filtered_articles.filter(Q(abstract__icontains=cat) |
-                                                              Q(article_title__icontains=cat) | Q(keywords__icontains=cat))
+                                                              Q(article_title__icontains=cat) | Q(
+                    keywords__icontains=cat))
     else:
         articles_filtered = Article.objects.all().order_by('-id')
 
@@ -75,9 +76,9 @@ def filter_data(request):
     plot_object = get_embedding_view_data(article_title)
 
     article_view_data = render_to_string('components.html', {'data': articles, 'article_title': article_title,
-                                                                 'published_year': published_year,
-                                                                 'article_count': article_count,
-                                                                 'total_count': total_count,
+                                                             'published_year': published_year,
+                                                             'article_count': article_count,
+                                                             'total_count': total_count,
                                                              })
     time_view_data = {'published_data': published_year, 'article_count': article_count, 'total_count': total_count,
                       'article_title': article_title}
@@ -242,7 +243,7 @@ def get_embedding_view_data(article_titles):
         'displayModeBar': True
     }
     if len(article_titles) > 0:
-        fig = Doc2Vec(selected_model).visualise_doc_embeddings(article_titles)
+        fig = Doc2Vec(selected_model).inititate_cluster_docs(article_titles)
         plot_object = plot({'data': fig}, output_type='div', config=config)
     else:
         plot_object = "<div class='text-center' style='padding-top: 12rem'>" \
