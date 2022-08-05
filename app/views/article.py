@@ -243,7 +243,7 @@ def get_embedding_view_data(article_titles):
         'displayModeBar': True
     }
     if len(article_titles) > 0:
-        fig = Doc2Vec(selected_model).inititate_cluster_docs(article_titles)
+        fig = Doc2Vec(selected_model).visualise_doc_embeddings(article_titles)
         plot_object = plot({'data': fig}, output_type='div', config=config)
     else:
         plot_object = "<div class='text-center' style='padding-top: 12rem'>" \
