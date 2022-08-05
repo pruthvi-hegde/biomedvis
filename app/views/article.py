@@ -91,12 +91,11 @@ def filter_data(request):
 def update_article_view(request):
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         selected_article_points = json.loads(request.body)
-        global filtered_articles
         global main_articles
         global article_title
         articles = Article.objects.none()
         for article_point in selected_article_points:
-            articles |= filtered_articles.filter(article_title__exact=article_point)
+            articles |= Article.objects.filter(article_title__exact=article_point)
 
         article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles)
         article_view_data = render_to_string('articles_page_view.html',

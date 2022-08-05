@@ -228,17 +228,20 @@ function updateTimeView(_publishedyearsSelected, _countSelected, flag) {
             }, stop: function (_, ui) {
                 minYear = myData[ui.values[0]]
                 maxYear = myData[ui.values[1]]
+                updateArticleView(minYear, maxYear, flag)
             }
         };
 
         $('#slider-range').slider(slider_config)
         $("#sliderLabel").val(myData[currentmin] + " - " + myData[currentmax]);
         chart.xAxis[0].setExtremes(currentmin, currentmax);
+        updateArticleView(minYear, maxYear, flag)
     });
 
 }
 
 function updateArticleView(minYear, maxYear, flag) {
+    console.log(minYear, maxYear)
     var article_data = {
         'minYear': minYear, 'maxYear': maxYear, 'loadFirstTime': flag
     }
