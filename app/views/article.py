@@ -21,6 +21,8 @@ article_title = ""
 
 search_term_global = ""
 filter_values_global = {}
+year_global = {'min_year': 2008,
+               'max_year': 2021}
 
 
 # Article List
@@ -37,12 +39,12 @@ def article_list(request):
         categories_name = cat.category_name
         categories_data[categories_name] = Subcategory.objects.filter(category__exact=cat)
 
-    article_title, published_year, article_count, total_count = get_article_published_year_and_count(filtered_articles)
+    article_title, published_year, article_count, total_count = get_article_published_year_and_count(all_articles)
 
     # This should execute for all
     return render(request, 'main.html',
                   {
-                      'data': filtered_articles,
+                      'data': all_articles,
                       'article_title': article_title,
                       'total_count': total_count,
                       'view_item': categories_data,
@@ -54,16 +56,17 @@ def article_list(request):
 
 def filter_data(request):
     global filter_values_global
-    global filtered_articles
     global selected_model
     global article_title
     filter_values = dict(request.GET)
     filter_values_global = filter_values
 
-    filtered_articles = filter()
-    article_title, published_year, article_count, total_count = get_article_published_year_and_count(filtered_articles)
+    result_set = filter()
+    result_set_v2 = filterV2()
+
+    article_title, published_year, article_count, total_count = get_article_published_year_and_count(result_set_v2)
     embedding_view_data = get_embedding_view_data(article_title)
-    article_view_data = render_to_string('components.html', {'data': filtered_articles, 'article_title': article_title,
+    article_view_data = render_to_string('components.html', {'data': result_set, 'article_title': article_title,
                                                              'published_year': published_year,
                                                              'article_count': article_count,
                                                              'total_count': total_count,
@@ -97,26 +100,24 @@ def update_article_view_from_lasso(request):
 
 @csrf_exempt
 def update_article_view_from_time_chart(request):
-    global filtered_articles
     global article_title
+    global year_global
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         article_data = json.loads(request.body)
 
-        if article_data['loadFirstTime']:
-            articles = filtered_articles.filter(published_year__gte=article_data['minYear'],
-                                                published_year__lte=article_data['maxYear'])
-        else:
-            if article_data['minYear'] == article_data['maxYear']:
-                articles = filtered_articles.filter(published_year=article_data['minYear'])
-            else:
-                articles = filtered_articles.filter(published_year__gte=article_data['minYear'],
-                                                    published_year__lte=article_data['maxYear'])
+        if article_data['minYear'] != '':
+            year_global['min_year'] = article_data['minYear']
+
+        if article_data['maxYear'] != '':
+            year_global['max_year'] = article_data['maxYear']
+
+        result_set = filter()
+
         # main_articles = json.loads(request.body)
-        article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles)
+        article_title, published_year, article_count, total_count = get_article_published_year_and_count(result_set)
         plot_object = get_embedding_view_data(article_title)
 
-        html = render_to_string('articles_page_view.html', {'data': articles, 'total_count': total_count})
-        filtered_articles = articles
+        html = render_to_string('articles_page_view.html', {'data': result_set, 'total_count': total_count})
         return JsonResponse({'article_view_data': html, 'embedding_view_data': plot_object}, safe=False)
 
 
@@ -125,21 +126,20 @@ def populate_on_search(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         global search_term_global
         global article_title
-        global filtered_articles
         global selected_model
 
         query_parameter = request.GET.get("q")
         query_parameter = re.sub(' +', ' ', query_parameter)
         search_term_global = query_parameter
 
-        filtered_articles = filter()
+        result_set = filter()
         article_title, published_year, article_count, total_count = get_article_published_year_and_count(
-            filtered_articles)
+            result_set)
         plot_object = get_embedding_view_data(article_title)
 
         html = render_to_string(
             template_name="components.html",
-            context={'data': filtered_articles, 'article_title': article_title, 'published_year': published_year,
+            context={'data': result_set, 'article_title': article_title, 'published_year': published_year,
                      'article_count': article_count, 'total_count': total_count}
         )
         time_view_data = {'article_titles': article_title,
@@ -151,10 +151,8 @@ def populate_on_search(request):
 
 
 def get_article_published_year_and_count(articles_data):
-    global articles
-    articles = articles_data
-    article_title = [article.article_title for article in articles]
-    published_year_data = list(articles
+    article_title = [article.article_title for article in articles_data]
+    published_year_data = list(articles_data
                                .values('published_year')
                                .annotate(dcount=Count('published_year'))
                                .order_by()
@@ -162,7 +160,7 @@ def get_article_published_year_and_count(articles_data):
 
     published_year = list(d['published_year'] for d in published_year_data)
     article_count = list(d['dcount'] for d in published_year_data)
-    total_count = articles.count()
+    total_count = articles_data.count()
     return article_title, published_year, article_count, total_count
 
 
@@ -225,8 +223,11 @@ def filter():
     global article_title
     global filter_values_global
     global search_term_global
+    global year_global
+    global filtered_articles
+
     result_articles = {}
-    intersection = Article.objects.all()
+    result_set = Article.objects.all()
 
     if len(filter_values_global) != 0:
         i = 0
@@ -241,19 +242,67 @@ def filter():
             result_articles[i] = temp_articles
             i = i + 1
 
-        # intersection = list(set.intersection(*(map(set, result_articles.values()))))
         for item in result_articles.values():
-            intersection = intersection & item
+            result_set = result_set & item
 
     else:
-        intersection = all_articles
+        result_set = all_articles
 
     if search_term_global:
         if re.match('^\d{4}$', search_term_global):
-            intersection = intersection.filter(Q(published_year__exact=search_term_global))
+            result_set = result_set.filter(Q(published_year__exact=search_term_global))
         else:
-            intersection = intersection.filter(
+            result_set = result_set.filter(
                 Q(abstract__icontains=search_term_global) | Q(article_title__icontains=search_term_global) | Q(
                     article_authors__icontains=search_term_global))
 
-    return intersection
+    if year_global['min_year'] == year_global['max_year']:
+        result_set = result_set.filter(published_year=year_global['min_year'])
+    else:
+        result_set = result_set.filter(published_year__gte=year_global['min_year'],
+                                       published_year__lte=year_global['max_year'])
+
+    filtered_articles = result_set.all()
+    return result_set
+
+
+def filterV2():
+    global all_articles
+    global article_title
+    global filter_values_global
+    global search_term_global
+    global year_global
+    global filtered_articles
+
+    result_articles = {}
+    result_set = Article.objects.all()
+
+    if len(filter_values_global) != 0:
+        i = 0
+        for categories in filter_values_global.values():
+            temp_articles = Article.objects.none()
+
+            for subcategory in categories:
+                temp_articles |= all_articles.filter(Q(abstract__icontains=subcategory) |
+                                                     Q(article_title__icontains=subcategory) | Q(
+                    keywords__icontains=subcategory))
+
+            result_articles[i] = temp_articles
+            i = i + 1
+
+        for item in result_articles.values():
+            result_set = result_set & item
+
+    else:
+        result_set = all_articles
+
+    if search_term_global:
+        if re.match('^\d{4}$', search_term_global):
+            result_set = result_set.filter(Q(published_year__exact=search_term_global))
+        else:
+            result_set = result_set.filter(
+                Q(abstract__icontains=search_term_global) | Q(article_title__icontains=search_term_global) | Q(
+                    article_authors__icontains=search_term_global))
+
+    filtered_articles = result_set.all()
+    return result_set

@@ -90,12 +90,8 @@ $(document).ready(function () {
                 $("#filteredArticles").html(res.article_view_data);
                 updateTimeView(res.time_view_data['published_data'], res.time_view_data['article_count'], false)
                 $('#myDiv').html(res.embedding_view_data);
-                //enableDropdown()
                 $("#selDataset").val(res.selected_model).trigger('chosen:updated');
                 enableDropdown()
-
-                // $("#selDataset").val(res.selected_model);
-                // $("#selDataset").trigger("chosen:updated");
             },
         });
     })
@@ -111,7 +107,6 @@ function enableDropdown() {
 
 function embeddingView() {
     let selection_data = {
-        // articleData: JSON.stringify($('#articleEmbeddingView').data('article')),
         selectedModel: $('#selDataset').val(),
     }
     $.ajax({
@@ -135,7 +130,6 @@ function drawTimeView() {
     let ctx = $('#chartContainer');
     let _publishedyears = ctx.data('year')
     let _count = ctx.data('count')
-    // let _tcount = ctx.data('tcount')
     updateTimeView(_publishedyears, _count, true)
 
 }
@@ -155,9 +149,6 @@ function updateTimeView(_publishedyearsSelected, _countSelected, flag) {
             }
         }
     }
-    /*let year = _publishedYears.map(i => Number(i))
-    let year_min = minYear
-    let year_max = maxYear*/
 
     Highcharts.chart('slider-bar-chart', {
         chart: {
@@ -228,19 +219,20 @@ function updateTimeView(_publishedyearsSelected, _countSelected, flag) {
             }, stop: function (_, ui) {
                 minYear = myData[ui.values[0]]
                 maxYear = myData[ui.values[1]]
-                updateArticleView(minYear, maxYear, flag)
+                updateArticleTimeView(minYear, maxYear, flag)
             }
         };
 
         $('#slider-range').slider(slider_config)
         $("#sliderLabel").val(myData[currentmin] + " - " + myData[currentmax]);
         chart.xAxis[0].setExtremes(currentmin, currentmax);
-        updateArticleView(minYear, maxYear, flag)
+        updateArticleTimeView(minYear, maxYear, flag)
     });
 
 }
 
-function updateArticleView(minYear, maxYear, flag) {
+function updateArticleTimeView(minYear, maxYear, flag) {
+    console.log('Years')
     console.log(minYear, maxYear)
     var article_data = {
         'minYear': minYear, 'maxYear': maxYear, 'loadFirstTime': flag
