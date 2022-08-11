@@ -13,7 +13,7 @@ def high_low_dim_emb_for_sentence_tranformer_models(model_name):
     model_name = model_name.split('/')[-1].replace('-', '_').lower()
 
     # To encode the papers, we must combine the title and the abstracts to a single string
-    article_texts = [paper['article_title'] + '[SEP]' + paper['abstract'] for paper in papers]
+    article_texts = [paper['article_title'] + '. ' + paper['abstract'] for paper in papers]
     article_titles = [paper['article_title'] for paper in papers]
 
     # Compute embeddings for all papers
@@ -43,7 +43,7 @@ def high_low_dim_emb_for_sentence_tranformer_models_with_mean(model_name):
     model_name = model_name.split('/')[-1].replace('-', '_').lower()
 
     # To encode the papers, we must combine the title and the abstracts to a single string
-    article_texts = [paper['article_title'] + '. ' + paper['abstract'] for paper in papers]
+    article_texts = [paper['article_title'] + '[SEP]' + paper['abstract'] for paper in papers]
     article_titles = [paper['article_title'] for paper in papers]
 
     # If you would like to average sentence embeddings
