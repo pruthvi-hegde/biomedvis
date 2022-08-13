@@ -268,11 +268,6 @@ $(document).on('click', ".custom-info", function () {
 
 })
 
-//Update article view after lasso or box select
-$(document).on('plotly_deselected', "#myDiv", function () {
-    alert("plotly deselected")
-
-})
 
 //Update article view after lasso or box select
 $(document).on('plotly_selected', "#myDiv", function (arg1, arg2) {
