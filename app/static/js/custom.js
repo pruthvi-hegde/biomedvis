@@ -135,8 +135,6 @@ function drawTimeView() {
 }
 
 function updateTimeView(_publishedyearsSelected, _countSelected, flag) {
-    console.log(_countSelected)
-    console.log(_publishedyearsSelected)
     let _count = []
     let _publishedYears = [2008, 2010, 2012, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]
     for (let i = 0; i < _publishedYears.length; i++) {
@@ -232,8 +230,6 @@ function updateTimeView(_publishedyearsSelected, _countSelected, flag) {
 }
 
 function updateArticleTimeView(minYear, maxYear, flag) {
-    console.log('Years')
-    console.log(minYear, maxYear)
     var article_data = {
         'minYear': minYear, 'maxYear': maxYear, 'loadFirstTime': flag
     }
