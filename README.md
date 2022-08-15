@@ -1,11 +1,10 @@
 <h1 align="center">BioMedVis</h1>
 <div align="center">
-  <strong>BioMedVis project aims to create a visual survey browser for articles which were published in Eurographics conference for
+  <strong>BioMedVis project aims to create a visual survey browser for articles which were published in Eurographics conference on
 Biology and Medicine
 (2008 to 2021) </strong>
 </div>
 
-<div>  ![GitHub repo size](https://img.shields.io/github/repo-size/biomedvis)</div>
 
 ## Steps to run the project locally
 
@@ -15,11 +14,10 @@ Clone the repository
 git clone https://github.com/pruthvi-hegde/biomedvis.git
 ```
 
-cd to `visBioMed` repository and activate your `venv` or `conda` environment. Once your virtual environment is
+cd to `biomedvis` repository and activate your `venv` or `conda` environment. Once your virtual environment is
 activated, run,
 
 ```commandline
-cd visBioMed
 pip install -r requirements.txt
 ```
 
