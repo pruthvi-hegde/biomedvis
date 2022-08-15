@@ -2,17 +2,52 @@
 {% load static %}
 {% block content %}
     <main class="container-fluid d-flex flex-column vh-100 mh-100 overflow-hidden">
-        <div class="row flex-grow-1 overflow-hidden">
+        <div class="row flex-grow-1 padding-0 overflow-hidden">
             <!-- Filters -->
-            <div class="col-sm-2 mh-100 overflow-auto pb-5 pt-1" style="border-color: black;">
+            <div class="col-sm-2 mh-100 padding-0">
                 {% include 'filter.html' %}
             </div>
-            <div class="col-sm-10 mh-100 overflow-auto pb-5" id="filteredArticles">
-                {% include 'component_view.html' %}
+            <div class="col-sm-10 mh-100 padding-0 custom-scroll">
+                <div class="row pl-4 w-100">
+                    <header class="col-sm-6 custom-title">
+                        <h1 id="title">BioMedVis</a>
+                        </h1>
+                        <small>A visual survey of <a
+                                href="https://diglib.eg.org/handle/10.2312/463" target="_blank">VCBM
+                            publications </a>(2008 - 2021)
+                        </small>
+                    </header>
 
+
+                    <div class="form-inline col-sm-6 pr-3 justify-content-end">
+                        <div class="pr-4">
+                            <a class="custom-button" href="/" style="color:#1a326e">Reset</a>
+                        </div>
+                        <div class="input-group search-box w-100">
+                            <input id="searchArticle" name="q" class="form-control custom_search rounded-pill mr-2 pt-2"
+                                   placeholder="Keywords or authors or year"
+                                   type="search">
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div id="filteredArticles" class="article-section pb-4 pl-4">
+                    {% include 'components.html' %}
+                </div>
+                <footer class="footer bg-footer custom-bottom">
+
+                    <div class="footer-copyright text-center py-3" style="background-color: transparent">
+                        <small>© 2022 Copyright: RWTH University and University of Bonn
+                        </small>
+                    </div>
+                </footer>
             </div>
         </div>
+
     </main>
 
-    {% include 'modal_window.html' %}
+    {% include 'modal.html' %}
 {% endblock %}

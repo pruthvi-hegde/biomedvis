@@ -1,1 +1,0 @@
-Automatic Real-time Annotation of Important Landmarks in Ultrasound-Guided Femoral Nerve Blocks. The main focus of the preliminary work presented here is the automatic real-time annotation (detection and tracking) of the important structures seen in an ultrasound image taken from a femoral nerve block, i.e. the femoral artery, the facias (lata and illiaca) and the femoral nerve.

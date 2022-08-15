@@ -1,0 +1,42 @@
+<!-- Modal -->
+<div class="modal fade" id="articleDetailsModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-easein="whirlIn">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <header class="col-sm-11 custom-title">
+                    <h2 class="modal-title" id="exampleModalLongTitle">Article Title</h2>
+                </header>
+                <button type="button" class="close h-100" data-dismiss="modal" aria-label="Close" style="color: white;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body custom-scroll">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="zoom-in-image" id="zoom-area">
+                            <img class="thumb zoom" id="articleThumbnail" src=""/>
+                            <i class="fa fa-search-plus"></i>
+                            <i class="fa fa-search-minus"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <p style="font-family: 'PT Sans'; color: #1F1F1F" class="pt-1">Abstract : </p>
+                        <p id="abstract" class="modal-text"></p>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button href="#" type="button" class="btn btn-link">
+                    <icon class="fa fa-info-circle"></icon>
+                    <a id="articleDOI" target="_blank">
+                        More Info...</a></button>
+            </div>
+
+        </div>
+    </div>
+</div>

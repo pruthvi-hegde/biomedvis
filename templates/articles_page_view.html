@@ -1,0 +1,45 @@
+<div id="articlePageView">
+    <div class="custom-title">
+        <small>Total Articles : {{ total_count }}</small>
+    </div>
+    <div class="pl-3 pb-5 row">
+        {% for article in data %}
+            <div class="card-deck mr-2 pt-3" id="articleColumns">
+                <div class="card bg-white custom-animation" style="width: 8rem">
+                    <div class="card-img">
+                        <a data-index="{{ article.id }}" class="custom-info"
+                           href="#"
+                           data-trigger="hover focus"
+                           title="{{ article.article_title }}"
+                           data-toggle="popover"
+                           data-content=" {{ article.article_title }} ">
+                            <img class="thumb"
+                                 src={{ article.thumbnail_path }}/>
+                        </a>
+
+                        <input type="hidden" class="article-title-{{ article.id }}"
+                               value="{{ article.article_title }}"/>
+                        <input type="hidden" class="article-thumbnail-{{ article.id }}"
+                               value="{{ article.thumbnail_path }}"/>
+                        <input type="hidden" class="article-authors-{{ article.id }}"
+                               value="{{ article.article_authors }}"/>
+                        <input type="hidden" class="article-publisher-{{ article.id }}"
+                               value="{{ article.publisher }}"/>
+                        <input type="hidden" class="article-publishedDate-{{ article.id }}"
+                               value="{{ article.published_year }}"/>
+                        <input type="hidden" class="article-ISSN-{{ article.id }}"
+                               value="{{ article.ISSN }}"/>
+                        <input type="hidden" class="article-ISBN-{{ article.id }}"
+                               value="{{ article.ISBN }}"/>
+                        <input type="hidden" class="article-DOI-{{ article.id }}"
+                               value="{{ article.DOI }}"/>
+                        <input type="hidden" class="article-abstract-{{ article.id }}"
+                               value="{{ article.abstract }}"/>
+                    </div>
+
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
