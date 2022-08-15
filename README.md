@@ -46,6 +46,6 @@ python manage.py migrate
 2. Copy `all_articles_metadata.json` from [VCBMCrawler repository](https://github.com/pruthvi-hegde/VCBMCrawler/) inside
    articles_data folder
 3. Update `all_articles_metadata.json` with thumbnails path by running `update_articles_data` inside scripts folder.
-   This will add local thumbnail path to eac of the publication data.
+   This will add local thumbnail path to each of the publication data.
 4. Run `populate_db_tables` from project directory
 5. The database tables should be now populates with the relevant data.
