@@ -7,7 +7,6 @@ Biology and Medicine
 
 <div>  ![GitHub repo size](https://img.shields.io/github/repo-size/biomedvis)</div>
 
-
 ## Steps to run the project locally
 
 Clone the repository
@@ -52,5 +51,3 @@ python manage.py migrate
    This will add local thumbnail path to eac of the publication data.
 4. Run `populate_db_tables` from project directory
 5. The database tables should be now populates with the relevant data.
-
-
