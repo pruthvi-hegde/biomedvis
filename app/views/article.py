@@ -72,8 +72,8 @@ def filter_data(request):
     filter_values = dict(request.GET)
     filter_values_global = filter_values
 
-    result_set = filter(True)
-    result_set_v2 = filter(False)
+    result_set = custom_filter(True)
+    result_set_v2 = custom_filter(False)
 
     article_title, published_year, article_count, total_count = get_article_published_year_and_count(result_set_v2)
     embedding_view_data = get_embedding_view_data(article_title)
@@ -94,8 +94,8 @@ def update_article_view_from_lasso_box_select(request):
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         selected_article_points_global = json.loads(request.body)
 
-        result_set = filter(True)
-        result_set_v2 = filter(False)
+        result_set = custom_filter(True)
+        result_set_v2 = custom_filter(False)
 
         article_title, published_year, article_count, total_count = get_article_published_year_and_count(result_set_v2)
         article_view_data = render_to_string('articles_page_view.html',
@@ -120,7 +120,7 @@ def update_article_view_from_time_chart(request):
         if article_data['maxYear'] != '':
             year_global['max_year'] = article_data['maxYear']
 
-        result_set = filter(True)
+        result_set = custom_filter(True)
 
         # main_articles = json.loads(request.body)
         article_title, published_year, article_count, total_count = get_article_published_year_and_count(result_set)
@@ -141,7 +141,7 @@ def populate_on_search(request):
         query_parameter = re.sub(' +', ' ', query_parameter)
         search_term_global = query_parameter
 
-        result_set = filter(True)
+        result_set = custom_filter(True)
 
         article_title, published_year, article_count, total_count = get_article_published_year_and_count(
             result_set)
@@ -228,7 +228,7 @@ def get_embedding_view_data(article_titles):
     return plot_object
 
 
-def filter(isWithTimeFilter):
+def custom_filter(isWithTimeFilter):
     global all_articles
     global article_title
     global filter_values_global
