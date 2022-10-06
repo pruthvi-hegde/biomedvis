@@ -1,3 +1,7 @@
+let minYear = ""
+let maxYear = ""
+let chartHigh = null
+
 $(document).on('click', ".custom-info", function () {
 
     let _index = $(this).attr('data-index');
@@ -29,6 +33,14 @@ $(document).ready(function () {
     var typingTimer;
     var doneTypingInterval = 500;
     let $input = $('#searchArticle');
+
+    /* $input.on('keyup keypress', function (event) {
+         var key = event.keyCode || event.which;
+         if (key === 13) {
+             event.preventDefault();
+             return false;
+         }
+     });*/
 
     //on keyup, start the countdown
     $input.on('keyup', function () {
@@ -78,12 +90,8 @@ $(document).ready(function () {
                 $("#filteredArticles").html(res.article_view_data);
                 updateTimeView(res.time_view_data['published_data'], res.time_view_data['article_count'], false)
                 $('#myDiv').html(res.embedding_view_data);
-                //enableDropdown()
                 $("#selDataset").val(res.selected_model).trigger('chosen:updated');
                 enableDropdown()
-
-                // $("#selDataset").val(res.selected_model);
-                // $("#selDataset").trigger("chosen:updated");
             },
         });
     })
@@ -99,7 +107,6 @@ function enableDropdown() {
 
 function embeddingView() {
     let selection_data = {
-        // articleData: JSON.stringify($('#articleEmbeddingView').data('article')),
         selectedModel: $('#selDataset').val(),
     }
     $.ajax({
@@ -123,16 +130,24 @@ function drawTimeView() {
     let ctx = $('#chartContainer');
     let _publishedyears = ctx.data('year')
     let _count = ctx.data('count')
-    // let _tcount = ctx.data('tcount')
     updateTimeView(_publishedyears, _count, true)
 
 }
 
-function updateTimeView(_publishedyears, _count, flag) {
-    let year = _publishedyears.map(i => Number(i))
-    let year_min = Math.min(...year)
-    let year_max = Math.max(...year)
-    const min_max = [];
+function updateTimeView(_publishedyearsSelected, _countSelected, flag) {
+    let _count = []
+    let _publishedYears = [2008, 2010, 2012, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]
+    for (let i = 0; i < _publishedYears.length; i++) {
+        _count[i] = 0
+    }
+    for (let i = 0; i < _publishedYears.length; i++) {
+        for (let j = 0; j < _publishedyearsSelected.length; j++) {
+            if (_publishedYears[i] === _publishedyearsSelected[j]) {
+                _count[i] = _countSelected[j]
+            }
+        }
+    }
+
     Highcharts.chart('slider-bar-chart', {
         chart: {
             type: 'column', zoomType: 'x'
@@ -142,7 +157,7 @@ function updateTimeView(_publishedyears, _count, flag) {
             text: ''
         }, tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.f}</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -151,7 +166,7 @@ function updateTimeView(_publishedyears, _count, flag) {
                 fontSize: '0px'
             }
         }, xAxis: {
-            categories: _publishedyears, tickmarkPlacement: 'on', tickInterval: 1, minRange: 1, // set this to allow up to one year to be viewed
+            categories: _publishedYears, tickmarkPlacement: 'on', tickInterval: 1, minRange: 1, // set this to allow up to one year to be viewed
             gridLineColor: 'transparent', linecolor: 'black', style: {
                 font_family: 'Calibri'
             }
@@ -161,52 +176,60 @@ function updateTimeView(_publishedyears, _count, flag) {
                     font_family: 'Calibri'
                 }
             }
-        }, tooltip: {
-            shared: false, useHTML: true
         }, plotOptions: {
             column: {
                 pointPadding: 0.01, borderWidth: 0
-            },
-            series: {
-            cursor: 'pointer',
-            // point: {
-            //     events: {
-            //         click: function () {
-            //
-            //         }
-            //     }
-            // }
-        }
+            }, series: {
+                cursor: 'pointer',
+            }
         }, series: [{
             name: 'No of articles by year', data: _count,
         }]
     }, function (chart) {
-        let myData = _publishedyears;
+        let myData = _publishedYears;
+        let currentmin = 0
+        let currentmax = myData.length - 1
+
+        if (minYear !== "") {
+            for (let i = 0; i < myData.length; i++) {
+                if (myData[i] === minYear) {
+                    currentmin = i
+                }
+            }
+        }
+
+        if (maxYear !== "") {
+            for (let i = 0; i < myData.length; i++) {
+                if (myData[i] === maxYear) {
+                    currentmax = i
+                }
+            }
+        }
+
         let slider_config = {
-            range: true, min: 0, max: myData.length - 1, step: 1, slide: function (event, ui) {
+            range: true, min: 0, max: 10, step: 1, values: [currentmin, currentmax], slide: function (event, ui) {
                 if (ui.values[0] === ui.values[1]) {
-                    $("#amount").val(myData[ui.values[0]]);
+                    $("#sliderLabel").val(myData[ui.values[0]]);
                 } else {
-                    $("#amount").val(myData[ui.values[0]] + '-' + myData[ui.values[1]]);
+                    $("#sliderLabel").val(myData[ui.values[0]] + '-' + myData[ui.values[1]]);
                 }
                 chart.xAxis[0].setExtremes(ui.values[0], ui.values[1]);
-            }, create: function () {
-                $(this).slider('values', 0, 0);
-                $(this).slider('values', 1, myData.length - 1);
             }, stop: function (_, ui) {
-                updateArticleView(myData[ui.values[0]], myData[ui.values[1]], flag)
+                minYear = myData[ui.values[0]]
+                maxYear = myData[ui.values[1]]
+                updateArticleTimeView(minYear, maxYear, flag)
             }
         };
 
         $('#slider-range').slider(slider_config)
-
-        $("#amount").val(year_min.toString() + " - " + year_max.toString());
-
+        $("#sliderLabel").val(myData[currentmin] + " - " + myData[currentmax]);
+        chart.xAxis[0].setExtremes(currentmin, currentmax);
+        updateArticleTimeView(minYear, maxYear, flag)
     });
 
 }
 
-function updateArticleView(minYear, maxYear, flag) {
+function updateArticleTimeView(minYear, maxYear, flag) {
     var article_data = {
         'minYear': minYear, 'maxYear': maxYear, 'loadFirstTime': flag
     }
@@ -241,11 +264,6 @@ $(document).on('click', ".custom-info", function () {
 
 })
 
-//Update article view after lasso or box select
-$(document).on('plotly_deselected', "#myDiv", function () {
-    alert("plotly deselected")
-
-})
 
 //Update article view after lasso or box select
 $(document).on('plotly_selected', "#myDiv", function (arg1, arg2) {

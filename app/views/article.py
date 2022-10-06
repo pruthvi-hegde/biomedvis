@@ -14,20 +14,33 @@ from ..models.article import Article
 from ..models.category import Category, Subcategory
 
 # filter_model = FiltersConfig.model
-main_articles = Article.objects.none()
-filtered_articles = Article.objects.none()
-selected_model = "all_minilm_l6_v2"
+all_articles = Article.objects.all().order_by('-id')
+filtered_articles = Article.objects.all().order_by('-id')
+selected_model = "allenai_specter"
 article_title = ""
-articles = ""
+
+search_term_global = ""
+filter_values_global = {}
+year_global = {'min_year': 2008,
+               'max_year': 2021}
+selected_article_points_global = []
 
 
 # Article List
 def article_list(request):
-    global main_articles
+    global all_articles
     global filtered_articles
     global article_title
-    global articles
-    articles = Article.objects.all().order_by('-id')
+    global search_term_global
+    global filter_values_global
+    global year_global
+    global selected_article_points_global
+
+    search_term_global = ""
+    filter_values_global = {}
+    year_global = {'min_year': 2008,
+                   'max_year': 2021}
+    selected_article_points_global = []
 
     # This part is to fetch all categories and subcategories from categories model.
     categories = Category.get_all_categories()
@@ -37,15 +50,12 @@ def article_list(request):
         categories_name = cat.category_name
         categories_data[categories_name] = Subcategory.objects.filter(category__exact=cat)
 
-    article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles)
-    articles = articles
-    filtered_articles = articles
-    main_articles = articles
+    article_title, published_year, article_count, total_count = get_article_published_year_and_count(all_articles)
 
     # This should execute for all
     return render(request, 'main.html',
                   {
-                      'data': articles,
+                      'data': all_articles,
                       'article_title': article_title,
                       'total_count': total_count,
                       'view_item': categories_data,
@@ -56,137 +66,103 @@ def article_list(request):
 
 
 def filter_data(request):
-    filter_values = dict(request.GET)
-    global filtered_articles
-    global main_articles
-    global article_title
+    global filter_values_global
     global selected_model
-    articles_filtered = Article.objects.none()
-    if len(filter_values) != 0:
-        for categories in filter_values.values():
-            for cat in categories:
-                articles_filtered |= filtered_articles.filter(Q(abstract__icontains=cat) |
-                                                              Q(article_title__icontains=cat) | Q(
-                    keywords__icontains=cat))
-    else:
-        articles_filtered = Article.objects.all().order_by('-id')
+    global article_title
+    filter_values = dict(request.GET)
+    filter_values_global = filter_values
 
-    article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles_filtered)
+    result_set = custom_filter(True)
+    result_set_v2 = custom_filter(False)
 
-    plot_object = get_embedding_view_data(article_title)
-
-    article_view_data = render_to_string('components.html', {'data': articles, 'article_title': article_title,
+    article_title, published_year, article_count, total_count = get_article_published_year_and_count(result_set_v2)
+    embedding_view_data = get_embedding_view_data(article_title)
+    article_view_data = render_to_string('components.html', {'data': result_set, 'article_title': article_title,
                                                              'published_year': published_year,
                                                              'article_count': article_count,
                                                              'total_count': total_count,
                                                              })
     time_view_data = {'published_data': published_year, 'article_count': article_count, 'total_count': total_count,
                       'article_title': article_title}
-    main_articles = articles
     return JsonResponse({'article_view_data': article_view_data, 'time_view_data': time_view_data,
-                         'embedding_view_data': plot_object, 'selected_model': selected_model}, safe=False)
+                         'embedding_view_data': embedding_view_data, 'selected_model': selected_model}, safe=False)
 
 
 @csrf_exempt
-def update_article_view(request):
+def update_article_view_from_lasso_box_select(request):
+    global selected_article_points_global
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
-        selected_article_points = json.loads(request.body)
-        global filtered_articles
-        global main_articles
-        global article_title
-        articles = Article.objects.none()
-        for article_point in selected_article_points:
-            articles |= filtered_articles.filter(article_title__exact=article_point)
+        selected_article_points_global = json.loads(request.body)
 
-        article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles)
+        result_set = custom_filter(True)
+        result_set_v2 = custom_filter(False)
+
+        article_title, published_year, article_count, total_count = get_article_published_year_and_count(result_set_v2)
         article_view_data = render_to_string('articles_page_view.html',
-                                             {'data': articles, 'article_title': article_title,
+                                             {'data': result_set, 'article_title': article_title,
                                               'total_count': total_count})
 
         time_view_data = {'published_year': published_year, 'article_count': article_count, 'total_count': total_count,
                           'article_title': article_title}
-        main_articles = articles
         return JsonResponse({'article_view_data': article_view_data, 'time_view_data': time_view_data}, safe=False)
 
 
 @csrf_exempt
 def update_article_view_from_time_chart(request):
-    global filtered_articles
-    global main_articles
     global article_title
+    global year_global
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         article_data = json.loads(request.body)
 
-        if article_data['loadFirstTime']:
-            articles = Article.objects.filter(published_year__gte=article_data['minYear'],
-                                              published_year__lte=article_data['maxYear'])
-        else:
-            if article_data['minYear'] == article_data['maxYear']:
-                articles = main_articles.filter(published_year=article_data['minYear'])
-            else:
-                articles = main_articles.filter(published_year__gte=article_data['minYear'],
-                                                published_year__lte=article_data['maxYear'])
+        if article_data['minYear'] != '':
+            year_global['min_year'] = article_data['minYear']
+
+        if article_data['maxYear'] != '':
+            year_global['max_year'] = article_data['maxYear']
+
+        result_set = custom_filter(True)
+
         # main_articles = json.loads(request.body)
-        article_title, published_year, article_count, total_count = get_article_published_year_and_count(articles)
+        article_title, published_year, article_count, total_count = get_article_published_year_and_count(result_set)
         plot_object = get_embedding_view_data(article_title)
 
-        html = render_to_string('articles_page_view.html', {'data': articles, 'total_count': total_count})
-        filtered_articles = articles
+        html = render_to_string('articles_page_view.html', {'data': result_set, 'total_count': total_count})
         return JsonResponse({'article_view_data': html, 'embedding_view_data': plot_object}, safe=False)
 
 
 @csrf_exempt
 def populate_on_search(request):
-    # This is for search
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        global filtered_articles
-        global main_articles
+        global search_term_global
         global article_title
         global selected_model
+
         query_parameter = request.GET.get("q")
         query_parameter = re.sub(' +', ' ', query_parameter)
-        if query_parameter:
-            articles = Article.objects.none()
-            if re.match('^\d{4}$', query_parameter):
-                searched_articles = filtered_articles.filter(Q(published_year__exact=query_parameter))
-            else:
-                searched_articles = filtered_articles.filter(
-                    Q(abstract__icontains=query_parameter) | Q(article_title__icontains=query_parameter) | Q(
-                        article_authors__icontains=query_parameter))
-            if list(searched_articles) == list(articles):
-                searched_articles = articles
-                # url_parameter = url_parameter.split(" ")
-                # for query_word in url_parameter:
-                #     main_articles |= Article.objects.filter(abstract__icontains=query_word)
+        search_term_global = query_parameter
 
-        elif not query_parameter:
-            searched_articles = filtered_articles
-        else:
-            searched_articles = filtered_articles
+        result_set = custom_filter(True)
 
         article_title, published_year, article_count, total_count = get_article_published_year_and_count(
-            searched_articles)
+            result_set)
         plot_object = get_embedding_view_data(article_title)
 
         html = render_to_string(
             template_name="components.html",
-            context={'data': searched_articles, 'article_title': article_title, 'published_year': published_year,
+            context={'data': result_set, 'article_title': article_title, 'published_year': published_year,
                      'article_count': article_count, 'total_count': total_count}
         )
         time_view_data = {'article_titles': article_title,
                           'published_year': published_year,
                           'article_count': article_count}
 
-        main_articles = searched_articles
         return JsonResponse({'article_view_data': html, 'time_view_data': time_view_data,
                              'embedding_view_data': plot_object, 'selected_model': selected_model}, safe=False)
 
 
 def get_article_published_year_and_count(articles_data):
-    global articles
-    articles = articles_data
-    article_title = [article.article_title for article in articles]
-    published_year_data = list(articles
+    article_title = [article.article_title for article in articles_data]
+    published_year_data = list(articles_data
                                .values('published_year')
                                .annotate(dcount=Count('published_year'))
                                .order_by()
@@ -194,7 +170,7 @@ def get_article_published_year_and_count(articles_data):
 
     published_year = list(d['published_year'] for d in published_year_data)
     article_count = list(d['dcount'] for d in published_year_data)
-    total_count = articles.count()
+    total_count = articles_data.count()
     return article_title, published_year, article_count, total_count
 
 
@@ -247,6 +223,63 @@ def get_embedding_view_data(article_titles):
         plot_object = plot({'data': fig}, output_type='div', config=config)
     else:
         plot_object = "<div class='text-center' style='padding-top: 12rem'>" \
-                      "This plot will be loaded if the filtered articles are atleast 1</div>"
+                      "This plot will be loaded if the filtered articles are at least one</div>"
 
     return plot_object
+
+
+def custom_filter(isWithTimeFilter):
+    global all_articles
+    global article_title
+    global filter_values_global
+    global search_term_global
+    global year_global
+    global filtered_articles
+    global selected_article_points_global
+
+    result_articles = {}
+    result_set = Article.objects.all()
+
+    if len(filter_values_global) != 0:
+        i = 0
+        for categories in filter_values_global.values():
+            temp_articles = Article.objects.none()
+
+            for subcategory in categories:
+                temp_articles |= all_articles.filter(Q(abstract__icontains=subcategory) |
+                                                     Q(article_title__icontains=subcategory) | Q(
+                    keywords__icontains=subcategory))
+
+            result_articles[i] = temp_articles
+            i = i + 1
+
+        for item in result_articles.values():
+            result_set = result_set & item
+
+    else:
+        result_set = all_articles
+
+    if search_term_global:
+        if re.match('^\d{4}$', search_term_global):
+            result_set = result_set.filter(Q(published_year__exact=search_term_global))
+        else:
+            result_set = result_set.filter(
+                Q(abstract__icontains=search_term_global) | Q(article_title__icontains=search_term_global) | Q(
+                    article_authors__icontains=search_term_global))
+
+    if isWithTimeFilter:
+        if year_global['min_year'] == year_global['max_year']:
+            result_set = result_set.filter(published_year=year_global['min_year'])
+        else:
+            result_set = result_set.filter(published_year__gte=year_global['min_year'],
+                                           published_year__lte=year_global['max_year'])
+
+    if selected_article_points_global:
+        temp_selected = Article.objects.none()
+        for article_point in selected_article_points_global:
+            temp_selected |= result_set.filter(article_title__exact=article_point)
+
+        result_set = temp_selected
+
+    filtered_articles = result_set.all()
+    return result_set
