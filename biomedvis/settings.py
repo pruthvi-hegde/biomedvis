@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-e@i%)y3mhc0thf*n-sdeyxa!mta0iuh_8+4cc&we$5b175g!de
 DEBUG = False
 
 # ALLOWED_HOSTS = ['biomedvis.azurewebsites.net']
-ALLOWED_HOSTS = ['biomedvis.azurewebsites.net']
+ALLOWED_HOSTS = ['biomedvis-240.azurewebsites.net']
 
 # Application definition
 
