@@ -5,6 +5,5 @@ django-tree==0.4.1
 numpy
 pandas
 umap-learn
-whitenoise
 
 
