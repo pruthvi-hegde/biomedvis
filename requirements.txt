@@ -9,5 +9,6 @@ pandas
 sentence_transformers
 bump2version
 umap-learn
+whitenoise
 
 
