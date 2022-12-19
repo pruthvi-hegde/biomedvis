@@ -45,7 +45,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20191233",
     "keywords": "Human,centered computing \u2192 Visual analytics,Applied computing \u2192 Life and medical sciences",
     "abstract": "In radiation therapy, anatomical changes in the patient might lead to deviations between the planned and delivered dose- including inadequate tumor coverage, and overradiation of healthy tissues. Exploring and analyzing anatomical changes throughout the entire treatment period can help clinical researchers to design appropriate treatment strategies, while identifying patients that are more prone to radiation-induced toxicity. We present the Pelvis Runner, a novel application for exploring the variability of segmented pelvic organs in multiple patients, across the entire radiation therapy treatment process. Our application addresses (i) the global exploration and analysis of pelvic organ shape variability in an abstracted tabular view and (ii) the local exploration and analysis thereof in anatomical 2D/3D views, where comparative and ensemble visualizations are integrated. The workflow is based on available retrospective cohort data, which incorporate segmentations of the bladder, the prostate, and the rectum through the entire radiation therapy process. The Pelvis Runner is applied to four usage scenarios, which were conducted with two clinical researchers, i.e., medical physicists. Our application provides clinical researchers with promising support in demonstrating the significance of treatment plan adaptation to anatomical changes.",
-    "thumbnail": "../static/thumbnails/Pelvis_Runner:_Visualizing_Pelvic_Organ_Variability_in_a_Cohort_of_Radiotherapy_Patients.jpg"
+    "thumbnail": "../static/thumbnails/Pelvis_Runner_Visualizing_Pelvic_Organ_Variability_in_a_Cohort_of_Radiotherapy_Patients.jpg"
   },
   {
     "article_title": "Information-based Transfer Functions for Multimodal Visualization",
@@ -93,7 +93,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20151203",
     "keywords": "I.4.0 [Image Processing and Computer Vision],General,Image processing software,I.3.3 [Computer Graphics],Picture/Image Generation,Display algorithms,I.3.4 [Computer Graphics],Graphics Utilities,Software support,J.3 [Computer Applications],Life and Medical Sciences,Health",
     "abstract": "This paper presents a method for the visual quantification of cerebral arteries, known as the Circle of Willis (CoW). The CoW is an arterial structure that is responsible for the brain's blood supply. Dysfunctions of this arterial circle can lead to strokes. The diagnosis relies on the radiologist's expertise and the software tools used. These tools consist of very basic display methods of the volumetric data without support of advanced technologies in medical image processing and visualization. The goal of this paper is to create an automated method for the standardized description of cerebral arteries in stroke patients in order to provide an overview of the CoW's configuration. This novel display provides visual indications of problematic areas as well as straightforward comparisons between multiple patients. Additionally, we offer a pipeline for extracting the CoW from Time-of-Flight Magnetic Resonance Angiography (TOF-MRA) data sets. An enumeration technique for the labeling of the arterial segments is therefore suggested. We also propose a method for detecting the CoW's main supplying arteries by analyzing the coronal, sagittal and transverse image planes of the data sets. We evaluated the feasibility of our visual quantification approach in a study of 63 TOF-MRA data sets and compared our findings to those of three radiologists. The obtained results demonstrate that our proposed techniques are effective in detecting the arteries of the CoW.",
-    "thumbnail": "../static/thumbnails/CoWRadar:_Visual_Quantification_of_the_Circle_of_Willis_in_Stroke_Patients.jpg"
+    "thumbnail": "../static/thumbnails/CoWRadar_Visual_Quantification_of_the_Circle_of_Willis_in_Stroke_Patients.jpg"
   },
   {
     "article_title": "Atomistic Visualization of Mesoscopic Whole-Cell Simulations",
@@ -153,7 +153,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20171235",
     "keywords": "",
     "abstract": "The function of proteins is tightly related to their interactions with other molecules. The study of such interactions often requires to track the molecules that enter or exit specific regions of the proteins. This is investigated with molecular dynamics simulations, producing the trajectories of thousands of water molecules during hundreds of thousands of time steps. To ease the exploration of such rich spatio-temporal data, we propose a novel workflow for the analysis and visualization of large sets of water-molecule trajectories. Our solution consists of a set of visualization techniques, which help biochemists to classify, cluster, and filter the trajectories and to explore the properties and behavior of selected subsets in detail. Initially, we use an interactive histogram and a time-line visualization to give an overview of all water trajectories and select the interesting ones for further investigation. Further, we depict clusters of trajectories in a novel 2D representation illustrating the flows of water molecules. These views are interactively linked with a 3D representation where we show individual paths, including their simplification, as well as extracted statistical information displayed by isosurfaces. The proposed solution has been designed in tight collaboration with experts to support specific tasks in their scientific workflows. They also conducted several case studies to evaluate the usability and effectiveness of our new solution with respect to their research scenarios. These confirmed that our proposed solution helps in analyzing water trajectories and in extracting the essential information out of the large amount of input data.",
-    "thumbnail": "../static/thumbnails/Watergate:_Visual_Exploration_of_Water_Trajectories_in_Protein_Dynamics.jpg"
+    "thumbnail": "../static/thumbnails/Watergate_Visual_Exploration_of_Water_Trajectories_in_Protein_Dynamics.jpg"
   },
   {
     "article_title": "Distance Field Visualization and 2D Abstraction of Vessel Tree Structures with on-the-fly Parameterization",
@@ -225,7 +225,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20201172",
     "keywords": "Human centered computing,Interaction devices,Visualization,Computing methodologies,Virtual reality",
     "abstract": "We introduce a Virtual Reality (VR) one-on-one tutoring system to support anatomy education. A student uses a fully immersive VR headset to explore the anatomy of the base of the human skull. A teacher guides the student by using the semi-immersive zSpace. Both systems are connected via network and each action is synchronized between both systems. The teacher is provided with various features to direct the student through the immersive learning experience. The teacher can influence the student's navigation or provide annotations on the fly and hereby improve the student's learning experience.",
-    "thumbnail": "../static/thumbnails/Student_and_Teacher_Meet_in_a_Shared_Virtual_Reality:_A_one-on-one_Tutoring_System_for_Anatomy_Education.jpg"
+    "thumbnail": "../static/thumbnails/Student_and_Teacher_Meet_in_a_Shared_Virtual_Reality_A_one-on-one_Tutoring_System_for_Anatomy_Education.jpg"
   },
   {
     "article_title": "Synaptic Connectivity in Anatomically Realistic Neural Networks: Modeling and Visual Analysis",
@@ -237,7 +237,7 @@
     "DOI": "http://dx.doi.org/10.2312/VCBM/VCBM12/017-024",
     "keywords": "",
     "abstract": "The structural organization of neural circuitry is an important determinant of brain function. Thus, knowing the brain's wiring (the connectome) is key to understanding how it works. For example, understanding how sensory information is translated into behavior requires a comprehensive view of the microcircuits performing this translation at the level of individual neurons and synapses. Obtaining a wiring diagram, however, is nontrivial due to size, complexity and accessibility of the involved brain regions. Even when such data were available, it were difficult to analyze. Here we describe how a network of  around 0.5 million neurons and their synaptic connections, representing the vibrissal area of the rat primary somatosensory cortex, can be reconstructed. Furthermore, we present a framework for visual exploration of synaptic connectivity between (groups of) neurons within this model. It includes, first, the Cortical Column Connectivity Viewer (CCCV) that provides a hybrid abstract/spatial representation of the connections between neurons of different cell types and/or in different cortical columns. Second, it comprises a 3D view of cell type-specific synapse positions on selected morphologies. This framework is thus an effective tool to visually explore structural organization principles at the population, individual neuron and synapse levels.",
-    "thumbnail": "../static/thumbnails/Synaptic_Connectivity_in_Anatomically_Realistic_Neural_Networks:_Modeling_and_Visual_Analysis.jpg"
+    "thumbnail": "../static/thumbnails/Synaptic_Connectivity_in_Anatomically_Realistic_Neural_Networks_Modeling_and_Visual_Analysis.jpg"
   },
   {
     "article_title": "Geometrical-Acoustics-based Ultrasound Image Simulation",
@@ -321,7 +321,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20161281",
     "keywords": "I.3.3 [Computer Graphics],Picture/Image Generation,Line and curve generation",
     "abstract": "In medical visualization of surface information, problems often arise when visualizing several overlapping structures simultaneously. There is a trade-off between visualizing multiple structures in a detailed way and limiting visual clutter, in order to allow users to focus on the main structures. Illustrative visualization techniques can help alleviate these problems by defining a level of abstraction per structure. However, clinical uptake of these advanced visualization techniques so far has been limited due to the complex parameter settings required. To bring advanced medical visualization closer to clinical application, we propose a novel illustrative technique that offers a seamless transition between various levels of abstraction and detail. Using a single comprehensive parameter, users are able to quickly define a visual representation per structure that fits the visualization requirements for focus and context structures. This technique can be applied to any biomedical context in which multiple surfaces are routinely visualized, such as neurosurgery, radiotherapy planning or drug design. Additionally, we introduce a novel hatching technique, that runs in real-time and does not require texture coordinates. An informal evaluation with experts from different biomedical domains reveals that our technique allows users to design focus-and-context visualizations in a fast and intuitive manner.",
-    "thumbnail": "../static/thumbnails/Sline:_Seamless_Line_Illustration_for_Interactive_Biomedical_Visualization.jpg"
+    "thumbnail": "../static/thumbnails/Sline_Seamless_Line_Illustration_for_Interactive_Biomedical_Visualization.jpg"
   },
   {
     "article_title": "Reconstruction of Blood Vessels from Neck CT Datasets using Stable 3D Mass-Spring Models",
@@ -369,7 +369,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20191246",
     "keywords": "",
     "abstract": "High Intensity Focused Ultrasound (HIFU) is a non invasive therapeutic method, which has been a subject of interest for the treatment of various kinds of tumors. Despite the numerous advantages, HIFU techniques do not reach the high delivery precision like other therapies (e.g., radiotherapy). For this reason, a correct therapy planning and monitoring in HIFU treatments remains a challenge. We propose HIFUpm, a visual analytics approach which enables the visualization of the HIFU simulation results, while guiding the user in the evaluation of the procedure. We illustrate the use of HIFUpm for an ablative treatment of an osteoid osteoma. This use case demonstrates that HIFUpm provides a flexible visual environment to plan and monitor HIFU procedures.",
-    "thumbnail": "../static/thumbnails/HIFUpm:_a_Visual_Environment_to_Plan_and_Monitor_High_Intensity_Focused_Ultrasound_Treatments.jpg"
+    "thumbnail": "../static/thumbnails/HIFUpm_a_Visual_Environment_to_Plan_and_Monitor_High_Intensity_Focused_Ultrasound_Treatments.jpg"
   },
   {
     "article_title": "Uncertainty-aware Brain Lesion Visualization",
@@ -417,7 +417,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20151209",
     "keywords": "",
     "abstract": "In this article we introduce cellVIEW, a new system to interactively visualize large biomolecular datasets on the atomic level. Our tool is unique and has been specifically designed to match the ambitions of our domain experts to model and interactively visualize structures comprised of several billions atom. The cellVIEW system integrates acceleration techniques to allow for real-time graphics performance of 60 Hz display rate on datasets representing large viruses and bacterial organisms. Inspired by the work of scientific illustrators, we propose a level-of-detail scheme which purpose is two-fold: accelerating the rendering and reducing visual clutter. The main part of our datasets is made out of macromolecules, but it also comprises nucleic acids strands which are stored as sets of control points. For that specific case, we extend our rendering method to support the dynamic generation of DNA strands directly on the GPU. It is noteworthy that our tool has been directly implemented inside a game engine. We chose to rely on a third party engine to reduce software development work-load and to make bleeding-edge graphics techniques more accessible to the end-users. To our knowledge cellVIEW is the only suitable solution for interactive visualization of large bimolecular landscapes on the atomic level and is freely available to use and extend.",
-    "thumbnail": "../static/thumbnails/cellVIEW:_a_Tool_for_Illustrative_and_Multi-Scale_Rendering_of_Large_Biomolecular_Datasets.jpg"
+    "thumbnail": "../static/thumbnails/cellVIEW_a_Tool_for_Illustrative_and_Multi-Scale_Rendering_of_Large_Biomolecular_Datasets.jpg"
   },
   {
     "article_title": "Interactive Classification of Multi-Shell Diffusion MRI With Features From a Dual-Branch CNN Autoencoder",
@@ -465,7 +465,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20211352",
     "keywords": "Human centered computing,Visual analytics",
     "abstract": "Machine learning is becoming increasingly popular in the medical domain. In the near future, clinicians expect predictive models to support daily tasks such as diagnosis and prognostic analysis. For this reason, it is utterly important to evaluate and compare the performance of such models so that clinicians can safely rely on them. In this paper, we focus on sleep staging wherein machine learning models can be used to automate or support sleep scoring. Evaluation of these models is complex because sleep is a natural process, which varies among patients. For adoption in clinical routine, it is important to understand how the models perform for different groups of patients. Moreover, models can be trained to recognize different characteristics in the data, and model developers need to understand why and how performance of the different models varies. To address these challenges, we present a visual analytics approach to evaluate the performance of predictive models on sleep staging and to help experts better understand these models with respect to patient data (e.g., conditions, medication, etc.). We illustrate the effectiveness of our approach by comparing multiple models trained on real-world sleep staging data with experts.",
-    "thumbnail": "../static/thumbnails/PerSleep:_A_Visual_Analytics_Approach_for_Performance_Assessment_of_Sleep_Staging_Models.jpg"
+    "thumbnail": "../static/thumbnails/PerSleep_A_Visual_Analytics_Approach_for_Performance_Assessment_of_Sleep_Staging_Models.jpg"
   },
   {
     "article_title": "Estimation of Muscle Activity in One-Leg Stance from 3D Surface Deformation",
@@ -573,7 +573,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20171239",
     "keywords": "I.3.8 [Computer Graphics],Applications",
     "abstract": "Magnetic Resonance-guided High Intensity Focused Ultrasound (MR-HIFU) is a novel and non-invasive therapeutic method. It can be used to locally increase the temperature in a target position in the human body. HIFU procedures are helpful for the treatment of soft tissue tumors and bone metastases. In vivo research with HIFU systems poses several challenges, therefore, a flexible and fast computer model for HIFU propagation and tissue heating is crucial. We introduce HIFUtk, a visual analytics environment to define, perform, and visualize HIFU simulations. We illustrate the use of HIFUtk by applying HIFU to a rabbit bone model, focusing on two common research questions related to HIFU. The first question concerns the relation between the ablated region shape and the focal point position, and the second one concerns the effect of shear waves on the temperature distribution in bone. These use cases demonstrate that HIFUtk provides a flexible visual analytics environment to investigate the effects of HIFU in various type of materials.",
-    "thumbnail": "../static/thumbnails/HIFUtk:_Visual_Analytics_for_High_Intensity_Focused_Ultrasound_Simulation.jpg"
+    "thumbnail": "../static/thumbnails/HIFUtk_Visual_Analytics_for_High_Intensity_Focused_Ultrasound_Simulation.jpg"
   },
   {
     "article_title": "Anatomical Volume Visualization with Weighted Distance Fields",
@@ -645,7 +645,7 @@
     "DOI": "http://dx.doi.org/10.2312/VCBM/VCBM12/001-008",
     "keywords": "Computer Graphics [I.3.3],Picture/Image Generation,Computer Graphics [I.3.7],Three Dimensional Graphics and Realism,Computer Applications [J.3],Life and Medical Sciences",
     "abstract": "Advanced diffusion imaging enables the reconstruction of complex fiber configurations such as crossings or fannings. However, resulting visualizations often suffer from visual clutter which makes exploration challenging. This paper presents the BundleExplorer as a GPU-based focus and context rendering framework for diffusion data. A combination of a fiber encompassing hull and line rendering is proposed to provide insight into inner-bundle fiber configurations as well as to enable bundle crossing exploration. Visual clutter is reduced and information about the global bundle geometry is provided by using fiber encompassing hulls. At the same time important characteristics, such as individual trajectory courses, which are conventionally neglected when using hull visualizations, are revealed by cutaway techniques and enhanced line renderings. In addition, spatial features, the distance to the fiber hull, as well as functional features, i.e., the degree of anisotropy, are visualized using fiber color encoding. Different cutaway techniques using marker and view-dependent clippings are implemented in order to reveal focus information. Visual enhancements are used to indicate bundle intersections.",
-    "thumbnail": "../static/thumbnails/The_BundleExplorer:_A_Focus_and_Context_Rendering_Framework_for_Complex_Fiber_Distributions.jpg"
+    "thumbnail": "../static/thumbnails/The_BundleExplorer_A_Focus_and_Context_Rendering_Framework_for_Complex_Fiber_Distributions.jpg"
   },
   {
     "article_title": "Strategies for Generating Multi-Time Frame Localization of Cardiac MRI",
@@ -741,7 +741,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20161278",
     "keywords": "I.3.8 [Computer Graphics],Applications",
     "abstract": "Digital Pathology is a recent clinical environment in which Electronic Health Records (EHRs), biopsy data and whole-slideimages (WSI) come together to provide pathologists the necessary information for making a diagnosis. Integration of this heterogeneous data into a single application is still one of the challenges in the evolution of pathology to a digital practice. While pathologists can perform diagnoses routinely on digital slides only, this is not the case in clinical research. For such purposes, the link between clinicopathological information of patients and images is essential. For example, image analysis researchers who develop automated diagnostic (support) algorithms need to select a representative set of slides to evaluate their methods. To achieve this, they need applications that combine cohort specification, slide image exploration, and selection of suitable images. We present the visualization tool PATHONE, which enables users to perform these steps on a single screen, integrating cohort and WSI selection.",
-    "thumbnail": "../static/thumbnails/PATHONE:_From_one_Thousand_Patients_to_one_Cell.jpg"
+    "thumbnail": "../static/thumbnails/PATHONE_From_one_Thousand_Patients_to_one_Cell.jpg"
   },
   {
     "article_title": "Automatic Real-time Annotation of Important Landmarks in Ultrasound-Guided Femoral Nerve Blocks",
@@ -837,7 +837,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20191241",
     "keywords": "Animation",
     "abstract": "Animation is a potentially powerful instrument to convey complex information with movements, smooth transitions between different states that employ the strong human capabilities to perceive and interpret motion. Animation is a natural choice to display time-dependent data where the dynamic nature of the data is mapped to a kind of video (temporal animation). Clipping planes may be smoothly translated and object transparency adapted to control visibility and further support emphasis of spatial relations, e.g. around a tumor. Animation, however, may also be employed for static data, e.g. to move a camera along a predefined path to convey complex anatomical structures. Virtual endoscopy, where the virtual camera is moved inside an air-filled or fluid-filled structure is a prominent example for these non-temporal animations. Animations, however, are complex visualizations that may depict a larger number of changes in a short period of time. Thus, they need to be assessed in their capability to actually convey information. In this paper, we give a survey of temporal and non-temporal animated visualizations focussed on medical applications and discuss the research potential that arises. To be employed more widely, cognitive limitations, e.g. change blindness, need to be considered. The reduction of complexity in temporal animations is an essential topic to enable the detection and interpretation of changes. Emphasis techniques may guide the user's attention and improve the perception of essential features. Finally, interaction beyond the typical video recorder functionality is considered. Although our focus is medicine, the discussion of a research agenda is partially based on cartography, where animation is widely used.",
-    "thumbnail": "../static/thumbnails/Medical_Animations:_A_Survey_and_a_Research_Agenda.jpg"
+    "thumbnail": "../static/thumbnails/Medical_Animations_A_Survey_and_a_Research_Agenda.jpg"
   },
   {
     "article_title": "Visual Analytics in Histopathology Diagnostics: a Protocol-Based Approach",
@@ -849,7 +849,7 @@
     "DOI": "https://diglib.eg.org:443/handle/10.2312/vcbm20181226",
     "keywords": "I.3.8 Computer Graphics,Applications",
     "abstract": "Computer-Aided-Diagnosis (CAD) systems supporting the diagnostic process are widespread in radiology. Digital Pathology is still behind in the introduction of such solutions. Several studies investigated pathologists' behavior but only a few aimed to improve the diagnostic and report process with novel applications. In this work we designed and implemented a first protocol-based CAD viewer supported by visual analytics. The system targets the optimization of the diagnostic workflow in breast cancer diagnosis by means of three image analysis features that belong to the standard grading system (Nottingham Histologic Grade). A pathologist's routine was tracked during the examination of breast cancer tissue slides and diagnostic traces were analyzed from a qualitative perspective. Accordingly, a set of generic requirements was elicited to define the design and the implementation of the CAD-Viewer. A first qualitative evaluation conducted with five pathologists shows that the interface suffices the diagnostic workflow and diminishes the manual effort. We present promising evidence of the usefulness of our CAD-viewer and opportunities for its extension and integration in clinical practice. As a conclusion, the findings demonstrate that it is feasibile to optimize the Nottingham Grading workflow and, generally, the histological diagnosis by integrating computational pathology data with visual analytics techniques.",
-    "thumbnail": "../static/thumbnails/Visual_Analytics_in_Histopathology_Diagnostics:_a_Protocol-Based_Approach.jpg"
+    "thumbnail": "../static/thumbnails/Visual_Analytics_in_Histopathology_Diagnostics_a_Protocol-Based_Approach.jpg"
   },
   {
     "article_title": "Combining B-Mode and Color Flow Vessel Segmentation for Registration of Hepatic CT and Ultrasound Volumes",
@@ -933,7 +933,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20191245",
     "keywords": "Applied computing,Health informatics,Human,centered computing,Visualization design and evaluation methods",
     "abstract": "Three-dimensional (3D) ultrasound imaging and visualization is often used in medical diagnostics, especially in prenatal screening. Screening the development of the fetus is important to assess possible complications early on. State of the art approaches involve taking standardized measurements to compare them with standardized tables. The measurements are taken in a 2D slice view, where precise measurements can be difficult to acquire due to the fetal pose. Performing the analysis in a 3D view would enable the viewer to better discriminate between artefacts and representative information. Additionally making data comparable between different investigations and patients is a goal in medical imaging techniques and is often achieved by standardization. With this paper, we introduce a novel approach to provide a standardization method for 3D ultrasound fetus screenings. Our approach is called ''The Vitruvian Baby'' and incorporates a complete pipeline for standardized measuring in fetal 3D ultrasound. The input of the method is a 3D ultrasound screening of a fetus and the output is the fetus in a standardized T-pose. In this pose, taking measurements is easier and comparison of different fetuses is possible. In addition to the transformation of the 3D ultrasound data, we create an abstract representation of the fetus based on accurate measurements. We demonstrate the accuracy of our approach on simulated data where the ground truth is known.",
-    "thumbnail": "../static/thumbnails/The_Vitruvian_Baby:_Interactive_Reformation_of_Fetal_Ultrasound_Data_to_a_T-Position.jpg"
+    "thumbnail": "../static/thumbnails/The_Vitruvian_Baby_Interactive_Reformation_of_Fetal_Ultrasound_Data_to_a_T-Position.jpg"
   },
   {
     "article_title": "A Prototype Holographic Augmented Reality Interface for Image-Guided Prostate Cancer Interventions",
@@ -957,7 +957,7 @@
     "DOI": "http://dx.doi.org/10.2312/VCBM/VCBM08/143-150",
     "keywords": "Categories and Subject Descriptors (according to ACM CCS): I.4.6 [Image Processing and Computer Vision]: Segmentation",
     "abstract": "Quantity of hepatocytes in the liver can reveal a lot of information for medical researchers. In our project, it is needed for evaluation of the liver regeneration rate. In this paper, we present a processing pipeline for automatic counting of hepatocytes from images of histological sections. In particular, we propose to introduce a preprocessing step in form of image smoothing. We apply five different smoothing techniques, namely Gaussian smoothing, nonlinear Gaussian smoothing, median filtering, anisotropic diffusion, and minimum description length segmentation, and compare them to each other. The processing pipeline is completed by subsequent automatic thresholding using Otsu s method and hepatocyte detection using Hough transform. We compare the quantification results in terms of quality (sensitivity and specificity rates) against the manually specified ground truth. We discuss the results and limitations of the individual processing steps as well as of the overall automatic quantification approach.",
-    "thumbnail": "../static/thumbnails/Automatic_Hepatocyte_Quantification_from_Histological_Images:_Comparing_Pre-smoothing_filters.jpg"
+    "thumbnail": "../static/thumbnails/Automatic_Hepatocyte_Quantification_from_Histological_Images_Comparing_Pre-smoothing_filters.jpg"
   },
   {
     "article_title": "VirtualDSA++: Automated Segmentation, Vessel Labeling, Occlusion Detection and Graph Search on CT-Angiography Data",
@@ -969,7 +969,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20201181",
     "keywords": "Computing methodologies,Image segmentation,Search with partial observations,Human centered computing,Visualization",
     "abstract": "Computed Tomography Angiography (CTA) is one of the most commonly used modalities in the diagnosis of cerebrovascular diseases like ischemic strokes. Usually, the anatomy of interest in ischemic stroke cases is the Circle of Willis and its peripherals, the cerebral arteries, as these vessels are the most prominent candidates for occlusions. The diagnosis of occlusions in these vessels remains challenging, not only because of the large amount of surrounding vessels but also due to the large number of anatomical variants. We propose a fully automated image processing and visualization pipeline, which provides a full segmentation and modelling of the cerebral arterial tree for CTA data. The model itself enables the interactive masking of unimportant vessel structures e.g. veins like the Sinus Sagittalis, and the interactive planning of shortest paths meant to be used to prepare further treatments like a mechanical thrombectomy. Additionally, the algorithm automatically labels the cerebral arteries (Middle Cerebral Artery left and right, Anterior Cerebral Artery short, Posterior Cerebral Artery left and right) detects occlusions or interruptions in these vessels. The proposed pipeline does not require a prior non-contrast CT scan and achieves a comparable segmentation appearance as in a Digital Subtraction Angiography (DSA).",
-    "thumbnail": "../static/thumbnails/VirtualDSA++:_Automated_Segmentation,_Vessel_Labeling,_Occlusion_Detection_and_Graph_Search_on_CT-Angiography_Data.jpg"
+    "thumbnail": "../static/thumbnails/VirtualDSA++_Automated_Segmentation_Vessel_Labeling,_Occlusion_Detection_and_Graph_Search_on_CT-Angiography_Data.jpg"
   },
   {
     "article_title": "A Guided Spatial Transformer Network for Histology Cell Differentiation",
@@ -1053,7 +1053,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20141187",
     "keywords": "",
     "abstract": "Three-dimensional cell visualization is an important topic in today's cytology-affiliated community. Cell illustrations and animations are used for scientific as well as for educational purposes. Unfortunately, there exist only few tools to support the cell modeling process on a molecular level. A major problem is the immense intracellular size variation between relatively large mesoscopic cell components and small molecular membrane patches. This makes both modeling and visualization of whole cells a challenging task. In this paper we propose Membrane Mapping as an interactive tool for combining the mesoscopic and molecular level. Based on instantly computed local parameterizations we map patches of molecular membrane structures onto user-selected regions of cell components. By designing an efficient and GPU-friendly mapping technique, our approach allows to visualize and map pre-computed molecular dynamics simulations of membrane patches to mesoscopic structures in real-time. This enables the visualization of whole cells on a mesoscopic level with an interactive magnifier tool for inspecting their molecular structure and dynamic behavior.",
-    "thumbnail": "../static/thumbnails/Membrane_Mapping:_Combining_Mesoscopic_and_Molecular_Cell_Visualization.jpg"
+    "thumbnail": "../static/thumbnails/Membrane_Mapping_Combining_Mesoscopic_and_Molecular_Cell_Visualization.jpg"
   },
   {
     "article_title": "An Endoscope Interface for Immersive Virtual Reality",
@@ -1125,7 +1125,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20191234",
     "keywords": "Human,centered computing \u2192 Visual analytics,Applied computing \u2192 Life and medical sciences",
     "abstract": "This design study paper describes preha, a novel visual analytics application in the field of in-patient rehabilitation. We conducted extensive interviews with the intended users, i.e., engineers and clinical rehabilitation experts, to determine specific requirements of their analytical process.We identified nine tasks, for which suitable solutions have been designed and developed in the flexible environment of kibana. Our application is used to analyze existing rehabilitation data from a large cohort of 46,000 patients, and it is the first integrated solution of its kind. It incorporates functionalities for data preprocessing (profiling, wrangling and cleansing), storage, visualization, and predictive analysis on the basis of retrospective outcomes. A positive feedback from the first evaluation with domain experts indicates the usefulness of the newly proposed approach and represents a solid foundation for the introduction of visual analytics to the rehabilitation domain.",
-    "thumbnail": "../static/thumbnails/preha:_Establishing_Precision_Rehabilitation_with_Visual_Analytics.jpg"
+    "thumbnail": "../static/thumbnails/preha_Establishing_Precision_Rehabilitation_with_Visual_Analytics.jpg"
   },
   {
     "article_title": "Aneulysis - A System for Aneurysm Data Analysis",
@@ -1221,7 +1221,7 @@
     "DOI": "http://dx.doi.org/10.2312/VCBM/VCBM12/009-016",
     "keywords": "I.3.7 [Computer Graphics],Three Dimensional Graphics and Realism,Visible line/surface algorithms,I.3.8 [Computer Graphics],Applications",
     "abstract": "Multi-modal display of neurological data in anatomical context is a challenging issue in biomedical visualization. We present an application-driven approach, which solves the visibility issues arising from the simultaneous presentation of probabilistic tractograms and anatomical context. The tractogram (a scalar field indicating a connectivity score between voxels) is visualized by nested surface layers, providing an overview of long-range connectivity. Unique dataset features are reflected by value-based opacity and further enhanced by depth cues. An illustrative, three-dimensional rendering of the cortex complemented with textured slices is provided as anatomical context. The presented methods are based on a detailed requirements analysis with domain experts. Two user studies were performed to evaluate our methods and the techniques were improved based on their feedback. Our methods can be applied to a wide range of data, as they can be adapted to the range and requirements of data very easily.",
-    "thumbnail": "../static/thumbnails/Tractography_in_Context:_Multimodal_Visualization_of_Probabilistic_Tractograms_in_Anatomical_Context.jpg"
+    "thumbnail": "../static/thumbnails/Tractography_in_Context_Multimodal_Visualization_of_Probabilistic_Tractograms_in_Anatomical_Context.jpg"
   },
   {
     "article_title": "Ontology-Based Visualization of Hierarchical Neuroanatomical Structures",
@@ -1293,7 +1293,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20161282",
     "keywords": "I.3.3 [Computer Graphics],Picture/Image Generation,Display algorithms,I.4.6 [Image Processing and Computer Vision],Segmentation,Edge and feature detection,I.4.7 [Image Processing and Computer Vision],Feature Measurement,Size and shape",
     "abstract": "Aortic dissection is a life threatening condition of the aorta, characterized by separation of its wall layers into a true and false lumen. A subset of patients require immediate surgical or endovascular repair. All survivors of the acute phase need long-term surveillance with imaging to monitor chronic degeneration and dilatation of the false lumen and prevent late adverse events such as rupture, or malperfusion. We introduce four novel plots displaying features of aortic dissections known or presumed to be associated with risk of future adverse events: Aortic diameter, the blood supply (outflow) to the aortic branches from the true and false lumen, the previous treatment, and an estimate of adverse event-free probabilities in one, two and 5 years. Aortic dissection maps, the composite visualization of these plots, provide a baseline for visual comparison of the complex features and associated risk of aortic dissection. These maps may lead to more individualized monitoring and improved, patient-centric treatment planning in the future.",
-    "thumbnail": "../static/thumbnails/Aortic_Dissection_Maps:_Comprehensive_Visualization_of_Aortic_Dissections_for_Risk_Assessment.jpg"
+    "thumbnail": "../static/thumbnails/Aortic_Dissection_Maps_Comprehensive_Visualization_of_Aortic_Dissections_for_Risk_Assessment.jpg"
   },
   {
     "article_title": "Recent Advances in MRI and Ultrasound Perfusion Imaging",
@@ -1413,7 +1413,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20191238",
     "keywords": "Human,centered computing,Scientific visualization,Visualization systems and tools",
     "abstract": "Molecular docking is one of the key mechanisms for predicting possible interactions between ligands and proteins. This highly complex task can be simulated by several software tools, providing the biochemists with possible ligand trajectories, which have to be subsequently explored and evaluated for their biochemical relevance. This paper focuses on aiding this exploration process by introducing DockVis visual analysis tool. DockVis operates primarily with the multivariate output data from one of the latest available tools for molecular docking, CaverDock. CaverDock output consists of several parameters and properties, which have to be subsequently studied and understood. DockVis was designed in tight collaboration with protein engineers using the CaverDock tool. However, we believe that the concept of DockVis can be extended to any other molecular docking tool providing the users with corresponding computation results.",
-    "thumbnail": "../static/thumbnails/DockVis:_Visual_Analysis_of_Molecular_Docking_Data.jpg"
+    "thumbnail": "../static/thumbnails/DockVis_Visual_Analysis_of_Molecular_Docking_Data.jpg"
   },
   {
     "article_title": "Protein Tunnel Reprojection for Physico-Chemical Property Analysis",
@@ -1485,7 +1485,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20211341",
     "keywords": "Applied computing,Life and medical sciences,Human centered computing,Scientific visualization,Visualization systems and tools",
     "abstract": "Real-world sculptures that display patient imaging data for anatomical education purposes have seen a recent resurgence through the field of data physicalization. In this paper, we describe an automated process for the computer-assisted generation of sculptures that can be employed for anatomical education among the general population. We propose a workflow that supports non-expert users to generate and physically display volumetric medical data in a visually appealing and engaging way. Our approach generates slide-based, interactive sculptures-called volograms-that resemble holograms of underlying medical data. The volograms are made out of affordable and readily available materials (e.g., transparent foils and cardboard) and can be produced through commonly available means. To evaluate the educational value of the proposed approach with our target audience, we assess the volograms, as opposed to classical, on-screen medical visualizations in a user study. The results of our study, while highlighting current weaknesses of our physicalization, also point to interesting future directions.",
-    "thumbnail": "../static/thumbnails/Vologram:_An_Educational_Holographic_Sculpture_for_Volumetric_Medical_Data_Physicalization.jpg"
+    "thumbnail": "../static/thumbnails/Vologram_An_Educational_Holographic_Sculpture_for_Volumetric_Medical_Data_Physicalization.jpg"
   },
   {
     "article_title": "InkVis: A High-Particle-Count Approach for Visualization of Phase-Contrast Magnetic Resonance Imaging Data",
@@ -1497,7 +1497,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20191243",
     "keywords": "Human,centered computing,Scientific visualization,Computing methodologies,Scientific visualization,Applied computing,Life and medical sciences",
     "abstract": "Phase-Contrast Magnetic Resonance Imaging (PC-MRI) measures volumetric and time-varying blood flow data, unsurpassed in quality and completeness. Such blood-flow data have been shown to have the potential to improve both diagnosis and risk assessment of cardiovascular diseases (CVDs) uniquely. Typically PC-MRI data is visualized using stream- or pathlines. However, time-varying aspects of the data, e.g., vortex shedding, breakdown, and formation, are not sufficiently captured by these visualization techniques. Experimental flow visualization techniques introduce a visible medium, like smoke or dye, to visualize flow aspects including time-varying aspects. We propose a framework that mimics such experimental techniques by using a high number of particles. The framework offers great flexibility which allows for various visualization approaches. These include common traditional flow visualizations, but also streak visualizations to show the temporal aspects, and uncertainty visualizations. Moreover, these patient-specific measurements suffer from noise artifacts and a coarse resolution, causing uncertainty. Traditional flow visualizations neglect uncertainty and, therefore, may give a false sense of certainty, which can mislead the user yielding incorrect decisions. Previously, the domain experts had no means to visualize the effect of the uncertainty in the data. Our framework has been adopted by domain experts to visualize the vortices present in the sinuses of the aorta root showing the potential of the framework. Furthermore, an evaluation among domain experts indicated that having the option to visualize the uncertainty contributed to their confidence on the analysis.",
-    "thumbnail": "../static/thumbnails/InkVis:_A_High-Particle-Count_Approach_for_Visualization_of_Phase-Contrast_Magnetic_Resonance_Imaging_Data.jpg"
+    "thumbnail": "../static/thumbnails/InkVis_A_High-Particle-Count_Approach_for_Visualization_of_Phase-Contrast_Magnetic_Resonance_Imaging_Data.jpg"
   },
   {
     "article_title": "Automatic Cutting and Flattening of Carotid Artery Geometries",
@@ -1521,7 +1521,7 @@
     "DOI": "http://dx.doi.org/10.2312/VCBM/VCBM12/099-106",
     "keywords": "I.3.3 [Computer Graphics],Picture/Image Generation,functional brain connectivity,brain mapping,raycasting,GPU volume rendering",
     "abstract": "Functional brain connectivity from fMRI studies has become an important tool in studying functional interactions in the human brain as a complex network. Most recently, research has started focusing on whole brain functional networks at the voxel-level, where fMRI time-signals at each voxel are correlated with every other voxel in the brain to determine their functional connectivity. For a typical 4mm isotropic voxel resolution, this results in connectivity networks with more than twenty thousand nodes and over 400 million links. These cannot be effectively visualized or interactively explored using node-link representations, and due to their size are challenging to show as correlation matrix bitmaps. In this paper, we present a number of methods for the visualization and interactive visual analysis of this new high resolution brain network data, both in its matrix representation as well as in its anatomical context. We have implemented these methods in a GPU raycasting framework that enables real-time interaction, such as network probing and volume deformation, as well as real-time filtering. The techniques are integrated in a visual analysis application in which the different views are coupled, supporting linked interaction. Furthermore, we allow visual comparison of different brain networks with side-by-side and difference visualization. We have evaluated our approach via case studies with domain scientists at two different university medical centers.",
-    "thumbnail": "../static/thumbnails/BrainCove:_A_Tool_for_Voxel-wise_fMRI_Brain_Connectivity_Visualization.jpg"
+    "thumbnail": "../static/thumbnails/BrainCove_A_Tool_for_Voxel-wise_fMRI_Brain_Connectivity_Visualization.jpg"
   },
   {
     "article_title": "Visual Analytics in Digital Pathology: Challenges and Opportunities",
@@ -1533,7 +1533,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20191240",
     "keywords": "Computer Graphics,Applications",
     "abstract": "The advances in high-throughput digitization, digital pathology systems, and quantitative image analysis opened new horizons in pathology. The diagnostic work of the pathologists and their role is likely to be augmented with computer-assistance and more quantitative information at hand. The recent success of artificial intelligence (AI) and computer vision methods demonstrated that in the coming years machines will support pathologists in typically tedious and highly subjective tasks and also in better patient stratification. In spite of clear future improvements in the diagnostic workflow, questions on how to effectively support the pathologists and how to integrate current data sources and quantitative information still persist. In this context, Visual Analytics (VA) - as the discipline that aids users to solve complex problems with an interactive and visual approach - can play a vital role to support the cognitive skills of pathologists and the large volumes of data available. To identify the main opportunities to employ VA in digital pathology systems, we conducted a survey with 20 pathologists to characterize the diagnostic practice and needs from a user perspective. From our findings, we discuss how VA can leverage quantitative image data to empower pathologists with new advanced digital pathology systems.",
-    "thumbnail": "../static/thumbnails/Visual_Analytics_in_Digital_Pathology:_Challenges_and_Opportunities.jpg"
+    "thumbnail": "../static/thumbnails/Visual_Analytics_in_Digital_Pathology_Challenges_and_Opportunities.jpg"
   },
   {
     "article_title": "Visual Analytics of Missing Data in Epidemiological Cohort Studies",
@@ -1581,7 +1581,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20141178",
     "keywords": "I.3.8 [Computer Graphics],Applications,Applications,,J.3 [Computer Applications],Life and Medical Sciences,Life and Medical Sciences",
     "abstract": "Efficacy of radiotherapy treatment depends on the specific characteristics of tumorous tissues. For the determination of these characteristics, clinical practice uses Dynamic Contrast Enhanced (DCE) Magnetic Resonance Imaging (MRI). DCE-MRI data is acquired and modeled using pharmacokinetic modeling, to derive per voxel a set of parameters, indicative of tissue properties. Different pharmacokinetic modeling approaches make different assumptions, resulting in parameters with different distributions. A priori, it is not known whether there are significant differences between modeling assumptions and which assumption is best to apply. Therefore, clinical researchers need to know at least how different choices in modeling affect the resulting pharmacokinetic parameters and also where parameter variations appear. In this paper, we introduce iCoCooN: a visualization application for the exploration and analysis of model-induced variations in pharmacokinetic parameters.We designed a visual representation, the Cocoon, by integrating perpendicularly Parallel Coordinate Plots (PCPs) with Cobweb Charts (CCs). PCPs display the variations in each parameter between modeling choices, while CCs present the relations in a whole parameter set for each modeling choice. The Cocoon is equipped with interactive features to support the exploration of all data aspects in a single combined view. Additionally, interactive brushing allows to link the observations from the Cocoon to the anatomy. We conducted evaluations with experts and also general users. The clinical experts judged that the Cocoon in combination with its features facilitates the exploration of all significant information and, especially, enables them to find anatomical correspondences. The results of the evaluation with general users indicate that the Cocoon produces more accurate results compared to independent multiples.",
-    "thumbnail": "../static/thumbnails/The_iCoCooN:_Integration_of_Cobweb_Charts_with_Parallel_Coordinates_for_Visual_Analysis_of_DCE-MRI_Modeling_Variations.jpg"
+    "thumbnail": "../static/thumbnails/The_iCoCooN_Integration_of_Cobweb_Charts_with_Parallel_Coordinates_for_Visual_Analysis_of_DCE-MRI_Modeling_Variations.jpg"
   },
   {
     "article_title": "Computation of More Channels in Protein Molecules",
@@ -1605,7 +1605,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20141193",
     "keywords": "I.3.8 [Computer Graphics],Applications",
     "abstract": "In medical imaging, registration is used to combine images containing information from different modalities or to track treatment effects over time in individual patients. Most registration software packages do not provide an easy-to-use interface that facilitates the use of registration. 2D visualization techniques are often used for visualizing 3D datasets. RegistrationShop was developed to improve and ease the process of volume registration using 3D visualizations and intuitive interactive tools. It supports several basic visualizations of 3D volumetric data. Interactive rigid and non-rigid transformation tools can be used to manipulate the volumes and immediate visual feedback for all rigid transformation tools allows the user to examine the current result in real-time. In this context, we introduce 3D comparative visualization techniques, as well as a way of placing landmarks in 3D volumes. Finally, we evaluated our approach with domain experts, who underlined the potential and usefulness of RegistrationShop.",
-    "thumbnail": "../static/thumbnails/RegistrationShop:_An_Interactive_3D_Medical_Volume_Registration_System.jpg"
+    "thumbnail": "../static/thumbnails/RegistrationShop_An_Interactive_3D_Medical_Volume_Registration_System.jpg"
   },
   {
     "article_title": "A Comparative User Study of a 2D and an Autostereoscopic 3D Display for a Tympanoplastic Surgery",
@@ -1629,7 +1629,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20151226",
     "keywords": "",
     "abstract": "The aim of the SWIFT project is to determine which visualisations of blood glucose-related data on mobile devices are most usable by people with insulin-dependent diabetes, to improve self-management.",
-    "thumbnail": "../static/thumbnails/SWiFT_Seeing_the_Wood_From_the_Trees:_helping_people_make_sense_of_their_health_data.jpg"
+    "thumbnail": "../static/thumbnails/SWiFT_Seeing_the_Wood_From_the_Trees_helping_people_make_sense_of_their_health_data.jpg"
   },
   {
     "article_title": "How to Evaluate Medical Visualizations on the Example of 3D Aneurysm Surfaces",
@@ -1725,7 +1725,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20211344",
     "keywords": "General and reference,Surveys and overviews,Applied computing,Life and medical sciences,Human centered computing,Virtual reality,Mixed / augmented reality",
     "abstract": "Augmented and virtual reality (XR) are potentially powerful tools for enhancing the efficiency of interactive visualization of complex data in biology and medicine. The benefits of visualization of digital objects in XR mainly arise from enhanced depth perception due to the stereoscopic nature of XR head mounted devices. With the added depth dimension, XR is in a prime position to convey complex information and support tasks where 3D information is important. In order to inform the development of novel XR applications in the biology and medicine domain, we present a survey which reviews the neuroscientific basis underlying the immersive features of XR. To make this literature more accessible to the visualization community, we first describe the basics of the visual system, highlighting how visual features are combined to objects and processed in higher cortical areas with a special focus on depth vision. Based on state of the art findings in neuroscience literature related to depth perception, we provide several recommendations for developers and designers. Our aim is to aid development of XR applications and strengthen development of tools aimed at molecular visualization, medical education, and surgery, as well as inspire new application areas.",
-    "thumbnail": "../static/thumbnails/The_Role_of_Depth_Perception_in_XR_from_a_Neuroscience_Perspective:_A_Primer_and_Survey.jpg"
+    "thumbnail": "../static/thumbnails/The_Role_of_Depth_Perception_in_XR_from_a_Neuroscience_Perspective_A_Primer_and_Survey.jpg"
   },
   {
     "article_title": "SpectraMosaic: An Exploratory Tool for the Interactive Visual Analysis of Magnetic Resonance Spectroscopy Data",
@@ -1737,7 +1737,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20191225",
     "keywords": "Human,centered computing,Scientific visualization,Information visualization,User centered design",
     "abstract": "Magnetic resonance spectroscopy (MRS) allows for assessment of tissue metabolite characteristics used often for early detection and treatment evaluation of brain-related pathologies. However, a steep learning curve for metabolite interpretation, paired with limited visualization tools, have constrained the more widespread adoption of MRS in clinical practice. In this design study, we collaborated with domain experts to design a novel visualization tool for the exploration of tissue metabolite concentration ratios in MRS clinical and research studies. We present a data and task analysis for this domain, with categorization of MRS data attributes into tiers of visual priority. We furthermore introduce a novel set of visual encodings for these attributes. Our result is SpectraMosaic (Figure 1), an interactive insight-generation tool for rapid exploration and comparison of metabolite ratios. We validate our approach with two case studies from MR spectroscopy experts, providing early qualitative evidence of the efficacy of the system and affording deeper insights into these complex data.",
-    "thumbnail": "../static/thumbnails/SpectraMosaic:_An_Exploratory_Tool_for_the_Interactive_Visual_Analysis_of_Magnetic_Resonance_Spectroscopy_Data.jpg"
+    "thumbnail": "../static/thumbnails/SpectraMosaic_An_Exploratory_Tool_for_the_Interactive_Visual_Analysis_of_Magnetic_Resonance_Spectroscopy_Data.jpg"
   },
   {
     "article_title": "Visual Analysis of Bipartite Biological Networks",
@@ -1821,7 +1821,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20151222",
     "keywords": "Categories and Subject Descriptors,H.5.2 User Interfaces,Benchmarking,Input devices and strategies",
     "abstract": "We investigate the performance of QuantiScale, a new multi-touch interaction technique for the quantification of distances in medical images and discuss the benefits and prospects of redesigning interactions with multi-touch devices. Taking advantage of the multi-touch capabilities, QuantiScale behaves like a tape measure, but automatically adjusts the view onto the measured object to improve precision and speed. The technique has been studied in a real-world scenario measuring the diameter of structures for the diagnostic reading of medical images and provides hints for the replacement of traditional mouse-based interaction with gestural interaction. Results of the quantitative evaluation indicate a high measurement precision particularly for small objects. Participants experienced QuantiScale as being more fun, natural, and intuitive in comparison to mouse-based interaction even though the subjective preference for speed and precision was still in favor of the mouse.",
-    "thumbnail": "../static/thumbnails/QuantiScale:_A_Study_in_Redesigning_Interactions_for_Multi-Touch.jpg"
+    "thumbnail": "../static/thumbnails/QuantiScale_A_Study_in_Redesigning_Interactions_for_Multi-Touch.jpg"
   },
   {
     "article_title": "Visualization-Guided Evaluation of Simulated Minimally Invasive Cancer Treatment",
@@ -1881,7 +1881,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20201168",
     "keywords": "Human centered computing,Information visualization,Applied computing,Interactive learning environments,Health care information systems",
     "abstract": "Personalized anatomical information of the heart is usually obtained from the visual analysis of patient-specific medical images with standard multiplanar reconstruction (MPR) of 2D orthogonal slices, volume rendering and surface mesh views. Commonly, medical data is visualized in 2D flat screens, thus hampering the understanding of 3D complex anatomical details, including incorrect depth/scaling perception, which is critical for some cardiac interventions such as medical device implantations. Virtual reality (VR) is becoming a valid complementary technology overcoming some of the limitations of conventional visualization techniques and allowing an enhanced and fully interactive exploration of human anatomy. In this work, we present VRIDAA, a VR-based platform for the visualization of patient-specific cardiac geometries and the virtual implantation of left atrial appendage occluder (LAAO) devices. It includes different visualization and interaction modes to jointly inspect 3D LA geometries and different LAAO devices, MPR 2D imaging slices, several landmarks and morphological parameters relevant to LAAO, among other functionalities. The platform was designed and tested by two interventional cardiologists and LAAO researchers, obtaining very positive user feedback about its potential, highlighting VRIDAA as a source of motivation for trainees and its usefulness to better understand the required surgical approach before the intervention.",
-    "thumbnail": "../static/thumbnails/VRIDAA:_Virtual_Reality_Platform_for_Training_and_Planning_Implantations_of_Occluder_Devices_in_Left_Atrial_Appendages.jpg"
+    "thumbnail": "../static/thumbnails/VRIDAA_Virtual_Reality_Platform_for_Training_and_Planning_Implantations_of_Occluder_Devices_in_Left_Atrial_Appendages.jpg"
   },
   {
     "article_title": "Hybrid Visualization of Protein-Lipid and Protein-Protein Interaction",
@@ -1941,7 +1941,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20201175",
     "keywords": "",
     "abstract": "Deep learning is increasingly used in the field of glaucoma research. Although deep learning models can achieve high accuracy, issues with trust, interpretability, and practical utility form barriers to adoption in clinical practice. In this study, we explore whether and how visualizations of deep learning-based measurements can be used for glaucoma management in the clinic. Through iterative design sessions with ophthalmologists, vision researchers, and manufacturers of optical coherence tomography (OCT) instruments, we distilled four main tasks, and designed a visualization tool that incorporates a visual field (VF) prediction model to provide clinical decision support in managing glaucoma progression. The tasks are: (1) assess reliability of a prediction, (2) understand why the model made a prediction, (3) alert to features that are relevant, and (4) guide future scheduling of VFs. Our approach is novel in that it considers utility of the system in a clinical context where time is limited. With use cases and a pilot user study, we demonstrate that our approach can aid clinicians in clinical management decisions and obtain appropriate trust in the system. Taken together, our work shows how visual explanations of automated methods can augment clinicians' knowledge and calibrate their trust in DL-based measurements during clinical decision making.",
-    "thumbnail": "../static/thumbnails/GLANCE:_Visual_Analytics_for_Monitoring_Glaucoma_Progression.jpg"
+    "thumbnail": "../static/thumbnails/GLANCE_Visual_Analytics_for_Monitoring_Glaucoma_Progression.jpg"
   },
   {
     "article_title": "Shading Style Assessment for Vessel Wall and Lumen Visualization",
@@ -1977,7 +1977,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20191248",
     "keywords": "Human,centered computing,Scientific visualization,Applied computing,Molecular structural biology",
     "abstract": "We present a novel abstract visualization for the binding sites of proteins. Binding sites play an essential role in enzymatic reactions and are, thus, often investigated in structural biology. They are typically located within cavities. The shape and properties of the cavity influence whether and how easily a substrate can reach the active site where the reaction is triggered. Molecular surface visualizations can help to analyze the accessibility of binding sites, but are typically prone to visual clutter. Our novel abstract visualization shows the cavity containing the binding site as well as the surface region directly surrounding the cavity entrance in a simplified manner. The resulting visualization resembles a hat, where the brim depicts the surrounding surface region and the crown the cavity. Hence, we dubbed our abstraction Molecular Sombrero, using the Spanish term for 'hat'. Our abstraction is less cluttered than traditional molecular surface visualizations. It highlights important parameters, like cavity diameter, by mapping them to the shape of the sombrero. The visual abstraction also facilitates an easy side-by-side comparison of different data sets. We show the applicability of our Molecular Sombreros to different real-world use cases.",
-    "thumbnail": "../static/thumbnails/Molecular_Sombreros:_Abstract_Visualization_of_Binding_Sites_within_Proteins.jpg"
+    "thumbnail": "../static/thumbnails/Molecular_Sombreros_Abstract_Visualization_of_Binding_Sites_within_Proteins.jpg"
   },
   {
     "article_title": "Impact of Physical Noise Modeling on Image Segmentation in Echocardiography",
@@ -2109,7 +2109,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20161286",
     "keywords": "I.3.3 [Computer Graphics],Picture/Image Generation,Line and curve generation",
     "abstract": "Time-dependent volumetric data has important applications in areas as diverse as medicine, climatology, and engineering. However, the simultaneous quantitative assessment of spatial and temporal features is very challenging. Common visualization techniques show either the whole volume in one time step (for example using direct volume rendering) or let the user select a region of interest (ROI) for which a collection of time-intensity curves is shown. In this paper, we propose a novel approach that dynamically embeds quantitative detail views in a spatial layout. Inspired by the concept of small multiples, we introduce a new primitive graxel (graph pixel). Graxels are view dependent primitives of time-intensity graphs, generated on-the-fly by aggregating per-ray information over time and image regions. Our method enables the detailed feature-aligned visual analysis of time-dependent volume data and allows interactive refinement and filtering. Temporal behaviors like frequency relations, aperiodic or periodic oscillations and their spatial context are easily perceived with our method. We demonstrate the power of our approach using examples from medicine and the natural sciences.",
-    "thumbnail": "../static/thumbnails/Graxels:_Information_Rich_Primitives_for_the_Visualization_of_Time-Dependent_Spatial_Data.jpg"
+    "thumbnail": "../static/thumbnails/Graxels_Information_Rich_Primitives_for_the_Visualization_of_Time-Dependent_Spatial_Data.jpg"
   },
   {
     "article_title": "Robust Cardiac Function Assessment in 4D PC-MRI Data",
@@ -2301,7 +2301,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20171243",
     "keywords": "CCS Concepts,Computing methodologies,Image segmentation,Image processing,Applied computing,Imaging",
     "abstract": "In this paper, we propose a novel hybrid level set approach that locally balances the combined use of both Gradient Vector Flow and region based energy cost function by means of the Bhattacharyya coefficient. The local neighborhood of each contour point is naturally divided into an area encapsulated and one excluded by the contour. We propose utilizing the Bhattacharyya coefficient of the intensity distributions of these local areas to determine a point-wise weighting scheme for the curve propagation. The performance of our method regarding segmentation quality is evaluated on the segmentation of the hip joint in 10 MRI data sets. Our proposed method shows a clear improvement compared to conventional 3D level set approaches.",
-    "thumbnail": "../static/thumbnails/MRI_Hip_Joint_Segmentation:_A_Locally_Bhattacharyya_Weighted_Hybrid_3D_Level_Set_Approach.jpg"
+    "thumbnail": "../static/thumbnails/MRI_Hip_Joint_Segmentation_A_Locally_Bhattacharyya_Weighted_Hybrid_3D_Level_Set_Approach.jpg"
   },
   {
     "article_title": "Exploration of Interventricular Septum Motion in Multi-Cycle Cardiac MRI",
@@ -2505,7 +2505,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20151207",
     "keywords": "J.3 [Computer Applications],Life and Medical Science,Biology and genetics",
     "abstract": "FoldSynth is an interactive platform designed to help understand the characteristics and commonly used visual abstractions of molecular strands with an emphasis on proteins and DNA. It uses a simple model of molecular forces to give real time interactive animations of the folding and docking processes. The shape of a molecular strand is shown as a 3D visualisation floating above a 2D triangular matrix representing distance constraints, contact maps or other features of residue pairs. As well as more conventional raster plots, contact maps can be shown with vectors representing the grouping of contacts as secondary structures. The 2D visualisation is also interactive and can be used to manipulate a molecule, define constraints, control and view the folding dynamically, or even design new molecules. While the 3D visualisation is more realistic showing a molecule representation approximating the physical behavior and spatial properties, the 2D visualisation offers greater visibility, in that all molecular positions (and pairings) are always in view; the 3D mode may suffer occlusions and create complex views which are typically hard to understand to humans.",
-    "thumbnail": "../static/thumbnails/FoldSynth:_Interactive_2D-3D_Visualisation_Platform_for_Molecular_Strands.jpg"
+    "thumbnail": "../static/thumbnails/FoldSynth_Interactive_2D-3D_Visualisation_Platform_for_Molecular_Strands.jpg"
   },
   {
     "article_title": "MedUse: A Visual Analysis Tool for Medication Use Data in the ABCD Study",
@@ -2517,7 +2517,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20191236",
     "keywords": "Human,centered computing,Information visualization,Activity centered design",
     "abstract": "The RxNorm vocabulary is a yearly-published biomedical resource providing normalized names for medications. It is used to capture medication use in the Adolescent Brain Cognitive Development (ABCD) study, an active and publicly available longitudinal research study following 11,800 children over 10 years. In this work, we present medUse, a visual tool allowing researchers to explore and analyze the relationship of drug category to cognitive or imaging derived measures using ABCD study data. Our tool provides position-based context for tree traversal and selection granularity of both study participants and drug category. Developed as part of the Data Exploration and Analysis Portal (DEAP), medUse is available to more than 600 ABCD researchers world-wide. By integrating medUse into an actively used research product we are able to reach a wide audience and increase the practical relevance of visualization for the biomedical field.",
-    "thumbnail": "../static/thumbnails/MedUse:_A_Visual_Analysis_Tool_for_Medication_Use_Data_in_the_ABCD_Study.jpg"
+    "thumbnail": "../static/thumbnails/MedUse_A_Visual_Analysis_Tool_for_Medication_Use_Data_in_the_ABCD_Study.jpg"
   },
   {
     "article_title": "The Virtual Reality Flow Lens for Blood Flow Exploration",
@@ -2553,7 +2553,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20151232",
     "keywords": "",
     "abstract": "In this work a new reconstruction technique is presented based on Parametric-Based Deformation. The new method uses a template 3D mesh model which is deformed according to user-defined semantic parameters in order to derive a new 3D object. The proposed methodology is divided in three stages: template construction (production of a template mesh model), regression (the template model is deformed to match sample models) and prediction (new instance mesh models are derived based on user parameters). The proposed method has been successfully applied for the reconstruction of human and animal skeletal models. A practical and novel reconstruction methodology has been developed and implemented for the reconstruction of the human foot given a bi-planar X-ray. The purpose of this methodology is to support the parametric generation of human foot biomodels in an automated way. The generated biomodels are employed by simulation tools based on Finite Element Analysis to test the stress factors that the foot is undertaking during its contact with the ground or a footwear sole structure.",
-    "thumbnail": "../static/thumbnails/Parametric-based_Reconstruction_Of_3D_Mesh_Models;_Towards_the_Generation_of_a_Parametric_Human_Foot_Biomodel.jpg"
+    "thumbnail": "../static/thumbnails/Parametric-based_Reconstruction_Of_3D_Mesh_Models_Towards_the_Generation_of_a_Parametric_Human_Foot_Biomodel.jpg"
   },
   {
     "article_title": "Illustrative PET/CT Visualisation of SIRT-Treated Lung Metastases",
@@ -2589,7 +2589,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20141191",
     "keywords": "Keywords,Anatomy Learning,Biomechanical Simulation,Real,Time,Augmented Reality,Embodiment,Motion Capture and Reconstruction",
     "abstract": "We propose a framework to investigate a new way to learn musculoskeletal anatomical kinetics using interactive motion capture and visualization. It can be used to facilitate the learning of anatomy by medicine and sports students, and for the general public to discover human anatomy in action. We illustrate our approach using the example of knee flexion and extension by visualizing the knee muscle activation prediction with agonist and antagonist co-contraction. Muscle activation data for specified movements is first measured during a preliminary phase. The user is then tracked in real time, and its motion is analyzed to recognize the motion being performed. This is used to efficiently evaluate muscle activation by interpolating the activation data stored in tables. The visual feedback consists of a user-specific 3D avatar created by deforming a reference model and animated using the tracking. Muscle activation is visualized using colored lines of action or 3D meshes. This work was made possible by the collaboration of three complementary labs specialized in computer-aided medical intervention, computer graphics and biomechanics.",
-    "thumbnail": "../static/thumbnails/Interactive_Visualization_of_Muscle_Activity_During_Limb_Movements:_Towards_Enhanced_Anatomy_Learning.jpg"
+    "thumbnail": "../static/thumbnails/Interactive_Visualization_of_Muscle_Activity_During_Limb_Movements_Towards_Enhanced_Anatomy_Learning.jpg"
   },
   {
     "article_title": "Feature Exploration using Local Frequency Distributions in Computed Tomography Data",
@@ -2625,7 +2625,7 @@
     "DOI": "http://dx.doi.org/10.2312/vcbm.20171248",
     "keywords": "CCS Concepts,Computing methodologies,Learning from implicit feedback,Neural networks,Supervised learning by classification",
     "abstract": "For complex segmentation tasks, fully automatic systems are inherently limited in their achievable accuracy for extracting relevant objects. Especially in cases where only few data sets need to be processed for a highly accurate result, semi-automatic segmentation techniques exhibit a clear benefit for the user. One area of application is medical image processing during an intervention for a single patient.We propose a learning-based cooperative segmentation approach which includes the computing entity as well as the user into the task. Our system builds upon a state-of-the-art fully convolutional artificial neural network (FCN) as well as an active user model for training. During the segmentation process, a user of the trained system can iteratively add additional hints in form of pictorial scribbles as seed points into the FCN system to achieve an interactive and precise segmentation result. The segmentation quality of interactive FCNs is evaluated. Iterative FCN approaches can yield superior results compared to networks without the user input channel component, due to a consistent improvement in segmentation quality after each interaction.",
-    "thumbnail": "../static/thumbnails/UI-Net:_Interactive_Artificial_Neural_Networks_for_Iterative_Image_Segmentation_Based_on_a_User_Model.jpg"
+    "thumbnail": "../static/thumbnails/UI-Net_Interactive_Artificial_Neural_Networks_for_Iterative_Image_Segmentation_Based_on_a_User_Model.jpg"
   },
   {
     "article_title": "A Visual Environment for Hypothesis Formation and Reasoning in Studies with fMRI and Multivariate Clinical Data",
@@ -2709,7 +2709,7 @@
     "DOI": "http://dx.doi.org/10.2312/VCBM/VCBM08/151-158",
     "keywords": "Categories and Subject Descriptors (according to ACM CCS): I.3.3 [Computer Graphics]: Picture/Image Generation J.3 [Life and Medical Sciences]: Biology and genetics",
     "abstract": "Fluorescence microscopy provides a powerful method for localization of structures in biological specimens. However, aspects of the image formation process such as noise and blur from the microscope s point-spread function combine to produce an unintuitive image transformation on the true structure of the fluorescing molecules in the specimen, hindering qualitative and quantitative analysis of even simple structures in unprocessed images. We introduce FluoroSim, an interactive fluorescence microscope simulator that can be used to train scientists who use fluorescence microscopy to understand the artifacts that arise from the image formation process, to determine the appropriateness of fluorescence microscopy as an imaging modality in an experiment, and to test and refine hypotheses of model specimens by comparing the output of the simulator to experimental data. FluoroSim renders synthetic fluorescence images from arbitrary geometric models represented as triangle meshes. We describe three rendering algorithms on graphics processing units for computing the convolution of the specimen model with a microscope s point-spread function and report on their performance. We also discuss several cases where the microscope simulator has been used to solve real problems in biology.",
-    "thumbnail": "../static/thumbnails/FluoroSim:_A_Visual_Problem-Solving_Environment_for_Fluorescence_Microscopy.jpg"
+    "thumbnail": "../static/thumbnails/FluoroSim_A_Visual_Problem-Solving_Environment_for_Fluorescence_Microscopy.jpg"
   },
   {
     "article_title": "Coherence Maps for Blood Flow Exploration",
@@ -2733,7 +2733,7 @@
     "DOI": "https://doi.org/10.2312/vcbm.20201173",
     "keywords": "Applied computing,Imaging,Computing methodologies,Shape representations,Cluster analysis",
     "abstract": "We present a shape processing framework for visual exploration of cellular nuclear envelopes extracted from histology images. The framework is based on a novel shape descriptor of closed contours relying on a geodesically uniform resampling of discrete curves to allow for discrete differential-geometry-based computation of unsigned curvature at vertices and edges. Our descriptor is, by design, invariant under translation, rotation and parameterization. Moreover, it additionally offers the option for uniform-scale-invariance. The optional scale-invariance is achieved by scaling features to z-scores, while invariance under parameterization shifts is achieved by using elliptic Fourier analysis (EFA) on the resulting curvature vectors. These invariant shape descriptors provide an embedding into a fixed-dimensional feature space that can be utilized for various applications: (i) as input features for deep and shallow learning techniques; (ii) as input for dimension reduction schemes for providing a visual reference for clustering collection of shapes. The capabilities of the proposed framework are demonstrated in the context of visual analysis and unsupervised classification of histology images.",
-    "thumbnail": "../static/thumbnails/InShaDe:_Invariant_Shape_Descriptors_for_Visual_Analysis_of_Histology_2D_Cellular_and_Nuclear_Shapes.jpg"
+    "thumbnail": "../static/thumbnails/InShaDe_Invariant_Shape_Descriptors_for_Visual_Analysis_of_Histology_2D_Cellular_and_Nuclear_Shapes.jpg"
   },
   {
     "article_title": "Improving Perception of Molecular Surface Visualizations by Incorporating Translucency Effects",
