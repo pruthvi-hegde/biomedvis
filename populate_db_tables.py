@@ -54,8 +54,6 @@ def add_articles_to_article_table():
                 abstract=abstract
 
             )
-            # article = Article.objects.update(thumbnail_path=thumbnail)
-            # article = Article.objects.update(keywords=keywords)
             article.save()
         except Exception as e:
             print(e)
@@ -64,6 +62,16 @@ def add_articles_to_article_table():
     if table_content_exist:
         print("Values cannot be duplicated")
 
+def update_field():
+    with open('articles_data/all_articles_with_thumbnail_metadata.json') as f:
+        articles = json.load(f)
+        # table_content_exist = False
+    for article in articles:
+        article_title = article["article_title"]
+        thumbnail = article["thumbnail"]
+        article = Article.objects.get(article_title=article_title)
+        article.thumbnail_path = thumbnail
+        article.save()
 
 def populate_categories_and_subcategories_table():
     table_content_exist = False
@@ -101,5 +109,5 @@ def populate_categories_and_subcategories_table():
 if __name__ == '__main__':
     # reset_db()
     add_articles_to_article_table()
-    populate_categories_and_subcategories_table()
+    # populate_categories_and_subcategories_table()
     print("Done")

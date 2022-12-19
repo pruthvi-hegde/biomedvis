@@ -6,8 +6,6 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from sklearn.cluster import DBSCAN
-from sklearn.feature_extraction.text import CountVectorizer
 
 nltk.download('omw-1.4')
 nltk.download('wordnet')
@@ -79,47 +77,6 @@ class Doc2Vec:
             plot_bgcolor='white',
         )
         return fig
-
-    def cluster_docs(self):
-        metadata = open(
-            '/Users/prush/PycharmProjects/thesis/biomedvis/articles_data/all_articles_with_thumbnail_metadata.json')
-        papers = json.load(metadata)
-        doc_titles = list(self.data.keys())
-        embeddings = list(self.data.values())
-        docs = [paper['article_title'] + '. ' + paper['abstract'] for paper in papers]
-        doc_years = [paper['published_year'] for paper in papers]
-        # umap_data = umap.UMAP(n_neighbors=5,
-        #                       n_components=2,
-        #                       metric='cosine', random_state=42).fit_transform(embeddings)
-
-        cluster = DBSCAN(eps=0.3, min_samples=2, metric='euclidean', metric_params=None, algorithm='brute').fit(
-            embeddings)
-
-        result = pd.DataFrame(embeddings, columns=['x', 'y'])
-        result['labels'] = cluster.labels_
-        result['titles'] = doc_titles
-        result['years'] = doc_years
-
-        docs_df = pd.DataFrame(docs, columns=["Doc"])
-        docs_df['Topic'] = cluster.labels_
-        docs_df['Titles'] = doc_titles
-        docs_df['Years'] = doc_years
-        docs_df['Doc_ID'] = range(len(docs_df))
-        docs_per_topic = docs_df.groupby(['Topic'], as_index=False).agg({'Doc': ' '.join, 'Years': set, 'Titles': len})
-        index = list(docs_per_topic.Years)
-        years_topic_wise = {i - 1: list(index) for i, index in enumerate(index)}
-        return result, docs, cluster, docs_df, docs_per_topic, years_topic_wise
-
-    def c_tf_idf(self, documents, m, ngram_range=(1, 2)):
-        count = CountVectorizer(ngram_range=ngram_range, stop_words="english").fit(documents)
-        t = count.transform(documents).toarray()
-        w = t.sum(axis=1)
-        tf = np.divide(t.T, w)
-        sum_t = t.sum(axis=0)
-        idf = np.log(np.divide(m, sum_t)).reshape(-1, 1)
-        tf_idf = np.multiply(tf, idf)
-
-        return tf_idf, count
 
     def extract_top_n_words_per_topic(self, tf_idf, count, docs_per_topic, n):
         words = count.get_feature_names()

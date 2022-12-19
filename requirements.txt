@@ -6,8 +6,6 @@ django-tree==0.4.1
 numpy
 sklearn
 pandas
-sentence_transformers
-bump2version
 umap-learn
 whitenoise
 
