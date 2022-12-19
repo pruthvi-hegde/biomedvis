@@ -13,6 +13,6 @@ from django.core.wsgi import get_wsgi_application
 
 CUR_DIR_NAME = os.path.basename(os.getcwd())
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', CUR_DIR_NAME+'.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'biomedvis.settings')
 
 application = get_wsgi_application()
