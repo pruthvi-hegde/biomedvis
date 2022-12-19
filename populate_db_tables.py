@@ -108,6 +108,6 @@ def populate_categories_and_subcategories_table():
 
 if __name__ == '__main__':
     # reset_db()
-    add_articles_to_article_table()
+    update_field()
     # populate_categories_and_subcategories_table()
     print("Done")

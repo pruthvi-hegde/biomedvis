@@ -57,7 +57,7 @@ ROOT_URLCONF = 'biomedvis.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['../' + CUR_DIR + '/templates'],
+        'DIRS': ['../' + 'biomedvis/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -148,4 +148,4 @@ LOGGING = {
 
 CSRF_COOKIE_SECURE = True
 
-DEFAULT_FILTER_BACKENDS: ("django_filters.rest_framework.DjangoFilterBackend",)
+
