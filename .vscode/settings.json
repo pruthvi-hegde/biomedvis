@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/2537d3ba-7dca-4353-89c8-55ecf57a9484/AppServices/subscriptions/2537d3ba-7dca-4353-89c8-55ecf57a9484/resourceGroups/biomedvis-portal_group/providers/Microsoft.Web/sites/biomedvis-portal",
+    "appService.deploySubpath": "."
+}
