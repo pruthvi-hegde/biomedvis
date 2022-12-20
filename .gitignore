@@ -7,3 +7,4 @@
 **/static/mlmodels/BioWordVec_PubMed_MIMICIII_d200.txt
 **/debug.log
 **/static/mlmodels/**
+**/static/**
