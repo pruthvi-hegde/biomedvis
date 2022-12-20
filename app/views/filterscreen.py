@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 
-from ..models.category import Category
-from ..models.category import Subcategory
+from app.models.category import Category
+from app.models.category import Subcategory
 
 
 class CategoryList(TemplateView):

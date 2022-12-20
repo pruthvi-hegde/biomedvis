@@ -9,9 +9,9 @@ from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
 from plotly.offline import plot
 
-from ..embeddings_loarder import Doc2Vec
-from ..models.article import Article
-from ..models.category import Category, Subcategory
+from app.embeddings_loarder import Doc2Vec
+from app.models.article import Article
+from app.models.category import Category, Subcategory
 
 # filter_model = FiltersConfig.model
 all_articles = Article.objects.all().order_by('-id')
