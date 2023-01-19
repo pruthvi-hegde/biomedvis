@@ -4,6 +4,7 @@
 Biology and Medicine
 (2008 to 2021) </strong>
 </div>
+<p> The website is dockerized and hosted on Azure. You can access the website <a href="https://visbiomed.azurewebsites.net/">here</a></p>
 
 
 ## Steps to run the project locally
